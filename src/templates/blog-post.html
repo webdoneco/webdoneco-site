@@ -118,8 +118,8 @@ input,textarea,select{font:inherit}
 .dd-cta-ico svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .dd-cta-title{font-family:var(--font-h);font-weight:800;font-size:1rem;line-height:1.3;position:relative;z-index:1}
 .dd-cta-sub{font-size:.8rem;color:var(--muted);line-height:1.6;flex:1;position:relative;z-index:1}
-.dd-cta-btn{display:flex;align-items:center;justify-content:center;gap:.6rem;background:var(--accent);color:#fff;padding:.85rem 1rem;border-radius:var(--r);font-family:var(--font-h);font-weight:700;font-size:.85rem;line-height:1.3;transition:all var(--ease);border:none;cursor:pointer;position:relative;z-index:1;text-align:center}
-.dd-cta-btn span{white-space:nowrap}
+.dd-cta-btn{display:flex;align-items:center;justify-content:center;gap:.55rem;background:var(--accent);color:#fff;padding:.9rem 1.15rem;border-radius:var(--r);font-family:var(--font-h);font-weight:800;font-size:.82rem;line-height:1.2;transition:all var(--ease);border:none;cursor:pointer;position:relative;z-index:1;text-align:center;min-height:46px}
+.dd-cta-btn span{white-space:normal}
 .dd-cta-btn:hover{background:var(--accent-h);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,53,.4)}
 .dd-cta-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;transition:transform var(--ease)}
 .dd-cta-btn:hover svg{transform:translateX(3px)}
@@ -201,7 +201,7 @@ input,textarea,select{font:inherit}
 ═══════════════════════════════════════════════ */
 .post-hero{position:relative;padding-top:calc(72px + clamp(2.5rem,6vw,4rem));padding-bottom:clamp(2rem,4vw,3rem);overflow:hidden}
 .post-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% -5%,rgba(255,107,53,.16) 0%,transparent 70%),var(--bg)}
-.post-hero-inner{position:relative;z-index:1;max-width:780px;margin-inline:auto}
+.post-hero-inner{position:relative;z-index:1;max-width:1080px;margin-inline:auto}
 
 .breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--muted);margin-bottom:1.5rem;flex-wrap:wrap}
 .breadcrumb a{color:var(--muted);transition:color var(--ease)}
@@ -216,16 +216,16 @@ input,textarea,select{font:inherit}
 
 .post-hero h1{font-family:var(--font-h);font-size:clamp(1.9rem,4.5vw,2.85rem);font-weight:800;line-height:1.18;letter-spacing:-.025em;margin-bottom:1.5rem}
 
-.post-hero-img{width:100%;aspect-ratio:16/9;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);background:var(--surface);margin-top:1.5rem}
-.post-hero-img img{width:100%;height:100%;object-fit:cover}
+.post-hero-img{width:100%;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);background:var(--surface);margin-top:1.5rem}
+.post-hero-img img{width:100%;height:auto;object-fit:contain}
 
 /* ═══════════════════════════════════════════════
    ARTICLE BODY — typography for converted Markdown
 ═══════════════════════════════════════════════ */
 .post-body-sec{background:var(--bg)}
-.post-body-grid{display:grid;grid-template-columns:1fr 220px;gap:3.5rem;max-width:980px;margin-inline:auto;align-items:start}
+.post-body-grid{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:3.5rem;max-width:1180px;margin-inline:auto;align-items:start}
 
-.post-content{max-width:740px}
+.post-content{max-width:860px}
 .post-content h2{font-family:var(--font-h);font-size:1.5rem;font-weight:800;letter-spacing:-.015em;margin:2.5rem 0 1rem;line-height:1.3}
 .post-content h3{font-family:var(--font-h);font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;line-height:1.35}
 .post-content p{font-size:1rem;color:var(--muted);line-height:1.85;margin-bottom:1.35rem}
@@ -260,16 +260,16 @@ input,textarea,select{font:inherit}
 .post-share-btn svg{width:16px;height:16px;stroke:var(--muted);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 
 /* Author box */
-.post-author-box{display:flex;align-items:center;gap:1rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem;margin-top:3rem;max-width:740px}
+.post-author-box{display:flex;align-items:center;gap:1rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem;margin-top:3rem;max-width:860px}
 .post-author-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#818CF8);display:grid;place-items:center;font-family:var(--font-h);font-weight:800;font-size:1.1rem;flex-shrink:0;color:#fff}
 .post-author-name{font-weight:700;font-size:.92rem}
 .post-author-role{font-size:.8rem;color:var(--muted)}
 
 /* Post CTA */
-.post-cta{max-width:740px;background:linear-gradient(160deg,rgba(255,107,53,.08),var(--card));border:1px solid rgba(255,107,53,.25);border-radius:var(--r-lg);padding:2rem;margin-top:2.5rem;text-align:center}
+.post-cta{max-width:860px;background:linear-gradient(160deg,rgba(255,107,53,.08),var(--card));border:1px solid rgba(255,107,53,.25);border-radius:var(--r-lg);padding:2rem;margin-top:2.5rem;text-align:center}
 .post-cta h3{font-family:var(--font-h);font-size:1.3rem;font-weight:800;margin-bottom:.6rem}
 .post-cta p{color:var(--muted);font-size:.9rem;margin-bottom:1.5rem}
-.post-cta-btns{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap}
+.post-cta-btns{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap}.post-cta .btn-accent{color:#fff}.post-cta .btn-wa{color:#fff}.post-cta .btn-wa svg{fill:currentColor;stroke:none}
 
 /* ═══════════════════════════════════════════════
    RELATED POSTS
