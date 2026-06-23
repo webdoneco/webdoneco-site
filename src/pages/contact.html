@@ -461,24 +461,8 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
           <div class="ct-form-grid">
             <div class="ct-field">
               <label for="ctPhone">WhatsApp / Phone</label>
-              <div class="ct-phone-wrap" role="group" aria-label="WhatsApp or phone number with country code">
-                <select class="ct-select ct-code-select" id="ctCountryCode" name="country_code" aria-label="Country code">
-                  <option value="+1" selected>🇺🇸 +1</option>
-                  <option value="+44">🇬🇧 +44</option>
-                  <option value="+971">🇦🇪 +971</option>
-                  <option value="+92">🇵🇰 +92</option>
-                  <option value="+966">🇸🇦 +966</option>
-                  <option value="+974">🇶🇦 +974</option>
-                  <option value="+965">🇰🇼 +965</option>
-                  <option value="+973">🇧🇭 +973</option>
-                  <option value="+968">🇴🇲 +968</option>
-                  <option value="+41">🇨🇭 +41</option>
-                  <option value="+61">🇦🇺 +61</option>
-                  <option value="+49">🇩🇪 +49</option>
-                </select>
-                <input class="ct-input" type="tel" id="ctPhone" name="phone" placeholder="555 123 4567" required/>
-              </div>
-              <p class="ct-help">Select the flag/country code and enter the WhatsApp or phone number in one field.</p>
+              <input class="ct-input" type="tel" id="ctPhone" name="phone" placeholder="+1 555 123 4567" autocomplete="tel" required/>
+              <p class="ct-help">Enter your full WhatsApp or phone number with country code.</p>
             </div>
             <div class="ct-field">
               <label for="ctCompany">Company / Brand <span class="opt">(optional)</span></label>
@@ -866,6 +850,10 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
       <details class="faq-item reveal rv1">
         <summary class="faq-q">Do you work with international clients?<span class="faq-plus">+</span></summary>
         <p class="faq-a">Yes. WebDone Co. works with clients in Pakistan, the UK, UAE, USA, Switzerland, and worldwide. We can communicate by email, WhatsApp, or online call depending on your preference.</p>
+      </details>
+      <details class="faq-item reveal rv2">
+        <summary class="faq-q">Can you improve my existing website instead of rebuilding it?<span class="faq-plus">+</span></summary>
+        <p class="faq-a">Yes. If your current website has a good foundation, we can improve the design, speed, SEO, mobile experience, conversion flow, and content without starting from zero.</p>
       </details>
     </div>
   </div>
