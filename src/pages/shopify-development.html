@@ -493,14 +493,56 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 @media(max-width:768px){.shop-hero h1{font-size:clamp(2.25rem,12vw,3.4rem)}.hero-trust,.premium-grid,.package-grid,.faq-grid{grid-template-columns:1fr}.pkg.featured{transform:none}.process-premium{grid-template-columns:repeat(2,1fr)}.store-body{grid-template-columns:1fr}.admin-panel{border-left:0;border-top:1px solid var(--border)}.product-grid{grid-template-columns:1fr 1fr}.float-badge{display:none}}
 @media(max-width:480px){.strip-grid,.process-premium{grid-template-columns:1fr}.hero-actions .btn,.hero-actions .btn-wa,.cta-btns .btn,.cta-btns .btn-wa{width:100%;justify-content:center}.product-grid{grid-template-columns:1fr}.store-top{gap:.35rem}.store-url{font-size:.68rem;padding:.25rem .55rem}}
 
+
+/* ═══════════════════════════════════════════════
+   SHOPIFY HERO V2 — PREMIUM REBUILD
+═══════════════════════════════════════════════ */
+.shop-hero-v2{padding-top:calc(72px + clamp(3.2rem,6vw,5.4rem));padding-bottom:clamp(3.8rem,7vw,5.8rem);overflow:hidden;background:var(--bg)}
+.shop-hero-v2 .shop-hero-bg{background:radial-gradient(circle at 14% 18%,rgba(255,107,53,.18),transparent 30%),radial-gradient(circle at 88% 15%,rgba(99,102,241,.11),transparent 34%),linear-gradient(135deg,rgba(255,107,53,.045),transparent 38%),var(--bg)}
+.shop-hero-v2 .shop-hero-grid{opacity:.82;mask-image:linear-gradient(to bottom,rgba(0,0,0,.85),rgba(0,0,0,.45) 55%,transparent 90%)}
+.shop-hero-v2-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,.95fr) minmax(440px,1.05fr);gap:clamp(2.2rem,4.6vw,4rem);align-items:center}
+.shop-hero-v2 .breadcrumb{position:relative;z-index:2;margin-bottom:1.7rem}
+.shop-hero-v2 h1{font-family:var(--font-h);font-size:clamp(2.35rem,4.25vw,4.25rem);line-height:1.03;font-weight:850;letter-spacing:-.052em;margin-bottom:1.25rem;max-width:740px}
+.shop-hero-v2 h1 span{background:linear-gradient(135deg,var(--accent) 0%,var(--accent-h) 58%,#FFD0BC 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.shop-hero-v2 .label{padding:.5rem 1.05rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.shop-hero-v2 .shop-hero-copy{font-size:1.05rem;line-height:1.78;max-width:61ch;color:var(--muted)}
+.shop-hero-v2 .hero-actions{margin-top:2rem;margin-bottom:0}
+.shop-hero-v2 .hero-actions .btn{min-height:58px;padding-inline:1.85rem;border-radius:14px}
+.hero-proof-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.85rem;margin-top:2.15rem;max-width:670px}
+.hero-proof-card{background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:1rem 1.05rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.hero-proof-card strong{display:block;font-family:var(--font-h);font-size:1.12rem;line-height:1.05;color:#fff;letter-spacing:-.025em}
+.hero-proof-card span{display:block;color:var(--muted);font-size:.76rem;line-height:1.45;margin-top:.45rem}
+.shop-visual-v2{position:relative;max-width:610px;margin-left:auto;width:100%;padding:1.05rem 0}
+.commerce-frame{position:relative;background:linear-gradient(180deg,rgba(28,35,51,.94),rgba(17,24,39,.98));border:1px solid rgba(255,255,255,.12);border-radius:28px;box-shadow:0 34px 90px rgba(0,0,0,.58),0 0 0 1px rgba(255,107,53,.08),0 0 70px rgba(255,107,53,.08);overflow:hidden;transform:perspective(1100px) rotateY(-3.5deg) rotateX(1.2deg);transition:transform .45s ease,box-shadow .45s ease}
+.commerce-frame:hover{transform:perspective(1100px) rotateY(-1.5deg) rotateX(.5deg);box-shadow:0 40px 100px rgba(0,0,0,.64),0 0 0 1px rgba(255,107,53,.13),0 0 90px rgba(255,107,53,.1)}
+.commerce-topbar{height:50px;display:flex;align-items:center;gap:.55rem;padding:0 1rem;background:rgba(10,15,30,.86);border-bottom:1px solid rgba(255,255,255,.08)}
+.commerce-url{margin-left:auto;margin-right:auto;max-width:260px;color:var(--muted);font-size:.76rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:999px;padding:.28rem .85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.commerce-body{display:grid;grid-template-columns:minmax(0,1fr) 168px;min-height:390px}
+.storefront-preview{padding:1.15rem;background:radial-gradient(circle at 18% 18%,rgba(255,107,53,.14),transparent 34%),var(--bg)}
+.storefront-nav{height:42px;display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.9rem;padding:.55rem .75rem;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:rgba(255,255,255,.045)}
+.storefront-nav strong{font-family:var(--font-h);font-size:.88rem;color:#fff}.storefront-nav span{font-size:.72rem;color:var(--muted)}
+.storefront-hero-card{position:relative;overflow:hidden;min-height:132px;border-radius:22px;padding:1.25rem;background:linear-gradient(135deg,rgba(255,107,53,.96),rgba(255,140,90,.62)),radial-gradient(circle at 82% 26%,rgba(255,255,255,.28),transparent 28%);box-shadow:inset 0 1px 0 rgba(255,255,255,.22)}
+.storefront-hero-card::after{content:'';position:absolute;right:24px;bottom:-42px;width:132px;height:132px;border-radius:32px;background:rgba(255,255,255,.2);transform:rotate(13deg)}
+.storefront-hero-card small,.storefront-hero-card strong,.storefront-hero-card span{position:relative;z-index:1}.storefront-hero-card small{display:block;color:rgba(255,255,255,.82);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.72rem}.storefront-hero-card strong{display:block;font-family:var(--font-h);font-size:1.52rem;line-height:1.05;color:#fff;margin-top:.35rem}.storefront-hero-card span{display:block;color:rgba(255,255,255,.8);font-size:.76rem;line-height:1.45;max-width:30ch;margin-top:.55rem}
+.product-showcase-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin-top:.85rem}.product-tile{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:.62rem;min-width:0}.product-art{height:74px;border-radius:14px;background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,107,53,.18));position:relative;overflow:hidden}.product-art::after{content:'';position:absolute;width:48px;height:48px;border-radius:14px;background:rgba(255,107,53,.34);left:50%;top:50%;transform:translate(-50%,-50%) rotate(14deg)}.product-art.alt::after{border-radius:50% 50% 14px 14px}.product-tile strong{display:block;font-family:var(--font-h);font-size:.82rem;color:#fff;margin-top:.55rem}.product-tile span{display:block;color:var(--muted);font-size:.66rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.store-insights{background:rgba(10,15,30,.76);border-left:1px solid rgba(255,255,255,.08);padding:1rem}.insights-title{font-family:var(--font-h);font-weight:850;font-size:1rem;margin-bottom:.8rem;color:#fff}.insight-card{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:.8rem;margin-bottom:.65rem}.insight-card small{display:block;color:var(--muted);font-size:.64rem;text-transform:uppercase;letter-spacing:.11em}.insight-card strong{display:block;font-family:var(--font-h);font-size:1.28rem;color:#fff;line-height:1.1;margin-top:.25rem}.insight-card span{display:block;color:rgba(160,174,192,.78);font-size:.64rem;margin-top:.25rem}.launch-check{display:flex;align-items:center;gap:.55rem;margin-top:.75rem;color:var(--muted);font-size:.75rem;line-height:1.35}.launch-check i{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px rgba(255,107,53,.8);flex-shrink:0}
+.commerce-badge{position:absolute;z-index:5;background:rgba(17,24,39,.9);border:1px solid rgba(255,107,53,.26);border-radius:18px;box-shadow:0 18px 46px rgba(0,0,0,.42);backdrop-filter:blur(16px);padding:.78rem .9rem;display:flex;align-items:center;gap:.7rem;animation:floatBob 5.5s ease-in-out infinite}.commerce-badge strong{display:block;font-family:var(--font-h);font-size:.85rem;color:#fff;line-height:1.1}.commerce-badge small{display:block;color:var(--muted);font-size:.68rem;margin-top:.18rem}.commerce-badge svg{width:20px;height:20px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.badge-dot{width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 22px rgba(255,107,53,.9);flex-shrink:0}.commerce-badge-top{top:-.15rem;right:1rem}.commerce-badge-bottom{bottom:.2rem;left:-.3rem;animation-delay:1.1s}
+@media(max-width:1100px){.shop-hero-v2-grid{grid-template-columns:1fr}.shop-visual-v2{order:-1;margin-inline:auto;max-width:680px}.commerce-frame{transform:none}.commerce-frame:hover{transform:none}.hero-proof-row{max-width:none}}
+@media(max-width:768px){.shop-hero-v2{padding-top:calc(72px + 2.6rem)}.shop-hero-v2 h1{font-size:clamp(2.1rem,11vw,3.35rem)}.hero-proof-row{grid-template-columns:1fr}.commerce-body{grid-template-columns:1fr}.store-insights{border-left:0;border-top:1px solid rgba(255,255,255,.08);display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}.insights-title,.launch-check{grid-column:1/-1}.insight-card{margin-bottom:0}.commerce-badge{display:none}.product-showcase-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.shop-hero-v2 .hero-actions .btn{width:100%;justify-content:center}.product-showcase-grid,.store-insights{grid-template-columns:1fr}.commerce-topbar{gap:.35rem}.commerce-url{font-size:.68rem;padding:.24rem .5rem}.storefront-hero-card strong{font-size:1.3rem}}
+
 </style>
 </head>
 <body>
 <!--#include header-->
 <main id="main">
 
-<section class="shop-hero" aria-labelledby="shopHeroH">
-  <div class="shop-hero-bg"></div><div class="shop-hero-grid"></div><div class="shop-orb shop-orb1"></div><div class="shop-orb shop-orb2"></div>
+<section class="shop-hero shop-hero-v2" aria-labelledby="shopHeroH">
+  <div class="shop-hero-bg" aria-hidden="true"></div>
+  <div class="shop-hero-grid" aria-hidden="true"></div>
+  <div class="shop-orb shop-orb1" aria-hidden="true"></div>
+  <div class="shop-orb shop-orb2" aria-hidden="true"></div>
+
   <div class="container">
     <div class="breadcrumb reveal">
       <a href="/index.html">Home</a><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
@@ -508,42 +550,65 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
       <a href="/web-development.html">Web Development</a><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
       <span class="current">Shopify</span>
     </div>
-    <div class="shop-hero-inner">
+
+    <div class="shop-hero-v2-grid">
       <div class="shop-hero-copy-wrap">
         <span class="label reveal">Shopify Development</span>
-        <h1 id="shopHeroH" class="reveal rv1">Premium Shopify Stores <span>Built to Sell</span></h1>
-        <p class="shop-hero-copy reveal rv2">We design and build Shopify stores that feel premium, load fast, guide shoppers clearly, and turn traffic into revenue — from custom storefronts to apps, checkout, SEO, and launch support.</p>
+        <h1 id="shopHeroH" class="reveal rv1">Premium Shopify Stores That <span>Look Better &amp; Sell More</span></h1>
+        <p class="shop-hero-copy reveal rv2">We create conversion-focused Shopify stores with premium storefront design, clean product journeys, payment setup, app integrations, SEO foundations, and launch support — all built around one goal: more sales.</p>
+
         <div class="hero-actions reveal rv3">
           <a href="/contact.html#quote" class="btn btn-accent btn-lg">Get a Free Quote <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           <a href="#packages" class="btn btn-outline btn-lg">View Packages</a>
         </div>
-        <div class="hero-trust reveal rv4">
-          <div class="hero-trust-card"><strong>2–6wk</strong><span>Typical Shopify build timeline</span></div>
-          <div class="hero-trust-card"><strong>Mobile</strong><span>Checkout-first shopping experience</span></div>
-          <div class="hero-trust-card"><strong>30d</strong><span>Free support after launch</span></div>
+
+        <div class="hero-proof-row reveal rv4" aria-label="Shopify project highlights">
+          <div class="hero-proof-card"><strong>2–6 wk</strong><span>Typical Shopify build timeline</span></div>
+          <div class="hero-proof-card"><strong>Mobile-first</strong><span>Product, cart, and checkout flow</span></div>
+          <div class="hero-proof-card"><strong>30 days</strong><span>Free support after launch</span></div>
         </div>
       </div>
-      <div class="store-visual reveal rv2" aria-hidden="true">
-        <div class="float-badge fb1"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Checkout Ready</strong><small>Payments + shipping setup</small></span></div>
-        <div class="float-badge fb2"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-7"/></svg><span><strong>CRO Focused</strong><small>Built for conversion</small></span></div>
-        <div class="store-window">
-          <div class="store-top"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><div class="store-url">luxestore.com/products</div></div>
-          <div class="store-body">
-            <div class="store-preview">
-              <div class="store-banner"><div class="store-banner-text"><small>New Collection</small><b>Premium Storefront</b></div></div>
-              <div class="product-grid">
-                <div class="product"><div class="product-img"></div><div class="product-line"></div><div class="product-line short"></div></div>
-                <div class="product"><div class="product-img"></div><div class="product-line"></div><div class="product-line short"></div></div>
-                <div class="product"><div class="product-img"></div><div class="product-line"></div><div class="product-line short"></div></div>
-                <div class="product"><div class="product-img"></div><div class="product-line"></div><div class="product-line short"></div></div>
+
+      <div class="shop-visual-v2 reveal rv2" aria-hidden="true">
+        <div class="commerce-badge commerce-badge-top">
+          <span class="badge-dot"></span>
+          <div><strong>Checkout Ready</strong><small>Payments + shipping configured</small></div>
+        </div>
+        <div class="commerce-badge commerce-badge-bottom">
+          <svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-10"/><path d="M14 5h7v7"/></svg>
+          <div><strong>CRO Focused</strong><small>Built for product conversion</small></div>
+        </div>
+
+        <div class="commerce-frame">
+          <div class="commerce-topbar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <div class="commerce-url">luxestore.com/products</div>
+          </div>
+
+          <div class="commerce-body">
+            <div class="storefront-preview">
+              <div class="storefront-nav">
+                <strong>LuxeStore</strong>
+                <span>Cart · 2 items</span>
+              </div>
+              <div class="storefront-hero-card">
+                <small>New Collection</small>
+                <strong>Premium Product Drop</strong>
+                <span>Designed to make products feel high-value before checkout.</span>
+              </div>
+              <div class="product-showcase-grid">
+                <div class="product-tile"><div class="product-art"></div><strong>$89</strong><span>Premium Bag</span></div>
+                <div class="product-tile"><div class="product-art alt"></div><strong>$129</strong><span>Leather Boots</span></div>
+                <div class="product-tile"><div class="product-art"></div><strong>$59</strong><span>Minimal Wallet</span></div>
               </div>
             </div>
-            <div class="admin-panel">
-              <div class="admin-title">Store Pulse</div>
-              <div class="metric"><small>Revenue</small><strong>$47.3k</strong></div>
-              <div class="metric"><small>Orders</small><strong>428</strong></div>
-              <div class="metric"><small>Conversion</small><strong>3.8%</strong></div>
-              <div class="activity"><i></i><span>Live checkout test passed</span></div>
+
+            <div class="store-insights">
+              <div class="insights-title">Store Pulse</div>
+              <div class="insight-card"><small>Revenue</small><strong>$47.3k</strong><span>+18% this month</span></div>
+              <div class="insight-card"><small>Orders</small><strong>428</strong><span>Live tracking ready</span></div>
+              <div class="insight-card"><small>Conversion</small><strong>3.8%</strong><span>Optimized journey</span></div>
+              <div class="launch-check"><i></i><span>Launch QA passed</span></div>
             </div>
           </div>
         </div>
