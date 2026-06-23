@@ -79,4 +79,4 @@ Here's our honest, no-sales-pitch breakdown:
 
 **Still not sure?** That's completely normal — most of our clients aren't sure either when they first reach out. We offer a free consultation where we walk through your specific business goals and budget, then recommend the platform that actually fits, not the one that's easiest for us to sell.
 
-[Get in touch](contact.html) and let's figure out the right approach for your project.
+[Get in touch](/contact.html) and let's figure out the right approach for your project.
