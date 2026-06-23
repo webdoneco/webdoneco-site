@@ -91,6 +91,7 @@ input,textarea,select{font:inherit}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
 .reveal.visible{opacity:1;transform:none}
 .rv1{transition-delay:.08s}.rv2{transition-delay:.16s}.rv3{transition-delay:.24s}.rv4{transition-delay:.32s}
+/* ═══════════════════════════════════════════════
    HEADER
 ═══════════════════════════════════════════════ */
 .site-header{position:fixed;top:0;left:0;right:0;z-index:900;transition:background var(--ease),box-shadow var(--ease)}
@@ -231,6 +232,17 @@ input,textarea,select{font:inherit}
 .ct-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23A0AEC0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem;cursor:pointer}
 .ct-select option{background:var(--surface);color:var(--white)}
 
+
+/* Conditional service panels */
+.ct-dynamic-panel{display:none;margin:1.25rem 0;padding:1.25rem;border:1px solid rgba(255,107,53,.18);border-radius:var(--r-lg);background:linear-gradient(160deg,rgba(255,107,53,.055),rgba(28,35,51,.72));box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
+.ct-dynamic-panel.active{display:block;animation:panelReveal .28s ease both}
+@keyframes panelReveal{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ct-panel-title{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:1rem}
+.ct-panel-badge{width:34px;height:34px;border-radius:10px;background:rgba(255,107,53,.14);border:1px solid rgba(255,107,53,.25);display:grid;place-items:center;color:var(--accent);font-family:var(--font-h);font-weight:800;font-size:.8rem;flex-shrink:0}
+.ct-panel-title strong{display:block;font-family:var(--font-h);font-size:1rem;font-weight:800;color:var(--white);line-height:1.2}
+.ct-panel-title span{display:block;color:var(--muted);font-size:.78rem;line-height:1.55;margin-top:.2rem}
+.ct-help{font-size:.74rem;color:var(--muted);line-height:1.55;margin-top:.35rem}
+
 /* Budget pills */
 .ct-budget-row{display:flex;flex-wrap:wrap;gap:.6rem}
 .ct-budget-pill{display:flex;align-items:center;gap:.4rem;background:var(--surface);border:1.5px solid var(--border);border-radius:100px;padding:.5rem 1rem;font-size:.82rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all var(--ease)}
@@ -348,8 +360,6 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 .ft-legal a:hover{color:var(--white)}
 
 /* ═══════════════════════════════════════════════
-
-/* ═══════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════ */
 @media(max-width:1100px){
@@ -392,7 +402,7 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
   <div class="ct-hero-orb ct-orb2"></div>
   <div class="ct-hero-inner container">
     <div class="breadcrumb reveal">
-      <a href="index.html">Home</a>
+      <a href="/index.html">Home</a>
       <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
       <span class="current">Contact</span>
     </div>
@@ -423,20 +433,17 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
         <!--
           ═══════════════════════════════════════════════════════
           FORM SETUP — Web3Forms (free, no backend needed)
-          1. Go to https://web3forms.com
-          2. Enter your email (hello@webdoneco.com) to get a free Access Key
-          3. Replace YOUR_ACCESS_KEY_HERE below with that key
-          4. That's it — submissions land straight in your inbox
+          Connected with Web3Forms. Submissions land straight in hello@webdoneco.com inbox.
           ═══════════════════════════════════════════════════════
         -->
         <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE"/>
-          <input type="hidden" name="subject" value="New Quote Request — WebDone Co. Website"/>
+          <input type="hidden" name="access_key" value="e5ad7ef7-ba2f-4c56-8c18-f5bc1050bda4"/>
+          <input type="hidden" name="subject" value="New Detailed Quote Request — WebDone Co. Website"/>
           <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off"/>
 
           <div class="ct-form-grid">
             <div class="ct-field">
-              <label for="ctName">Full Name <span class="opt"></span></label>
+              <label for="ctName">Full Name</label>
               <input class="ct-input" type="text" id="ctName" name="name" placeholder="Your name" required/>
             </div>
             <div class="ct-field">
@@ -447,23 +454,238 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 
           <div class="ct-form-grid">
             <div class="ct-field">
-              <label for="ctPhone">WhatsApp / Phone <span class="opt">(optional)</span></label>
-              <input class="ct-input" type="tel" id="ctPhone" name="phone" placeholder="+92 3XX XXXXXXX"/>
+              <label for="ctPhone">WhatsApp / Phone</label>
+              <input class="ct-input" type="tel" id="ctPhone" name="phone" placeholder="+92 3XX XXXXXXX" required/>
             </div>
             <div class="ct-field">
-              <label for="ctService">Service Needed</label>
-              <select class="ct-select" id="ctService" name="service" required>
-                <option value="" disabled selected>Select a service</option>
-                <option value="Web Development (General)">Web Development (General)</option>
-                <option value="WordPress Development">WordPress Development</option>
-                <option value="Shopify Development">Shopify Development</option>
-                <option value="Wix Development">Wix Development</option>
-                <option value="Custom Development">Custom Development</option>
-                <option value="SEO Services">SEO Services</option>
-                <option value="CRM Solutions">CRM Solutions</option>
-                <option value="POS Software">POS Software</option>
-                <option value="Online Tools">Online Tools</option>
-                <option value="Not Sure Yet">Not Sure Yet — Need Advice</option>
+              <label for="ctCompany">Company / Brand <span class="opt">(optional)</span></label>
+              <input class="ct-input" type="text" id="ctCompany" name="company_or_brand" placeholder="Business or brand name"/>
+            </div>
+          </div>
+
+          <div class="ct-form-grid">
+            <div class="ct-field">
+              <label for="ctReason">Reason for Contact</label>
+              <select class="ct-select" id="ctReason" name="reason_for_contact" required>
+                <option value="" disabled selected>What do you need help with?</option>
+                <option value="New project quote">New project quote</option>
+                <option value="Improve or redesign existing website">Improve / redesign existing website</option>
+                <option value="SEO or growth consultation">SEO / growth consultation</option>
+                <option value="System, CRM, POS, or online tool">System, CRM, POS, or online tool</option>
+                <option value="Website support or maintenance">Website support / maintenance</option>
+                <option value="General question or partnership">General question / partnership</option>
+              </select>
+            </div>
+            <div class="ct-field">
+              <label for="ctServiceArea">Service Area</label>
+              <select class="ct-select" id="ctServiceArea" name="service_area" required>
+                <option value="" disabled selected>Select a service area</option>
+                <option value="web-development">Web Development</option>
+                <option value="seo-services">SEO Services</option>
+                <option value="crm-solutions">CRM Solutions</option>
+                <option value="pos-software">POS Software</option>
+                <option value="online-tools">Online Tools</option>
+                <option value="not-sure">Not Sure Yet — Need Advice</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="ct-dynamic-panel" data-service-panel="web-development">
+            <div class="ct-panel-title">
+              <div class="ct-panel-badge">WD</div>
+              <div><strong>Web Development Details</strong><span>Tell us what type of website you want so we can estimate scope properly.</span></div>
+            </div>
+            <div class="ct-form-grid">
+              <div class="ct-field">
+                <label for="ctWebPlatform">Preferred Platform</label>
+                <select class="ct-select" id="ctWebPlatform" name="web_platform" disabled>
+                  <option value="">Select one</option>
+                  <option>WordPress</option>
+                  <option>Shopify</option>
+                  <option>Wix</option>
+                  <option>Custom coded website</option>
+                  <option>Not sure — recommend best option</option>
+                </select>
+              </div>
+              <div class="ct-field">
+                <label for="ctBusinessType">Site Niche / Business Type</label>
+                <input class="ct-input" type="text" id="ctBusinessType" name="site_niche_or_business_type" placeholder="Real estate, clinic, ecommerce, academy..." disabled/>
+              </div>
+            </div>
+            <div class="ct-form-grid">
+              <div class="ct-field">
+                <label for="ctProjectType">Website Type</label>
+                <select class="ct-select" id="ctProjectType" name="website_type" disabled>
+                  <option value="">Select one</option>
+                  <option>Business website</option>
+                  <option>E-commerce store</option>
+                  <option>Landing page</option>
+                  <option>Booking website</option>
+                  <option>Membership / LMS</option>
+                  <option>Directory / marketplace</option>
+                </select>
+              </div>
+              <div class="ct-field">
+                <label for="ctExistingSite">Existing Website URL <span class="opt">(optional)</span></label>
+                <input class="ct-input" type="url" id="ctExistingSite" name="existing_website_url" placeholder="https://yourwebsite.com" disabled/>
+              </div>
+            </div>
+            <div class="ct-field full">
+              <label for="ctWebFeatures">Main Features Needed</label>
+              <textarea class="ct-textarea" id="ctWebFeatures" name="web_features_needed" placeholder="Pages, contact forms, payments, booking, login, blog, product catalog, integrations..." disabled></textarea>
+            </div>
+          </div>
+
+          <div class="ct-dynamic-panel" data-service-panel="seo-services">
+            <div class="ct-panel-title">
+              <div class="ct-panel-badge">SEO</div>
+              <div><strong>SEO Project Details</strong><span>Useful for audits, local SEO, content planning, and ranking improvement work.</span></div>
+            </div>
+            <div class="ct-form-grid">
+              <div class="ct-field">
+                <label for="ctSeoGoal">SEO Goal</label>
+                <select class="ct-select" id="ctSeoGoal" name="seo_goal" disabled>
+                  <option value="">Select one</option>
+                  <option>Technical SEO audit</option>
+                  <option>Local SEO / Google Business Profile</option>
+                  <option>Rank service pages</option>
+                  <option>E-commerce SEO</option>
+                  <option>Content strategy / blog SEO</option>
+                  <option>Full monthly SEO management</option>
+                </select>
+              </div>
+              <div class="ct-field">
+                <label for="ctSeoWebsite">Website URL</label>
+                <input class="ct-input" type="url" id="ctSeoWebsite" name="seo_website_url" placeholder="https://yourwebsite.com" disabled/>
+              </div>
+            </div>
+            <div class="ct-form-grid">
+              <div class="ct-field">
+                <label for="ctTargetLocation">Target City / Country</label>
+                <input class="ct-input" type="text" id="ctTargetLocation" name="seo_target_location" placeholder="Dubai, London, Lahore, worldwide..." disabled/>
+              </div>
+              <div class="ct-field">
+                <label for="ctKeywords">Main Services / Keywords</label>
+                <input class="ct-input" type="text" id="ctKeywords" name="seo_keywords" placeholder="Example: dentist in Dubai, Shopify developer UK" disabled/>
+              </div>
+            </div>
+            <div class="ct-field full">
+              <label for="ctCompetitors">Competitor URLs <span class="opt">(optional)</span></label>
+              <textarea class="ct-textarea" id="ctCompetitors" name="seo_competitor_urls" placeholder="Paste 1–3 competitor websites if you have them." disabled></textarea>
+            </div>
+          </div>
+
+          <div class="ct-dynamic-panel" data-service-panel="crm-solutions">
+            <div class="ct-panel-title">
+              <div class="ct-panel-badge">CRM</div>
+              <div><strong>CRM / Lead Management Details</strong><span>Help us understand your current sales process and what should be automated.</span></div>
+            </div>
+            <div class="ct-form-grid">
+              <div class="ct-field">
+                <label for="ctCrmNeed">CRM Need</label>
+                <select class="ct-select" id="ctCrmNeed" name="crm_need" disabled>
+                  <option value="">Select one</option>
+                  <option>Lead capture and pipeline</option>
+                  <option>WhatsApp / email follow-up automation</option>
+                  <option>Team task management</option>
+                  <option>Reporting dashboard</option>
+                  <option>Custom CRM from scratch</option>
+                </select>
+              </div>
+              <div class="ct-field">
+                <label for="ctTeamSize">Team Size</label>
+                <input class="ct-input" type="text" id="ctTeamSize" name="crm_team_size" placeholder="Example: 3 sales reps, 1 admin" disabled/>
+              </div>
+            </div>
+            <div class="ct-field full">
+              <label for="ctCurrentTools">Current Tools / Workflow</label>
+              <textarea class="ct-textarea" id="ctCurrentTools" name="crm_current_tools_workflow" placeholder="Google Sheets, WhatsApp, HubSpot, Zoho, manual calls, website leads..." disabled></textarea>
+            </div>
+          </div>
+
+          <div class="ct-dynamic-panel" data-service-panel="pos-software">
+            <div class="ct-panel-title">
+              <div class="ct-panel-badge">POS</div>
+              <div><strong>POS Software Details</strong><span>Best for shops, restaurants, clinics, salons, warehouses, and multi-branch businesses.</span></div>
+            </div>
+            <div class="ct-form-grid">
+              <div class="ct-field">
+                <label for="ctPosBusiness">Business Type</label>
+                <input class="ct-input" type="text" id="ctPosBusiness" name="pos_business_type" placeholder="Retail shop, restaurant, pharmacy, salon..." disabled/>
+              </div>
+              <div class="ct-field">
+                <label for="ctBranches">Branches / Users</label>
+                <input class="ct-input" type="text" id="ctBranches" name="pos_branches_users" placeholder="1 branch, 5 users, multi-branch..." disabled/>
+              </div>
+            </div>
+            <div class="ct-field full">
+              <label for="ctPosFeatures">POS Features Needed</label>
+              <textarea class="ct-textarea" id="ctPosFeatures" name="pos_features_needed" placeholder="Inventory, barcode, invoices, receipts, offline mode, reports, payments, customer accounts..." disabled></textarea>
+            </div>
+          </div>
+
+          <div class="ct-dynamic-panel" data-service-panel="online-tools">
+            <div class="ct-panel-title">
+              <div class="ct-panel-badge">TOOL</div>
+              <div><strong>Online Tool Details</strong><span>For calculators, booking systems, lead capture tools, dashboards, and custom portals.</span></div>
+            </div>
+            <div class="ct-form-grid">
+              <div class="ct-field">
+                <label for="ctToolType">Tool Type</label>
+                <select class="ct-select" id="ctToolType" name="online_tool_type" disabled>
+                  <option value="">Select one</option>
+                  <option>Calculator / estimator</option>
+                  <option>Booking system</option>
+                  <option>Lead capture widget</option>
+                  <option>Dashboard / reporting tool</option>
+                  <option>Client portal</option>
+                  <option>Custom tool / not sure</option>
+                </select>
+              </div>
+              <div class="ct-field">
+                <label for="ctToolUsers">Who Will Use It?</label>
+                <input class="ct-input" type="text" id="ctToolUsers" name="online_tool_users" placeholder="Customers, staff, partners, admins..." disabled/>
+              </div>
+            </div>
+            <div class="ct-field full">
+              <label for="ctToolWorkflow">What Should the Tool Do?</label>
+              <textarea class="ct-textarea" id="ctToolWorkflow" name="online_tool_workflow" placeholder="Describe the inputs, outputs, emails, reports, payments, or integrations needed." disabled></textarea>
+            </div>
+          </div>
+
+          <div class="ct-dynamic-panel" data-service-panel="not-sure">
+            <div class="ct-panel-title">
+              <div class="ct-panel-badge">?</div>
+              <div><strong>Not Sure Yet? No Problem.</strong><span>Tell us the business goal and we'll recommend the best platform, scope, and next step.</span></div>
+            </div>
+            <div class="ct-field full">
+              <label for="ctGoal">Main Business Goal</label>
+              <textarea class="ct-textarea" id="ctGoal" name="not_sure_business_goal" placeholder="Example: I need more leads, want to sell online, need a booking system, want to automate follow-ups..." disabled></textarea>
+            </div>
+          </div>
+
+          <div class="ct-form-grid">
+            <div class="ct-field">
+              <label for="ctTimeline">Preferred Timeline <span class="opt">(optional)</span></label>
+              <select class="ct-select" id="ctTimeline" name="preferred_timeline">
+                <option value="">Select timeline</option>
+                <option>ASAP</option>
+                <option>2–4 weeks</option>
+                <option>1–2 months</option>
+                <option>3+ months</option>
+                <option>Flexible / need advice</option>
+              </select>
+            </div>
+            <div class="ct-field">
+              <label for="ctHearAbout">How Did You Hear About Us? <span class="opt">(optional)</span></label>
+              <select class="ct-select" id="ctHearAbout" name="how_did_you_hear_about_us">
+                <option value="">Select one</option>
+                <option>Google Search</option>
+                <option>Referral</option>
+                <option>LinkedIn</option>
+                <option>Facebook / Instagram</option>
+                <option>WhatsApp</option>
+                <option>Other</option>
               </select>
             </div>
           </div>
@@ -472,31 +694,32 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
             <label>Estimated Budget <span class="opt">(optional, helps us scope accurately)</span></label>
             <div class="ct-budget-row">
               <label class="ct-budget-pill">
-                <input type="radio" name="budget" value="Under £500"/>
-                <span>Under £500</span>
+                <input type="radio" name="budget" value="$500 – $1,000"/>
+                <span>$500 – $1,000</span>
               </label>
               <label class="ct-budget-pill">
-                <input type="radio" name="budget" value="£500 – £1,500"/>
-                <span>£500 – £1,500</span>
+                <input type="radio" name="budget" value="$1,000 – $2,500"/>
+                <span>$1,000 – $2,500</span>
               </label>
               <label class="ct-budget-pill">
-                <input type="radio" name="budget" value="£1,500 – £5,000"/>
-                <span>£1,500 – £5,000</span>
+                <input type="radio" name="budget" value="$2,500 – $5,000"/>
+                <span>$2,500 – $5,000</span>
               </label>
               <label class="ct-budget-pill">
-                <input type="radio" name="budget" value="£5,000+"/>
-                <span>£5,000+</span>
+                <input type="radio" name="budget" value="$5,000+"/>
+                <span>$5,000+</span>
               </label>
               <label class="ct-budget-pill">
-                <input type="radio" name="budget" value="Not Sure"/>
-                <span>Not Sure</span>
+                <input type="radio" name="budget" value="Not Sure Yet"/>
+                <span>Not Sure Yet</span>
               </label>
             </div>
+            <p class="ct-help">Not sure about budget? Choose “Not Sure Yet” and describe what you need.</p>
           </div>
 
           <div class="ct-field full">
             <label for="ctMessage">Tell Us About Your Project</label>
-            <textarea class="ct-textarea" id="ctMessage" name="message" placeholder="What are you trying to build? Any existing website, deadlines, or specific features we should know about?" required></textarea>
+            <textarea class="ct-textarea" id="ctMessage" name="message" placeholder="Share deadlines, must-have features, current problems, inspiration links, or anything important for the quote." required></textarea>
           </div>
 
           <div class="ct-submit-row">
@@ -629,7 +852,9 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 // Active nav highlight
 const pg = location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-links a').forEach(a => {
-  if(a.getAttribute('href').split('#')[0] === pg) a.closest('.nav-item')?.classList.add('active');
+  const href = a.getAttribute('href') || '';
+  const hrefPage = href.startsWith('#') ? '' : (new URL(href, location.origin).pathname.split('/').pop() || 'index.html');
+  if(hrefPage === pg) a.closest('.nav-item')?.classList.add('active');
 });
 
 // ── Contact Form Submission (Web3Forms, AJAX, no page reload) ──
@@ -637,13 +862,32 @@ const quoteForm = document.getElementById('quoteForm');
 const ctSubmitBtn = document.getElementById('ctSubmitBtn');
 const ctBtnText = document.getElementById('ctBtnText');
 const ctFormMsg = document.getElementById('ctFormMsg');
+const ctServiceArea = document.getElementById('ctServiceArea');
+const servicePanels = document.querySelectorAll('[data-service-panel]');
+
+function updateServicePanels() {
+  if (!ctServiceArea) return;
+  const selected = ctServiceArea.value;
+  servicePanels.forEach((panel) => {
+    const isActive = panel.dataset.servicePanel === selected;
+    panel.classList.toggle('active', isActive);
+    panel.querySelectorAll('input, select, textarea').forEach((field) => {
+      field.disabled = !isActive;
+    });
+  });
+}
+
+if (ctServiceArea) {
+  ctServiceArea.addEventListener('change', updateServicePanels);
+  updateServicePanels();
+}
 
 if (quoteForm) {
   quoteForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const accessKey = quoteForm.querySelector('input[name="access_key"]').value;
-    if (!accessKey || accessKey === 'YOUR_ACCESS_KEY_HERE') {
+    if (!accessKey) {
       ctFormMsg.className = 'ct-form-msg error';
       ctFormMsg.textContent = 'Form is not yet connected. Please WhatsApp us directly using the button on the right, or email hello@webdoneco.com.';
       return;
@@ -669,6 +913,7 @@ if (quoteForm) {
         ctFormMsg.className = 'ct-form-msg success';
         ctFormMsg.textContent = "Thanks! Your request has been sent. We'll be in touch within 24 hours.";
         quoteForm.reset();
+        updateServicePanels();
       } else {
         throw new Error(result.message || 'Submission failed');
       }
