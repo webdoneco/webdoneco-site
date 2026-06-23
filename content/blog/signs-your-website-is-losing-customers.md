@@ -59,4 +59,4 @@ An old copyright date, broken links, or references to outdated promotions all si
 
 Most of these issues are fixable without a full rebuild — but they do require an honest look at your current site. If you're not sure where your website stands, we offer a free website audit where we walk through exactly what's working, what isn't, and what to prioritise first.
 
-[Request your free audit](contact.html) and we'll send you a clear, no-obligation breakdown.
+[Request your free audit](/contact.html) and we'll send you a clear, no-obligation breakdown.
