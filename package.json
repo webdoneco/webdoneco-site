@@ -1,0 +1,9 @@
+{
+  "name": "webdoneco-site",
+  "version": "1.0.0",
+  "description": "WebDone Co. static website build system",
+  "private": true,
+  "scripts": {
+    "build": "node build.js"
+  }
+}
