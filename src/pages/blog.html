@@ -72,6 +72,7 @@ input,textarea,select{font:inherit}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
 .reveal.visible{opacity:1;transform:none}
 .rv1{transition-delay:.08s}.rv2{transition-delay:.16s}.rv3{transition-delay:.24s}.rv4{transition-delay:.32s}
+/* ═══════════════════════════════════════════════
    HEADER
 ═══════════════════════════════════════════════ */
 .site-header{position:fixed;top:0;left:0;right:0;z-index:900;transition:background var(--ease),box-shadow var(--ease)}
@@ -227,6 +228,7 @@ input,textarea,select{font:inherit}
 
 .blog-empty{text-align:center;padding:4rem 1rem;color:var(--muted)}
 
+/* ═══════════════════════════════════════════════
    FAQ (reused)
 ═══════════════════════════════════════════════ */
 .faq-sec{background:var(--surface)}
@@ -306,8 +308,6 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 .ft-legal{display:flex;gap:1.5rem;flex-wrap:wrap}
 .ft-legal a{font-size:.78rem;color:var(--muted);transition:color var(--ease)}
 .ft-legal a:hover{color:var(--white)}
-
-/* ═══════════════════════════════════════════════
 
 /* ═══════════════════════════════════════════════
    RESPONSIVE
@@ -467,7 +467,9 @@ const ro = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 const pg = location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-links a').forEach(a => {
-  if(a.getAttribute('href').split('#')[0].replace(/^\//,'') === pg) a.closest('.nav-item')?.classList.add('active');
+  const href = a.getAttribute('href') || '';
+  const hrefPage = href.startsWith('#') ? '' : (new URL(href, location.origin).pathname.split('/').pop() || 'index.html');
+  if(hrefPage === pg) a.closest('.nav-item')?.classList.add('active');
 });
 
 // ── Blog category filter ──
