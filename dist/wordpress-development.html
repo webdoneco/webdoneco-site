@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>WordPress Development Services — Custom Themes &amp; Plugins | WebDone Co.</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-chrome-192x192.png"/>
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/android-chrome-512x512.png"/>
+  <meta name="theme-color" content="#FF6B35"/>
+  <meta name="description" content="Professional WordPress development: custom themes, WooCommerce stores, membership sites, and plugin development. Fast, secure, SEO-ready WordPress websites delivered worldwide by WebDone Co."/>
+  <meta name="keywords" content="WordPress development, WordPress website design, WooCommerce development, custom WordPress themes, WordPress plugin development, WordPress agency, WebDone Co"/>
+  <meta name="author" content="WebDone Co."/>
+  <link rel="canonical" href="https://webdoneco.com/wordpress-development.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://webdoneco.com/wordpress-development.html"/>
+  <meta property="og:title" content="WordPress Development Services — WebDone Co."/>
+  <meta property="og:description" content="Custom WordPress themes, WooCommerce stores, and plugin development — fast, secure, SEO-ready. Delivered worldwide."/>
+  <meta property="og:image" content="https://webdoneco.com/assets/og-image.jpg"/>
+  <meta property="og:site_name" content="WebDone Co."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@webdoneco"/>
+  <meta name="twitter:title" content="WordPress Development Services — WebDone Co."/>
+  <meta name="twitter:description" content="Custom WordPress themes, WooCommerce stores, and plugin development — fast, secure, SEO-ready."/>
+  <meta name="twitter:image" content="https://webdoneco.com/assets/og-image.jpg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"WebDone Co.","url":"https://webdoneco.com","logo":"https://webdoneco.com/assets/logo.svg","contactPoint":[{"@type":"ContactPoint","telephone":"+92-311-4005856","contactType":"customer service","areaServed":["PK","GB","AE","US"],"availableLanguage":["English","Urdu"]}],"sameAs":["https://linkedin.com/company/webdoneco","https://facebook.com/webdoneco","https://instagram.com/webdoneco","https://twitter.com/webdoneco"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://webdoneco.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://webdoneco.com/services.html"},{"@type":"ListItem","position":3,"name":"Web Development","item":"https://webdoneco.com/web-development.html"},{"@type":"ListItem","position":4,"name":"WordPress Development","item":"https://webdoneco.com/wordpress-development.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"WordPress Development","provider":{"@type":"Organization","name":"WebDone Co."},"areaServed":"Worldwide","description":"Custom WordPress theme development, WooCommerce stores, membership sites, and plugin development."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does a WordPress website cost?","acceptedAnswer":{"@type":"Answer","text":"WordPress projects typically start from $399 for a compact launch site and scale up depending on complexity, custom functionality, and WooCommerce requirements. Every quote is fixed-price and agreed upfront."}},{"@type":"Question","name":"Do you build custom WordPress themes or use pre-made ones?","acceptedAnswer":{"@type":"Answer","text":"We build fully custom themes from scratch for most projects, ensuring unique design and optimal performance. For tighter budgets or timelines, we can also customise premium themes extensively."}}]}</script>
+
+<style>
+/* ═══════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════ */
+:root{
+  --bg:#0A0F1E;--card:#111827;--surface:#1C2333;
+  --accent:#FF6B35;--accent-h:#FF8C5A;--accent-dim:rgba(255,107,53,.12);
+  --white:#FFFFFF;--muted:#A0AEC0;--border:#2D3748;
+  --font-h:'DM Sans',sans-serif;--font-b:'Inter',sans-serif;
+  --r:12px;--r-lg:20px;
+  --shadow:0 4px 24px rgba(0,0,0,.45);
+  --shadow-lg:0 12px 48px rgba(0,0,0,.6);
+  --ease:.25s cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{background:var(--bg);color:var(--white);font-family:var(--font-b);line-height:1.65;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{cursor:pointer;border:none;background:none;font:inherit}
+input,textarea,select{font:inherit}
+
+.container{width:min(1240px,100% - 2.5rem);margin-inline:auto}
+.section-pad{padding-block:clamp(4.5rem,9vw,7.5rem)}
+
+/* ═══════════════════════════════════════════════
+   CUSTOM SVG ICON SYSTEM
+═══════════════════════════════════════════════ */
+.ico{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.ico svg{width:1em;height:1em}
+
+/* ═══════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════ */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:var(--r);font-family:var(--font-h);font-weight:600;font-size:.95rem;transition:all var(--ease);cursor:pointer;border:none;white-space:nowrap}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{background:var(--accent-h);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,53,.4)}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid var(--border)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.07);color:var(--white);backdrop-filter:blur(8px)}
+.btn-ghost:hover{background:rgba(255,255,255,.14)}
+.btn-wa{display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;padding:.75rem 1.5rem;border-radius:var(--r);font-family:var(--font-h);font-weight:600;font-size:.95rem;transition:all var(--ease);border:none;cursor:pointer;white-space:nowrap}
+.btn-wa:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.35)}
+.btn-sm{padding:.5rem 1rem;font-size:.82rem}
+.btn-lg{padding:1rem 2rem;font-size:1.05rem}
+
+/* ═══════════════════════════════════════════════
+   LABELS & TITLES
+═══════════════════════════════════════════════ */
+.label{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent-dim);border:1px solid rgba(255,107,53,.25);color:var(--accent);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:100px;margin-bottom:1rem}
+.label.wp{background:var(--accent-dim);border-color:rgba(255,107,53,.25);color:var(--accent)}
+.section-title{font-family:var(--font-h);font-size:clamp(1.85rem,3.5vw,2.8rem);font-weight:800;line-height:1.15;letter-spacing:-.025em}
+.section-title span{color:var(--accent)}
+.section-sub{color:var(--muted);font-size:1.05rem;max-width:58ch;margin-top:.75rem;line-height:1.7}
+.t-center{text-align:center}
+.t-center .section-sub{margin-inline:auto}
+
+/* ═══════════════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.rv1{transition-delay:.08s}.rv2{transition-delay:.16s}.rv3{transition-delay:.24s}.rv4{transition-delay:.32s}
+/* ═══════════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════════ */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:900;transition:background var(--ease),box-shadow var(--ease)}
+.site-header::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),rgba(99,102,241,.8),var(--accent),transparent);opacity:0;transition:opacity var(--ease)}
+.site-header.scrolled::before{opacity:1}
+.site-header.scrolled{background:rgba(10,15,30,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border),0 4px 24px rgba(0,0,0,.3)}
+.nav-wrap{display:flex;align-items:center;height:72px;gap:.5rem}
+/* Logo using actual uploaded image */
+.nav-logo{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+.nav-logo img{height:38px;width:auto}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1}
+.nav-logo-name{font-family:var(--font-h);font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
+.nav-logo-name strong{color:var(--white)}
+.nav-logo-name span{color:var(--accent)}
+
+.nav-links{display:flex;align-items:center;gap:.1rem;margin-left:auto}
+.nav-link{display:flex;align-items:center;gap:.3rem;padding:.45rem .8rem;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--muted);transition:color var(--ease),background var(--ease);white-space:nowrap;cursor:pointer;border:none;background:none;font-family:var(--font-b)}
+.nav-link:hover,.nav-item.active .nav-link{color:var(--white);background:rgba(255,255,255,.06)}
+.nav-chevron{transition:transform var(--ease);flex-shrink:0}
+.has-dd:hover .nav-chevron{transform:rotate(180deg)}
+
+/* Mega dropdown */
+.has-dd{position:relative}
+/* invisible bridge so cursor moving from trigger to menu never breaks hover */
+.has-dd::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);width:800px;height:14px;z-index:199}
+.dd-menu{position:absolute;top:calc(100% + .6rem);left:50%;transform:translateX(-50%) translateY(-8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);width:800px;z-index:200}
+.has-dd:hover .dd-menu,.has-dd:focus-within .dd-menu{opacity:1;visibility:visible;pointer-events:all;transform:translateX(-50%) translateY(0);transition-delay:0s}
+.dd-inner{display:grid;grid-template-columns:1fr 1fr 250px}
+.dd-col{padding:1.5rem}
+.dd-col+.dd-col{border-left:1px solid var(--border)}
+.dd-section-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;padding:0 .5rem;display:flex;align-items:center;gap:.5rem}
+.dd-section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.dd-item{display:flex;align-items:flex-start;gap:.85rem;padding:.6rem .65rem;border-radius:10px;transition:background var(--ease),transform var(--ease);margin-bottom:.05rem;cursor:pointer}
+.dd-item:hover{background:rgba(255,107,53,.07);transform:translateX(2px)}
+.dd-item-ico{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;flex-shrink:0;background:rgba(255,107,53,.1);transition:background var(--ease)}
+.dd-item:hover .dd-item-ico{background:rgba(255,107,53,.18)}
+.dd-item-ico svg{width:17px;height:17px;stroke:var(--accent);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.dd-item strong{display:block;font-size:.875rem;font-weight:600;color:var(--white);line-height:1.3}
+.dd-item small{display:block;font-size:.76rem;color:var(--muted);line-height:1.35;margin-top:.1rem}
+/* CTA col in dropdown */
+.dd-cta-col{display:flex;align-items:stretch;padding:1.5rem}
+.dd-cta-box{background:linear-gradient(160deg,rgba(255,107,53,.14),rgba(99,102,241,.06));border:1px solid rgba(255,107,53,.22);border-radius:var(--r-lg);padding:1.35rem;display:flex;flex-direction:column;gap:.85rem;width:100%;position:relative;overflow:hidden}
+.dd-cta-box::before{content:'';position:absolute;top:-30px;right:-30px;width:90px;height:90px;border-radius:50%;background:rgba(255,107,53,.18);filter:blur(20px)}
+.dd-cta-ico{width:38px;height:38px;border-radius:10px;background:rgba(255,107,53,.18);display:grid;place-items:center;position:relative;z-index:1}
+.dd-cta-ico svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dd-cta-title{font-family:var(--font-h);font-weight:800;font-size:1rem;line-height:1.3;position:relative;z-index:1}
+.dd-cta-sub{font-size:.8rem;color:var(--muted);line-height:1.6;flex:1;position:relative;z-index:1}
+.dd-cta-btn{display:flex;align-items:center;justify-content:center;gap:.55rem;background:var(--accent);color:#fff;padding:.9rem 1.15rem;border-radius:var(--r);font-family:var(--font-h);font-weight:800;font-size:.82rem;line-height:1.2;transition:all var(--ease);border:none;cursor:pointer;position:relative;z-index:1;text-align:center;min-height:46px}
+.dd-cta-btn span{white-space:normal}
+.dd-cta-btn:hover{background:var(--accent-h);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,53,.4)}
+.dd-cta-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;transition:transform var(--ease)}
+.dd-cta-btn:hover svg{transform:translateX(3px)}
+
+/* Nav CTA — distinctive gradient-bordered premium button */
+.nav-cta{
+  margin-left:1rem;flex-shrink:0;position:relative;overflow:hidden;isolation:isolate;
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent-h) 50%,#FFB199 100%);
+  padding:.7rem 1.35rem;border-radius:10px;
+  box-shadow:0 4px 18px rgba(255,107,53,.35),inset 0 1px 0 rgba(255,255,255,.25);
+}
+.nav-cta::before{
+  content:'';position:absolute;top:0;left:-60%;width:50%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:skewX(-20deg);z-index:1;
+  animation:navShine 3.2s ease-in-out infinite;
+}
+@keyframes navShine{
+  0%{left:-60%}
+  35%{left:130%}
+  100%{left:130%}
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(255,107,53,.45),inset 0 1px 0 rgba(255,255,255,.3);background:linear-gradient(135deg,var(--accent) 0%,var(--accent-h) 50%,#FFB199 100%)}
+.nav-cta span{position:relative;z-index:2;display:flex;align-items:center;gap:.45rem;color:#fff}
+.nav-cta svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform var(--ease);position:relative;z-index:2}
+.nav-cta:hover svg{transform:translateX(3px) rotate(-45deg)}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:6px;margin-left:auto}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all var(--ease)}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;background:rgba(10,15,30,.98);backdrop-filter:blur(16px);border-top:1px solid var(--border);padding:1.25rem;max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.mobile-menu.open{max-height:90vh;overflow-y:auto}
+.mob-link{display:block;padding:.75rem 1rem;font-weight:500;font-size:.95rem;border-radius:8px;color:var(--muted);transition:all var(--ease)}
+.mob-link:hover{color:var(--white);background:rgba(255,255,255,.06)}
+.mob-dd summary{list-style:none}
+.mob-dd summary::-webkit-details-marker{display:none}
+.mob-dd-items{padding-left:1.5rem;display:flex;flex-direction:column;gap:.1rem;margin-top:.25rem}
+.mob-dd-items a{display:block;padding:.45rem .75rem;font-size:.875rem;color:var(--muted);border-radius:6px;transition:all var(--ease)}
+.mob-dd-items a:hover{color:var(--white);background:rgba(255,255,255,.05)}
+
+
+/* ═══════════════════════════════════════════════
+   WP HERO
+═══════════════════════════════════════════════ */
+.wp-hero{position:relative;padding-top:calc(72px + clamp(3rem,7vw,5rem));padding-bottom:clamp(3rem,6vw,4.5rem);overflow:hidden}
+.wp-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% -5%,rgba(255,107,53,.14) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 85% 65%,rgba(255,107,53,.08) 0%,transparent 60%),var(--bg)}
+.wp-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(45,55,72,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(45,55,72,.3) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 70% 70% at 50% 25%,black 0%,transparent 100%);animation:gridDrift 24s linear infinite}
+@keyframes gridDrift{to{background-position:64px 64px,64px 64px}}
+.wp-hero-orb{position:absolute;border-radius:50%;filter:blur(90px);animation:orbPulse 9s ease-in-out infinite alternate}
+.wp-orb1{width:460px;height:460px;background:rgba(255,107,53,.10);top:-130px;right:-100px;animation-delay:0s}
+.wp-orb2{width:300px;height:300px;background:rgba(255,107,53,.1);bottom:-80px;left:-100px;animation-delay:3s}
+@keyframes orbPulse{0%{transform:translate(0,0) scale(1)}100%{transform:translate(25px,-25px) scale(1.08)}}
+.wp-hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr 1fr;gap:3.5rem;align-items:center}
+
+.breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--muted);margin-bottom:1.5rem;flex-wrap:wrap}
+.breadcrumb a{color:var(--muted);transition:color var(--ease)}
+.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb svg{width:12px;height:12px;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.breadcrumb .current{color:var(--accent);font-weight:600}
+
+.wp-hero-content h1{font-family:var(--font-h);font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:1.25rem}
+.wp-hero-content h1 span{background:linear-gradient(135deg,var(--accent),var(--accent-h) 70%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.wp-hero-content > p{color:var(--muted);font-size:1.05rem;line-height:1.75;margin-bottom:2rem;max-width:52ch}
+.wp-hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
+.wp-hero-stats{display:flex;gap:2rem;flex-wrap:wrap}
+.whs-item{}
+.whs-num{font-family:var(--font-h);font-size:1.6rem;font-weight:800;color:var(--accent);line-height:1}
+.whs-lbl{font-size:.76rem;color:var(--muted);margin-top:.25rem}
+
+/* Hero visual: WP dashboard mock */
+.wp-hero-visual{position:relative}
+.wpd-mock{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);transform:perspective(900px) rotateY(-6deg) rotateX(2deg);transition:transform .5s ease}
+.wpd-mock:hover{transform:perspective(900px) rotateY(-2deg) rotateX(1deg)}
+.wpd-head{background:var(--surface);border-bottom:1px solid var(--border);padding:.7rem 1rem;display:flex;align-items:center;gap:.5rem}
+.wpd-dot{width:9px;height:9px;border-radius:50%}
+.wpd-dot.r{background:#FF5F57}.wpd-dot.y{background:#FEBC2E}.wpd-dot.g{background:#28C840}
+.wpd-url{background:var(--card);border:1px solid var(--border);border-radius:5px;padding:.2rem .65rem;font-size:.7rem;color:var(--muted);flex:1;max-width:220px;margin-left:.5rem}
+.wpd-body{display:flex}
+.wpd-sidebar{width:130px;background:var(--surface);border-right:1px solid var(--border);padding:1rem .75rem;flex-shrink:0}
+.wpd-side-item{display:flex;align-items:center;gap:.5rem;padding:.5rem .6rem;border-radius:7px;font-size:.7rem;color:var(--muted);margin-bottom:.2rem}
+.wpd-side-item.active{background:rgba(255,107,53,.12);color:var(--accent);font-weight:700}
+.wpd-side-item svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.wpd-main{flex:1;padding:1.1rem}
+.wpd-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:.85rem}
+.wpd-stat{background:var(--surface);border:1px solid var(--border);border-radius:9px;padding:.7rem}
+.wpd-stat-lbl{font-size:.62rem;color:var(--muted)}
+.wpd-stat-val{font-family:var(--font-h);font-size:1.1rem;font-weight:800;margin-top:.15rem}
+.wpd-post-row{display:flex;align-items:center;gap:.6rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.55rem .7rem;margin-bottom:.4rem}
+.wpd-post-thumb{width:28px;height:28px;border-radius:6px;flex-shrink:0}
+.wpd-post-title{font-size:.7rem;font-weight:600;flex:1}
+.wpd-post-status{font-size:.6rem;padding:.15rem .5rem;border-radius:100px;font-weight:700}
+.wps-live{background:rgba(16,185,129,.15);color:#10B981}
+.wps-draft{background:rgba(245,158,11,.15);color:#F59E0B}
+
+/* ═══════════════════════════════════════════════
+   STATS STRIP
+═══════════════════════════════════════════════ */
+.wp-stats-strip{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.wp-stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.wp-stat-card{padding:2.25rem 1.5rem;text-align:center;border-right:1px solid var(--border);transition:background var(--ease)}
+.wp-stat-card:last-child{border-right:none}
+.wp-stat-card:hover{background:rgba(255,107,53,.04)}
+.wp-stat-num{font-family:var(--font-h);font-size:2rem;font-weight:800;color:var(--white);line-height:1}
+.wp-stat-num span{color:var(--accent)}
+.wp-stat-lbl{font-size:.8rem;color:var(--muted);margin-top:.45rem}
+
+/* ═══════════════════════════════════════════════
+   WHY WORDPRESS
+═══════════════════════════════════════════════ */
+.why-wp-sec{background:var(--bg)}
+.why-wp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.why-wp-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem;transition:all var(--ease);position:relative;overflow:hidden}
+.why-wp-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--accent),transparent);transform:scaleX(0);transform-origin:left;transition:transform var(--ease)}
+.why-wp-card:hover{border-color:rgba(255,107,53,.3);transform:translateY(-4px)}
+.why-wp-card:hover::after{transform:scaleX(1)}
+.why-wp-ico{width:46px;height:46px;border-radius:12px;background:rgba(255,107,53,.12);display:grid;place-items:center;margin-bottom:1rem}
+.why-wp-ico svg{width:21px;height:21px;stroke:var(--accent);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.why-wp-card h3{font-family:var(--font-h);font-weight:700;font-size:1rem;margin-bottom:.5rem}
+.why-wp-card p{font-size:.85rem;color:var(--muted);line-height:1.65}
+
+/* ═══════════════════════════════════════════════
+   WHAT WE BUILD
+═══════════════════════════════════════════════ */
+.build-sec{background:var(--surface)}
+.build-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.build-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:all var(--ease)}
+.build-card:hover{transform:translateY(-5px);border-color:rgba(255,107,53,.3);box-shadow:0 18px 44px rgba(0,0,0,.4)}
+.build-card-top{padding:1.5rem 1.5rem 0}
+.build-ico{width:48px;height:48px;border-radius:12px;background:rgba(255,107,53,.12);display:grid;place-items:center;margin-bottom:1rem}
+.build-ico svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.build-card h3{font-family:var(--font-h);font-weight:700;font-size:1.02rem;margin-bottom:.5rem}
+.build-card p{font-size:.83rem;color:var(--muted);line-height:1.6;margin-bottom:1.1rem}
+.build-tags{display:flex;flex-wrap:wrap;gap:.4rem;padding:0 1.5rem 1.5rem}
+.build-tag{background:var(--surface);border:1px solid var(--border);font-size:.68rem;font-weight:600;padding:.25rem .6rem;border-radius:6px;color:var(--muted)}
+
+/* ═══════════════════════════════════════════════
+   PLUGINS & TOOLS
+═══════════════════════════════════════════════ */
+.tools-sec{background:var(--bg)}
+.tools-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;margin-top:3rem}
+.tool-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.25rem 1rem;display:flex;flex-direction:column;align-items:center;gap:.6rem;text-align:center;transition:all var(--ease)}
+.tool-card:hover{border-color:rgba(255,107,53,.35);transform:translateY(-4px);background:rgba(28,35,51,.9)}
+.tool-ico{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:rgba(255,255,255,.05)}
+.tool-ico svg{width:20px;height:20px;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tool-name{font-size:.76rem;font-weight:700;color:var(--white);line-height:1.3}
+.tool-cat{font-size:.64rem;color:var(--muted)}
+
+/* ═══════════════════════════════════════════════
+   PRICING TIERS
+═══════════════════════════════════════════════ */
+.pricing-sec{background:var(--card)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;align-items:stretch}
+.price-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:2rem;display:flex;flex-direction:column;transition:all var(--ease);position:relative}
+.price-card:hover{transform:translateY(-4px);border-color:rgba(255,107,53,.25)}
+.price-card.popular{border-color:rgba(255,107,53,.4);background:linear-gradient(160deg,rgba(255,107,53,.07),var(--surface));box-shadow:0 0 0 1px rgba(255,107,53,.15),0 16px 40px rgba(255,107,53,.12)}
+.price-popular-tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent),var(--accent-h));color:#fff;font-size:.65rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:.35rem .9rem;border-radius:100px;box-shadow:0 4px 14px rgba(255,107,53,.4);white-space:nowrap}
+.price-name{font-family:var(--font-h);font-size:1.15rem;font-weight:800;margin-bottom:.4rem}
+.price-desc{font-size:.82rem;color:var(--muted);margin-bottom:1.25rem;line-height:1.55}
+.price-amount{display:flex;align-items:baseline;gap:.35rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+.price-currency{font-family:var(--font-h);font-size:1.3rem;font-weight:700;color:var(--accent)}
+.price-num{font-family:var(--font-h);font-size:2.6rem;font-weight:800;letter-spacing:-.02em}
+.price-period{font-size:.82rem;color:var(--muted)}
+.price-features{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.75rem;flex:1}
+.price-feature{display:flex;align-items:flex-start;gap:.6rem;font-size:.84rem}
+.price-feature svg{width:16px;height:16px;stroke:#10B981;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;margin-top:.15rem}
+.price-feature.muted{color:var(--muted)}
+.price-feature.muted svg{stroke:var(--muted)}
+.price-card .btn{justify-content:center;width:100%}
+
+/* ═══════════════════════════════════════════════
+   WP PORTFOLIO TEASER
+═══════════════════════════════════════════════ */
+.wp-port-sec{background:var(--surface)}
+.wp-port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3rem}
+.wp-port-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:all var(--ease)}
+.wp-port-card:hover{transform:translateY(-5px);border-color:rgba(255,107,53,.3);box-shadow:0 18px 44px rgba(0,0,0,.4)}
+.wp-port-thumb{aspect-ratio:16/10;position:relative;overflow:hidden;background:var(--bg)}
+.wp-port-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.wp-port-card:hover .wp-port-thumb img{transform:scale(1.06)}
+.wp-port-info{padding:1.25rem 1.4rem}
+.wp-port-type{font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:.35rem}
+.wp-port-info h3{font-family:var(--font-h);font-size:.98rem;font-weight:700;margin-bottom:.35rem}
+.wp-port-info p{font-size:.8rem;color:var(--muted);line-height:1.55}
+.wp-port-cta{text-align:center;margin-top:2.25rem}
+
+/* ═══════════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════════ */
+.faq-sec{background:var(--bg)}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:3rem}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color var(--ease)}
+.faq-item:hover{border-color:rgba(255,107,53,.2)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.25rem;cursor:pointer;gap:1rem;font-weight:600;font-size:.875rem;list-style:none;transition:color var(--ease)}
+.faq-q::-webkit-details-marker{display:none}
+details[open] .faq-q{color:var(--accent)}
+.faq-plus{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.06);display:grid;place-items:center;font-size:.9rem;transition:all var(--ease);color:var(--muted)}
+details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);transform:rotate(45deg)}
+.faq-a{padding:0 1.25rem 1.1rem;font-size:.845rem;color:var(--muted);line-height:1.75}
+.faq-cta{display:flex;justify-content:center;margin-top:2.5rem;gap:1rem;flex-wrap:wrap;align-items:center}
+.faq-cta p{color:var(--muted);font-size:.9rem}
+
+/* ═══════════════════════════════════════════════
+   FINAL CTA — spectacular glass card
+═══════════════════════════════════════════════ */
+.cta-sec{position:relative;overflow:hidden;padding-block:clamp(5rem,10vw,8rem)}
+.cta-bg{position:absolute;inset:0;background:linear-gradient(160deg,var(--surface) 0%,var(--bg) 100%)}
+.cta-glow{position:absolute;inset:0;background:radial-gradient(ellipse 90% 80% at 50% 110%,rgba(255,107,53,.22) 0%,transparent 65%),radial-gradient(ellipse 50% 40% at 15% -5%,rgba(99,102,241,.1) 0%,transparent 60%)}
+.cta-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,107,53,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,107,53,.04) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 90% 90% at 50% 50%,black 0%,transparent 100%)}
+.cta-shape{position:absolute;border-radius:50%;background:rgba(255,107,53,.07);filter:blur(60px)}
+.cs1{width:400px;height:400px;top:-120px;left:-100px}
+.cs2{width:300px;height:300px;bottom:-80px;right:-60px}
+
+/* Glass card wrapper with animated gradient border */
+.cta-card{position:relative;z-index:1;max-width:900px;margin-inline:auto;border-radius:28px;padding:1px;background:linear-gradient(120deg,rgba(255,107,53,.5),rgba(99,102,241,.35),rgba(255,107,53,.5));background-size:200% 200%;animation:ctaBorderShift 6s ease infinite}
+@keyframes ctaBorderShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.cta-card-inner{background:rgba(17,24,39,.92);backdrop-filter:blur(20px);border-radius:27px;padding:clamp(2.5rem,6vw,4.5rem) clamp(1.5rem,5vw,3.5rem);text-align:center;position:relative;overflow:hidden}
+.cta-card-inner::before{content:'';position:absolute;top:-50%;left:50%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,107,53,.12) 0%,transparent 60%);transform:translateX(-50%);pointer-events:none}
+.cta-inner{position:relative;z-index:1;max-width:680px;margin-inline:auto}
+.cta-label{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.3);color:var(--accent);font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:.4rem 1rem;border-radius:100px;margin-bottom:1.75rem}
+.cta-label svg{animation:ctaBolt 2s ease-in-out infinite}
+@keyframes ctaBolt{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.cta-inner h2{font-family:var(--font-h);font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:800;letter-spacing:-.04em;line-height:1.08;margin-bottom:1.35rem}
+.cta-inner h2 span{background:linear-gradient(135deg,var(--accent),#FF8C5A 50%,#818CF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
+.cta-inner .sub{color:var(--muted);font-size:1.08rem;line-height:1.75;margin-bottom:2.5rem;max-width:50ch;margin-inline:auto}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;align-items:center;margin-bottom:2.5rem}
+.cta-btns .btn-accent{padding:1.05rem 2.5rem;font-size:1.05rem;height:58px;box-shadow:0 8px 32px rgba(255,107,53,.35);letter-spacing:.01em;position:relative;overflow:hidden}
+.cta-btns .btn-accent::before{content:'';position:absolute;top:0;left:-60%;width:50%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);animation:navShine 3.5s ease-in-out infinite}
+.cta-btns .btn-wa{padding:1.05rem 2rem;font-size:1.05rem;height:58px;flex-shrink:0}
+.cta-trust-row{display:flex;align-items:center;justify-content:center;gap:1.75rem;flex-wrap:wrap;padding-top:2rem;border-top:1px solid var(--border)}
+.ctr-item{display:flex;align-items:center;gap:.45rem;font-size:.82rem;color:var(--muted)}
+.ctr-item svg{width:14px;height:14px;stroke:#10B981;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* ═══════════════════════════════════════════════
+   FOOTER — premium redesign
+═══════════════════════════════════════════════ */
+.site-footer{background:var(--card);border-top:1px solid var(--border)}
+.footer-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1.4fr;gap:2.5rem;padding-block:4.5rem}
+.ft-brand{}
+.ft-logo{display:flex;align-items:center;gap:.6rem;margin-bottom:.85rem}
+.ft-logo img{height:34px;width:auto}
+.ft-tagline{font-family:var(--font-h);font-weight:700;color:var(--accent);font-size:.875rem;margin-bottom:.75rem}
+.ft-desc{font-size:.81rem;color:var(--muted);line-height:1.7;max-width:28ch}
+.ft-socials{display:flex;gap:.5rem;margin-top:1.25rem}
+.ft-soc{width:36px;height:36px;border-radius:8px;background:var(--surface);border:1px solid var(--border);display:grid;place-items:center;transition:all var(--ease)}
+.ft-soc svg{width:16px;height:16px;stroke:var(--muted);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;transition:stroke var(--ease)}
+.ft-soc:hover{border-color:var(--accent);transform:translateY(-2px)}
+.ft-soc:hover svg{stroke:var(--accent)}
+.ft-col-title{font-family:var(--font-h);font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem}
+.ft-col-title::after{content:'';flex:1;height:1px;background:rgba(255,107,53,.15)}
+.ft-links{display:flex;flex-direction:column;gap:.55rem}
+.ft-links a{font-size:.845rem;color:var(--muted);transition:color var(--ease);display:flex;align-items:center;gap:.4rem}
+.ft-links a:hover{color:var(--white)}
+.ft-contact-list{display:flex;flex-direction:column;gap:.75rem}
+.ft-ci{display:flex;align-items:flex-start;gap:.75rem;font-size:.83rem;color:var(--muted)}
+.ft-ci-ico{width:30px;height:30px;border-radius:8px;background:rgba(255,107,53,.1);display:grid;place-items:center;flex-shrink:0;margin-top:.05rem}
+.ft-ci-ico svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.ft-ci a{color:var(--muted);transition:color var(--ease);line-height:1.5}
+.ft-ci a:hover{color:var(--accent)}
+.ft-ci span{line-height:1.5}
+.footer-bottom{border-top:1px solid var(--border);padding-block:1.35rem}
+.footer-bottom-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}
+.footer-bottom p{font-size:.78rem;color:var(--muted)}
+.footer-bottom p span{color:var(--accent)}
+.ft-legal{display:flex;gap:1.5rem;flex-wrap:wrap}
+.ft-legal a{font-size:.78rem;color:var(--muted);transition:color var(--ease)}
+.ft-legal a:hover{color:var(--white)}
+
+/* ═══════════════════════════════════════════════
+   PROCESS — all 7 in one row
+═══════════════════════════════════════════════ */
+.process-sec{background:var(--bg)}
+.process-row{display:grid;grid-template-columns:repeat(7,1fr);gap:.4rem;margin-top:3.5rem;position:relative}
+.process-row::before{content:'';position:absolute;top:27px;left:3.5%;right:3.5%;height:1px;background:linear-gradient(to right,transparent,var(--accent),transparent);z-index:0}
+.ps{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 .25rem;position:relative;z-index:1}
+.ps-bubble{width:54px;height:54px;border-radius:50%;background:var(--card);border:2px solid var(--border);display:grid;place-items:center;margin-bottom:.9rem;position:relative;transition:all var(--ease);flex-shrink:0}
+.ps-bubble svg{width:20px;height:20px;stroke:var(--muted);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;transition:stroke var(--ease)}
+.ps-num{position:absolute;top:-7px;right:-7px;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:.58rem;font-weight:800;display:grid;place-items:center;line-height:1}
+.ps:hover .ps-bubble{border-color:var(--accent);background:rgba(255,107,53,.08);transform:scale(1.08)}
+.ps:hover .ps-bubble svg{stroke:var(--accent)}
+.ps h3{font-family:var(--font-h);font-weight:700;font-size:.78rem;margin-bottom:.25rem;line-height:1.25}
+.ps p{font-size:.69rem;color:var(--muted);line-height:1.5}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media(max-width:1100px){
+  .wp-hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .wp-hero-visual{order:-1}
+  .wpd-mock{transform:none;max-width:480px;margin-inline:auto}
+  .wp-stats-grid{grid-template-columns:repeat(2,1fr)}
+  .wp-stat-card:nth-child(1),.wp-stat-card:nth-child(2){border-bottom:1px solid var(--border)}
+  .why-wp-grid{grid-template-columns:repeat(2,1fr)}
+  .build-grid{grid-template-columns:repeat(2,1fr)}
+  .tools-grid{grid-template-columns:repeat(4,1fr)}
+  .pricing-grid{grid-template-columns:1fr;max-width:440px;margin-inline:auto}
+  .wp-port-grid{grid-template-columns:repeat(2,1fr)}
+  .process-row{grid-template-columns:repeat(4,1fr)}
+  .process-row::before{display:none}
+  .footer-top{grid-template-columns:1fr 1fr 1fr;gap:2rem}
+  .ft-brand{grid-column:span 3}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .mobile-menu{display:block}
+  .dd-menu{display:none}
+  .faq-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr;gap:1.75rem}
+  .ft-brand{grid-column:span 2}
+  .process-row{grid-template-columns:repeat(2,1fr);gap:1.5rem}
+  .cta-btns .btn,.cta-btns .btn-wa{flex:0 1 100%}
+  .why-wp-grid{grid-template-columns:1fr}
+  .build-grid{grid-template-columns:1fr}
+  .tools-grid{grid-template-columns:repeat(3,1fr)}
+  .wp-port-grid{grid-template-columns:1fr}
+  .wp-hero-stats{gap:1.25rem}
+  .wpd-sidebar{width:100px}
+}
+@media(max-width:480px){
+  .footer-top{grid-template-columns:1fr}
+  .ft-brand{grid-column:span 1}
+  .cta-btns .btn-accent,.cta-btns .btn-wa{width:100%;justify-content:center}
+  .cta-card{border-radius:20px}
+  .cta-card-inner{border-radius:19px;padding:2.25rem 1.25rem}
+  .cta-trust-row{gap:1rem .9rem}
+  .wp-stats-grid{grid-template-columns:1fr 1fr}
+  .wp-stat-card:nth-child(1),.wp-stat-card:nth-child(2),.wp-stat-card:nth-child(3){border-bottom:1px solid var(--border)}
+  .tools-grid{grid-template-columns:repeat(2,1fr)}
+  .price-num{font-size:2.1rem}
+  .wpd-body{flex-direction:column}
+  .wpd-sidebar{width:100%;display:flex;gap:.4rem;padding:.75rem;overflow-x:auto}
+  .wpd-side-item{white-space:nowrap;margin-bottom:0}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <nav class="nav-wrap container">
+    <!-- REAL LOGO from upload -->
+    <a href="/index.html" class="nav-logo" aria-label="WebDone Co. Home">
+      <img src="/assets/images/webdone-logo.png" alt="WebDone Co. logo" height="38"/>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
+
+      <!-- Services Megamenu -->
+      <li class="nav-item has-dd active">
+        <button class="nav-link" aria-haspopup="true" aria-expanded="false">
+          Services
+          <svg class="nav-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="dd-menu" role="menu">
+          <div class="dd-inner">
+            <div class="dd-col">
+              <p class="dd-section-label">Web Development</p>
+              <a href="/web-development.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
+                <span><strong>All Web Services</strong><small>Overview of everything we build</small></span>
+              </a>
+              <a href="/wordpress-development.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
+                <span><strong>WordPress</strong><small>Custom themes &amp; plugins</small></span>
+              </a>
+              <a href="/shopify-development.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+                <span><strong>Shopify</strong><small>E-commerce stores</small></span>
+              </a>
+              <a href="/wix-development.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polyline points="3 6 12 3 21 6"/><path d="M3 6v12l9 3 9-3V6"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div>
+                <span><strong>Wix</strong><small>Beautiful drag-and-drop sites</small></span>
+              </a>
+              <a href="/custom-development.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <span><strong>Custom Dev</strong><small>Bespoke web applications</small></span>
+              </a>
+            </div>
+            <div class="dd-col">
+              <p class="dd-section-label">Growth &amp; Tools</p>
+              <a href="/seo-services.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <span><strong>SEO Services</strong><small>Rank higher, grow faster</small></span>
+              </a>
+              <a href="/crm-solutions.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+                <span><strong>CRM Solutions</strong><small>Manage leads &amp; clients</small></span>
+              </a>
+              <a href="/pos-software.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                <span><strong>POS Software</strong><small>Point-of-sale systems</small></span>
+              </a>
+              <a href="/online-tools.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+                <span><strong>Online Tools</strong><small>Calculators, forms &amp; more</small></span>
+              </a>
+            </div>
+            <div class="dd-col dd-cta-col">
+              <div class="dd-cta-box">
+                <div class="dd-cta-ico"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4z"/><path d="M8 9h8M8 13h5"/></svg></div>
+                <p class="dd-cta-title">Not sure what you need?</p>
+                <p class="dd-cta-sub">Tell us about your project and we'll recommend the perfect solution — completely free.</p>
+                <a href="/contact.html" class="dd-cta-btn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4z"/><path d="M8 9h8M8 13h5"/></svg>
+                  <span>Free Consultation</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item"><a href="/portfolio.html" class="nav-link">Portfolio</a></li>
+      <li class="nav-item"><a href="/about.html" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="/blog.html" class="nav-link">Blog</a></li>
+      <li class="nav-item"><a href="/faq.html" class="nav-link">FAQ</a></li>
+      <li class="nav-item"><a href="/contact.html" class="nav-link">Contact</a></li>
+    </ul>
+
+    <a href="/contact.html#quote" class="btn btn-accent nav-cta"><span>Get Free Quote <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div style="display:flex;flex-direction:column;gap:.2rem;">
+      <a href="/index.html" class="mob-link">Home</a>
+      <details class="mob-dd">
+        <summary class="mob-link">Services</summary>
+        <div class="mob-dd-items">
+          <a href="/web-development.html">All Web Services</a>
+          <a href="/wordpress-development.html">WordPress</a>
+          <a href="/shopify-development.html">Shopify</a>
+          <a href="/wix-development.html">Wix</a>
+          <a href="/custom-development.html">Custom Dev</a>
+          <a href="/seo-services.html">SEO Services</a>
+          <a href="/crm-solutions.html">CRM Solutions</a>
+          <a href="/pos-software.html">POS Software</a>
+          <a href="/online-tools.html">Online Tools</a>
+        </div>
+      </details>
+      <a href="/portfolio.html" class="mob-link">Portfolio</a>
+      <a href="/about.html" class="mob-link">About</a>
+      <a href="/blog.html" class="mob-link">Blog</a>
+      <a href="/faq.html" class="mob-link">FAQ</a>
+      <a href="/contact.html" class="mob-link">Contact</a>
+      <a href="/contact.html#quote" class="btn btn-accent" style="margin-top:1rem;justify-content:center">Get Free Quote</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ═══════════════════ WP HERO ═══════════════════ -->
+<section class="wp-hero" aria-labelledby="wpHeroH">
+  <div class="wp-hero-bg"></div>
+  <div class="wp-hero-grid"></div>
+  <div class="wp-hero-orb wp-orb1"></div>
+  <div class="wp-hero-orb wp-orb2"></div>
+  <div class="container">
+    <div class="breadcrumb reveal">
+      <a href="/index.html">Home</a>
+      <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      <a href="/services.html">Services</a>
+      <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      <a href="/web-development.html">Web Development</a>
+      <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      <span class="current">WordPress</span>
+    </div>
+    <div class="wp-hero-inner">
+      <div class="wp-hero-content">
+        <span class="label wp reveal">WordPress Development</span>
+        <h1 id="wpHeroH" class="reveal rv1">Custom WordPress Sites <span>Built to Perform</span></h1>
+        <p class="reveal rv2">From content-rich blogs to full WooCommerce stores and membership platforms — we build fast, secure, fully custom WordPress websites that you own outright, with no platform lock-in.</p>
+        <div class="wp-hero-btns reveal rv3">
+          <a href="/contact.html#quote" class="btn btn-accent btn-lg">
+            Get a Free Quote
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#pricing" class="btn btn-outline btn-lg">View Pricing</a>
+        </div>
+        <div class="wp-hero-stats reveal rv4">
+          <div class="whs-item">
+            <div class="whs-num">100+</div>
+            <div class="whs-lbl">WordPress Sites Built</div>
+          </div>
+          <div class="whs-item">
+            <div class="whs-num">2–4wk</div>
+            <div class="whs-lbl">Typical Build Time</div>
+          </div>
+          <div class="whs-item">
+            <div class="whs-num">98</div>
+            <div class="whs-lbl">Avg PageSpeed Score</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wp-hero-visual reveal rv2">
+        <div class="wpd-mock">
+          <div class="wpd-head">
+            <span class="wpd-dot r"></span><span class="wpd-dot y"></span><span class="wpd-dot g"></span>
+            <div class="wpd-url">yoursite.com/wp-admin</div>
+          </div>
+          <div class="wpd-body">
+            <div class="wpd-sidebar">
+              <div class="wpd-side-item active">
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                Dashboard
+              </div>
+              <div class="wpd-side-item">
+                <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                Posts
+              </div>
+              <div class="wpd-side-item">
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                Media
+              </div>
+              <div class="wpd-side-item">
+                <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                Plugins
+              </div>
+              <div class="wpd-side-item">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+                Settings
+              </div>
+            </div>
+            <div class="wpd-main">
+              <div class="wpd-stat-row">
+                <div class="wpd-stat">
+                  <div class="wpd-stat-lbl">Page Speed</div>
+                  <div class="wpd-stat-val" style="color:#10B981">98/100</div>
+                </div>
+                <div class="wpd-stat">
+                  <div class="wpd-stat-lbl">Uptime</div>
+                  <div class="wpd-stat-val">99.9%</div>
+                </div>
+                <div class="wpd-stat">
+                  <div class="wpd-stat-lbl">Plugins</div>
+                  <div class="wpd-stat-val">12 active</div>
+                </div>
+              </div>
+              <div class="wpd-post-row">
+                <div class="wpd-post-thumb" style="background:rgba(255,107,53,.25)"></div>
+                <span class="wpd-post-title">Homepage Redesign</span>
+                <span class="wpd-post-status wps-live">Published</span>
+              </div>
+              <div class="wpd-post-row">
+                <div class="wpd-post-thumb" style="background:rgba(16,185,129,.25)"></div>
+                <span class="wpd-post-title">Summer Sale Landing Page</span>
+                <span class="wpd-post-status wps-live">Published</span>
+              </div>
+              <div class="wpd-post-row">
+                <div class="wpd-post-thumb" style="background:rgba(255,107,53,.25)"></div>
+                <span class="wpd-post-title">New Product Announcement</span>
+                <span class="wpd-post-status wps-draft">Draft</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ STATS STRIP ═══════════════════ -->
+<section class="wp-stats-strip" aria-label="WordPress development stats">
+  <div class="container reveal">
+    <div class="wp-stats-grid">
+      <div class="wp-stat-card">
+        <div class="wp-stat-num">43<span>%</span></div>
+        <div class="wp-stat-lbl">Of the web runs on WordPress</div>
+      </div>
+      <div class="wp-stat-card">
+        <div class="wp-stat-num">100<span>+</span></div>
+        <div class="wp-stat-lbl">WordPress sites delivered</div>
+      </div>
+      <div class="wp-stat-card">
+        <div class="wp-stat-num">60<span>d</span></div>
+        <div class="wp-stat-lbl">Free post-launch support</div>
+      </div>
+      <div class="wp-stat-card">
+        <div class="wp-stat-num">$399<span>+</span></div>
+        <div class="wp-stat-lbl">Starting fixed-price quote</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ WHY WORDPRESS ═══════════════════ -->
+<section class="why-wp-sec section-pad" aria-labelledby="whyWpH">
+  <div class="container">
+    <div class="t-center reveal">
+      <span class="label wp">Why WordPress</span>
+      <h2 class="section-title" id="whyWpH">The Web's Most <span>Trusted CMS</span></h2>
+      <p class="section-sub">WordPress powers over 40% of the internet for good reason. Here's why it might be the right fit for your business.</p>
+    </div>
+    <div class="why-wp-grid">
+      <div class="why-wp-card reveal rv1">
+        <div class="why-wp-ico"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Full Code Ownership</h3>
+        <p>No platform fees, no vendor lock-in. The site, the code, and the content are entirely yours — host it anywhere, move it anytime.</p>
+      </div>
+      <div class="why-wp-card reveal rv2">
+        <div class="why-wp-ico"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
+        <h3>Best-in-Class Content Tools</h3>
+        <p>Nothing beats WordPress for managing blogs, news, and content-heavy sites. Editors can publish without ever touching code.</p>
+      </div>
+      <div class="why-wp-card reveal rv3">
+        <div class="why-wp-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3>Endless Extensibility</h3>
+        <p>From booking systems to membership portals, there's a battle-tested plugin (or a custom one we'll build) for almost anything.</p>
+      </div>
+      <div class="why-wp-card reveal rv1">
+        <div class="why-wp-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h3>SEO-Friendly by Nature</h3>
+        <p>Clean URL structures, fast indexing, and deep plugin support (Yoast, RankMath) make WordPress a search engine favourite.</p>
+      </div>
+      <div class="why-wp-card reveal rv2">
+        <div class="why-wp-ico"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+        <h3>WooCommerce E-Commerce</h3>
+        <p>Sell products without monthly platform fees. WooCommerce powers 28% of all online stores worldwide.</p>
+      </div>
+      <div class="why-wp-card reveal rv3">
+        <div class="why-wp-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3>Massive Global Community</h3>
+        <p>A huge ecosystem of developers, themes, and resources means your site is never stuck waiting on one vendor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ WHAT WE BUILD ═══════════════════ -->
+<section class="build-sec section-pad" aria-labelledby="buildH">
+  <div class="container">
+    <div class="t-center reveal">
+      <span class="label wp">Project Types</span>
+      <h2 class="section-title" id="buildH">What We <span>Build on WordPress</span></h2>
+      <p class="section-sub">From simple brochure sites to complex membership platforms — here's what we deliver most often.</p>
+    </div>
+    <div class="build-grid">
+
+      <div class="build-card reveal rv1">
+        <div class="build-card-top">
+          <div class="build-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <h3>Business &amp; Brochure Sites</h3>
+          <p>Clean, professional websites that establish credibility and convert visitors into enquiries — built around your brand and goals.</p>
+        </div>
+        <div class="build-tags">
+          <span class="build-tag">Custom Design</span>
+          <span class="build-tag">Lead Forms</span>
+          <span class="build-tag">CMS Editing</span>
+        </div>
+      </div>
+
+      <div class="build-card reveal rv2">
+        <div class="build-card-top">
+          <div class="build-ico"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+          <h3>WooCommerce Stores</h3>
+          <p>Full-featured online stores with secure checkout, inventory management, and no recurring platform fees eating your margins.</p>
+        </div>
+        <div class="build-tags">
+          <span class="build-tag">WooCommerce</span>
+          <span class="build-tag">Payment Gateways</span>
+          <span class="build-tag">Inventory</span>
+        </div>
+      </div>
+
+      <div class="build-card reveal rv3">
+        <div class="build-card-top">
+          <div class="build-ico"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
+          <h3>Blogs &amp; Content Hubs</h3>
+          <p>Content-first builds with fast-loading templates, intuitive editing, and structured SEO so your content actually ranks.</p>
+        </div>
+        <div class="build-tags">
+          <span class="build-tag">Editorial Workflow</span>
+          <span class="build-tag">SEO Structure</span>
+          <span class="build-tag">Categories &amp; Tags</span>
+        </div>
+      </div>
+
+      <div class="build-card reveal rv1">
+        <div class="build-card-top">
+          <div class="build-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <h3>Membership &amp; LMS Sites</h3>
+          <p>Gated content, course platforms, and subscriber portals with secure logins, payment tiers, and progress tracking.</p>
+        </div>
+        <div class="build-tags">
+          <span class="build-tag">Member Logins</span>
+          <span class="build-tag">Course Builder</span>
+          <span class="build-tag">Paywalls</span>
+        </div>
+      </div>
+
+      <div class="build-card reveal rv2">
+        <div class="build-card-top">
+          <div class="build-ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <h3>Directory &amp; Booking Sites</h3>
+          <p>Listing platforms, appointment booking, and multi-vendor directories with custom search, filters, and submission flows.</p>
+        </div>
+        <div class="build-tags">
+          <span class="build-tag">Custom Post Types</span>
+          <span class="build-tag">Booking Forms</span>
+          <span class="build-tag">Search &amp; Filters</span>
+        </div>
+      </div>
+
+      <div class="build-card reveal rv3">
+        <div class="build-card-top">
+          <div class="build-ico"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h3>Custom Plugin Development</h3>
+          <p>When no existing plugin does the job, we build bespoke functionality from scratch — clean, documented, and maintainable.</p>
+        </div>
+        <div class="build-tags">
+          <span class="build-tag">Custom PHP</span>
+          <span class="build-tag">REST API</span>
+          <span class="build-tag">Admin Panels</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PLUGINS & TOOLS ═══════════════════ -->
+<section class="tools-sec section-pad" aria-labelledby="toolsH">
+  <div class="container">
+    <div class="t-center reveal">
+      <span class="label wp">Our Toolkit</span>
+      <h2 class="section-title" id="toolsH">Plugins &amp; Tools <span>We Trust</span></h2>
+      <p class="section-sub">We don't pile on bloated plugins. Every tool earns its place by speed, security, and reliability.</p>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card reveal">
+        <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></div>
+        <div class="tool-name">WooCommerce</div>
+        <div class="tool-cat">E-Commerce</div>
+      </div>
+      <div class="tool-card reveal rv1">
+        <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="tool-name">Yoast / RankMath</div>
+        <div class="tool-cat">SEO</div>
+      </div>
+      <div class="tool-card reveal rv2">
+        <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="tool-name">WP Rocket</div>
+        <div class="tool-cat">Caching &amp; Speed</div>
+      </div>
+      <div class="tool-card reveal rv3">
+        <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="tool-name">Wordfence</div>
+        <div class="tool-cat">Security</div>
+      </div>
+      <div class="tool-card reveal rv1">
+        <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+        <div class="tool-name">Advanced Custom Fields</div>
+        <div class="tool-cat">Custom Content</div>
+      </div>
+      <div class="tool-card reveal rv2">
+        <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div>
+        <div class="tool-name">UpdraftPlus</div>
+        <div class="tool-cat">Backups</div>
+      </div>
+      <div class="tool-card reveal rv3">
+        <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+        <div class="tool-name">Elementor Pro</div>
+        <div class="tool-cat">Page Building</div>
+      </div>
+      <div class="tool-card reveal rv1">
+        <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <div class="tool-name">WPML</div>
+        <div class="tool-cat">Multilingual</div>
+      </div>
+      <div class="tool-card reveal rv2">
+        <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#F472B6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="tool-name">Gravity Forms</div>
+        <div class="tool-cat">Forms</div>
+      </div>
+      <div class="tool-card reveal rv3">
+        <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+        <div class="tool-name">Stripe / PayPal</div>
+        <div class="tool-cat">Payments</div>
+      </div>
+      <div class="tool-card reveal rv1">
+        <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="tool-name">MemberPress</div>
+        <div class="tool-cat">Membership</div>
+      </div>
+      <div class="tool-card reveal rv2">
+        <div class="tool-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
+        <div class="tool-name">Cloudflare CDN</div>
+        <div class="tool-cat">Hosting &amp; CDN</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PRICING TIERS ═══════════════════ -->
+<section class="pricing-sec section-pad" id="pricing" aria-labelledby="pricingH">
+  <div class="container">
+    <div class="t-center reveal">
+      <span class="label wp">Pricing</span>
+      <h2 class="section-title" id="pricingH">WordPress <span>Packages</span></h2>
+      <p class="section-sub">Fixed-price packages designed around real project scope. Need something different? We'll tailor a custom quote.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="price-card reveal rv1">
+        <div class="price-name">Launch Site</div>
+        <p class="price-desc">A clean, professional brochure site for small businesses and personal brands.</p>
+        <div class="price-amount">
+          <span class="price-currency">$</span>
+          <span class="price-num">399</span>
+          <span class="price-period">starting from</span>
+        </div>
+        <div class="price-features">
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Up to 5 custom pages</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Mobile-first responsive design</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Contact &amp; lead capture forms</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Basic on-page SEO setup</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>60 days free support</div>
+          <div class="price-feature muted"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>WooCommerce integration</div>
+        </div>
+        <a href="/contact.html#quote" class="btn btn-outline">Get Started →</a>
+      </div>
+
+      <div class="price-card popular reveal rv2">
+        <div class="price-popular-tag">Most Chosen</div>
+        <div class="price-name">Growth Site</div>
+        <p class="price-desc">A fully custom WordPress build with advanced functionality and WooCommerce-ready.</p>
+        <div class="price-amount">
+          <span class="price-currency">$</span>
+          <span class="price-num">899</span>
+          <span class="price-period">starting from</span>
+        </div>
+        <div class="price-features">
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Up to 15 custom pages</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Custom theme design from scratch</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>WooCommerce store (up to 50 products)</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Advanced SEO &amp; schema markup</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Blog &amp; content management setup</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>60 days free support</div>
+        </div>
+        <a href="/contact.html#quote" class="btn btn-accent">Get Started →</a>
+      </div>
+
+      <div class="price-card reveal rv3">
+        <div class="price-name">Scale Platform</div>
+        <p class="price-desc">Complex WordPress platforms — membership sites, large stores, or custom plugin builds.</p>
+        <div class="price-amount">
+          <span class="price-currency">$</span>
+          <span class="price-num">1,499</span>
+          <span class="price-period">starting from</span>
+        </div>
+        <div class="price-features">
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Unlimited pages &amp; custom post types</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Custom plugin development</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Membership / LMS / multi-vendor setup</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Unlimited WooCommerce products</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Priority support &amp; dedicated manager</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>90 days free support</div>
+        </div>
+        <a href="/contact.html#quote" class="btn btn-outline">Talk to Us →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROCESS ═══════════════════ -->
+<section class="process-sec section-pad" aria-labelledby="processH">
+  <div class="container">
+    <div class="t-center reveal">
+      <span class="label wp">How It Works</span>
+      <h2 class="section-title" id="processH">Our WordPress <span>Build Process</span></h2>
+      <p class="section-sub">A clear, collaborative process — you always know what's happening and when.</p>
+    </div>
+    <div class="process-row">
+      <div class="ps reveal rv1">
+        <div class="ps-bubble"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span class="ps-num">1</span></div>
+        <h3>Discovery</h3>
+        <p>Free call to scope content, features &amp; goals.</p>
+      </div>
+      <div class="ps reveal rv2">
+        <div class="ps-bubble"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg><span class="ps-num">2</span></div>
+        <h3>Site Map &amp; Quote</h3>
+        <p>Page structure, plugin list, fixed quote in 48h.</p>
+      </div>
+      <div class="ps reveal rv3">
+        <div class="ps-bubble"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg><span class="ps-num">3</span></div>
+        <h3>Custom Design</h3>
+        <p>Figma mockups built around your brand.</p>
+      </div>
+      <div class="ps reveal rv4">
+        <div class="ps-bubble"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg><span class="ps-num">4</span></div>
+        <h3>Theme Build</h3>
+        <p>Custom theme &amp; plugin setup, coded clean.</p>
+      </div>
+      <div class="ps reveal rv1">
+        <div class="ps-bubble"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/></svg><span class="ps-num">5</span></div>
+        <h3>Content Migration</h3>
+        <p>Your content added, formatted &amp; optimised.</p>
+      </div>
+      <div class="ps reveal rv2">
+        <div class="ps-bubble"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span class="ps-num">6</span></div>
+        <h3>Testing &amp; QA</h3>
+        <p>Speed, security &amp; cross-device testing.</p>
+      </div>
+      <div class="ps reveal rv3">
+        <div class="ps-bubble"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span class="ps-num">7</span></div>
+        <h3>Launch &amp; Train</h3>
+        <p>Go live, plus a walkthrough of your new CMS.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PORTFOLIO TEASER ═══════════════════ -->
+<section class="wp-port-sec section-pad" aria-labelledby="wpPortH">
+  <div class="container">
+    <div class="t-center reveal">
+      <span class="label wp">Recent Work</span>
+      <h2 class="section-title" id="wpPortH">WordPress Projects <span>We've Shipped</span></h2>
+      <p class="section-sub">Real WordPress builds, from content sites to full WooCommerce stores.</p>
+    </div>
+    <div class="wp-port-grid">
+
+      <article class="wp-port-card reveal rv1">
+        <div class="wp-port-thumb">
+          <img src="/assets/images/portfolio-geneva-taxi.jpg" alt="Geneva Airport Taxi booking website preview" loading="lazy"/>
+        </div>
+        <div class="wp-port-info">
+          <div class="wp-port-type">WordPress · Booking Platform</div>
+          <h3>Geneva Airport Taxi</h3>
+          <p>A multilingual booking platform for a Swiss airport taxi service, integrated with their live dispatch system.</p>
+        </div>
+      </article>
+
+      <article class="wp-port-card reveal rv2">
+        <div class="wp-port-thumb">
+          <img src="/assets/images/portfolio-carestrix.jpg" alt="Carestrix medical billing website preview" loading="lazy"/>
+        </div>
+        <div class="wp-port-info">
+          <div class="wp-port-type">WordPress · B2B Healthcare</div>
+          <h3>Carestrix — Medical Billing</h3>
+          <p>A trust-building B2B platform for a US medical billing company, with structured service pages and lead capture.</p>
+        </div>
+      </article>
+
+      <article class="wp-port-card reveal rv3">
+        <div class="wp-port-thumb">
+          <img src="/assets/images/portfolio-arabiata.jpg" alt="Arabiata Academy education platform website preview" loading="lazy"/>
+        </div>
+        <div class="wp-port-info">
+          <div class="wp-port-type">WordPress · Education</div>
+          <h3>Arabiata Academy</h3>
+          <p>A clean, bilingual education platform with structured course pages and a seamless enrollment flow.</p>
+        </div>
+      </article>
+
+    </div>
+    <div class="wp-port-cta reveal">
+      <a href="/portfolio.html" class="btn btn-outline">View Full Portfolio →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FAQ ═══════════════════ -->
+<section class="faq-sec section-pad" aria-labelledby="faqH">
+  <div class="container">
+    <div class="t-center reveal">
+      <span class="label wp">FAQ</span>
+      <h2 class="section-title" id="faqH">WordPress <span>FAQ</span></h2>
+      <p class="section-sub">Deep-dive answers to the questions we hear most about WordPress development.</p>
+    </div>
+    <div class="faq-grid">
+      <details class="faq-item reveal rv1">
+        <summary class="faq-q">How much does a WordPress website cost?<span class="faq-plus">+</span></summary>
+        <p class="faq-a">WordPress projects start from $399 for a compact launch site and scale up depending on complexity, custom functionality, and WooCommerce requirements. Every quote is fixed-price, broken down by component, and agreed before any work begins.</p>
+      </details>
+      <details class="faq-item reveal rv2">
+        <summary class="faq-q">Do you build custom themes or use pre-made ones?<span class="faq-plus">+</span></summary>
+        <p class="faq-a">We build fully custom themes from scratch for most projects, ensuring unique design and optimal performance — no bloated page-builder code. For tighter budgets or timelines, we can also heavily customise premium themes.</p>
+      </details>
+      <details class="faq-item reveal rv1">
+        <summary class="faq-q">Will I be able to update content myself after launch?<span class="faq-plus">+</span></summary>
+        <p class="faq-a">Yes — that's the whole point of WordPress. We build with an intuitive admin experience and provide a short training walkthrough at launch so you (or your team) can confidently add pages, posts, and products without touching code.</p>
+      </details>
+      <details class="faq-item reveal rv2">
+        <summary class="faq-q">Is WordPress secure enough for my business?<span class="faq-plus">+</span></summary>
+        <p class="faq-a">Yes, when built and maintained properly. We harden every install with security plugins like Wordfence, disable unnecessary file editing, enforce strong login policies, and set up automated backups — the same standards used on enterprise WordPress sites.</p>
+      </details>
+      <details class="faq-item reveal rv1">
+        <summary class="faq-q">Can you migrate my existing WordPress or other CMS site?<span class="faq-plus">+</span></summary>
+        <p class="faq-a">Yes. We handle migrations from outdated WordPress installs, Wix, Squarespace, and other platforms — preserving your content, SEO rankings, and traffic with proper URL redirects and a structured migration plan.</p>
+      </details>
+      <details class="faq-item reveal rv2">
+        <summary class="faq-q">Do I need to pay for plugins and hosting separately?<span class="faq-plus">+</span></summary>
+        <p class="faq-a">Most plugins we use have free tiers sufficient for typical projects; premium plugin licenses (if needed) are itemised clearly in your quote. Hosting is separate from our development fee — we can recommend reliable providers or work with your existing host.</p>
+      </details>
+      <details class="faq-item reveal rv1">
+        <summary class="faq-q">What's the difference between Launch Site, Growth Site, and Scale Platform?<span class="faq-plus">+</span></summary>
+        <p class="faq-a">Launch Site suits simple brochure sites with up to 5 pages. Growth Site adds custom theme design, WooCommerce, and advanced SEO for growing companies. Scale Platform covers complex builds — membership sites, custom plugins, and large-scale stores with priority support.</p>
+      </details>
+      <details class="faq-item reveal rv2">
+        <summary class="faq-q">How fast will my WordPress site load?<span class="faq-plus">+</span></summary>
+        <p class="faq-a">We target 90+ Google PageSpeed scores on every build through optimised images, efficient caching (WP Rocket), clean code, and CDN delivery via Cloudflare. Our average across delivered WordPress sites is 98/100.</p>
+      </details>
+    </div>
+    <div class="faq-cta reveal">
+      <p>Have more questions?</p>
+      <a href="/faq.html" class="btn btn-outline">View All FAQs →</a>
+      <a href="/contact.html" class="btn btn-accent">Ask Us Directly →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FINAL CTA ═══════════════════ -->
+<section class="cta-sec" aria-labelledby="ctaH">
+  <div class="cta-bg"></div>
+  <div class="cta-glow"></div>
+  <div class="cta-grid-lines"></div>
+  <div class="cta-shape cs1"></div>
+  <div class="cta-shape cs2"></div>
+  <div class="cta-card container reveal">
+    <div class="cta-card-inner">
+    <div class="cta-inner">
+    <div class="cta-label">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      Ready to Start?
+    </div>
+    <h2 id="ctaH">Let's Build Your<br/><span>WordPress Site</span></h2>
+    <p class="sub">Tell us about your project — we'll come back with a free consultation, clear scope, and a fixed-price quote within 24 hours.</p>
+    <div class="cta-btns">
+      <a href="/contact.html#quote" class="btn btn-accent btn-lg">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Get Your Free Quote
+      </a>
+      <a href="https://wa.me/923114005856" class="btn-wa btn-lg" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.999 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.852L.044 23.944a.5.5 0 00.613.613l6.17-1.515A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 11.999 0zm0 21.818a9.812 9.812 0 01-5.016-1.373l-.36-.214-3.724.915.946-3.637-.235-.374A9.818 9.818 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818 5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.819 9.818z"/></svg>
+        WhatsApp Us Now
+      </a>
+    </div>
+    <div class="cta-trust-row">
+      <div class="ctr-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Free consultation</div>
+      <div class="ctr-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Fixed-price quotes</div>
+      <div class="ctr-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Response within 24 hours</div>
+      <div class="ctr-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>No obligation</div>
+    </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="footer-top container">
+    <!-- Brand -->
+    <div class="ft-brand">
+      <div class="ft-logo">
+        <img src="/assets/images/webdone-logo.png" alt="WebDone Co." height="32"/>
+      </div>
+      <p class="ft-tagline">We Build Websites That Work</p>
+      <p class="ft-desc">Premium digital agency serving clients worldwide — from Dubai to London, New York to Singapore.</p>
+      <div class="ft-socials">
+        <a href="https://linkedin.com/company/webdoneco" target="_blank" rel="noopener" class="ft-soc" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://facebook.com/webdoneco" target="_blank" rel="noopener" class="ft-soc" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://instagram.com/webdoneco" target="_blank" rel="noopener" class="ft-soc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://twitter.com/webdoneco" target="_blank" rel="noopener" class="ft-soc" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://threads.net/@webdoneco" target="_blank" rel="noopener" class="ft-soc" aria-label="Threads"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.474 12.01v-.017c.027-3.579.876-6.43 2.523-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-.505-1.808-1.427-3.23-2.739-4.232-1.39-1.072-3.27-1.62-5.578-1.634-2.96.024-5.222.888-6.72 2.568-1.464 1.64-2.206 4.05-2.229 7.176.023 3.126.765 5.536 2.229 7.176 1.497 1.68 3.758 2.544 6.72 2.568 1.834-.018 3.399-.385 4.655-1.093.967-.55 1.734-1.308 2.282-2.254.547-.946.832-2.097.847-3.42v-.036l-.008-.022c-.485-.46-1.132-.763-1.921-.9-1.06-.186-1.964-.07-2.692.346-.684.39-1.057 1.025-1.11 1.887l-.018.208H9.41v-.2c-.008-1.26.341-2.224 1.038-2.866.72-.663 1.762-1.048 3.099-1.143l.278-.015c.916-.04 1.83.072 2.715.334.934.276 1.745.726 2.412 1.34.702.646 1.17 1.47 1.391 2.448.118.522.178 1.08.178 1.658 0 1.67-.403 3.14-1.198 4.373-.796 1.23-1.948 2.197-3.423 2.876-1.395.644-3.025.965-4.846.965z"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Services — 5 links each col -->
+    <div class="ft-col">
+      <p class="ft-col-title">Web Dev</p>
+      <ul class="ft-links">
+        <li><a href="/web-development.html">All Web Services</a></li>
+        <li><a href="/wordpress-development.html">WordPress</a></li>
+        <li><a href="/shopify-development.html">Shopify</a></li>
+        <li><a href="/wix-development.html">Wix</a></li>
+        <li><a href="/custom-development.html">Custom Dev</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <p class="ft-col-title">Solutions</p>
+      <ul class="ft-links">
+        <li><a href="/seo-services.html">SEO Services</a></li>
+        <li><a href="/crm-solutions.html">CRM Solutions</a></li>
+        <li><a href="/pos-software.html">POS Software</a></li>
+        <li><a href="/online-tools.html">Online Tools</a></li>
+        <li><a href="/services.html">All Services</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <p class="ft-col-title">Company</p>
+      <ul class="ft-links">
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/portfolio.html">Portfolio</a></li>
+        <li><a href="/testimonials.html">Testimonials</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li><a href="/careers.html">Careers</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="ft-col">
+      <p class="ft-col-title">Get In Touch</p>
+      <ul class="ft-contact-list">
+        <li class="ft-ci">
+          <div class="ft-ci-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg></div>
+          <a href="https://webdoneco.com" target="_blank" rel="noopener">webdoneco.com</a>
+        </li>
+        <li class="ft-ci">
+          <div class="ft-ci-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <a href="mailto:hello@webdoneco.com">hello@webdoneco.com</a>
+        </li>
+        <li class="ft-ci">
+          <div class="ft-ci-ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+          <a href="https://wa.me/923114005856" target="_blank" rel="noopener">+92 311 4005856</a>
+        </li>
+        <li class="ft-ci">
+          <div class="ft-ci-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <span>Pakistan · UK · UAE · Worldwide</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner container">
+      <p>&copy; <span id="footerYear"></span> <span>WebDone Co.</span> All rights reserved.</p>
+      <div class="ft-legal">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Footer year
+document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+// Sticky nav
+const hdr = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 20), {passive:true});
+
+// Hamburger
+const ham = document.getElementById('hamburger');
+const mob = document.getElementById('mobileMenu');
+ham.addEventListener('click', () => {
+  const o = ham.classList.toggle('open');
+  ham.setAttribute('aria-expanded', o);
+  mob.classList.toggle('open', o);
+  mob.setAttribute('aria-hidden', !o);
+  document.body.style.overflow = o ? 'hidden' : '';
+});
+
+// Reveal on scroll
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); ro.unobserve(e.target); } });
+}, {threshold:0.08, rootMargin:'0px 0px -32px 0px'});
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+// Active nav highlight (Services is marked active server-side for this page)
+const pg = location.pathname.split('/').pop() || 'index.html';
+document.querySelectorAll('.nav-links a').forEach(a => {
+  const href = a.getAttribute('href') || '';
+  const hrefPage = href.startsWith('#') ? '' : (new URL(href, location.origin).pathname.split('/').pop() || 'index.html');
+  if(hrefPage === pg) a.closest('.nav-item')?.classList.add('active');
+});
+</script>
+</body>
+</html>
