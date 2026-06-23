@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>Shopify Development Services — Custom Themes &amp; Stores | WebDone Co.</title>
+  <!--#include favicon-->
+  <meta name="description" content="Professional Shopify store development: custom themes, app integration, product optimization, and conversion-focused design. Fast, secure, high-converting Shopify stores built by WebDone Co."/>
+  <meta name="keywords" content="Shopify development, Shopify theme design, custom Shopify stores, Shopify app integration, Shopify optimization, Shopify agency, WebDone Co"/>
+  <meta name="author" content="WebDone Co."/>
+  <link rel="canonical" href="https://webdoneco.com/shopify-development.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://webdoneco.com/shopify-development.html"/>
+  <meta property="og:title" content="Shopify Development Services — WebDone Co."/>
+  <meta property="og:description" content="Custom Shopify themes, app integration, and conversion optimization — built for growth. Delivered worldwide."/>
+  <meta property="og:image" content="https://webdoneco.com/assets/og-image.jpg"/>
+  <meta property="og:site_name" content="WebDone Co."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@webdoneco"/>
+  <meta name="twitter:title" content="Shopify Development Services — WebDone Co."/>
+  <meta name="twitter:description" content="Custom Shopify themes, app integration, and conversion optimization — built for growth."/>
+  <meta name="twitter:image" content="https://webdoneco.com/assets/og-image.jpg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"WebDone Co.","url":"https://webdoneco.com","logo":"https://webdoneco.com/assets/logo.svg","contactPoint":[{"@type":"ContactPoint","telephone":"+92-311-4005856","contactType":"customer service","areaServed":["PK","GB","AE","US"],"availableLanguage":["English","Urdu"]}],"sameAs":["https://linkedin.com/company/webdoneco","https://facebook.com/webdoneco","https://instagram.com/webdoneco","https://twitter.com/webdoneco"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://webdoneco.com/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://webdoneco.com/services.html"},{"@type":"ListItem","position":3,"name":"Web Development","item":"https://webdoneco.com/web-development.html"},{"@type":"ListItem","position":4,"name":"Shopify Development","item":"https://webdoneco.com/shopify-development.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Shopify Development","provider":{"@type":"Organization","name":"WebDone Co."},"areaServed":"Worldwide","description":"Custom Shopify theme development, app integration, product optimization, and conversion-focused store design."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does a custom Shopify store cost?","acceptedAnswer":{"@type":"Answer","text":"Shopify store development typically starts from $799 for a custom theme and basic setup, scaling up based on app integrations, product catalog size, and custom features. Every quote is fixed-price and agreed upfront."}},{"@type":"Question","name":"Do you offer Shopify Plus development?","acceptedAnswer":{"@type":"Answer","text":"Yes, we have experience with both standard Shopify and Shopify Plus. For large-scale enterprise stores, we can discuss custom pricing and dedicated project management."}}]}</script>
+
+<style>
+/* ═══════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════ */
+:root{
+  --bg:#0A0F1E;--card:#111827;--surface:#1C2333;
+  --accent:#FF6B35;--accent-h:#FF8C5A;--accent-dim:rgba(255,107,53,.12);
+  --white:#FFFFFF;--muted:#A0AEC0;--border:#2D3748;
+  --font-h:'DM Sans',sans-serif;--font-b:'Inter',sans-serif;
+  --r:12px;--r-lg:20px;
+  --shadow:0 4px 24px rgba(0,0,0,.45);
+  --shadow-lg:0 12px 48px rgba(0,0,0,.6);
+  --ease:.25s cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+body{background:var(--bg);color:var(--white);font-family:var(--font-b);line-height:1.65;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{cursor:pointer;border:none;background:none;font:inherit}
+input,textarea,select{font:inherit}
+
+.container{width:min(1240px,100% - 2.5rem);margin-inline:auto}
+.section-pad{padding-block:clamp(4.5rem,9vw,7.5rem)}
+
+/* ═══════════════════════════════════════════════
+   CUSTOM SVG ICON SYSTEM
+═══════════════════════════════════════════════ */
+.ico{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.ico svg{width:1em;height:1em}
+
+/* ═══════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════ */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:var(--r);font-family:var(--font-h);font-weight:600;font-size:.95rem;transition:all var(--ease);cursor:pointer;border:none;white-space:nowrap}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{background:var(--accent-h);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,53,.4)}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid var(--border)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.07);color:var(--white);backdrop-filter:blur(8px)}
+.btn-ghost:hover{background:rgba(255,255,255,.14)}
+.btn-wa{display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;padding:.75rem 1.5rem;border-radius:var(--r);font-family:var(--font-h);font-weight:600;font-size:.95rem;transition:all var(--ease);border:none;cursor:pointer;white-space:nowrap}
+.btn-wa:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.35)}
+.btn-sm{padding:.5rem 1rem;font-size:.82rem}
+.btn-lg{padding:1rem 2rem;font-size:1.05rem}
+
+/* ═══════════════════════════════════════════════
+   LABELS & TITLES
+═══════════════════════════════════════════════ */
+.label{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent-dim);border:1px solid rgba(255,107,53,.25);color:var(--accent);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:100px;margin-bottom:1rem}
+.label.shop{background:var(--accent-dim);border-color:rgba(255,107,53,.25);color:var(--accent)}
+.section-title{font-family:var(--font-h);font-size:clamp(1.85rem,3.5vw,2.8rem);font-weight:800;line-height:1.15;letter-spacing:-.025em}
+.section-title span{color:var(--accent)}
+.section-sub{color:var(--muted);font-size:1.05rem;max-width:58ch;margin-top:.75rem;line-height:1.7}
+.t-center{text-align:center}
+.t-center .section-sub{margin-inline:auto}
+
+/* ═══════════════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+.rv1{transition-delay:.08s}.rv2{transition-delay:.16s}.rv3{transition-delay:.24s}.rv4{transition-delay:.32s}
+
+/* ═══════════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════════ */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:900;transition:background var(--ease),box-shadow var(--ease)}
+.site-header::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),rgba(99,102,241,.8),var(--accent),transparent);opacity:0;transition:opacity var(--ease)}
+.site-header.scrolled::before{opacity:1}
+.site-header.scrolled{background:rgba(10,15,30,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border),0 4px 24px rgba(0,0,0,.3)}
+.nav-wrap{display:flex;align-items:center;height:72px;gap:.5rem}
+/* Logo using actual uploaded image */
+.nav-logo{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+.nav-logo img{height:38px;width:auto}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1}
+.nav-logo-name{font-family:var(--font-h);font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
+.nav-logo-name strong{color:var(--white)}
+.nav-logo-name span{color:var(--accent)}
+
+.nav-links{display:flex;align-items:center;gap:.1rem;margin-left:auto}
+.nav-link{display:flex;align-items:center;gap:.3rem;padding:.45rem .8rem;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--muted);transition:color var(--ease),background var(--ease);white-space:nowrap;cursor:pointer;border:none;background:none;font-family:var(--font-b)}
+.nav-link:hover,.nav-item.active .nav-link{color:var(--white);background:rgba(255,255,255,.06)}
+.nav-chevron{transition:transform var(--ease);flex-shrink:0}
+.has-dd:hover .nav-chevron{transform:rotate(180deg)}
+
+/* Mega dropdown */
+.has-dd{position:relative}
+/* invisible bridge so cursor moving from trigger to menu never breaks hover */
+.has-dd::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);width:800px;height:14px;z-index:199}
+.dd-menu{position:absolute;top:calc(100% + .6rem);left:50%;transform:translateX(-50%) translateY(-8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);width:800px;z-index:200}
+.has-dd:hover .dd-menu,.has-dd:focus-within .dd-menu{opacity:1;visibility:visible;pointer-events:all;transform:translateX(-50%) translateY(0);transition-delay:0s}
+.dd-inner{display:grid;grid-template-columns:1fr 1fr 250px}
+.dd-col{padding:1.5rem}
+.dd-col+.dd-col{border-left:1px solid var(--border)}
+.dd-section-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;padding:0 .5rem;display:flex;align-items:center;gap:.5rem}
+.dd-section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.dd-item{display:flex;align-items:flex-start;gap:.85rem;padding:.6rem .65rem;border-radius:10px;transition:background var(--ease),transform var(--ease);margin-bottom:.05rem;cursor:pointer}
+.dd-item:hover{background:rgba(255,107,53,.07);transform:translateX(2px)}
+.dd-item-ico{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;flex-shrink:0;background:rgba(255,107,53,.1);transition:background var(--ease)}
+.dd-item:hover .dd-item-ico{background:rgba(255,107,53,.18)}
+.dd-item-ico svg{width:17px;height:17px;stroke:var(--accent);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.dd-item strong{display:block;font-size:.875rem;font-weight:600;color:var(--white);line-height:1.3}
+.dd-item small{display:block;font-size:.76rem;color:var(--muted);line-height:1.35;margin-top:.1rem}
+/* CTA col in dropdown */
+.dd-cta-col{display:flex;align-items:stretch;padding:1.5rem}
+.dd-cta-box{background:linear-gradient(160deg,rgba(255,107,53,.14),rgba(99,102,241,.06));border:1px solid rgba(255,107,53,.22);border-radius:var(--r-lg);padding:1.35rem;display:flex;flex-direction:column;gap:.85rem;width:100%;position:relative;overflow:hidden}
+.dd-cta-box::before{content:'';position:absolute;top:-30px;right:-30px;width:90px;height:90px;border-radius:50%;background:rgba(255,107,53,.18);filter:blur(20px)}
+.dd-cta-ico{width:38px;height:38px;border-radius:10px;background:rgba(255,107,53,.18);display:grid;place-items:center;position:relative;z-index:1}
+.dd-cta-ico svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.dd-cta-title{font-family:var(--font-h);font-weight:800;font-size:1rem;line-height:1.3;position:relative;z-index:1}
+.dd-cta-sub{font-size:.8rem;color:var(--muted);line-height:1.6;flex:1;position:relative;z-index:1}
+.dd-cta-btn{display:flex;align-items:center;justify-content:center;gap:.6rem;background:var(--accent);color:#fff;padding:.85rem 1rem;border-radius:var(--r);font-family:var(--font-h);font-weight:700;font-size:.85rem;line-height:1.3;transition:all var(--ease);border:none;cursor:pointer;position:relative;z-index:1;text-align:center}
+.dd-cta-btn span{white-space:nowrap}
+.dd-cta-btn:hover{background:var(--accent-h);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,53,.4)}
+.dd-cta-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;transition:transform var(--ease)}
+.dd-cta-btn:hover svg{transform:translateX(3px)}
+
+/* Nav CTA — distinctive gradient-bordered premium button */
+.nav-cta{
+  margin-left:1rem;flex-shrink:0;position:relative;overflow:hidden;isolation:isolate;
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent-h) 50%,#FFB199 100%);
+  padding:.7rem 1.35rem;border-radius:10px;
+  box-shadow:0 4px 18px rgba(255,107,53,.35),inset 0 1px 0 rgba(255,255,255,.25);
+}
+.nav-cta::before{
+  content:'';position:absolute;top:0;left:-60%;width:50%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:skewX(-20deg);z-index:1;
+  animation:navShine 3.2s ease-in-out infinite;
+}
+@keyframes navShine{
+  0%{left:-60%}
+  35%{left:130%}
+  100%{left:130%}
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(255,107,53,.45),inset 0 1px 0 rgba(255,255,255,.3);background:linear-gradient(135deg,var(--accent) 0%,var(--accent-h) 50%,#FFB199 100%)}
+.nav-cta span{position:relative;z-index:2;display:flex;align-items:center;gap:.45rem;color:#fff}
+.nav-cta svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform var(--ease);position:relative;z-index:2}
+.nav-cta:hover svg{transform:translateX(3px) rotate(-45deg)}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:6px;margin-left:auto}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all var(--ease)}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;background:rgba(10,15,30,.98);backdrop-filter:blur(16px);border-top:1px solid var(--border);padding:1.25rem;max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}
+.mobile-menu.open{max-height:90vh;overflow-y:auto}
+.mob-link{display:block;padding:.75rem 1rem;font-weight:500;font-size:.95rem;border-radius:8px;color:var(--muted);transition:all var(--ease)}
+.mob-link:hover{color:var(--white);background:rgba(255,255,255,.06)}
+.mob-dd summary{list-style:none}
+.mob-dd summary::-webkit-details-marker{display:none}
+.mob-dd-items{padding-left:1.5rem;display:flex;flex-direction:column;gap:.1rem;margin-top:.25rem}
+.mob-dd-items a{display:block;padding:.45rem .75rem;font-size:.875rem;color:var(--muted);border-radius:6px;transition:all var(--ease)}
+.mob-dd-items a:hover{color:var(--white);background:rgba(255,255,255,.05)}
+
+/* ═══════════════════════════════════════════════
+   SHOPIFY HERO SECTION
+═══════════════════════════════════════════════ */
+.shop-hero{background:var(--bg);position:relative;padding-top:calc(72px + clamp(3rem,7vw,5rem));padding-bottom:clamp(3rem,6vw,4.5rem);overflow:hidden;display:flex;flex-direction:column}
+.shop-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% -5%,rgba(255,107,53,.14) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 85% 65%,rgba(255,107,53,.08) 0%,transparent 60%);pointer-events:none}
+.shop-hero-breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--muted);margin-bottom:1.5rem;flex-wrap:wrap}
+.shop-hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr 1fr;gap:3.5rem;align-items:center}
+.shop-hero-content{padding:0 var(--pad-x,1.25rem)}
+.shop-hero-content h1{font-size:clamp(2.2rem,4vw,3.4rem);font-family:var(--font-h);font-weight:800;line-height:1.1;margin-bottom:1.2rem;letter-spacing:-.025em}
+.shop-hero-content > p{font-size:1.1rem;color:var(--muted);max-width:50ch;margin-bottom:2rem;line-height:1.75}
+.shop-hero-btns{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.shop-hero-stats{display:flex;gap:2.5rem;flex-wrap:wrap}
+.shs-item{display:flex;flex-direction:column}
+.shs-num{font-size:1.8rem;font-family:var(--font-h);font-weight:800;color:var(--accent)}
+.shs-lbl{font-size:.85rem;color:var(--muted);margin-top:.25rem}
+.shop-hero-visual{display:flex;align-items:center;justify-content:center;position:relative}
+
+/* ═══════════════════════════════════════════════
+   SHOPIFY DASHBOARD MOCKUP
+═══════════════════════════════════════════════ */
+.shop-mock{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);width:100%;aspect-ratio:16/10;display:flex;flex-direction:column}
+.shop-mock-head{background:var(--surface);border-bottom:1px solid var(--border);padding:.75rem 1.5rem;display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--muted)}
+.shop-mock-dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.shop-mock-dot.r{background:#FF5F56}.shop-mock-dot.y{background:#FFBD2E}.shop-mock-dot.g{background:#27C93F}
+.shop-mock-url{flex:1;text-align:center}
+.shop-mock-body{display:flex;flex:1;overflow:hidden}
+.shop-mock-sidebar{width:200px;background:var(--bg);border-right:1px solid var(--border);padding:1rem;display:flex;flex-direction:column;gap:.5rem}
+.shop-mock-side-item{padding:.5rem .75rem;border-radius:var(--r);font-size:.8rem;color:var(--muted);cursor:pointer;transition:all var(--ease);display:flex;align-items:center;gap:.75rem}
+.shop-mock-side-item svg{width:16px;height:16px}
+.shop-mock-side-item.active{background:rgba(255,107,53,.2);color:var(--accent)}
+.shop-mock-main{flex:1;padding:1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;overflow:hidden}
+.shop-mock-stat{display:flex;flex-direction:column;gap:.25rem}
+.shop-mock-stat-lbl{font-size:.7rem;color:var(--muted);text-transform:uppercase}
+.shop-mock-stat-val{font-size:1.2rem;font-weight:700;font-family:var(--font-h);color:var(--white)}
+.shop-mock-product-row{display:flex;align-items:center;gap:1rem;padding:.75rem;background:rgba(255,107,53,.08);border-radius:var(--r);font-size:.8rem}
+.shop-mock-product-thumb{width:40px;height:40px;background:rgba(255,107,53,.3);border-radius:var(--r);flex-shrink:0}
+.shop-mock-product-title{flex:1;color:var(--white)}
+.shop-mock-product-status{font-size:.7rem;padding:.25rem .6rem;border-radius:4px;background:rgba(16,185,129,.2);color:#10B981}
+
+/* ═══════════════════════════════════════════════
+   STATS STRIP
+═══════════════════════════════════════════════ */
+.shop-stats-strip{background:var(--card);padding:2.5rem var(--pad-x,1.25rem)}
+.shop-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+.shop-stat-card{display:flex;flex-direction:column;gap:.5rem}
+.shop-stat-num{font-size:2.4rem;font-family:var(--font-h);font-weight:800;line-height:1;color:var(--white)}
+.shop-stat-num span{font-size:1.4rem;color:var(--accent)}
+.shop-stat-lbl{font-size:.95rem;color:var(--muted)}
+
+/* ═══════════════════════════════════════════════
+   WHY SHOPIFY
+═══════════════════════════════════════════════ */
+.why-shop-sec{background:var(--surface);padding:var(--section-pad,clamp(4.5rem,9vw,7.5rem)) var(--pad-x,1.25rem)}
+.why-shop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
+.why-shop-card{background:var(--card);padding:2rem;border-radius:var(--r-lg);border:1px solid var(--border);transition:all var(--ease)}
+.why-shop-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 16px 32px rgba(255,107,53,.15)}
+.why-shop-ico{width:52px;height:52px;background:rgba(255,107,53,.15);border-radius:var(--r);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem}
+.why-shop-ico svg{width:28px;height:28px;stroke:var(--accent);stroke-width:1.8;fill:none}
+.why-shop-card h3{font-family:var(--font-h);font-size:1.15rem;font-weight:700;margin-bottom:.5rem;color:var(--white)}
+.why-shop-card p{color:var(--muted);font-size:.95rem;line-height:1.65}
+
+/* ═══════════════════════════════════════════════
+   BUILD TYPES
+═══════════════════════════════════════════════ */
+.build-sec{background:var(--bg);padding:var(--section-pad,clamp(4.5rem,9vw,7.5rem)) var(--pad-x,1.25rem)}
+.build-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
+.build-card{background:var(--card);padding:2rem;border-radius:var(--r-lg);border:1px solid var(--border);transition:all var(--ease);display:flex;flex-direction:column}
+.build-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.build-card-top{flex:1;margin-bottom:1.5rem}
+.build-ico{width:56px;height:56px;background:rgba(255,107,53,.15);border-radius:var(--r);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem}
+.build-ico svg{width:32px;height:32px;stroke:var(--accent);stroke-width:1.5;fill:none}
+.build-card h3{font-family:var(--font-h);font-size:1.15rem;font-weight:700;margin-bottom:.5rem;color:var(--white)}
+.build-card p{color:var(--muted);font-size:.95rem;line-height:1.65}
+.build-tags{display:flex;gap:.75rem;flex-wrap:wrap}
+.build-tag{display:inline-flex;background:rgba(255,107,53,.12);border:1px solid rgba(255,107,53,.25);color:var(--accent);font-size:.75rem;font-weight:600;padding:.4rem .9rem;border-radius:100px}
+
+/* ═══════════════════════════════════════════════
+   PRICING
+═══════════════════════════════════════════════ */
+.pricing-sec{background:var(--surface);padding:var(--section-pad,clamp(4.5rem,9vw,7.5rem)) var(--pad-x,1.25rem)}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:3rem}
+.price-card{background:var(--card);padding:2rem;border-radius:var(--r-lg);border:1px solid var(--border);display:flex;flex-direction:column;transition:all var(--ease);position:relative}
+.price-card.popular{border-color:var(--accent);transform:scale(1.03)}
+.price-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.price-popular-tag{position:absolute;top:-12px;left:20px;background:var(--accent);color:#fff;font-family:var(--font-h);font-size:.75rem;font-weight:700;padding:.4rem 1rem;border-radius:100px;text-transform:uppercase;letter-spacing:.05em}
+.price-name{font-family:var(--font-h);font-size:1.25rem;font-weight:700;color:var(--white);margin-bottom:.5rem}
+.price-desc{color:var(--muted);font-size:.95rem;margin-bottom:1.5rem;line-height:1.6}
+.price-amount{display:flex;align-items:baseline;gap:.25rem;margin:1.5rem 0}
+.price-currency{font-size:1.2rem;color:var(--accent)}
+.price-num{font-size:2.6rem;font-family:var(--font-h);font-weight:800;color:var(--white)}
+.price-period{font-size:.85rem;color:var(--muted);margin-left:.5rem}
+.price-features{display:flex;flex-direction:column;gap:.75rem;margin:2rem 0;flex:1}
+.price-feature{display:flex;align-items:flex-start;gap:.75rem;color:var(--muted);font-size:.9rem;line-height:1.5}
+.price-feature svg{width:20px;height:20px;stroke:var(--accent);stroke-width:2;fill:none;margin-top:.1rem;flex-shrink:0}
+.price-feature.muted{color:var(--muted);opacity:.5}
+.price-feature.muted svg{stroke:var(--muted)}
+.price-card .btn{width:100%;justify-content:center}
+
+/* ═══════════════════════════════════════════════
+   PROCESS
+═══════════════════════════════════════════════ */
+.process-sec{background:var(--bg);padding:var(--section-pad,clamp(4.5rem,9vw,7.5rem)) var(--pad-x,1.25rem)}
+.process-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2rem;margin-top:3rem}
+.ps{text-align:center;display:flex;flex-direction:column;align-items:center}
+.ps-bubble{position:relative;width:80px;height:80px;background:rgba(255,107,53,.15);border:2px solid rgba(255,107,53,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;margin-inline:auto}
+.ps-bubble svg{width:40px;height:40px;stroke:var(--accent);stroke-width:1.5;fill:none}
+.ps-num{position:absolute;bottom:-8px;right:-8px;background:var(--accent);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-h);font-weight:700;font-size:.95rem}
+.ps h3{font-family:var(--font-h);font-size:1rem;font-weight:700;margin-bottom:.5rem;color:var(--white)}
+.ps p{color:var(--muted);font-size:.9rem;line-height:1.6}
+
+/* ═══════════════════════════════════════════════
+   CTA SECTION
+═══════════════════════════════════════════════ */
+.cta-sec{background:var(--surface);padding:4rem var(--pad-x,1.25rem);text-align:center}
+.cta-sec h2{font-family:var(--font-h);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;margin-bottom:1rem}
+.cta-sec p{color:var(--muted);font-size:1.05rem;max-width:60ch;margin:0 auto 2rem;line-height:1.7}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media(max-width:768px){
+  .shop-hero-inner{grid-template-columns:1fr;gap:2rem}
+  .shop-hero-visual{min-height:300px}
+  .shop-mock{aspect-ratio:auto;min-height:300px}
+  .pricing-grid{grid-template-columns:1fr}
+  .price-card.popular{transform:scale(1)}
+  .process-row{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}
+}
+
+/* ═══════════════════════════════════════════════
+   FOOTER — premium redesign
+═══════════════════════════════════════════════ */
+.site-footer{background:var(--card);border-top:1px solid var(--border)}
+.footer-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1.4fr;gap:2.5rem;padding-block:4.5rem}
+.ft-brand{}
+.ft-logo{display:flex;align-items:center;gap:.6rem;margin-bottom:.85rem}
+.ft-logo img{height:34px;width:auto}
+.ft-tagline{font-family:var(--font-h);font-weight:700;color:var(--accent);font-size:.875rem;margin-bottom:.75rem}
+.ft-desc{font-size:.81rem;color:var(--muted);line-height:1.7;max-width:28ch}
+.ft-socials{display:flex;gap:.5rem;margin-top:1.25rem}
+.ft-soc{width:36px;height:36px;border-radius:8px;background:var(--surface);border:1px solid var(--border);display:grid;place-items:center;transition:all var(--ease)}
+.ft-soc svg{width:16px;height:16px;stroke:var(--muted);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;transition:stroke var(--ease)}
+.ft-soc:hover{border-color:var(--accent);transform:translateY(-2px)}
+.ft-soc:hover svg{stroke:var(--accent)}
+.ft-col-title{font-family:var(--font-h);font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem}
+.ft-col-title::after{content:'';flex:1;height:1px;background:rgba(255,107,53,.15)}
+.ft-links{display:flex;flex-direction:column;gap:.55rem}
+.ft-links a{font-size:.845rem;color:var(--muted);transition:color var(--ease);display:flex;align-items:center;gap:.4rem}
+.ft-links a:hover{color:var(--white)}
+.ft-contact-list{display:flex;flex-direction:column;gap:.75rem}
+.ft-ci{display:flex;align-items:flex-start;gap:.75rem;font-size:.83rem;color:var(--muted)}
+.ft-ci-ico{width:30px;height:30px;border-radius:8px;background:rgba(255,107,53,.1);display:grid;place-items:center;flex-shrink:0;margin-top:.05rem}
+.ft-ci-ico svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.ft-ci a{color:var(--muted);transition:color var(--ease);line-height:1.5}
+.ft-ci a:hover{color:var(--accent)}
+.ft-ci span{line-height:1.5}
+.footer-bottom{border-top:1px solid var(--border);padding-block:1.35rem}
+.footer-bottom-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}
+.footer-bottom p{font-size:.78rem;color:var(--muted)}
+.footer-bottom p span{color:var(--accent)}
+.ft-legal{display:flex;gap:1.5rem;flex-wrap:wrap}
+.ft-legal a{font-size:.78rem;color:var(--muted);transition:color var(--ease)}
+.ft-legal a:hover{color:var(--white)}
+
+/* ═══════════════════════════════════════════════
+   MODAL
+═══════════════════════════════════════════════ */
+.modal-bg{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.75);backdrop-filter:blur(10px);align-items:center;justify-content:center}
+.modal-bg.open{display:flex}
+.modal-box{background:var(--card);border:1px solid rgba(99,102,241,.3);border-radius:var(--r-lg);padding:2.5rem;max-width:460px;width:calc(100% - 2rem);position:relative;box-shadow:0 32px 80px rgba(0,0,0,.7);animation:modalIn .3s ease both}
+@keyframes modalIn{from{opacity:0;transform:scale(.95) translateY(20px)}to{opacity:1;transform:none}}
+.modal-close{position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.06);border:none;color:var(--muted);font-size:1.2rem;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;cursor:pointer;transition:all var(--ease)}
+.modal-close:hover{background:rgba(255,255,255,.12);color:var(--white)}
+.modal-ico{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,rgba(255,107,53,.2),rgba(99,102,241,.2));display:grid;place-items:center;margin:0 auto 1rem;font-size:1.6rem}
+.modal-ico svg{width:26px;height:26px;stroke:var(--accent);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.modal-box h3{font-family:var(--font-h);font-size:1.4rem;font-weight:800;text-align:center;margin-bottom:.5rem}
+.modal-box .modal-sub{text-align:center;font-size:.855rem;color:var(--muted);line-height:1.65;margin-bottom:1.75rem}
+.modal-field{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:.75rem 1rem;color:var(--white);font-size:.9rem;width:100%;outline:none;transition:border-color var(--ease);margin-bottom:.65rem}
+.modal-field:focus{border-color:var(--accent)}
+.modal-field::placeholder{color:var(--muted)}
+.modal-note{text-align:center;font-size:.73rem;color:var(--muted);margin-top:.75rem}
+
+
+/* ═══════════════════════════════════════════════
+   SHOPIFY PAGE RESPONSIVE HELPERS
+═══════════════════════════════════════════════ */
+@media(max-width:1100px){
+  .footer-top{grid-template-columns:1fr 1fr 1fr;gap:2rem}
+  .ft-brand{grid-column:span 3}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .mobile-menu{display:block}
+  .dd-menu{display:none}
+  .footer-top{grid-template-columns:1fr 1fr;gap:1.75rem}
+  .ft-brand{grid-column:span 2}
+}
+@media(max-width:480px){
+  .footer-top{grid-template-columns:1fr}
+  .ft-brand{grid-column:span 1}
+}
+</style>
+</head>
+
+<body>
+<!--#include header-->
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="shop-hero" aria-label="Shopify development hero">
+  <div class="container">
+    <div class="shop-hero-breadcrumb reveal">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="flex-shrink:0"><path d="M9 18l6-6-6-6"/></svg>
+      <span class="current">Shopify Development</span>
+    </div>
+    <div class="shop-hero-inner">
+      <div class="shop-hero-content">
+        <span class="label shop reveal">Shopify Development</span>
+        <h1 id="shopHeroH" class="reveal rv1">High-Converting Shopify Stores <span>Built to Scale</span></h1>
+        <p class="reveal rv2">From boutique shops to enterprise stores with thousands of products — we build fast, conversion-focused Shopify stores with custom themes, app integrations, and optimization that drives sales.</p>
+        <div class="shop-hero-btns reveal rv3">
+          <a href="/contact.html#quote" class="btn btn-accent btn-lg">
+            Get a Free Quote
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#pricing" class="btn btn-outline btn-lg">View Pricing</a>
+        </div>
+        <div class="shop-hero-stats reveal rv4">
+          <div class="shs-item">
+            <div class="shs-num">50+</div>
+            <div class="shs-lbl">Shopify Stores Built</div>
+          </div>
+          <div class="shs-item">
+            <div class="shs-num">2–6wk</div>
+            <div class="shs-lbl">Typical Build Time</div>
+          </div>
+          <div class="shs-item">
+            <div class="shs-num">3.2%</div>
+            <div class="shs-lbl">Avg Conversion Rate</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="shop-hero-visual reveal rv2">
+        <div class="shop-mock">
+          <div class="shop-mock-head">
+            <span class="shop-mock-dot r"></span><span class="shop-mock-dot y"></span><span class="shop-mock-dot g"></span>
+            <div class="shop-mock-url">yourstore.myshopify.com/admin</div>
+          </div>
+          <div class="shop-mock-body">
+            <div class="shop-mock-sidebar">
+              <div class="shop-mock-side-item active">
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                Dashboard
+              </div>
+              <div class="shop-mock-side-item">
+                <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/></svg>
+                Products
+              </div>
+              <div class="shop-mock-side-item">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><path d="M12 1v6m0 6v6"/></svg>
+                Orders
+              </div>
+              <div class="shop-mock-side-item">
+                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                Customers
+              </div>
+              <div class="shop-mock-side-item">
+                <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/></svg>
+                Analytics
+              </div>
+            </div>
+            <div class="shop-mock-main">
+              <div class="shop-mock-stat">
+                <div class="shop-mock-stat-lbl">Total Sales</div>
+                <div class="shop-mock-stat-val">$47,320</div>
+              </div>
+              <div class="shop-mock-stat">
+                <div class="shop-mock-stat-lbl">Visitors Today</div>
+                <div class="shop-mock-stat-val">1,284</div>
+              </div>
+              <div class="shop-mock-product-row">
+                <div class="shop-mock-product-thumb"></div>
+                <span class="shop-mock-product-title">Premium Handbag — 5 in stock</span>
+                <span class="shop-mock-product-status">Active</span>
+              </div>
+              <div class="shop-mock-product-row">
+                <div class="shop-mock-product-thumb"></div>
+                <span class="shop-mock-product-title">Leather Boots — 12 in stock</span>
+                <span class="shop-mock-product-status">Active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ STATS STRIP ═══════════════════ -->
+<section class="shop-stats-strip" aria-label="Shopify development stats">
+  <div class="container reveal">
+    <div class="shop-stats-grid">
+      <div class="shop-stat-card">
+        <div class="shop-stat-num">28<span>%</span></div>
+        <div class="shop-stat-lbl">Of online stores use Shopify</div>
+      </div>
+      <div class="shop-stat-card">
+        <div class="shop-stat-num">50<span>+</span></div>
+        <div class="shop-stat-lbl">Custom Shopify stores launched</div>
+      </div>
+      <div class="shop-stat-card">
+        <div class="shop-stat-num">30<span>d</span></div>
+        <div class="shop-stat-lbl">Free post-launch support</div>
+      </div>
+      <div class="shop-stat-card">
+        <div class="shop-stat-num">$799<span>+</span></div>
+        <div class="shop-stat-lbl">Starting fixed-price quote</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ WHY SHOPIFY ═══════════════════ -->
+<section class="why-shop-sec section-pad" aria-labelledby="whyShopH">
+  <div class="container">
+    <div class="t-center reveal">
+      <span class="label shop">Why Shopify</span>
+      <h2 class="section-title" id="whyShopH">The Go-To Platform for <span>E-Commerce</span></h2>
+      <p class="section-sub">Shopify powers millions of stores worldwide. Here's why it's the perfect fit for merchants serious about growth.</p>
+    </div>
+    <div class="why-shop-grid">
+      <div class="why-shop-card reveal rv1">
+        <div class="why-shop-ico"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Easy to Manage</h3>
+        <p>Intuitive admin panel. Add products, manage inventory, process orders — no coding required. Non-technical teams thrive.</p>
+      </div>
+      <div class="why-shop-card reveal rv2">
+        <div class="why-shop-ico"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></div>
+        <h3>Payment Ready</h3>
+        <p>100+ built-in payment gateways. Stripe, PayPal, Apple Pay, Google Pay — customers pay however they prefer.</p>
+      </div>
+      <div class="why-shop-card reveal rv3">
+        <div class="why-shop-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h3>Built-In SEO</h3>
+        <p>Automatic sitemaps, clean URLs, mobile-first indexing, and schema markup — out of the box SEO that works.</p>
+      </div>
+      <div class="why-shop-card reveal rv1">
+        <div class="why-shop-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg></div>
+        <h3>App Ecosystem</h3>
+        <p>3,000+ apps for marketing, shipping, analytics, upsells, and more. Scale without rebuilding from scratch.</p>
+      </div>
+      <div class="why-shop-card reveal rv2">
+        <div class="why-shop-ico"><svg viewBox="0 0 24 24"><path d="M12 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 10 15.5 10 14 10.67 14 11.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 10 8.5 10 7 10.67 7 11.5 7.67 13 8.5 13z"/></svg></div>
+        <h3>World-Class Support</h3>
+        <p>24/7 customer support via chat, email, and phone. Help when you need it — whether you're launching or scaling.</p>
+      </div>
+      <div class="why-shop-card reveal rv3">
+        <div class="why-shop-ico"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m7 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <h3>Scalable Growth</h3>
+        <p>From 10 products to 100,000+ — Shopify scales with your business. Plus, migrate to Shopify Plus for enterprise needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ WHAT WE BUILD ═══════════════════ -->
+<section class="build-sec section-pad" aria-labelledby="buildH">
+  <div class="container">
+    <div class="t-center reveal">
+      <span class="label shop">Project Types</span>
+      <h2 class="section-title" id="buildH">What We <span>Build on Shopify</span></h2>
+      <p class="section-sub">From solo dropshippers to multi-channel D2C brands — here's what we deliver.</p>
+    </div>
+    <div class="build-grid">
+
+      <div class="build-card reveal rv1">
+        <div class="build-card-top">
+          <div class="build-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <h3>High-Converting Storefronts</h3>
+          <p>Custom-designed shops that turn browsers into buyers. Mobile-optimized, fast-loading, with psychology-driven checkout flows.</p>
+        </div>
+        <div class="build-tags">
+          <span class="build-tag">Custom Theme</span>
+          <span class="build-tag">CRO Optimization</span>
+          <span class="build-tag">Mobile First</span>
+        </div>
+      </div>
+
+      <div class="build-card reveal rv2">
+        <div class="build-card-top">
+          <div class="build-ico"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></div>
+          <h3>Multi-Vendor Marketplaces</h3>
+          <p>Unified platform for multiple sellers. Commission tracking, vendor dashboards, and seamless fulfillment workflows.</p>
+        </div>
+        <div class="build-tags">
+          <span class="build-tag">Multi-Vendor Apps</span>
+          <span class="build-tag">Custom Logistics</span>
+          <span class="build-tag">Seller Portal</span>
+        </div>
+      </div>
+
+      <div class="build-card reveal rv3">
+        <div class="build-card-top">
+          <div class="build-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <h3>Subscription & Membership Stores</h3>
+          <p>Recurring revenue models. Auto-replenish boxes, tiered memberships, and flexible subscription management.</p>
+        </div>
+        <div class="build-tags">
+          <span class="build-tag">Subscription App</span>
+          <span class="build-tag">Recurring Billing</span>
+          <span class="build-tag">Member Portal</span>
+        </div>
+      </div>
+
+      <div class="build-card reveal rv1">
+        <div class="build-card-top">
+          <div class="build-ico"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg></div>
+          <h3>B2B & Wholesale Stores</h3>
+          <p>Customer-specific pricing, bulk ordering, and net-30 payment terms. Built for B2B sales velocity.</p>
+        </div>
+        <div class="build-tags">
+          <span class="build-tag">B2B App</span>
+          <span class="build-tag">Tiered Pricing</span>
+          <span class="build-tag">Account Management</span>
+        </div>
+      </div>
+
+      <div class="build-card reveal rv2">
+        <div class="build-card-top">
+          <div class="build-ico"><svg viewBox="0 0 24 24"><path d="M14.5 1H6a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 1z"/></svg></div>
+          <h3>Digital Product Stores</h3>
+          <p>Instant downloads, license keys, and access management. Perfect for e-books, templates, software, and courses.</p>
+        </div>
+        <div class="build-tags">
+          <span class="build-tag">Digital Downloads</span>
+          <span class="build-tag">License Keys</span>
+          <span class="build-tag">Access Control</span>
+        </div>
+      </div>
+
+      <div class="build-card reveal rv3">
+        <div class="build-card-top">
+          <div class="build-ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <h3>Omnichannel Stores</h3>
+          <p>Sell across Shopify, Instagram, Facebook, TikTok, and marketplaces. Unified inventory and order management.</p>
+        </div>
+        <div class="build-tags">
+          <span class="build-tag">Sales Channels</span>
+          <span class="build-tag">Social Selling</span>
+          <span class="build-tag">Marketplace Sync</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PRICING TIERS ═══════════════════ -->
+<section class="pricing-sec section-pad" id="pricing" aria-labelledby="pricingH">
+  <div class="container">
+    <div class="t-center reveal">
+      <span class="label shop">Pricing</span>
+      <h2 class="section-title" id="pricingH">Shopify Store <span>Packages</span></h2>
+      <p class="section-sub">Fixed-price packages for real projects. Custom builds with tailored quotes available on request.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="price-card reveal rv1">
+        <div class="price-name">Startup Store</div>
+        <p class="price-desc">Perfect for first-time online sellers and small product lines (up to 50 SKUs).</p>
+        <div class="price-amount">
+          <span class="price-currency">$</span>
+          <span class="price-num">799</span>
+          <span class="price-period">starting from</span>
+        </div>
+        <div class="price-features">
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Custom Shopify theme design</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Up to 50 products uploaded</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Payment gateway setup (Stripe/PayPal)</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Mobile-responsive design</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Basic email marketing setup</div>
+          <div class="price-feature muted"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>App integration beyond basics</div>
+        </div>
+        <a href="/contact.html#quote" class="btn btn-outline">Get Started →</a>
+      </div>
+
+      <div class="price-card popular reveal rv2">
+        <div class="price-popular-tag">Most Popular</div>
+        <div class="price-name">Growth Store</div>
+        <p class="price-desc">For established brands scaling up with custom features and advanced marketing.</p>
+        <div class="price-amount">
+          <span class="price-currency">$</span>
+          <span class="price-num">1,499</span>
+          <span class="price-period">starting from</span>
+        </div>
+        <div class="price-features">
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Fully custom theme design</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Up to 500 products with variants</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Advanced app integration (3–5 apps)</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Email marketing & automation</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Analytics & conversion optimization</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>30 days free support</div>
+        </div>
+        <a href="/contact.html#quote" class="btn btn-accent">Get Started →</a>
+      </div>
+
+      <div class="price-card reveal rv3">
+        <div class="price-name">Enterprise Store</div>
+        <p class="price-desc">Multi-vendor, omnichannel, or subscription stores with unlimited customization.</p>
+        <div class="price-amount">
+          <span class="price-currency">$</span>
+          <span class="price-num">3,499</span>
+          <span class="price-period">starting from</span>
+        </div>
+        <div class="price-features">
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Fully bespoke theme &amp; app development</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Unlimited products &amp; variants</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Multi-vendor / subscription / B2B setup</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Omnichannel integration (Facebook, Instagram, TikTok)</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Priority support &amp; dedicated manager</div>
+          <div class="price-feature"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>60 days free support + custom SLA</div>
+        </div>
+        <a href="/contact.html#quote" class="btn btn-outline">Talk to Us →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROCESS ═══════════════════ -->
+<section class="process-sec section-pad" aria-labelledby="processH">
+  <div class="container">
+    <div class="t-center reveal">
+      <span class="label shop">How It Works</span>
+      <h2 class="section-title" id="processH">Our Shopify <span>Build Process</span></h2>
+      <p class="section-sub">A transparent, collaborative workflow from discovery to launch and beyond.</p>
+    </div>
+    <div class="process-row">
+      <div class="ps reveal rv1">
+        <div class="ps-bubble"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span class="ps-num">1</span></div>
+        <h3>Discovery Call</h3>
+        <p>Free consultation on products, audience, budget &amp; goals.</p>
+      </div>
+      <div class="ps reveal rv2">
+        <div class="ps-bubble"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/></svg><span class="ps-num">2</span></div>
+        <h3>Scope & Quote</h3>
+        <p>Detailed proposal with fixed price in 48 hours.</p>
+      </div>
+      <div class="ps reveal rv3">
+        <div class="ps-bubble"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg><span class="ps-num">3</span></div>
+        <h3>Design &amp; Planning</h3>
+        <p>Figma mockups &amp; product/app strategy outlined.</p>
+      </div>
+      <div class="ps reveal rv4">
+        <div class="ps-bubble"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg><span class="ps-num">4</span></div>
+        <h3>Theme Build</h3>
+        <p>Custom Shopify theme coded &amp; tested thoroughly.</p>
+      </div>
+      <div class="ps reveal rv1">
+        <div class="ps-bubble"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/></svg><span class="ps-num">5</span></div>
+        <h3>Product Setup</h3>
+        <p>Products uploaded, variants created, pricing set.</p>
+      </div>
+      <div class="ps reveal rv2">
+        <div class="ps-bubble"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span class="ps-num">6</span></div>
+        <h3>Testing &amp; QA</h3>
+        <p>Mobile, payments, checkout, conversions all tested.</p>
+      </div>
+      <div class="ps reveal rv3">
+        <div class="ps-bubble"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span class="ps-num">7</span></div>
+        <h3>Launch &amp; Train</h3>
+        <p>Go live, training session, &amp; ongoing support begins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CTA ═══════════════════ -->
+<section class="cta-sec reveal">
+  <div class="container">
+    <h2>Ready to Launch Your Shopify Store?</h2>
+    <p>Let's talk. Schedule a free 30-minute consultation to discuss your store, goals, and pricing.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="/contact.html#quote" class="btn btn-accent btn-lg">Get Free Quote →</a>
+      <a href="https://wa.me/923114005856" class="btn btn-wa btn-lg" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004c-1.425 0-2.809.356-4.038 1.03-1.171.637-2.214 1.59-2.945 2.789-.792 1.315-1.217 2.764-1.217 4.267 0 1.44.318 2.878.922 4.191l-1.03 3.77c-.12.436-.035.926.214 1.31a1.36 1.36 0 001.112.597c.131 0 .268-.014.405-.044l3.97-1.087c1.27.63 2.72.96 4.253.96 1.504 0 2.976-.33 4.274-1.005 1.294-.66 2.44-1.68 3.237-2.92.795-1.254 1.233-2.689 1.233-4.193 0-1.435-.296-2.847-.893-4.132-.59-1.289-1.541-2.43-2.703-3.242-1.168-.82-2.533-1.26-3.955-1.26z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!--#include footer-->
+
+<!-- ═══════════════════ SCROLL REVEAL JS ═══════════════════ -->
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08 });
+reveals.forEach(el => observer.observe(el));
+
+// Header scroll effect
+const header = document.querySelector('.site-header');
+if(header){
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+  });
+}
+</script>
+
+</body>
+</html>
