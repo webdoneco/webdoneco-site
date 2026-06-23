@@ -58,6 +58,58 @@ const DIST_BLOG_DIR = path.join(DIST_DIR, 'blog');
 const ASSETS_SRC_DIR = path.join(__dirname, 'assets');
 const ASSETS_DIST_DIR = path.join(DIST_DIR, 'assets');
 
+const SITE_URL = 'https://webdoneco.com';
+
+function xmlEscape(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+function getPageSeoMeta(fileName) {
+  if (fileName === 'index.html') return { loc: '/', priority: '1.0', changefreq: 'weekly' };
+  if (fileName === 'services.html') return { loc: '/services.html', priority: '0.9', changefreq: 'monthly' };
+  if (['web-development.html', 'wordpress-development.html', 'shopify-development.html', 'wix-development.html', 'custom-development.html', 'seo-services.html'].includes(fileName)) {
+    return { loc: `/${fileName}`, priority: '0.8', changefreq: 'monthly' };
+  }
+  if (['blog.html', 'contact.html'].includes(fileName)) {
+    return { loc: `/${fileName}`, priority: '0.7', changefreq: fileName === 'blog.html' ? 'weekly' : 'monthly' };
+  }
+  return { loc: `/${fileName}`, priority: '0.6', changefreq: 'monthly' };
+}
+
+function generateSitemap(pageFiles, blogPosts) {
+  const urls = [];
+  for (const fileName of pageFiles) {
+    const meta = getPageSeoMeta(fileName);
+    urls.push({ ...meta });
+  }
+  for (const post of blogPosts) {
+    urls.push({
+      loc: `/blog/${post.slug}.html`,
+      priority: '0.6',
+      changefreq: 'never',
+      lastmod: post.date,
+    });
+  }
+
+  const body = urls
+    .map((u) => {
+      const lastmod = u.lastmod ? `\n    <lastmod>${xmlEscape(u.lastmod)}</lastmod>` : '';
+      return `  <url>\n    <loc>${xmlEscape(SITE_URL + u.loc)}</loc>${lastmod}\n    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`;
+    })
+    .join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
+}
+
+function generateRobotsTxt() {
+  return `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`;
+}
+
 // Pages where the "Services" nav item should show as active/highlighted.
 // Add filenames here as you build more service pages.
 const ACTIVE_SERVICES_PAGES = [
@@ -588,16 +640,18 @@ function build() {
   copyDirRecursive(ASSETS_SRC_DIR, ASSETS_DIST_DIR);
   log(`✔ Copied assets/`);
 
-  // 7. Copy any root-level static files (favicon, robots.txt, sitemap.xml, etc.)
-  //    that sit next to this build script but aren't .html pages.
-  const rootStaticCandidates = ['favicon.ico', 'robots.txt', 'sitemap.xml'];
-  for (const fname of rootStaticCandidates) {
-    const fpath = path.join(__dirname, fname);
-    if (fs.existsSync(fpath)) {
-      fs.copyFileSync(fpath, path.join(DIST_DIR, fname));
-      log(`✔ Copied ${fname}`);
-    }
+  // 7. Copy root favicon if present, then generate fresh robots.txt + sitemap.xml.
+  const faviconPath = path.join(__dirname, 'favicon.ico');
+  if (fs.existsSync(faviconPath)) {
+    fs.copyFileSync(faviconPath, path.join(DIST_DIR, 'favicon.ico'));
+    log('✔ Copied favicon.ico');
   }
+
+  fs.writeFileSync(path.join(DIST_DIR, 'robots.txt'), generateRobotsTxt(), 'utf8');
+  log('✔ Generated robots.txt');
+
+  fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), generateSitemap(pageFiles, blogPosts), 'utf8');
+  log('✔ Generated sitemap.xml');
 
   log(`\n✅ Build complete — ${builtCount} page(s) + ${blogBuiltCount} blog post(s) written to dist/\n`);
   log('Next step: upload the CONTENTS of the dist/ folder to Cloudflare Pages.\n');
