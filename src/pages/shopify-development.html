@@ -113,11 +113,11 @@ input,textarea,select{font:inherit}
 /* ═══════════════════════════════════════════════
    SHOPIFY HERO SECTION
 ═══════════════════════════════════════════════ */
-.shop-hero{background:var(--bg);min-height:100vh;display:flex;flex-direction:column;position:relative;padding-top:80px;overflow:hidden}
+.shop-hero{background:var(--bg);min-height:100vh;display:flex;flex-direction:column;position:relative;padding-top:120px;overflow:hidden}
 .shop-hero::before{content:'';position:absolute;top:-40%;right:-20%;width:800px;height:800px;background:radial-gradient(circle,rgba(255,107,53,.08) 0%,transparent 70%);border-radius:50%;pointer-events:none;animation:drift 24s linear infinite}
 @keyframes drift{0%{transform:translate(0,0)}50%{transform:translate(30px,30px)}100%{transform:translate(0,0)}}
-.shop-hero-breadcrumb{padding:0 var(--pad-x,1.25rem);padding-top:1.5rem;color:var(--muted);font-size:.85rem;display:flex;align-items:center;gap:.5rem;margin-bottom:2rem}
-.shop-hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:2}
+.shop-hero-breadcrumb{padding:0 var(--pad-x,1.25rem);padding-top:2rem;color:var(--muted);font-size:.85rem;display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem}
+.shop-hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:2;padding:2rem 0}
 .shop-hero-content{padding:0 var(--pad-x,1.25rem)}
 .shop-hero-content h1{font-size:clamp(2.2rem,4vw,3.4rem);font-family:var(--font-h);font-weight:800;line-height:1.1;margin-bottom:1.2rem;letter-spacing:-.025em}
 .shop-hero-content > p{font-size:1.1rem;color:var(--muted);max-width:50ch;margin-bottom:2rem;line-height:1.75}
