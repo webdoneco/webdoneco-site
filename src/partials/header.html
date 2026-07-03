@@ -1,3 +1,49 @@
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   WebDone mega-menu v2 — ALL dropdown styling lives HERE in the
+   header partial, so the menu's layout is controlled from this one
+   file across every page. Do not style .dd-* in page CSS anymore.
+   ═══════════════════════════════════════════════════════════════ */
+.site-header .dd-inner{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(248px,286px) !important;gap:1.7rem !important;align-items:stretch !important;}
+.site-header .dd-col{width:auto !important;max-width:none !important;min-width:0 !important;}
+.site-header .dd-section-label{white-space:nowrap;}
+.site-header .dd-item{display:flex !important;align-items:center !important;gap:.7rem !important;min-width:0;}
+.site-header .dd-item-ico{flex:none;}
+.site-header .dd-item > span{flex:1 1 auto;min-width:0;display:block;}
+.site-header .dd-item strong{display:flex;align-items:center;gap:.5rem;white-space:nowrap;overflow:hidden;min-width:0;font-size:.92rem;}
+.site-header .dd-item small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.76rem;}
+.dd-badge{flex:none;margin-left:auto;display:inline-block;padding:.12rem .48rem;font-size:.55rem;font-weight:700;letter-spacing:.07em;border-radius:999px;line-height:1.5;}
+.dd-badge--hot{background:rgba(255,107,53,.14);color:#FF6B35;}
+.dd-badge--new{background:rgba(16,185,129,.14);color:#10B981;}
+.dd-col-link{display:inline-flex;align-items:center;gap:.35rem;margin-top:.9rem;font-size:.8rem;font-weight:600;color:#FF6B35;text-decoration:none;white-space:nowrap;transition:color .2s ease,gap .2s ease;}
+.dd-col-link svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+.dd-col-link:hover{color:#FF8C5A;gap:.55rem;}
+.dd-col-link--wa{color:#10B981;}
+.dd-col-link--wa:hover{color:#34D399;}
+/* CTA card — button pinned to bottom, trust list fills the middle */
+.site-header .dd-cta-box{display:flex !important;flex-direction:column !important;height:100%;}
+.dd-cta-list{list-style:none;margin:.95rem 0 1.15rem;padding:0;display:flex;flex-direction:column;gap:.6rem;}
+.dd-cta-list li{display:flex;align-items:center;gap:.55rem;font-size:.78rem;color:#A0AEC0;line-height:1.4;}
+.dd-cta-list li svg{width:14px;height:14px;fill:none;stroke:#10B981;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+.site-header .dd-cta-btn{display:flex !important;flex-direction:row !important;align-items:center !important;justify-content:center !important;gap:.5rem;white-space:nowrap;width:100%;margin-top:auto !important;}
+.site-header .dd-cta-btn svg{width:15px;height:15px;flex:none;}
+/* Nav CTA — soft glow + shine sweep (transform-only, GPU friendly) */
+.site-header .nav-cta{position:relative;overflow:hidden;box-shadow:0 0 16px rgba(255,107,53,.32),0 4px 14px rgba(255,107,53,.2);transition:box-shadow .3s ease,transform .3s ease;}
+.site-header .nav-cta:hover{transform:translateY(-1px);box-shadow:0 0 26px rgba(255,107,53,.55),0 6px 20px rgba(255,107,53,.32);}
+.site-header .nav-cta::after{content:"";position:absolute;top:0;left:-60%;width:45%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.38),transparent);transform:translateX(0) skewX(-18deg);animation:wdShine 4.2s ease-in-out infinite;pointer-events:none;}
+.site-header .nav-cta > span{position:relative;z-index:1;}
+@keyframes wdShine{0%{transform:translateX(0) skewX(-18deg);}55%,100%{transform:translateX(430%) skewX(-18deg);}}
+@media (prefers-reduced-motion:reduce){.site-header .nav-cta::after{animation:none;}}
+/* Narrow desktops: CTA card becomes a compact strip under the 3 columns */
+@media (max-width:1279px){
+  .site-header .dd-inner{grid-template-columns:repeat(3,minmax(0,1fr)) !important;}
+  .site-header .dd-cta-col{grid-column:1 / -1;}
+  .site-header .dd-cta-box{flex-direction:row !important;align-items:center !important;gap:1.2rem;}
+  .site-header .dd-cta-box .dd-cta-ico,.site-header .dd-cta-box .dd-cta-sub,.site-header .dd-cta-box .dd-cta-list{display:none;}
+  .site-header .dd-cta-box .dd-cta-title{margin:0;}
+  .site-header .dd-cta-btn{width:auto;margin-top:0 !important;margin-left:auto;}
+}
+</style>
 <header class="site-header" id="siteHeader">
   <nav class="nav-wrap container">
     <!-- REAL LOGO from upload -->
@@ -18,21 +64,13 @@
           <div class="dd-inner">
             <div class="dd-col">
               <p class="dd-section-label">Web Development</p>
-              <a href="/web-development.html" class="dd-item">
-                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
-                <span><strong>All Web Services</strong><small>Overview of everything we build</small></span>
-              </a>
               <a href="/wordpress-development.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
-                <span><strong>WordPress <span style="display:inline-block;margin-left:.35rem;padding:.1rem .5rem;font-size:.58rem;font-weight:700;letter-spacing:.07em;border-radius:999px;background:rgba(255,107,53,.14);color:#FF6B35;vertical-align:middle;">POPULAR</span></strong><small>Custom themes &amp; plugins</small></span>
+                <span><strong>WordPress <span class="dd-badge dd-badge--hot">POPULAR</span></strong><small>Custom themes &amp; plugins</small></span>
               </a>
               <a href="/custom-development.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-                <span><strong>Custom Development <span style="display:inline-block;margin-left:.35rem;padding:.1rem .5rem;font-size:.58rem;font-weight:700;letter-spacing:.07em;border-radius:999px;background:rgba(255,107,53,.14);color:#FF6B35;vertical-align:middle;">POPULAR</span></strong><small>Bespoke web applications</small></span>
-              </a>
-              <a href="/saas-development.html" class="dd-item">
-                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div>
-                <span><strong>SaaS Development <span style="display:inline-block;margin-left:.35rem;padding:.1rem .5rem;font-size:.58rem;font-weight:700;letter-spacing:.07em;border-radius:999px;background:rgba(16,185,129,.14);color:#10B981;vertical-align:middle;">NEW</span></strong><small>Launch your software product</small></span>
+                <span><strong>Custom Development <span class="dd-badge dd-badge--hot">POPULAR</span></strong><small>Bespoke web applications</small></span>
               </a>
               <a href="/shopify-development.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
@@ -40,22 +78,15 @@
               </a>
               <a href="/wix-development.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polyline points="3 6 12 3 21 6"/><path d="M3 6v12l9 3 9-3V6"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div>
-                <span><strong>Wix</strong><small>Beautiful drag-and-drop sites</small></span>
+                <span><strong>Wix</strong><small>Fast drag-and-drop sites</small></span>
               </a>
+              <a href="/web-development.html" class="dd-col-link">All Web Services <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
             <div class="dd-col">
-              <p class="dd-section-label">Growth &amp; Care</p>
-              <a href="/seo-services.html" class="dd-item">
-                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-                <span><strong>SEO Services <span style="display:inline-block;margin-left:.35rem;padding:.1rem .5rem;font-size:.58rem;font-weight:700;letter-spacing:.07em;border-radius:999px;background:rgba(255,107,53,.14);color:#FF6B35;vertical-align:middle;">POPULAR</span></strong><small>Rank higher, grow faster</small></span>
-              </a>
-              <a href="/website-maintenance.html" class="dd-item">
-                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11.5 11 13.5 15 9.5"/></svg></div>
-                <span><strong>Website Maintenance <span style="display:inline-block;margin-left:.35rem;padding:.1rem .5rem;font-size:.58rem;font-weight:700;letter-spacing:.07em;border-radius:999px;background:rgba(16,185,129,.14);color:#10B981;vertical-align:middle;">NEW</span></strong><small>Care plans, updates &amp; backups</small></span>
-              </a>
-              <a href="/website-fixes.html" class="dd-item">
-                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-                <span><strong>Website Fixes <span style="display:inline-block;margin-left:.35rem;padding:.1rem .5rem;font-size:.58rem;font-weight:700;letter-spacing:.07em;border-radius:999px;background:rgba(16,185,129,.14);color:#10B981;vertical-align:middle;">NEW</span></strong><small>Errors, malware &amp; speed — fixed fast</small></span>
+              <p class="dd-section-label">Software &amp; Products</p>
+              <a href="/saas-development.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div>
+                <span><strong>SaaS Development <span class="dd-badge dd-badge--new">NEW</span></strong><small>Launch your product</small></span>
               </a>
               <a href="/crm-solutions.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
@@ -67,17 +98,43 @@
               </a>
               <a href="/online-tools.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
-                <span><strong>Online Tools</strong><small>Calculators, forms &amp; more</small></span>
+                <span><strong>Online Tools</strong><small>Calculators &amp; forms</small></span>
               </a>
+              <a href="/services.html" class="dd-col-link">All Services <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+            <div class="dd-col">
+              <p class="dd-section-label">Growth &amp; Care</p>
+              <a href="/seo-services.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <span><strong>SEO Services <span class="dd-badge dd-badge--hot">POPULAR</span></strong><small>Rank higher, grow faster</small></span>
+              </a>
+              <a href="/contact.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <span><strong>Free SEO Audit <span class="dd-badge dd-badge--new">FREE</span></strong><small>Full website health check</small></span>
+              </a>
+              <a href="/website-maintenance.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11.5 11 13.5 15 9.5"/></svg></div>
+                <span><strong>Website Maintenance <span class="dd-badge dd-badge--new">NEW</span></strong><small>Updates, backups &amp; care</small></span>
+              </a>
+              <a href="/website-fixes.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <span><strong>Website Fixes <span class="dd-badge dd-badge--new">NEW</span></strong><small>Emergency repairs, 24&ndash;48h</small></span>
+              </a>
+              <a href="https://wa.me/923114005856" target="_blank" rel="noopener" class="dd-col-link dd-col-link--wa">Chat on WhatsApp <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
             <div class="dd-col dd-cta-col">
               <div class="dd-cta-box">
                 <div class="dd-cta-ico"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4z"/><path d="M8 9h8M8 13h5"/></svg></div>
                 <p class="dd-cta-title">Not sure what you need?</p>
                 <p class="dd-cta-sub">Tell us about your project and we'll recommend the perfect solution — completely free.</p>
+                <ul class="dd-cta-list">
+                  <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Replies within a few hours</span></li>
+                  <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Fixed-price quote upfront</span></li>
+                  <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>WhatsApp or email — your choice</span></li>
+                </ul>
                 <a href="/contact.html" class="dd-cta-btn">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4z"/><path d="M8 9h8M8 13h5"/></svg>
                   <span>Free Consultation</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
               </div>
             </div>
@@ -107,15 +164,15 @@
           <a href="/web-development.html">All Web Services</a>
           <a href="/wordpress-development.html">WordPress</a>
           <a href="/custom-development.html">Custom Development</a>
-          <a href="/saas-development.html">SaaS Development</a>
           <a href="/shopify-development.html">Shopify</a>
           <a href="/wix-development.html">Wix</a>
-          <a href="/seo-services.html">SEO Services</a>
-          <a href="/website-maintenance.html">Website Maintenance</a>
-          <a href="/website-fixes.html">Website Fixes</a>
+          <a href="/saas-development.html">SaaS Development</a>
           <a href="/crm-solutions.html">CRM Solutions</a>
           <a href="/pos-software.html">POS Software</a>
           <a href="/online-tools.html">Online Tools</a>
+          <a href="/seo-services.html">SEO Services</a>
+          <a href="/website-maintenance.html">Website Maintenance</a>
+          <a href="/website-fixes.html">Website Fixes</a>
         </div>
       </details>
       <a href="/portfolio.html" class="mob-link">Portfolio</a>
