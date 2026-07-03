@@ -72,18 +72,41 @@ function xmlEscape(str) {
 function getPageSeoMeta(fileName) {
   if (fileName === 'index.html') return { loc: '/', priority: '1.0', changefreq: 'weekly' };
   if (fileName === 'services.html') return { loc: '/services.html', priority: '0.9', changefreq: 'monthly' };
-  if (['web-development.html', 'wordpress-development.html', 'shopify-development.html', 'wix-development.html', 'custom-development.html', 'seo-services.html'].includes(fileName)) {
+  if ([
+    'web-development.html',
+    'wordpress-development.html',
+    'shopify-development.html',
+    'wix-development.html',
+    'custom-development.html',
+    'saas-development.html',
+    'seo-services.html',
+    'website-maintenance.html',
+    'website-fixes.html',
+    'crm-solutions.html',
+    'pos-software.html',
+    'online-tools.html',
+    'portfolio.html',
+  ].includes(fileName)) {
     return { loc: `/${fileName}`, priority: '0.8', changefreq: 'monthly' };
   }
-  if (['blog.html', 'contact.html'].includes(fileName)) {
+  if (['blog.html', 'contact.html', 'about.html'].includes(fileName)) {
     return { loc: `/${fileName}`, priority: '0.7', changefreq: fileName === 'blog.html' ? 'weekly' : 'monthly' };
+  }
+  if (fileName === 'faq.html') return { loc: '/faq.html', priority: '0.5', changefreq: 'monthly' };
+  if (['privacy.html', 'terms.html'].includes(fileName)) {
+    return { loc: `/${fileName}`, priority: '0.3', changefreq: 'yearly' };
   }
   return { loc: `/${fileName}`, priority: '0.6', changefreq: 'monthly' };
 }
 
+// Pages that get built into dist/ but must NOT appear in sitemap.xml
+// (utility pages Google shouldn't be pointed to).
+const SITEMAP_EXCLUDE = ['404.html', 'thank-you.html'];
+
 function generateSitemap(pageFiles, blogPosts) {
   const urls = [];
   for (const fileName of pageFiles) {
+    if (SITEMAP_EXCLUDE.includes(fileName)) continue;
     const meta = getPageSeoMeta(fileName);
     urls.push({ ...meta });
   }
@@ -119,7 +142,10 @@ const ACTIVE_SERVICES_PAGES = [
   'shopify-development.html',
   'wix-development.html',
   'custom-development.html',
+  'saas-development.html',
   'seo-services.html',
+  'website-maintenance.html',
+  'website-fixes.html',
   'crm-solutions.html',
   'pos-software.html',
   'online-tools.html',
