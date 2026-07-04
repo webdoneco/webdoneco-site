@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <title>WebDone Co. | Web Development Agency — WordPress, Shopify, SaaS & SEO</title>
   <!--#include favicon-->
-  <meta name="description" content="WebDone Co. is a premium web development agency — WordPress, Shopify, custom development, SaaS products & SEO. 247+ projects. 150+ clients. UK, UAE, USA, Pakistan & worldwide. Fixed-price quotes. 60-day support."/>
+  <meta name="description" content="WebDone Co. is a premium web development agency — WordPress, Shopify, custom development, SaaS products & SEO. 100+ projects. 80+ clients. UK, UAE, USA, Pakistan & worldwide. Fixed-price quotes. 60-day support."/>
   <meta name="keywords" content="web development agency, WordPress development agency, Shopify development, custom web development, SaaS development, SEO services, website design Pakistan, web agency UAE, web agency UK, WebDone Co, affordable web development, professional website design"/>
   <meta name="author" content="WebDone Co."/>
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
@@ -129,13 +129,13 @@ input,textarea,select{font:inherit}
    BUTTONS
 ═══════════════════════════════════════════════ */
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:var(--r);font-family:var(--font-h);font-weight:600;font-size:.95rem;transition:all var(--ease);cursor:pointer;border:none;white-space:nowrap}
-.btn-accent{background:var(--accent);color:#fff}
+.btn-accent{background:var(--accent);color:#0A0F1E}
 .btn-accent:hover{background:var(--accent-h);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,53,.4)}
 .btn-outline{background:transparent;color:var(--white);border:1.5px solid var(--border)}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
 .btn-ghost{background:rgba(255,255,255,.07);color:var(--white);backdrop-filter:blur(8px)}
 .btn-ghost:hover{background:rgba(255,255,255,.14)}
-.btn-wa{display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;padding:.75rem 1.5rem;border-radius:var(--r);font-family:var(--font-h);font-weight:600;font-size:.95rem;transition:all var(--ease);border:none;cursor:pointer;white-space:nowrap}
+.btn-wa{display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#064e21;padding:.75rem 1.5rem;border-radius:var(--r);font-family:var(--font-h);font-weight:600;font-size:.95rem;transition:all var(--ease);border:none;cursor:pointer;white-space:nowrap}
 .btn-wa:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.35)}
 .btn-sm{padding:.5rem 1rem;font-size:.82rem}
 .btn-lg{padding:1rem 2rem;font-size:1.05rem}
@@ -268,9 +268,7 @@ input,textarea,select{font:inherit}
     linear-gradient(rgba(45,55,72,.25) 1px,transparent 1px),
     linear-gradient(90deg,rgba(45,55,72,.25) 1px,transparent 1px);
   background-size:64px 64px;
-  animation:gridDrift 40s linear infinite;
   opacity:.7}
-@keyframes gridDrift{to{background-position:64px 64px}}
 
 /* Orbs — larger, more dramatic, GPU-only transforms */
 .hero-orb{position:absolute;border-radius:50%;filter:blur(80px);animation:orbPulse 12s ease-in-out infinite alternate}
@@ -779,7 +777,7 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 .cta-inner .sub{color:var(--muted);font-size:1.08rem;line-height:1.75;margin-bottom:2.5rem;max-width:50ch;margin-inline:auto}
 .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;align-items:center;margin-bottom:2.5rem}
 .cta-btns .btn-accent{padding:1.05rem 2.5rem;font-size:1.05rem;height:58px;box-shadow:0 8px 32px rgba(255,107,53,.35);letter-spacing:.01em;position:relative;overflow:hidden}
-.cta-btns .btn-accent::before{content:'';position:absolute;top:0;left:-60%;width:50%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);animation:navShine 3.5s ease-in-out infinite}
+.cta-btns .btn-accent::before{content:'';position:absolute;top:0;left:0;width:50%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);animation:navShine 3.5s ease-in-out infinite}
 .cta-btns .btn-wa{padding:1.05rem 2rem;font-size:1.05rem;height:58px;flex-shrink:0}
 .cta-trust-row{display:flex;align-items:center;justify-content:center;gap:1.75rem;flex-wrap:wrap;padding-top:2rem;border-top:1px solid var(--border)}
 .ctr-item{display:flex;align-items:center;gap:.45rem;font-size:.82rem;color:var(--muted)}
@@ -934,18 +932,18 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 /* ═══════════════════════════════════════════════
    ACTIONOS SECTION
 ═══════════════════════════════════════════════ */
-.actionos-sec{background:#ab87fb;position:relative;overflow:hidden}
-.actionos-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 100% 50%,rgba(0,0,0,.15),transparent 60%),radial-gradient(ellipse 40% 40% at 0% 50%,rgba(255,255,255,.08),transparent 60%);pointer-events:none}
+.actionos-sec{background:var(--surface);position:relative;overflow:hidden}
+.actionos-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 100% 50%,rgba(171,135,251,.08),transparent 60%),radial-gradient(ellipse 40% 40% at 0% 50%,rgba(255,69,0,.05),transparent 60%);pointer-events:none}
 .actionos-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
-.actionos-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,0,0,.2);border:1px solid rgba(0,0,0,.3);color:#fff;font-size:.73rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:.42rem 1rem;border-radius:100px;margin-bottom:1.5rem}
-.actionos-dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:pulse 2s infinite;flex-shrink:0}
-.actionos-sub{font-size:1rem;color:rgba(255,255,255,.8);line-height:1.75;margin:1rem 0 2rem;max-width:50ch}
+.actionos-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(171,135,251,.1);border:1px solid rgba(171,135,251,.3);color:#ab87fb;font-size:.73rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:.42rem 1rem;border-radius:100px;margin-bottom:1.5rem}
+.actionos-dot{width:7px;height:7px;border-radius:50%;background:#ab87fb;animation:pulse 2s infinite;flex-shrink:0}
+.actionos-sub{font-size:1rem;color:var(--muted);line-height:1.75;margin:1rem 0 2rem;max-width:50ch}
 .actionos-features{display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2rem}
 .aos-feat{display:flex;gap:1rem;align-items:flex-start}
-.aos-feat-ico{width:36px;height:36px;border-radius:10px;background:rgba(0,0,0,.2);display:grid;place-items:center;flex:none;margin-top:.1rem}
-.aos-feat-ico svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.aos-feat-body h4{font-family:var(--font-h);font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.25rem}
-.aos-feat-body p{font-size:.82rem;color:rgba(255,255,255,.72);line-height:1.6;margin:0}
+.aos-feat-ico{width:36px;height:36px;border-radius:10px;background:rgba(171,135,251,.12);display:grid;place-items:center;flex:none;margin-top:.1rem}
+.aos-feat-ico svg{width:16px;height:16px;stroke:#ab87fb;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.aos-feat-body h3,.aos-feat-body h4{font-family:var(--font-h);font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.25rem}
+.aos-feat-body p{font-size:.82rem;color:var(--muted);line-height:1.6;margin:0}
 .actionos-cta{display:flex;gap:1rem;flex-wrap:wrap}
 
 /* ActionOS dashboard card */
@@ -969,15 +967,15 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 .aos-lead-name{font-size:.75rem;font-weight:600;color:var(--white)}
 .aos-lead-pain{font-size:.65rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .aos-lead-status{font-size:.65rem;font-weight:700;color:#ff4500;white-space:nowrap}
-.aos-sentinel-row{display:flex;align-items:center;gap:.6rem;margin-top:.65rem;padding:.5rem .7rem;background:rgba(0,0,0,.15);border:1px solid rgba(0,0,0,.2);border-radius:8px}
-.aos-sentinel-row svg{width:13px;height:13px;stroke:#ff4500;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;animation:pulse 2s infinite}
+.aos-sentinel-row{display:flex;align-items:center;gap:.6rem;margin-top:.65rem;padding:.5rem .7rem;background:rgba(171,135,251,.06);border:1px solid rgba(171,135,251,.15);border-radius:8px}
+.aos-sentinel-row svg{width:13px;height:13px;stroke:#ab87fb;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;animation:pulse 2s infinite}
 .aos-sentinel-text{flex:1;min-width:0}
 .aos-sentinel-lbl{font-size:.6rem;color:var(--muted)}
 .aos-sentinel-val{font-size:.7rem;font-weight:600;color:var(--white);margin-left:.3rem}
 .aos-sentinel-prog{width:60px;height:4px;background:var(--border);border-radius:2px;flex:none;overflow:hidden}
-.aos-sentinel-bar{width:78%;height:100%;background:#ff4500;border-radius:2px;animation:scanPulse 1.8s ease-in-out infinite}
+.aos-sentinel-bar{width:78%;height:100%;background:#ab87fb;border-radius:2px;animation:scanPulse 1.8s ease-in-out infinite}
 @keyframes scanPulse{0%,100%{opacity:.7}50%{opacity:1}}
-.aos-sentinel-count{font-size:.65rem;font-weight:700;color:#ff4500;flex:none}
+.aos-sentinel-count{font-size:.65rem;font-weight:700;color:#ab87fb;flex:none}
 .aos-float-badge{position:absolute;bottom:-12px;left:-12px;background:rgba(17,24,39,.95);border:1px solid rgba(255,69,0,.25);border-radius:12px;padding:.65rem .9rem;display:flex;align-items:center;gap:.65rem;box-shadow:0 12px 32px rgba(0,0,0,.5);backdrop-filter:blur(12px)}
 .aos-float-ico{font-size:1.25rem;line-height:1}
 .aos-float-title{font-size:.7rem;font-weight:700;color:var(--white)}
@@ -1810,7 +1808,7 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
         <h2 class="section-title" id="diffH">Why Clients <span>Choose Us</span></h2>
         <p class="section-sub">We set a higher standard — because your website represents your business 24/7.</p>
         <div class="diff-points">
-          <div class="dp"><div class="dp-n">1</div><div class="dp-t"><h4>No Hidden Surprises</h4><p>Fixed-price quotes, clear timelines, milestone-based payments. You always know exactly what you're getting.</p></div></div>
+          <div class="dp"><div class="dp-n">1</div><div class="dp-t"><h3 style="font-size:.95rem;margin-bottom:.35rem">No Hidden Surprises</h3><p>Fixed-price quotes, clear timelines, milestone-based payments. You always know exactly what you're getting.</p></div></div>
           <div class="dp"><div class="dp-n">2</div><div class="dp-t"><h4>Built to Last</h4><p>Clean, maintainable code with proper docs — easy to grow, hand over, or scale. No lock-in, ever.</p></div></div>
           <div class="dp"><div class="dp-n">3</div><div class="dp-t"><h4>Results-Driven</h4><p>We track rankings, traffic, and conversions — not just aesthetics. Every decision is tied to your business goals.</p></div></div>
         </div>
@@ -1879,8 +1877,8 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
           <span class="actionos-dot"></span>
           In Testing · Launching Very Soon
         </div>
-        <h2 class="section-title" style="color:#fff" id="actionosH">
-          Meet <span style="color:#ffccaa">ActionOS</span> — The Automated Sales Machine for Agencies
+        <h2 class="section-title" id="actionosH">
+          Meet <span style="color:#ab87fb">ActionOS</span> — The Automated Sales Machine for Agencies
         </h2>
         <p class="actionos-sub">Built by WebDone Co. for web agencies and freelancers. ActionOS finds clients, qualifies them with 55+ data points, sends AI-personalised outreach, and manages your entire business — automatically.</p>
 
@@ -1888,39 +1886,39 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
           <div class="aos-feat">
             <div class="aos-feat-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
             <div class="aos-feat-body">
-              <h4>Sentinel — Lead Scraper</h4>
+              <h3 style="font-family:var(--font-h);font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.25rem">Sentinel — Lead Scraper</h3>
               <p>Finds and audits local businesses automatically. 55+ data points per lead including PageSpeed, SEO score, missing contact info, and a weighted 0–100 lead score.</p>
             </div>
           </div>
           <div class="aos-feat">
             <div class="aos-feat-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             <div class="aos-feat-body">
-              <h4>AI-Powered Outreach</h4>
+              <h3 style="font-family:var(--font-h);font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.25rem">AI-Powered Outreach</h3>
               <p>Claude AI writes a personalised cold email for every lead, referencing their actual pain points. Sends via rotating outreach emails, tracks opens and replies automatically.</p>
             </div>
           </div>
           <div class="aos-feat">
             <div class="aos-feat-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
             <div class="aos-feat-body">
-              <h4>Full Business OS</h4>
+              <h3 style="font-family:var(--font-h);font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.25rem">Full Business OS</h3>
               <p>CRM, projects, invoices, finance tracker, and team management — all in one dark-themed dashboard built specifically for web agencies.</p>
             </div>
           </div>
           <div class="aos-feat">
             <div class="aos-feat-ico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
             <div class="aos-feat-body">
-              <h4>DoneBot AI Assistant</h4>
+              <h3 style="font-family:var(--font-h);font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.25rem">DoneBot AI Assistant</h3>
               <p>Ask "Which leads should I contact today?" or "Draft a follow-up for this client" — DoneBot knows your leads, projects, and revenue and acts on your behalf.</p>
             </div>
           </div>
         </div>
 
         <div class="actionos-cta">
-          <button class="btn" id="aosWaitlistBtn" style="background:#ff4500;color:#fff;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-h);font-weight:700;padding:.75rem 1.5rem;border-radius:var(--r);font-size:.9rem;transition:all .2s ease;" onmouseenter="this.style.background='#ff6030'" onmouseleave="this.style.background='#ff4500'">
+          <button class="btn" id="aosWaitlistBtn" style="background:#ab87fb;color:#fff;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-h);font-weight:700;padding:.75rem 1.5rem;border-radius:var(--r);font-size:.9rem;transition:all .2s ease;" onmouseenter="this.style.background='#c4a8ff'" onmouseleave="this.style.background='#ab87fb'">
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             Join the Waitlist
           </button>
-          <a href="/contact.html" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.4)">Ask Us Anything →</a>
+          <a href="/contact.html" class="btn btn-outline">Ask Us Anything →</a>
         </div>
       </div>
 
@@ -2350,7 +2348,8 @@ document.querySelectorAll('.bc').forEach(c => {
 const modal = document.getElementById('vantaModal');
 const openModal = () => { modal.classList.add('open'); document.body.style.overflow='hidden'; }
 const closeModal = () => { modal.classList.remove('open'); document.body.style.overflow=''; }
-document.getElementById('vantaBtn').addEventListener('click', openModal);
+const vantaBtn = document.getElementById('vantaBtn');
+if(vantaBtn) vantaBtn.addEventListener('click', openModal);
 document.getElementById('modalClose').addEventListener('click', closeModal);
 modal.addEventListener('click', e => { if(e.target===modal) closeModal(); });
 document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
@@ -2431,55 +2430,6 @@ document.getElementById('aosSubmitBtn').addEventListener('click', () => {
 });
 </script>
 
-<!-- ActionOS Waitlist Modal -->
-<div class="aos-modal-overlay" id="aosModal" role="dialog" aria-modal="true" aria-labelledby="aosModalTitle">
-  <div class="aos-modal">
-    <button class="aos-modal-close" id="aosModalClose" aria-label="Close">&times;</button>
-    <div class="aos-modal-badge">⚡ In Testing · Launching Soon</div>
-    <h3 id="aosModalTitle">Get Early Access to <span style="color:#ff4500">ActionOS</span></h3>
-    <p>Join the waitlist — be among the first agencies to use the automated sales machine built by WebDone Co. We'll reach out before public launch.</p>
-    <div class="aos-modal-form" id="aosWaitlistForm">
-      <input type="text" id="aosName" placeholder="Your name" autocomplete="name"/>
-      <input type="email" id="aosEmail" placeholder="Your email address" autocomplete="email"/>
-      <input type="text" id="aosAgency" placeholder="Agency / company name (optional)"/>
-      <button class="aos-modal-submit" id="aosSubmitBtn" type="button">
-        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        Join the Waitlist
-      </button>
-    </div>
-    <div id="aosSuccess" style="display:none;text-align:center;padding:1rem 0">
-      <div style="font-size:2.5rem;margin-bottom:.5rem">✅</div>
-      <p style="color:var(--white);font-weight:600;font-size:1rem;margin:0 0 .4rem">You are on the list!</p>
-      <p style="color:var(--muted);font-size:.85rem;margin:0">We will reach out before ActionOS goes public.</p>
-    </div>
-    <a href="https://wa.me/923114005856?text=Hi%2C+I+want+early+access+to+ActionOS" target="_blank" rel="noopener" class="aos-modal-wa">
-      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.999 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.852L.044 23.944a.5.5 0 00.613.613l6.17-1.515A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 11.999 0z"/></svg>
-      Or message us on WhatsApp instead
-    </a>
-  </div>
-</div>
-<script>
-(function(){
-  const overlay = document.getElementById('aosModal');
-  const open = () => overlay.classList.add('open');
-  const close = () => overlay.classList.remove('open');
-  const btn = document.getElementById('aosWaitlistBtn');
-  if(btn) btn.addEventListener('click', open);
-  document.getElementById('aosModalClose').addEventListener('click', close);
-  overlay.addEventListener('click', e => { if(e.target === overlay) close(); });
-  document.addEventListener('keydown', e => { if(e.key === 'Escape') close(); });
-  document.getElementById('aosSubmitBtn').addEventListener('click', function(){
-    var name = document.getElementById('aosName').value.trim();
-    var email = document.getElementById('aosEmail').value.trim();
-    var nameEl = document.getElementById('aosName');
-    var emailEl = document.getElementById('aosEmail');
-    nameEl.style.borderColor = name ? '' : '#ef4444';
-    emailEl.style.borderColor = (email && email.includes('@')) ? '' : '#ef4444';
-    if(!name || !email || !email.includes('@')) return;
-    document.getElementById('aosWaitlistForm').style.display = 'none';
-    document.getElementById('aosSuccess').style.display = 'block';
-  });
-})();
-</script>
+
 </body>
 </html>
