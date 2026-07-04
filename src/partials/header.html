@@ -1,172 +1,94 @@
 <style>
 /* ═══════════════════════════════════════════════════════════════
-   WebDone Co. — Mega-menu v4
-   COMPLETE self-contained layout + positioning. Zero reliance on
-   page CSS for anything dropdown-related.
-
-   POSITIONING STRATEGY (v4 root fix):
-   Previous versions set width on .dd-menu but never set position/
-   left/transform, so the value inherited from page CSS (left:0
-   anchored to the <li> parent). On a 1920px screen that means the
-   panel starts at the "Services" nav-item's left edge and runs to
-   the right — perfectly fine. But on Windows laptops at 100% zoom
-   with 125-150% display scaling, the effective viewport is ~1280px,
-   and the panel's left edge lands off-screen.
-
-   Fix: .dd-menu is now positioned relative to .nav-wrap (the full-
-   width header bar) — left:50% plus translateX(-50%) centres it
-   exactly on the header regardless of where "Services" sits in the
-   nav, on any screen/zoom/scaling combination.
+   WebDone Co. — header partial CSS v5
+   
+   ARCHITECTURE (learned the hard way through v1-v4):
+   The dropdown's layout (width, grid, position, left, transform)
+   is defined in each PAGE's own <style> block — that's where the
+   browser resolves conflicts. This partial adds only things that
+   are genuinely missing from page CSS: badge styles, CTA card
+   interior, column footer links, and the nav CTA glow animation.
+   Any rule here that duplicates a page rule will LOSE unless
+   marked !important, which then causes the opposite problem on
+   pages where the page rule is different. So: no layout rules
+   here. Each page owns its own dropdown dimensions.
    ═══════════════════════════════════════════════════════════════ */
 
-/* ── 1. Positioning anchor: the nav bar, not the <li> ─────────── */
-.site-header .nav-wrap{position:relative;}
-
-/* ── 2. Panel: centred on the header bar ──────────────────────── */
-.site-header .dd-menu{
-  position:absolute !important;
-  top:calc(100% + 8px) !important;
-  left:50% !important;
-  transform:translateX(-50%) !important;
-  width:min(96vw,1240px) !important;
-  max-width:min(96vw,1240px) !important;
-  box-sizing:border-box !important;
-  z-index:9999 !important;
-}
-
-/* ── 3. Inner grid ────────────────────────────────────────────── */
-.site-header .dd-inner{
-  display:grid !important;
-  width:100% !important;
-  box-sizing:border-box !important;
-  padding:1.75rem 2rem !important;
-  grid-template-columns:repeat(3,minmax(0,1fr)) minmax(260px,288px) !important;
-  gap:0 !important;
-  align-items:start !important;
-}
-
-/* ── 4. Columns ───────────────────────────────────────────────── */
-.site-header .dd-col{
-  width:auto !important;
-  max-width:none !important;
-  min-width:0 !important;
-  padding:0 1.5rem !important;
-  border-right:1px solid rgba(255,255,255,.06) !important;
-}
-.site-header .dd-col:first-child{padding-left:0 !important;}
-.site-header .dd-col.dd-cta-col{border-right:none !important;padding-right:0 !important;}
-
-/* ── 5. Section labels ────────────────────────────────────────── */
-.site-header .dd-section-label{
-  font-size:.67rem;font-weight:700;letter-spacing:.1em;
-  text-transform:uppercase;color:#4A5568;
-  margin:0 0 .85rem;padding:0 0 .6rem;
-  border-bottom:1px solid rgba(255,255,255,.06);
-  white-space:nowrap;
-}
-
-/* ── 6. Items ─────────────────────────────────────────────────── */
-.site-header .dd-item{
-  display:flex !important;align-items:center !important;
-  gap:.6rem !important;min-width:0;
-  padding:.5rem .55rem !important;
-  margin:0 -.55rem !important;
-  border-radius:.5rem;
-  transition:background .18s ease !important;
-  text-decoration:none !important;
-}
-.site-header .dd-item:hover{background:rgba(255,255,255,.05) !important;}
-.site-header .dd-item-ico{
-  flex:none;width:32px;height:32px;
-  display:flex;align-items:center;justify-content:center;
-  border-radius:.45rem;
-  background:rgba(255,107,53,.1);
-  color:#FF6B35;
-}
-.site-header .dd-item-ico svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.site-header .dd-item > span{flex:1 1 auto;min-width:0;display:block;}
-.site-header .dd-item strong{
-  display:flex;align-items:center;gap:.4rem;
-  font-size:.875rem;font-weight:600;color:#fff;
-  white-space:nowrap;overflow:hidden;min-width:0;
-}
-.dd-item-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1 1 auto;}
-.site-header .dd-item small{
-  display:block;white-space:nowrap;overflow:hidden;
-  text-overflow:ellipsis;font-size:.74rem;color:#718096;margin-top:.1rem;
-}
-
-/* ── 7. Badges ────────────────────────────────────────────────── */
+/* ── Badges ────────────────────────────────────────────────────── */
 .dd-badge{
   flex:0 0 auto;display:inline-block;
-  padding:.1rem .42rem;font-size:.5rem;font-weight:700;
+  padding:.1rem .42rem;font-size:.52rem;font-weight:700;
   letter-spacing:.06em;border-radius:999px;line-height:1.6;
-  text-transform:uppercase;
+  text-transform:uppercase;vertical-align:middle;
 }
 .dd-badge--hot{background:rgba(255,107,53,.18);color:#FF6B35;}
 .dd-badge--new{background:rgba(16,185,129,.16);color:#10B981;}
 
-/* ── 8. Column footer links ───────────────────────────────────── */
+/* ── Item title (ellipsis safety net) ─────────────────────────── */
+.dd-item-title{
+  overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap;min-width:0;flex:1 1 auto;
+}
+/* Make strong a flex row so title + badge sit side by side */
+.site-header .dd-item strong{
+  display:flex !important;align-items:center;
+  gap:.4rem;white-space:nowrap;overflow:hidden;min-width:0;
+}
+
+/* ── Column footer links ───────────────────────────────────────── */
 .dd-col-link{
   display:inline-flex;align-items:center;gap:.35rem;
   margin-top:1rem;font-size:.78rem;font-weight:600;
   color:#FF6B35;text-decoration:none;white-space:nowrap;
   transition:color .18s ease,gap .18s ease;
 }
-.dd-col-link svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+.dd-col-link svg{
+  width:13px;height:13px;fill:none;stroke:currentColor;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;
+}
 .dd-col-link:hover{color:#FF8C5A;gap:.55rem;}
 .dd-col-link--wa{color:#10B981;}
 .dd-col-link--wa:hover{color:#34D399;}
 
-/* ── 9. CTA card ──────────────────────────────────────────────── */
-.site-header .dd-cta-box{display:flex !important;flex-direction:column !important;height:100% !important;}
-.dd-cta-list{list-style:none;margin:.8rem 0 1rem;padding:0;display:flex;flex-direction:column;gap:.5rem;}
-.dd-cta-list li{display:flex;align-items:flex-start;gap:.5rem;font-size:.77rem;color:#A0AEC0;line-height:1.45;}
-.dd-cta-list li svg{width:13px;height:13px;flex:none;margin-top:.15rem;fill:none;stroke:#10B981;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
-.site-header .dd-cta-btn{
-  display:flex !important;flex-direction:row !important;
-  align-items:center !important;justify-content:center !important;
-  gap:.5rem;white-space:nowrap;width:100%;margin-top:auto !important;
-  padding:.7rem 1.2rem !important;font-size:.85rem !important;
+/* ── CTA card interior ─────────────────────────────────────────── */
+.dd-cta-list{
+  list-style:none;margin:.8rem 0 1rem;padding:0;
+  display:flex;flex-direction:column;gap:.5rem;
 }
-.site-header .dd-cta-btn svg{width:14px;height:14px;flex:none;}
-
-/* ── 10. Get Free Quote CTA glow + shine ─────────────────────── */
-.site-header .nav-cta{position:relative;overflow:hidden;box-shadow:0 0 18px rgba(255,107,53,.35),0 4px 14px rgba(255,107,53,.22);transition:box-shadow .3s ease,transform .3s ease;}
-.site-header .nav-cta:hover{transform:translateY(-1px);box-shadow:0 0 28px rgba(255,107,53,.58),0 6px 22px rgba(255,107,53,.35);}
-.site-header .nav-cta::after{content:"";position:absolute;top:0;left:-60%;width:45%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.38),transparent);transform:translateX(0) skewX(-18deg);animation:wdShine 4.2s ease-in-out infinite;pointer-events:none;}
-.site-header .nav-cta > span{position:relative;z-index:1;display:flex;align-items:center;gap:.5rem;}
-.site-header .nav-cta > span svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;}
-@keyframes wdShine{0%{transform:translateX(0) skewX(-18deg);}55%,100%{transform:translateX(430%) skewX(-18deg);}}
-@media (prefers-reduced-motion:reduce){.site-header .nav-cta::after{animation:none;}}
-
-/* ── 11. Responsive — ≤1400px: CTA card collapses to bottom strip */
-@media (max-width:1400px){
-  .site-header .dd-inner{
-    grid-template-columns:repeat(3,1fr) !important;
-    padding:1.5rem 1.75rem !important;
-  }
-  .site-header .dd-cta-col{
-    grid-column:1 / -1;
-    border-right:none !important;
-    border-top:1px solid rgba(255,255,255,.06);
-    padding:1rem 0 0 !important;
-    margin-top:.5rem;
-  }
-  .site-header .dd-cta-box{flex-direction:row !important;align-items:center !important;gap:1rem;}
-  .site-header .dd-cta-box .dd-cta-ico,
-  .site-header .dd-cta-box .dd-cta-sub,
-  .site-header .dd-cta-box .dd-cta-list{display:none !important;}
-  .site-header .dd-cta-box .dd-cta-title{margin:0;font-size:.95rem;}
-  .site-header .dd-cta-btn{width:auto;margin-top:0 !important;margin-left:auto;padding:.6rem 1.2rem !important;}
+.dd-cta-list li{
+  display:flex;align-items:flex-start;gap:.5rem;
+  font-size:.77rem;color:#A0AEC0;line-height:1.45;
+}
+.dd-cta-list li svg{
+  width:13px;height:13px;flex:none;margin-top:.15rem;
+  fill:none;stroke:#10B981;stroke-width:2.5;
+  stroke-linecap:round;stroke-linejoin:round;
 }
 
-/* ── 12. ≤900px: full-width panel, 2-col grid ────────────────── */
-@media (max-width:900px){
-  .site-header .dd-menu{left:0 !important;transform:none !important;width:100vw !important;max-width:100vw !important;}
-  .site-header .dd-inner{grid-template-columns:1fr 1fr !important;padding:1.25rem !important;}
-  .site-header .dd-cta-col{grid-column:1 / -1;}
+/* ── Get Free Quote — glow + shimmer (GPU-only, no layout shift) ─ */
+.site-header .nav-cta{
+  position:relative;overflow:hidden;
+  box-shadow:0 0 18px rgba(255,107,53,.35),0 4px 14px rgba(255,107,53,.22);
+  transition:box-shadow .3s ease,transform .3s ease;
 }
+.site-header .nav-cta:hover{
+  transform:translateY(-1px);
+  box-shadow:0 0 28px rgba(255,107,53,.58),0 6px 22px rgba(255,107,53,.35);
+}
+.site-header .nav-cta::after{
+  content:"";position:absolute;top:0;left:-60%;
+  width:45%;height:100%;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.38),transparent);
+  transform:translateX(0) skewX(-18deg);
+  animation:wdShine 4.2s ease-in-out infinite;
+  pointer-events:none;
+}
+.site-header .nav-cta > span{position:relative;z-index:1;}
+@keyframes wdShine{
+  0%{transform:translateX(0) skewX(-18deg);}
+  55%,100%{transform:translateX(430%) skewX(-18deg);}
+}
+@media(prefers-reduced-motion:reduce){.site-header .nav-cta::after{animation:none;}}
 </style>
 <header class="site-header" id="siteHeader">
   <nav class="nav-wrap container">
@@ -247,7 +169,7 @@
               </a>
               <a href="/website-fixes.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-                <span><strong><span class="dd-item-title">Website Fixes</span><span class="dd-badge dd-badge--new">NEW</span></strong><small>Emergency repairs, 24&ndash;48h</small></span>
+                <span><strong><span class="dd-item-title">Website Fixes</span><span class="dd-badge dd-badge--new">NEW</span></strong><small>Emergency repairs, 24–48h</small></span>
               </a>
               <a href="https://wa.me/923114005856" target="_blank" rel="noopener" class="dd-col-link dd-col-link--wa">Chat on WhatsApp <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
