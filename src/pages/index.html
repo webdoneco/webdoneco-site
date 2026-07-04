@@ -115,14 +115,14 @@ input,textarea,select{font:inherit}
 /* Mega dropdown */
 .has-dd{position:relative}
 /* invisible bridge so cursor moving from trigger to menu never breaks hover */
-.has-dd::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);width:800px;height:14px;z-index:199}
-.dd-menu{position:absolute;top:calc(100% + .6rem);left:50%;transform:translateX(-50%) translateY(-8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);width:800px;z-index:200}
+.has-dd::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);width:min(96vw,1240px);height:14px;z-index:199}
+.dd-menu{position:absolute;top:calc(100% + .6rem);left:50%;transform:translateX(-50%) translateY(-8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);width:min(96vw,1240px);z-index:200}
 .has-dd:hover .dd-menu,.has-dd:focus-within .dd-menu{opacity:1;visibility:visible;pointer-events:all;transform:translateX(-50%) translateY(0);transition-delay:0s}
-.dd-inner{display:grid;grid-template-columns:1fr 1fr 250px}
+.dd-inner{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(260px,288px)}
 .dd-col{padding:1.5rem}
 .dd-col+.dd-col{border-left:1px solid var(--border)}
-.dd-section-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;padding:0 .5rem;display:flex;align-items:center;gap:.5rem}
-.dd-section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.dd-section-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;padding:0 .5rem;display:flex;align-items:center;gap:.5rem}
+.dd-section-label::after{content:'';flex:1;height:1px;background:rgba(255,107,53,.25)}
 .dd-item{display:flex;align-items:flex-start;gap:.85rem;padding:.6rem .65rem;border-radius:10px;transition:background var(--ease),transform var(--ease);margin-bottom:.05rem;cursor:pointer}
 .dd-item:hover{background:rgba(255,107,53,.07);transform:translateX(2px)}
 .dd-item-ico{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;flex-shrink:0;background:rgba(255,107,53,.1);transition:background var(--ease)}
@@ -643,6 +643,15 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 /* ═══════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════ */
+/* Dropdown: CTA card collapses to bottom strip on narrower screens */
+@media(max-width:1400px){
+  .dd-inner{grid-template-columns:repeat(3,1fr)}
+  .dd-cta-col{grid-column:1 / -1;border-left:none !important;border-top:1px solid var(--border);padding-top:1rem}
+  .dd-cta-box{flex-direction:row;align-items:center;gap:1rem}
+  .dd-cta-ico,.dd-cta-sub,.dd-cta-list{display:none}
+  .dd-cta-title{margin:0;font-size:.95rem}
+  .dd-cta-btn{width:auto;margin-top:0 !important;margin-left:auto;padding:.6rem 1.2rem}
+}
 @media(max-width:1100px){
   .stats-grid{grid-template-columns:repeat(3,1fr)}
   .stat-card:nth-child(3){border-right:none}
