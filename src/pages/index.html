@@ -183,76 +183,209 @@ input,textarea,select{font:inherit}
 .mob-dd-items a:hover{color:var(--white);background:rgba(255,255,255,.05)}
 
 /* ═══════════════════════════════════════════════
-   HERO
+   HERO — v5 Enhanced
 ═══════════════════════════════════════════════ */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding-top:72px}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% -5%,rgba(255,107,53,.2) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 85% 65%,rgba(255,107,53,.07) 0%,transparent 60%),var(--bg)}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(45,55,72,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(45,55,72,.3) 1px,transparent 1px);background-size:64px 64px;animation:gridDrift 24s linear infinite}
-@keyframes gridDrift{to{background-position:64px 64px,64px 64px}}
-.hero-orb{position:absolute;border-radius:50%;filter:blur(90px);animation:orbPulse 9s ease-in-out infinite alternate}
-.orb1{width:500px;height:500px;background:rgba(255,107,53,.13);top:-120px;right:-80px;animation-delay:0s}
-.orb2{width:320px;height:320px;background:rgba(99,102,241,.09);bottom:40px;left:-80px;animation-delay:3s}
-.orb3{width:200px;height:200px;background:rgba(255,107,53,.07);bottom:25%;right:22%;animation-delay:6s}
-@keyframes orbPulse{0%{transform:translate(0,0) scale(1)}100%{transform:translate(25px,-25px) scale(1.08)}}
+
+/* Multi-layer background: deep radial + corner accents */
+.hero-bg{position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 90% 65% at 50% -10%,rgba(255,107,53,.22) 0%,transparent 65%),
+    radial-gradient(ellipse 55% 45% at 92% 70%,rgba(255,107,53,.09) 0%,transparent 55%),
+    radial-gradient(ellipse 40% 35% at 8% 80%,rgba(99,102,241,.08) 0%,transparent 55%),
+    var(--bg)}
+
+/* Animated dot grid with stronger contrast */
+.hero-grid{position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle,rgba(255,107,53,.18) 1px,transparent 1px),
+    radial-gradient(circle,rgba(45,55,72,.45) 1px,transparent 1px);
+  background-size:48px 48px,48px 48px;
+  background-position:0 0,24px 24px;
+  animation:gridDrift 32s linear infinite;
+  mask-image:radial-gradient(ellipse 100% 100% at 50% 50%,black 40%,transparent 100%)}
+@keyframes gridDrift{to{background-position:48px 48px,72px 72px}}
+
+/* Orbs — larger, more dramatic, GPU-only transforms */
+.hero-orb{position:absolute;border-radius:50%;filter:blur(100px);animation:orbPulse 10s ease-in-out infinite alternate;will-change:transform}
+.orb1{width:600px;height:600px;background:radial-gradient(circle,rgba(255,107,53,.18),rgba(255,107,53,.04));top:-160px;right:-120px;animation-delay:0s}
+.orb2{width:380px;height:380px;background:radial-gradient(circle,rgba(99,102,241,.13),rgba(99,102,241,.02));bottom:20px;left:-100px;animation-delay:4s}
+.orb3{width:260px;height:260px;background:radial-gradient(circle,rgba(255,107,53,.1),transparent);bottom:30%;right:18%;animation-delay:7s}
+.orb4{width:180px;height:180px;background:radial-gradient(circle,rgba(16,185,129,.08),transparent);top:35%;left:8%;animation-delay:2s}
+@keyframes orbPulse{0%{transform:translate(0,0) scale(1)}100%{transform:translate(22px,-22px) scale(1.1)}}
+
+/* Scanline shimmer — subtle horizontal light sweep */
+.hero-scanline{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,.012) 2px,rgba(255,255,255,.012) 4px);pointer-events:none;z-index:0}
 
 .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:min(1240px,100% - 2.5rem);margin-inline:auto;padding-block:5rem}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.28);color:var(--accent);font-size:.75rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.4rem 1rem;border-radius:100px;margin-bottom:1.5rem;animation:fadeUp .6s ease both}
-.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
-.hero-title{font-family:var(--font-h);font-size:clamp(2.5rem,5.5vw,4.2rem);font-weight:800;line-height:1.08;letter-spacing:-.035em;margin-bottom:1.5rem;animation:fadeUp .7s ease .1s both}
-.hero-title span{color:var(--accent)}
-.hero-sub{font-size:1.1rem;color:var(--muted);line-height:1.75;margin-bottom:2.25rem;animation:fadeUp .7s ease .2s both;max-width:48ch}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:2.5rem;animation:fadeUp .7s ease .3s both}
-.hero-proof{display:flex;align-items:center;gap:1rem;animation:fadeUp .7s ease .4s both}
-.avatar-row{display:flex}
-.av{width:36px;height:36px;border-radius:50%;border:2px solid var(--bg);margin-left:-10px;display:grid;place-items:center;font-weight:800;font-size:.7rem;flex-shrink:0}
-.av:first-child{margin-left:0}
-.proof-text{font-size:.875rem;color:var(--muted)}
-.proof-text strong{color:var(--white)}
-.stars{color:#FBBF24;font-size:.8rem;letter-spacing:1px}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 
-/* Dashboard mockup */
-.hero-vis{position:relative;animation:fadeRight .9s ease .3s both;padding:0 9%}
-@keyframes fadeRight{from{opacity:0;transform:translateX(32px)}to{opacity:1;transform:none}}
-.dash-mock{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transform:perspective(900px) rotateY(-7deg) rotateX(3deg);transition:transform .5s ease;box-shadow:var(--shadow-lg),0 0 0 1px rgba(255,107,53,.08)}
-.dash-mock:hover{transform:perspective(900px) rotateY(-3deg) rotateX(1.5deg)}
-.dm-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:.65rem 1rem;display:flex;align-items:center;gap:.75rem}
-.dm-dots{display:flex;gap:.4rem}
+/* Badge — animated gradient border */
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(255,107,53,.08);
+  border:1px solid rgba(255,107,53,.3);
+  color:var(--accent);font-size:.73rem;font-weight:700;
+  letter-spacing:.09em;text-transform:uppercase;
+  padding:.42rem 1rem;border-radius:100px;
+  margin-bottom:1.75rem;animation:fadeUp .6s ease both;
+  position:relative;overflow:hidden;
+}
+.hero-badge::before{
+  content:'';position:absolute;top:0;left:-80%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,107,53,.25),transparent);
+  animation:badgeSweep 3.5s ease-in-out infinite;
+}
+@keyframes badgeSweep{0%{left:-80%}60%,100%{left:130%}}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.6)}}
+
+/* Title — larger, tighter, word-level color */
+.hero-title{font-family:var(--font-h);font-size:clamp(2.8rem,6vw,4.6rem);font-weight:800;line-height:1.05;letter-spacing:-.04em;margin-bottom:1.5rem;animation:fadeUp .7s ease .1s both}
+.hero-title .t-white{color:var(--white)}
+.hero-title .t-accent{
+  background:linear-gradient(135deg,var(--accent) 0%,#FF8C5A 50%,#FFB199 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;display:inline-block;
+}
+.hero-title .t-dim{color:#718096}
+
+/* Subtitle — improved readability */
+.hero-sub{font-size:1.08rem;color:var(--muted);line-height:1.8;margin-bottom:2.25rem;animation:fadeUp .7s ease .2s both;max-width:46ch}
+.hero-sub strong{color:var(--white);font-weight:600}
+
+/* Buttons */
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:2rem;animation:fadeUp .7s ease .3s both}
+
+/* Trust bar below buttons */
+.hero-trust{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;animation:fadeUp .7s ease .38s both;padding-top:1.75rem;border-top:1px solid rgba(255,255,255,.07);margin-bottom:0}
+.trust-item{display:flex;align-items:center;gap:.45rem;font-size:.8rem;color:var(--muted)}
+.trust-item svg{width:14px;height:14px;stroke:#10B981;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.trust-sep{width:1px;height:18px;background:var(--border)}
+
+/* Social proof strip */
+.hero-proof{display:flex;align-items:center;gap:1rem;animation:fadeUp .7s ease .46s both;margin-bottom:1.75rem}
+.avatar-row{display:flex}
+.av{width:36px;height:36px;border-radius:50%;border:2.5px solid var(--bg);margin-left:-11px;display:grid;place-items:center;font-weight:800;font-size:.68rem;flex-shrink:0;box-shadow:0 0 0 1.5px rgba(255,107,53,.2)}
+.av:first-child{margin-left:0}
+.proof-text{font-size:.855rem;color:var(--muted);line-height:1.45}
+.proof-text strong{color:var(--white)}
+.stars{color:#FBBF24;font-size:.82rem;letter-spacing:1px;display:block;margin-bottom:.1rem}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+
+/* ── DASHBOARD MOCKUP — v5 ──────────────────────────────────── */
+.hero-vis{position:relative;animation:fadeRight .9s ease .28s both;padding:0 6%}
+@keyframes fadeRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+
+/* Glass glow ring behind the mockup */
+.hero-vis::before{
+  content:'';position:absolute;inset:-18px;
+  background:radial-gradient(ellipse 80% 70% at 55% 45%,rgba(255,107,53,.12),transparent 70%);
+  border-radius:inherit;filter:blur(18px);z-index:0;pointer-events:none;
+}
+
+.dash-mock{
+  position:relative;z-index:1;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:18px;overflow:hidden;
+  transform:perspective(1100px) rotateY(-9deg) rotateX(4deg);
+  transition:transform .6s cubic-bezier(.4,0,.2,1);
+  box-shadow:
+    var(--shadow-lg),
+    0 0 0 1px rgba(255,107,53,.1),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
+.dash-mock:hover{transform:perspective(1100px) rotateY(-4deg) rotateX(2deg)}
+
+/* Browser chrome bar */
+.dm-bar{
+  background:var(--surface);border-bottom:1px solid var(--border);
+  padding:.6rem 1rem;display:flex;align-items:center;gap:.75rem;
+}
+.dm-dots{display:flex;gap:.42rem}
 .dm-dot{width:10px;height:10px;border-radius:50%}
 .dm-dot.r{background:#FF5F57}.dm-dot.y{background:#FEBC2E}.dm-dot.g{background:#28C840}
-.dm-url{background:var(--card);border:1px solid var(--border);border-radius:5px;padding:.22rem .7rem;font-size:.72rem;color:var(--muted);flex:1;max-width:210px}
-.dm-body{padding:1.1rem}
-.dm-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin-bottom:.85rem}
-.dm-stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.75rem}
-.dm-stat-lbl{font-size:.65rem;color:var(--muted);margin-bottom:.25rem}
-.dm-stat-val{font-family:var(--font-h);font-size:1.2rem;font-weight:800}
-.dm-stat-delta{font-size:.65rem;color:#10B981;margin-top:.1rem}
-.dm-chart{display:flex;align-items:flex-end;gap:.35rem;height:72px;margin-bottom:.85rem}
-.dm-b{flex:1;background:linear-gradient(to top,rgba(255,107,53,.55),rgba(255,107,53,.18));border-radius:3px 3px 0 0;animation:barGrow 1.3s ease both}
-.dm-b.hi{background:linear-gradient(to top,var(--accent),var(--accent-h))}
-@keyframes barGrow{from{transform:scaleY(0);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
-.dm-b:nth-child(1){height:38%;animation-delay:.1s}.dm-b:nth-child(2){height:60%;animation-delay:.2s}.dm-b:nth-child(3){height:48%;animation-delay:.3s}.dm-b:nth-child(4){height:82%;animation-delay:.4s}.dm-b:nth-child(5){height:68%;animation-delay:.5s}.dm-b:nth-child(6){height:92%;animation-delay:.6s}.dm-b:nth-child(7){height:54%;animation-delay:.7s}
-.dm-projects{display:flex;flex-direction:column;gap:.45rem}
-.dm-proj{display:flex;align-items:center;gap:.65rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.55rem .75rem}
-.dm-pi{width:26px;height:26px;border-radius:6px;display:grid;place-items:center;font-size:.75rem;flex-shrink:0}
-.dm-pn{font-size:.75rem;font-weight:600;flex:1}
-.dm-ps{font-size:.65rem;padding:.18rem .5rem;border-radius:100px;font-weight:700}
-.ps-live{background:rgba(16,185,129,.15);color:#10B981}.ps-build{background:rgba(255,107,53,.15);color:var(--accent)}.ps-soon{background:rgba(99,102,241,.15);color:#818CF8}
 
-/* Floating mini cards */
-.float-card{position:absolute;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.75rem 1rem;box-shadow:var(--shadow-lg);font-size:.78rem;animation:floatBob 4s ease-in-out infinite alternate;backdrop-filter:blur(8px);width:max-content;max-width:160px}
-.fc-1{top:14%;left:-8%;animation-delay:0s}
-.fc-2{bottom:10%;right:-7%;animation-delay:2s}
-.fc-icon-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.35rem}
-.fc-icon-row .ico-circle{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:rgba(255,107,53,.15)}
-.fc-icon-row .ico-circle svg{width:13px;height:13px;stroke:var(--accent);fill:none;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round}
+/* URL bar with lock icon */
+.dm-url{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:6px;padding:.2rem .65rem;
+  font-size:.7rem;color:var(--muted);flex:1;max-width:220px;
+  display:flex;align-items:center;gap:.35rem;
+}
+.dm-url-lock{width:10px;height:10px;stroke:#10B981;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.dm-nav-btns{display:flex;gap:.5rem;margin-left:auto}
+.dm-nav-btn{width:22px;height:22px;border-radius:5px;background:rgba(255,255,255,.05);border:1px solid var(--border);display:grid;place-items:center;cursor:default}
+.dm-nav-btn svg{width:10px;height:10px;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Body */
+.dm-body{padding:1rem}
+
+/* Metrics row */
+.dm-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:.8rem}
+.dm-stat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.7rem .8rem;position:relative;overflow:hidden}
+.dm-stat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),#818CF8);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.dm-stat:hover::before{transform:scaleX(1)}
+.dm-stat-lbl{font-size:.6rem;color:var(--muted);margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.05em}
+.dm-stat-val{font-family:var(--font-h);font-size:1.15rem;font-weight:800;line-height:1}
+.dm-stat-delta{font-size:.6rem;color:#10B981;margin-top:.2rem;display:flex;align-items:center;gap:.2rem}
+
+/* Chart */
+.dm-chart-wrap{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.7rem .8rem;margin-bottom:.8rem}
+.dm-chart-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem}
+.dm-chart-title{font-size:.65rem;font-weight:700;color:var(--white)}
+.dm-chart-badge{font-size:.6rem;background:rgba(16,185,129,.12);color:#10B981;padding:.1rem .45rem;border-radius:100px;font-weight:700}
+.dm-chart{display:flex;align-items:flex-end;gap:.3rem;height:64px}
+.dm-b{flex:1;border-radius:3px 3px 0 0;animation:barGrow 1.4s cubic-bezier(.4,0,.2,1) both}
+.dm-b.dim{background:linear-gradient(to top,rgba(255,107,53,.3),rgba(255,107,53,.1))}
+.dm-b.hi{background:linear-gradient(to top,var(--accent),var(--accent-h));box-shadow:0 0 8px rgba(255,107,53,.4)}
+.dm-b.mid{background:linear-gradient(to top,rgba(255,107,53,.5),rgba(255,107,53,.2))}
+@keyframes barGrow{from{transform:scaleY(0);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
+.dm-b:nth-child(1){height:35%;animation-delay:.08s}.dm-b:nth-child(2){height:55%;animation-delay:.16s}.dm-b:nth-child(3){height:42%;animation-delay:.24s}.dm-b:nth-child(4){height:85%;animation-delay:.32s}.dm-b:nth-child(5){height:65%;animation-delay:.4s}.dm-b:nth-child(6){height:95%;animation-delay:.48s}.dm-b:nth-child(7){height:52%;animation-delay:.56s}
+
+/* Projects list */
+.dm-projects{display:flex;flex-direction:column;gap:.4rem}
+.dm-proj{
+  display:flex;align-items:center;gap:.6rem;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:8px;padding:.5rem .7rem;
+  transition:border-color .2s ease;cursor:default;
+}
+.dm-proj:hover{border-color:rgba(255,107,53,.25)}
+.dm-pi{width:26px;height:26px;border-radius:6px;display:grid;place-items:center;flex-shrink:0}
+.dm-pn{font-size:.73rem;font-weight:600;flex:1}
+.dm-ps{font-size:.6rem;padding:.15rem .48rem;border-radius:100px;font-weight:700;white-space:nowrap}
+.ps-live{background:rgba(16,185,129,.15);color:#10B981}
+.ps-build{background:rgba(255,107,53,.15);color:var(--accent)}
+.ps-soon{background:rgba(99,102,241,.15);color:#818CF8}
+
+/* ── FLOATING CARDS — 3 cards, better stagger ─────────────────── */
+.float-card{
+  position:absolute;background:rgba(17,24,39,.92);
+  border:1px solid rgba(255,107,53,.2);
+  border-radius:14px;padding:.8rem 1.05rem;
+  box-shadow:0 16px 48px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04);
+  font-size:.78rem;backdrop-filter:blur(16px);
+  width:max-content;max-width:172px;
+  animation:floatBob 5s ease-in-out infinite alternate;
+  will-change:transform;
+}
+.fc-1{top:10%;left:-10%;animation-delay:0s;border-color:rgba(16,185,129,.25)}
+.fc-2{bottom:8%;right:-9%;animation-delay:2.2s}
+.fc-3{top:52%;left:-14%;animation-delay:4s;border-color:rgba(129,140,248,.25);max-width:148px}
+@keyframes floatBob{0%{transform:translateY(0) rotate(0deg)}100%{transform:translateY(-12px) rotate(.4deg)}}
+.fc-icon-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.38rem}
+.ico-circle{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:rgba(255,107,53,.15);flex:none}
+.ico-circle svg{width:13px;height:13px;stroke:var(--accent);fill:none;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round}
 .fc-icon-row.green .ico-circle{background:rgba(16,185,129,.15)}
 .fc-icon-row.green svg{stroke:#10B981}
-@keyframes floatBob{0%{transform:translateY(0)}100%{transform:translateY(-10px)}}
-.fc-val{font-family:var(--font-h);font-size:1.15rem;font-weight:800;color:var(--accent)}
-.fc-lbl{color:var(--muted);font-size:.68rem}
-.fc-up{color:#10B981;font-size:.68rem}
+.fc-icon-row.purple .ico-circle{background:rgba(129,140,248,.15)}
+.fc-icon-row.purple svg{stroke:#818CF8}
+.fc-val{font-family:var(--font-h);font-size:1.18rem;font-weight:800;color:var(--accent);line-height:1}
+.fc-val.green{color:#10B981}
+.fc-val.purple{color:#818CF8}
+.fc-lbl{color:var(--muted);font-size:.66rem;margin-top:.15rem}
+.fc-up{color:#10B981;font-size:.64rem;margin-top:.1rem;display:flex;align-items:center;gap:.2rem}
+.fc-up.purple{color:#818CF8}
 
 /* ═══════════════════════════════════════════════
    STATS STRIP — premium animated cards
@@ -666,8 +799,11 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
   .hero-inner{grid-template-columns:1fr;gap:3rem;padding-block:4.5rem}
   .hero-vis{order:-1;padding:0 9%}
   .hero-content{max-width:100%;text-align:center}
-  .hero-btns,.hero-proof{justify-content:center}
+  .hero-btns,.hero-proof,.hero-trust{justify-content:center}
   .hero-sub{margin-inline:auto}
+  .hero-trust{flex-wrap:wrap}
+  .trust-sep{display:none}
+  .fc-3{display:none}
   .dash-mock{transform:none;max-width:520px;margin-inline:auto}
   .diff-inner,.seo-grid{grid-template-columns:1fr;gap:3rem}
   .bc-1{grid-column:span 12}
@@ -739,114 +875,189 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 <section class="hero" aria-labelledby="heroH">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
+  <div class="hero-scanline"></div>
   <div class="hero-orb orb1"></div>
   <div class="hero-orb orb2"></div>
   <div class="hero-orb orb3"></div>
+  <div class="hero-orb orb4"></div>
 
   <div class="hero-inner">
+    <!-- LEFT: Content -->
     <div class="hero-content">
       <div class="hero-badge">
         <span class="badge-dot"></span>
-        Web Dev · SaaS · SEO · UAE · UK · USA · Worldwide
+        Web Dev · SaaS · SEO · Worldwide
       </div>
+
       <h1 class="hero-title" id="heroH">
-        We Build<br/><span>Websites</span><br/>That Work.
+        <span class="t-dim">We Build</span><br/>
+        <span class="t-accent">Websites</span><br/>
+        <span class="t-white">That Work.</span>
       </h1>
-      <p class="hero-sub">Premium WordPress, Shopify &amp; custom web development. SaaS products. SEO that actually ranks. WebDone Co. builds digital presences that work harder than your best salesperson.</p>
+
+      <p class="hero-sub">
+        Premium <strong>WordPress</strong>, <strong>Shopify</strong> &amp; <strong>custom development</strong>. 
+        SaaS products built from scratch. SEO that actually moves the needle. 
+        247+ projects delivered worldwide — fixed price, no surprises.
+      </p>
+
       <div class="hero-btns">
         <a href="/contact.html#quote" class="btn btn-accent btn-lg">
           Start Your Project
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="/portfolio.html" class="btn btn-outline btn-lg">View Our Work</a>
+        <a href="https://wa.me/923114005856" class="btn-wa btn-lg" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.999 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.852L.044 23.944a.5.5 0 00.613.613l6.17-1.515A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 11.999 0zm0 21.818a9.812 9.812 0 01-5.016-1.373l-.36-.214-3.724.915.946-3.637-.235-.374A9.818 9.818 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818 5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.819 9.818z"/></svg>
+          WhatsApp Us
+        </a>
       </div>
+
       <div class="hero-proof">
         <div class="avatar-row">
-          <div class="av" style="background:#FF6B35">AK</div>
-          <div class="av" style="background:#6366F1">JM</div>
-          <div class="av" style="background:#10B981">DR</div>
-          <div class="av" style="background:#F59E0B">SA</div>
+          <div class="av" style="background:linear-gradient(135deg,#FF6B35,#FF8C5A)">AK</div>
+          <div class="av" style="background:linear-gradient(135deg,#6366F1,#818CF8)">JM</div>
+          <div class="av" style="background:linear-gradient(135deg,#10B981,#34D399)">DR</div>
+          <div class="av" style="background:linear-gradient(135deg,#F59E0B,#FCD34D)">SA</div>
+          <div class="av" style="background:linear-gradient(135deg,#EC4899,#F472B6)">+</div>
         </div>
         <div>
           <div class="stars">★★★★★</div>
-          <p class="proof-text"><strong>150+ happy clients</strong> · 4.9★ average rating</p>
+          <p class="proof-text"><strong>150+ clients</strong> · 4.9★ avg · 20+ countries</p>
+        </div>
+      </div>
+
+      <div class="hero-trust">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Fixed-price quotes
+        </div>
+        <div class="trust-sep"></div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          60-day free support
+        </div>
+        <div class="trust-sep"></div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          98/100 PageSpeed
         </div>
       </div>
     </div>
 
-    <!-- Dashboard mockup -->
+    <!-- RIGHT: Dashboard mockup -->
     <div class="hero-vis">
       <div class="dash-mock">
+        <!-- Browser chrome -->
         <div class="dm-bar">
           <div class="dm-dots">
             <span class="dm-dot r"></span>
             <span class="dm-dot y"></span>
             <span class="dm-dot g"></span>
           </div>
-          <div class="dm-url">webdoneco.com/portfolio</div>
+          <div class="dm-url">
+            <svg class="dm-url-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            webdoneco.com
+          </div>
+          <div class="dm-nav-btns">
+            <div class="dm-nav-btn"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></div>
+            <div class="dm-nav-btn"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+          </div>
         </div>
+
         <div class="dm-body">
+          <!-- Metric cards -->
           <div class="dm-stats">
             <div class="dm-stat">
-              <div class="dm-stat-lbl">Projects Delivered</div>
-              <div class="dm-stat-val">247</div>
+              <div class="dm-stat-lbl">Projects Live</div>
+              <div class="dm-stat-val" style="color:var(--accent)">247</div>
               <div class="dm-stat-delta">↑ 12 this month</div>
             </div>
             <div class="dm-stat">
               <div class="dm-stat-lbl">Avg Load</div>
-              <div class="dm-stat-val">0.8s</div>
+              <div class="dm-stat-val" style="color:#10B981">0.8s</div>
               <div class="dm-stat-delta">↑ 40% faster</div>
             </div>
             <div class="dm-stat">
               <div class="dm-stat-lbl">Client Score</div>
-              <div class="dm-stat-val">4.9★</div>
+              <div class="dm-stat-val" style="color:#FBBF24">4.9★</div>
               <div class="dm-stat-delta">150+ reviews</div>
             </div>
           </div>
-          <div class="dm-chart">
-            <div class="dm-b"></div><div class="dm-b"></div><div class="dm-b"></div>
-            <div class="dm-b hi"></div><div class="dm-b"></div><div class="dm-b hi"></div><div class="dm-b"></div>
+
+          <!-- Revenue chart -->
+          <div class="dm-chart-wrap">
+            <div class="dm-chart-hdr">
+              <span class="dm-chart-title">Project Growth</span>
+              <span class="dm-chart-badge">↑ 34% YoY</span>
+            </div>
+            <div class="dm-chart">
+              <div class="dm-b dim"></div>
+              <div class="dm-b dim"></div>
+              <div class="dm-b mid"></div>
+              <div class="dm-b hi"></div>
+              <div class="dm-b mid"></div>
+              <div class="dm-b hi"></div>
+              <div class="dm-b mid"></div>
+            </div>
           </div>
+
+          <!-- Active projects -->
           <div class="dm-projects">
             <div class="dm-proj">
               <div class="dm-pi" style="background:rgba(255,107,53,.15)">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
               </div>
-              <span class="dm-pn">BRIO Rewards</span>
+              <span class="dm-pn">WebDone Co.</span>
               <span class="dm-ps ps-live">● Live</span>
             </div>
             <div class="dm-proj">
               <div class="dm-pi" style="background:rgba(99,102,241,.15)">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
               </div>
-              <span class="dm-pn">Estancias Wear</span>
-              <span class="dm-ps ps-live">● Live</span>
+              <span class="dm-pn">ActionOS</span>
+              <span class="dm-ps ps-build">◐ Building</span>
             </div>
             <div class="dm-proj">
               <div class="dm-pi" style="background:rgba(16,185,129,.15)">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
               </div>
-              <span class="dm-pn">Carestrix</span>
-              <span class="dm-ps ps-live">● Live</span>
+              <span class="dm-pn">VantaOne Engine</span>
+              <span class="dm-ps ps-soon">◌ Coming Soon</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="float-card fc-1">
+
+      <!-- Floating card 1: SEO metric -->
+      <div class="float-card fc-1" aria-hidden="true">
         <div class="fc-icon-row green">
           <div class="ico-circle"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <span style="font-size:.65rem;font-weight:700;color:#10B981">SEO</span>
         </div>
-        <div class="fc-val">+320%</div>
-        <div class="fc-lbl">Organic traffic boost</div>
-        <div class="fc-up">↑ After 90-day SEO sprint</div>
+        <div class="fc-val green">+320%</div>
+        <div class="fc-lbl">Organic traffic</div>
+        <div class="fc-up">↑ 90-day sprint result</div>
       </div>
-      <div class="float-card fc-2">
+
+      <!-- Floating card 2: PageSpeed -->
+      <div class="float-card fc-2" aria-hidden="true">
         <div class="fc-icon-row">
           <div class="ico-circle"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <span style="font-size:.65rem;font-weight:700;color:var(--accent)">Speed</span>
         </div>
         <div class="fc-val">98/100</div>
         <div class="fc-lbl">Google PageSpeed</div>
-        <div class="fc-up">↑ Average across builds</div>
+        <div class="fc-up">↑ Avg across all builds</div>
+      </div>
+
+      <!-- Floating card 3: Uptime / reliability -->
+      <div class="float-card fc-3" aria-hidden="true">
+        <div class="fc-icon-row purple">
+          <div class="ico-circle"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        </div>
+        <div class="fc-val purple">99.9%</div>
+        <div class="fc-lbl">Uptime SLA</div>
+        <div class="fc-up purple">↑ Cloudflare CDN</div>
       </div>
     </div>
   </div>
@@ -878,8 +1089,8 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
       </div>
       <div class="stat-card">
         <div class="stat-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
-        <div class="stat-num">Global</div>
-        <div class="stat-lbl">Worldwide Clients</div>
+        <div class="stat-num">20<span>+</span></div>
+        <div class="stat-lbl">Countries Served</div>
       </div>
     </div>
   </div>
@@ -910,7 +1121,7 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
         <p>Clinic, billing, and medical service platforms built on trust and compliance.</p>
       </div>
       <div class="industry-card reveal rv4">
-        <div class="industry-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div class="industry-ico"><svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></div>
         <h3>Hospitality</h3>
         <p>Booking-driven sites for hotels, restaurants, and travel brands worldwide.</p>
       </div>
@@ -1235,6 +1446,11 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
         <h3>Conversion Focused</h3>
         <p>Every CTA, trust signal, and layout decision is optimised to turn visitors into paying customers.</p>
       </div>
+      <div class="why-card reveal rv3">
+        <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11.5 11 13.5 15 9.5"/></svg></div>
+        <h3>Zero Lock-In</h3>
+        <p>Full code ownership on every project. No proprietary builders, no hostage fees — your site, your asset, forever.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1501,9 +1717,9 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
     <div class="vo-action reveal rv2">
       <button class="btn-vanta" id="vantaBtn">
         <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        Join the Waitlist
+        Claim Early Access
       </button>
-      <p>Early access for select clients only.</p>
+      <p>Limited spots · Select clients only</p>
     </div>
   </div>
 </section>
