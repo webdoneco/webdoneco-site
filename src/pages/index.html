@@ -129,13 +129,13 @@ input,textarea,select{font:inherit}
    BUTTONS
 ═══════════════════════════════════════════════ */
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:var(--r);font-family:var(--font-h);font-weight:600;font-size:.95rem;transition:all var(--ease);cursor:pointer;border:none;white-space:nowrap}
-.btn-accent{background:var(--accent);color:#0A0F1E}
+.btn-accent{background:var(--accent);color:#fff}
 .btn-accent:hover{background:var(--accent-h);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,53,.4)}
 .btn-outline{background:transparent;color:var(--white);border:1.5px solid var(--border)}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
 .btn-ghost{background:rgba(255,255,255,.07);color:var(--white);backdrop-filter:blur(8px)}
 .btn-ghost:hover{background:rgba(255,255,255,.14)}
-.btn-wa{display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#064e21;padding:.75rem 1.5rem;border-radius:var(--r);font-family:var(--font-h);font-weight:600;font-size:.95rem;transition:all var(--ease);border:none;cursor:pointer;white-space:nowrap}
+.btn-wa{display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#fff;padding:.75rem 1.5rem;border-radius:var(--r);font-family:var(--font-h);font-weight:600;font-size:.95rem;transition:all var(--ease);border:none;cursor:pointer;white-space:nowrap}
 .btn-wa:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.35)}
 .btn-sm{padding:.5rem 1rem;font-size:.82rem}
 .btn-lg{padding:1rem 2rem;font-size:1.05rem}
@@ -290,7 +290,7 @@ input,textarea,select{font:inherit}
   color:var(--accent);font-size:.73rem;font-weight:700;
   letter-spacing:.09em;text-transform:uppercase;
   padding:.42rem 1rem;border-radius:100px;
-  margin-bottom:1.75rem;animation:fadeUp .6s ease both;
+  margin-bottom:1.75rem;
   position:relative;overflow:hidden;
 }
 .hero-badge::before{
@@ -303,7 +303,7 @@ input,textarea,select{font:inherit}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.6)}}
 
 /* Title — larger, tighter, word-level color */
-.hero-title{font-family:var(--font-h);font-size:clamp(2.8rem,6vw,4.6rem);font-weight:800;line-height:1.05;letter-spacing:-.04em;margin-bottom:1.5rem;animation:fadeUp .7s ease .1s both}
+.hero-title{font-family:var(--font-h);font-size:clamp(2.8rem,6vw,4.6rem);font-weight:800;line-height:1.05;letter-spacing:-.04em;margin-bottom:1.5rem}
 .hero-title .t-white{color:var(--white)}
 .hero-title .t-accent{
   background:linear-gradient(135deg,var(--accent) 0%,#FF8C5A 50%,#FFB199 100%);
@@ -1644,11 +1644,11 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
           </div>
         </div>
         <div class="port-info">
-          <div class="port-type">Loyalty & Rewards Platform · International</div>
+          <div class="port-type">Loyalty & Rewards Platform</div>
           <h3 itemprop="name">BRIO Rewards</h3>
           <p itemprop="description">Feature-rich loyalty and rewards platform with custom dashboard, member management, and multi-tier reward logic built for global scale.</p>
           <div class="port-meta">
-            <div class="port-country">🌐 International</div>
+            <div class="port-country"><span class="pflag">🌍</span> International</div>
             <div class="port-tags"><span class="ptag">SaaS</span><span class="ptag">Platform</span></div>
           </div>
         </div>
@@ -1682,11 +1682,11 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
           </div>
         </div>
         <div class="port-info">
-          <div class="port-type">Enterprise Technology · B2B</div>
+          <div class="port-type">Enterprise Technology</div>
           <h3 itemprop="name">Nixacom</h3>
           <p itemprop="description">Enterprise-grade B2B technology platform with sophisticated design, complex service architecture, and seamless lead generation built for global markets.</p>
           <div class="port-meta">
-            <div class="port-country">🌐 International</div>
+            <div class="port-country"><span class="pflag">🌍</span> International</div>
             <div class="port-tags"><span class="ptag">B2B Tech</span><span class="ptag">Enterprise</span></div>
           </div>
         </div>
@@ -2353,17 +2353,25 @@ if(vantaBtn) vantaBtn.addEventListener('click', openModal);
 document.getElementById('modalClose').addEventListener('click', closeModal);
 modal.addEventListener('click', e => { if(e.target===modal) closeModal(); });
 document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
-document.getElementById('mSubmit').addEventListener('click', () => {
+document.getElementById('mSubmit').addEventListener('click', async () => {
   const name = document.getElementById('mName').value.trim();
   const email = document.getElementById('mEmail').value.trim();
   if(!name || !email){ alert('Please enter your name and email.'); return; }
-  document.querySelector('.modal-box').innerHTML = `
-    <div style="text-align:center;padding:1.5rem 0">
-      <div style="font-size:3rem;margin-bottom:1rem">🎉</div>
-      <h4 style="font-family:var(--font-h);font-size:1.3rem;font-weight:800;margin-bottom:.65rem">You're on the list!</h4>
-      <p style="color:var(--muted);font-size:.875rem;line-height:1.7">We'll reach out to <strong style="color:var(--white)">${email}</strong> as soon as VantaOne Engine™ opens early access. Watch this space.</p>
-      <button onclick="document.getElementById('vantaModal').classList.remove('open');document.body.style.overflow=''" class="btn btn-accent" style="margin-top:1.5rem">Done →</button>
-    </div>`;
+  const btn = document.getElementById('mSubmit');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  try {
+    await fetch('https://api.web3forms.com/submit', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        access_key: 'e5ad7ef7-ba2f-4c56-8c18-f5bc1050bda4',
+        subject: 'VantaOne Engine™ Waitlist — ' + name,
+        from_name: 'WebDone Co. Website',
+        name, email,
+        message: 'VantaOne Engine waitlist signup.\nName: ' + name + '\nEmail: ' + email
+      })
+    });
+  } catch(e) {}
+  document.querySelector('.modal-box').innerHTML = '<div style=\"text-align:center;padding:1.5rem 0\"><div style=\"font-size:3rem;margin-bottom:1rem\">🎉</div><h3 style=\"font-family:var(--font-h);font-size:1.3rem;font-weight:800;margin-bottom:.65rem\">You are on the list!</h3><p style=\"color:var(--muted);font-size:.875rem;line-height:1.7\">We will reach out before VantaOne Engine™ opens early access.</p><button onclick=\"document.getElementById(\'vantaModal\').classList.remove(\'open\');document.body.style.overflow=\'\';\" class=\"btn btn-accent\" style=\"margin-top:1.5rem\">Done →</button></div>';
 });
 
 // Parallax removed — caused scroll jank; grid animation handles depth effect
@@ -2413,17 +2421,32 @@ document.getElementById('aosWaitlistBtn').addEventListener('click', aosOpen);
 document.getElementById('aosModalClose').addEventListener('click', aosClose);
 aosModal.addEventListener('click', e => { if(e.target === aosModal) aosClose(); });
 document.addEventListener('keydown', e => { if(e.key === 'Escape') aosClose(); });
-document.getElementById('aosSubmitBtn').addEventListener('click', () => {
+document.getElementById('aosSubmitBtn').addEventListener('click', async () => {
   const name = document.getElementById('aosName').value.trim();
   const email = document.getElementById('aosEmail').value.trim();
+  const agency = document.getElementById('aosAgency').value.trim();
   if(!name || !email || !email.includes('@')) {
     document.getElementById('aosName').style.borderColor = name ? '' : '#ef4444';
     document.getElementById('aosEmail').style.borderColor = (email && email.includes('@')) ? '' : '#ef4444';
     return;
   }
-  // Store in localStorage as simple waitlist log
-  const list = JSON.parse(localStorage.getItem('aosWaitlist') || '[]');
-  list.push({name, email, agency: document.getElementById('aosAgency').value.trim(), ts: new Date().toISOString()});
+  const btn = document.getElementById('aosSubmitBtn');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  try {
+    await fetch('https://api.web3forms.com/submit', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        access_key: 'e5ad7ef7-ba2f-4c56-8c18-f5bc1050bda4',
+        subject: 'ActionOS Waitlist — ' + name,
+        from_name: 'WebDone Co. Website',
+        name, email,
+        message: 'ActionOS early access request.\nName: ' + name + '\nEmail: ' + email + (agency ? '\nAgency: ' + agency : '')
+      })
+    });
+  } catch(e) {}
+  document.getElementById('aosWaitlistForm').style.display = 'none';
+  document.getElementById('aosSuccess').style.display = 'block';
+});
   localStorage.setItem('aosWaitlist', JSON.stringify(list));
   document.getElementById('aosWaitlistForm').style.display = 'none';
   document.getElementById('aosSuccess').style.display = 'block';
