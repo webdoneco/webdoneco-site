@@ -707,6 +707,22 @@ function build() {
   fs.writeFileSync(path.join(DIST_DIR, 'llms.txt'), llmsTxt, 'utf8');
   log('\u2714 Generated llms.txt');
 
+  // _headers — Cloudflare Pages cache control for HTML + assets
+  const headersContent = [
+    '/*',
+    '  X-Content-Type-Options: nosniff',
+    '  X-Frame-Options: DENY',
+    '  Referrer-Policy: strict-origin-when-cross-origin',
+    '',
+    '/assets/*',
+    '  Cache-Control: public, max-age=31536000, immutable',
+    '',
+    '/*.html',
+    '  Cache-Control: public, max-age=3600, stale-while-revalidate=86400',
+  ].join('\n');
+  fs.writeFileSync(path.join(DIST_DIR, '_headers'), headersContent, 'utf8');
+  log('\u2714 Generated _headers (Cloudflare cache)');
+
   log(`\n✅ Build complete — ${builtCount} page(s) + ${blogBuiltCount} blog post(s) written to dist/\n`);
   log('Next step: upload the CONTENTS of the dist/ folder to Cloudflare Pages.\n');
 }
