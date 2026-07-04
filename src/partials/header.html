@@ -1,18 +1,37 @@
 <style>
 /* ═══════════════════════════════════════════════════════════════
-   WebDone mega-menu v2 — ALL dropdown styling lives HERE in the
-   header partial, so the menu's layout is controlled from this one
-   file across every page. Do not style .dd-* in page CSS anymore.
+   WebDone mega-menu v3 — ALL dropdown styling lives HERE in the
+   header partial. Do not style .dd-* in page CSS anymore.
+
+   v3 fix: v2 only changed the column ARRANGEMENT (2 cols → 4 cols)
+   but never gave the panel more overall width to hold them, so
+   "WordPress", "Custom Development" etc. got squeezed into ~150px
+   columns and clipped mid-word with no ellipsis. Fixed by widening
+   the panel + explicit padding (so total space is known, not
+   inherited from unknown page CSS) + real ellipsis-safe truncation
+   as a permanent safety net, and columns no longer force-stretch to
+   the CTA card's height (was leaving a dead gap under short cols).
    ═══════════════════════════════════════════════════════════════ */
-.site-header .dd-inner{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(248px,286px) !important;gap:1.7rem !important;align-items:stretch !important;}
+.site-header .dd-menu{width:min(96vw,1280px) !important;max-width:1280px !important;box-sizing:border-box !important;}
+.site-header .dd-inner{
+  display:grid !important;
+  width:100% !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+  padding:2rem !important;
+  grid-template-columns:repeat(3,minmax(220px,1fr)) minmax(272px,296px) !important;
+  gap:1.4rem !important;
+  align-items:start !important;
+}
 .site-header .dd-col{width:auto !important;max-width:none !important;min-width:0 !important;}
-.site-header .dd-section-label{white-space:nowrap;}
-.site-header .dd-item{display:flex !important;align-items:center !important;gap:.7rem !important;min-width:0;}
+.site-header .dd-section-label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.site-header .dd-item{display:flex !important;align-items:center !important;gap:.6rem !important;min-width:0;}
 .site-header .dd-item-ico{flex:none;}
 .site-header .dd-item > span{flex:1 1 auto;min-width:0;display:block;}
-.site-header .dd-item strong{display:flex;align-items:center;gap:.5rem;white-space:nowrap;overflow:hidden;min-width:0;font-size:.92rem;}
-.site-header .dd-item small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.76rem;}
-.dd-badge{flex:none;margin-left:auto;display:inline-block;padding:.12rem .48rem;font-size:.55rem;font-weight:700;letter-spacing:.07em;border-radius:999px;line-height:1.5;}
+.site-header .dd-item strong{display:flex;align-items:center;gap:.4rem;white-space:nowrap;overflow:hidden;min-width:0;font-size:.9rem;}
+.dd-item-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1 1 auto;}
+.site-header .dd-item small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:.75rem;}
+.dd-badge{flex:0 0 auto;margin-left:auto;display:inline-block;padding:.1rem .42rem;font-size:.52rem;font-weight:700;letter-spacing:.05em;border-radius:999px;line-height:1.5;}
 .dd-badge--hot{background:rgba(255,107,53,.14);color:#FF6B35;}
 .dd-badge--new{background:rgba(16,185,129,.14);color:#10B981;}
 .dd-col-link{display:inline-flex;align-items:center;gap:.35rem;margin-top:.9rem;font-size:.8rem;font-weight:600;color:#FF6B35;text-decoration:none;white-space:nowrap;transition:color .2s ease,gap .2s ease;}
@@ -20,12 +39,13 @@
 .dd-col-link:hover{color:#FF8C5A;gap:.55rem;}
 .dd-col-link--wa{color:#10B981;}
 .dd-col-link--wa:hover{color:#34D399;}
-/* CTA card — button pinned to bottom, trust list fills the middle */
-.site-header .dd-cta-box{display:flex !important;flex-direction:column !important;height:100%;}
-.dd-cta-list{list-style:none;margin:.95rem 0 1.15rem;padding:0;display:flex;flex-direction:column;gap:.6rem;}
+/* CTA card — no longer force-stretched; sizes to its own content,
+   so short category columns don't inherit its height as dead space */
+.site-header .dd-cta-box{display:flex !important;flex-direction:column !important;}
+.dd-cta-list{list-style:none;margin:.85rem 0 1.05rem;padding:0;display:flex;flex-direction:column;gap:.55rem;}
 .dd-cta-list li{display:flex;align-items:center;gap:.55rem;font-size:.78rem;color:#A0AEC0;line-height:1.4;}
 .dd-cta-list li svg{width:14px;height:14px;fill:none;stroke:#10B981;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex:none;}
-.site-header .dd-cta-btn{display:flex !important;flex-direction:row !important;align-items:center !important;justify-content:center !important;gap:.5rem;white-space:nowrap;width:100%;margin-top:auto !important;}
+.site-header .dd-cta-btn{display:flex !important;flex-direction:row !important;align-items:center !important;justify-content:center !important;gap:.5rem;white-space:nowrap;width:100%;margin-top:1rem !important;}
 .site-header .dd-cta-btn svg{width:15px;height:15px;flex:none;}
 /* Nav CTA — soft glow + shine sweep (transform-only, GPU friendly) */
 .site-header .nav-cta{position:relative;overflow:hidden;box-shadow:0 0 16px rgba(255,107,53,.32),0 4px 14px rgba(255,107,53,.2);transition:box-shadow .3s ease,transform .3s ease;}
@@ -34,9 +54,12 @@
 .site-header .nav-cta > span{position:relative;z-index:1;}
 @keyframes wdShine{0%{transform:translateX(0) skewX(-18deg);}55%,100%{transform:translateX(430%) skewX(-18deg);}}
 @media (prefers-reduced-motion:reduce){.site-header .nav-cta::after{animation:none;}}
-/* Narrow desktops: CTA card becomes a compact strip under the 3 columns */
-@media (max-width:1279px){
-  .site-header .dd-inner{grid-template-columns:repeat(3,minmax(0,1fr)) !important;}
+/* Narrow desktops: CTA card becomes a compact strip under the 3 columns.
+   This also gives each category column the FULL row width / 3 instead
+   of competing with the CTA card, so there's no narrow-viewport version
+   of the truncation bug either. */
+@media (max-width:1280px){
+  .site-header .dd-inner{grid-template-columns:repeat(3,minmax(0,1fr)) !important;padding:1.6rem !important;}
   .site-header .dd-cta-col{grid-column:1 / -1;}
   .site-header .dd-cta-box{flex-direction:row !important;align-items:center !important;gap:1.2rem;}
   .site-header .dd-cta-box .dd-cta-ico,.site-header .dd-cta-box .dd-cta-sub,.site-header .dd-cta-box .dd-cta-list{display:none;}
@@ -66,19 +89,19 @@
               <p class="dd-section-label">Web Development</p>
               <a href="/wordpress-development.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
-                <span><strong>WordPress <span class="dd-badge dd-badge--hot">POPULAR</span></strong><small>Custom themes &amp; plugins</small></span>
+                <span><strong><span class="dd-item-title">WordPress</span><span class="dd-badge dd-badge--hot">POPULAR</span></strong><small>Custom themes &amp; plugins</small></span>
               </a>
               <a href="/custom-development.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-                <span><strong>Custom Development <span class="dd-badge dd-badge--hot">POPULAR</span></strong><small>Bespoke web applications</small></span>
+                <span><strong><span class="dd-item-title">Custom Development</span><span class="dd-badge dd-badge--hot">POPULAR</span></strong><small>Bespoke web applications</small></span>
               </a>
               <a href="/shopify-development.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
-                <span><strong>Shopify</strong><small>E-commerce stores</small></span>
+                <span><strong><span class="dd-item-title">Shopify</span></strong><small>E-commerce stores</small></span>
               </a>
               <a href="/wix-development.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polyline points="3 6 12 3 21 6"/><path d="M3 6v12l9 3 9-3V6"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div>
-                <span><strong>Wix</strong><small>Fast drag-and-drop sites</small></span>
+                <span><strong><span class="dd-item-title">Wix</span></strong><small>Fast drag-and-drop sites</small></span>
               </a>
               <a href="/web-development.html" class="dd-col-link">All Web Services <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
@@ -86,19 +109,19 @@
               <p class="dd-section-label">Software &amp; Products</p>
               <a href="/saas-development.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div>
-                <span><strong>SaaS Development <span class="dd-badge dd-badge--new">NEW</span></strong><small>Launch your product</small></span>
+                <span><strong><span class="dd-item-title">SaaS Development</span><span class="dd-badge dd-badge--new">NEW</span></strong><small>Launch your product</small></span>
               </a>
               <a href="/crm-solutions.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-                <span><strong>CRM Solutions</strong><small>Manage leads &amp; clients</small></span>
+                <span><strong><span class="dd-item-title">CRM Solutions</span></strong><small>Manage leads &amp; clients</small></span>
               </a>
               <a href="/pos-software.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-                <span><strong>POS Software</strong><small>Point-of-sale systems</small></span>
+                <span><strong><span class="dd-item-title">POS Software</span></strong><small>Point-of-sale systems</small></span>
               </a>
               <a href="/online-tools.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
-                <span><strong>Online Tools</strong><small>Calculators &amp; forms</small></span>
+                <span><strong><span class="dd-item-title">Online Tools</span></strong><small>Calculators &amp; forms</small></span>
               </a>
               <a href="/services.html" class="dd-col-link">All Services <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
@@ -106,19 +129,19 @@
               <p class="dd-section-label">Growth &amp; Care</p>
               <a href="/seo-services.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-                <span><strong>SEO Services <span class="dd-badge dd-badge--hot">POPULAR</span></strong><small>Rank higher, grow faster</small></span>
+                <span><strong><span class="dd-item-title">SEO Services</span><span class="dd-badge dd-badge--hot">POPULAR</span></strong><small>Rank higher, grow faster</small></span>
               </a>
               <a href="/contact.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-                <span><strong>Free SEO Audit <span class="dd-badge dd-badge--new">FREE</span></strong><small>Full website health check</small></span>
+                <span><strong><span class="dd-item-title">Free SEO Audit</span><span class="dd-badge dd-badge--new">FREE</span></strong><small>Full website health check</small></span>
               </a>
               <a href="/website-maintenance.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11.5 11 13.5 15 9.5"/></svg></div>
-                <span><strong>Website Maintenance <span class="dd-badge dd-badge--new">NEW</span></strong><small>Updates, backups &amp; care</small></span>
+                <span><strong><span class="dd-item-title">Website Maintenance</span><span class="dd-badge dd-badge--new">NEW</span></strong><small>Updates, backups &amp; care</small></span>
               </a>
               <a href="/website-fixes.html" class="dd-item">
                 <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-                <span><strong>Website Fixes <span class="dd-badge dd-badge--new">NEW</span></strong><small>Emergency repairs, 24&ndash;48h</small></span>
+                <span><strong><span class="dd-item-title">Website Fixes</span><span class="dd-badge dd-badge--new">NEW</span></strong><small>Emergency repairs, 24&ndash;48h</small></span>
               </a>
               <a href="https://wa.me/923114005856" target="_blank" rel="noopener" class="dd-col-link dd-col-link--wa">Chat on WhatsApp <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             </div>
