@@ -296,11 +296,11 @@ input,textarea,select{font:inherit}
   position:relative;overflow:hidden;
 }
 .hero-badge::before{
-  content:'';position:absolute;top:0;left:-80%;width:60%;height:100%;
+  content:'';position:absolute;top:0;left:0;width:60%;height:100%;
   background:linear-gradient(90deg,transparent,rgba(255,107,53,.25),transparent);
   animation:badgeSweep 3.5s ease-in-out infinite;
 }
-@keyframes badgeSweep{0%{left:-80%}60%,100%{left:130%}}
+@keyframes badgeSweep{0%{transform:translateX(-150%)}60%,100%{transform:translateX(350%)}}
 .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.6)}}
 
@@ -322,13 +322,13 @@ input,textarea,select{font:inherit}
 .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:2rem;animation:fadeUp .7s ease .3s both}
 
 /* Trust bar below buttons */
-.hero-trust{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;animation:fadeUp .7s ease .38s both;padding-top:1.75rem;border-top:1px solid rgba(255,255,255,.07);margin-bottom:0}
+.hero-trust{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;padding-top:1.75rem;border-top:1px solid rgba(255,255,255,.07);margin-bottom:0}
 .trust-item{display:flex;align-items:center;gap:.45rem;font-size:.8rem;color:var(--muted)}
 .trust-item svg{width:14px;height:14px;stroke:#10B981;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .trust-sep{width:1px;height:18px;background:var(--border)}
 
 /* Social proof strip */
-.hero-proof{display:flex;align-items:center;gap:1rem;animation:fadeUp .7s ease .46s both;margin-bottom:1.75rem}
+.hero-proof{display:flex;align-items:center;gap:1rem;margin-bottom:1.75rem}
 .avatar-row{display:flex}
 .av{width:36px;height:36px;border-radius:50%;border:2.5px solid var(--bg);margin-left:-11px;display:grid;place-items:center;font-weight:800;font-size:.68rem;flex-shrink:0;box-shadow:0 0 0 1.5px rgba(255,107,53,.2)}
 .av:first-child{margin-left:0}
@@ -704,7 +704,7 @@ input,textarea,select{font:inherit}
 .testi-wrap::before,.testi-wrap::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none}
 .testi-wrap::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
 .testi-wrap::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
-.testi-track{display:flex;gap:1.25rem;animation:scrollLeft 50s linear infinite;width:max-content}
+.testi-track{display:flex;gap:1.25rem;animation:scrollLeft 32s linear infinite;width:max-content}
 .testi-track:hover{animation-play-state:paused}
 @keyframes scrollLeft{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 .tc{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.75rem;width:340px;flex-shrink:0;transition:border-color var(--ease);position:relative}
@@ -767,20 +767,19 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 .cs2{width:300px;height:300px;bottom:-80px;right:-60px}
 
 /* Glass card wrapper with animated gradient border */
-.cta-card{position:relative;z-index:1;max-width:900px;margin-inline:auto;border-radius:28px;padding:1px;background:linear-gradient(120deg,rgba(255,107,53,.5),rgba(99,102,241,.35),rgba(255,107,53,.5));background-size:200% 200%;animation:ctaBorderShift 6s ease infinite}
-@keyframes ctaBorderShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.cta-card{position:relative;z-index:1;max-width:900px;margin-inline:auto;border-radius:28px;padding:1px;background:linear-gradient(120deg,rgba(255,107,53,.5),rgba(99,102,241,.35),rgba(255,107,53,.5))}
 .cta-card-inner{background:rgba(17,24,39,.92);backdrop-filter:blur(20px);border-radius:27px;padding:clamp(2.5rem,6vw,4.5rem) clamp(1.5rem,5vw,3.5rem);text-align:center;position:relative;overflow:hidden}
 .cta-card-inner::before{content:'';position:absolute;top:-50%;left:50%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,107,53,.12) 0%,transparent 60%);transform:translateX(-50%);pointer-events:none}
 .cta-inner{position:relative;z-index:1;max-width:680px;margin-inline:auto}
 .cta-label{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.3);color:var(--accent);font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:.4rem 1rem;border-radius:100px;margin-bottom:1.75rem}
 .cta-label svg{animation:ctaBolt 2s ease-in-out infinite}
-@keyframes ctaBolt{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+@keyframes ctaBolt{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
 .cta-inner h2{font-family:var(--font-h);font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:800;letter-spacing:-.04em;line-height:1.08;margin-bottom:1.35rem}
 .cta-inner h2 span{background:linear-gradient(135deg,var(--accent),#FF8C5A 50%,#818CF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
 .cta-inner .sub{color:var(--muted);font-size:1.08rem;line-height:1.75;margin-bottom:2.5rem;max-width:50ch;margin-inline:auto}
 .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;align-items:center;margin-bottom:2.5rem}
 .cta-btns .btn-accent{padding:1.05rem 2.5rem;font-size:1.05rem;height:58px;box-shadow:0 8px 32px rgba(255,107,53,.35);letter-spacing:.01em;position:relative;overflow:hidden}
-.cta-btns .btn-accent::before{content:'';position:absolute;top:0;left:-60%;width:50%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);animation:navShine 3.5s ease-in-out infinite}
+.cta-btns .btn-accent::before{content:'';position:absolute;top:0;left:-60%;width:50%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);animation:navShine 3.5s ease-in-out infinite}
 .cta-btns .btn-wa{padding:1.05rem 2rem;font-size:1.05rem;height:58px;flex-shrink:0}
 .cta-trust-row{display:flex;align-items:center;justify-content:center;gap:1.75rem;flex-wrap:wrap;padding-top:2rem;border-top:1px solid var(--border)}
 .ctr-item{display:flex;align-items:center;gap:.45rem;font-size:.82rem;color:var(--muted)}
@@ -935,18 +934,18 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 /* ═══════════════════════════════════════════════
    ACTIONOS SECTION
 ═══════════════════════════════════════════════ */
-.actionos-sec{background:var(--bg);position:relative;overflow:hidden}
-.actionos-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 100% 50%,rgba(255,69,0,.07),transparent 60%),radial-gradient(ellipse 40% 40% at 0% 50%,rgba(99,102,241,.05),transparent 60%);pointer-events:none}
+.actionos-sec{background:#ab87fb;position:relative;overflow:hidden}
+.actionos-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 100% 50%,rgba(0,0,0,.15),transparent 60%),radial-gradient(ellipse 40% 40% at 0% 50%,rgba(255,255,255,.08),transparent 60%);pointer-events:none}
 .actionos-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
-.actionos-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,69,0,.1);border:1px solid rgba(255,69,0,.3);color:#ff4500;font-size:.73rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:.42rem 1rem;border-radius:100px;margin-bottom:1.5rem}
-.actionos-dot{width:7px;height:7px;border-radius:50%;background:#ff4500;animation:pulse 2s infinite;flex-shrink:0}
-.actionos-sub{font-size:1rem;color:var(--muted);line-height:1.75;margin:1rem 0 2rem;max-width:50ch}
+.actionos-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,0,0,.2);border:1px solid rgba(0,0,0,.3);color:#fff;font-size:.73rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:.42rem 1rem;border-radius:100px;margin-bottom:1.5rem}
+.actionos-dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:pulse 2s infinite;flex-shrink:0}
+.actionos-sub{font-size:1rem;color:rgba(255,255,255,.8);line-height:1.75;margin:1rem 0 2rem;max-width:50ch}
 .actionos-features{display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2rem}
 .aos-feat{display:flex;gap:1rem;align-items:flex-start}
-.aos-feat-ico{width:36px;height:36px;border-radius:10px;background:rgba(255,69,0,.12);display:grid;place-items:center;flex:none;margin-top:.1rem}
-.aos-feat-ico svg{width:16px;height:16px;stroke:#ff4500;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.aos-feat-body h4{font-family:var(--font-h);font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.25rem}
-.aos-feat-body p{font-size:.82rem;color:var(--muted);line-height:1.6;margin:0}
+.aos-feat-ico{width:36px;height:36px;border-radius:10px;background:rgba(0,0,0,.2);display:grid;place-items:center;flex:none;margin-top:.1rem}
+.aos-feat-ico svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.aos-feat-body h4{font-family:var(--font-h);font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.25rem}
+.aos-feat-body p{font-size:.82rem;color:rgba(255,255,255,.72);line-height:1.6;margin:0}
 .actionos-cta{display:flex;gap:1rem;flex-wrap:wrap}
 
 /* ActionOS dashboard card */
@@ -970,7 +969,7 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 .aos-lead-name{font-size:.75rem;font-weight:600;color:var(--white)}
 .aos-lead-pain{font-size:.65rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .aos-lead-status{font-size:.65rem;font-weight:700;color:#ff4500;white-space:nowrap}
-.aos-sentinel-row{display:flex;align-items:center;gap:.6rem;margin-top:.65rem;padding:.5rem .7rem;background:rgba(255,69,0,.06);border:1px solid rgba(255,69,0,.15);border-radius:8px}
+.aos-sentinel-row{display:flex;align-items:center;gap:.6rem;margin-top:.65rem;padding:.5rem .7rem;background:rgba(0,0,0,.15);border:1px solid rgba(0,0,0,.2);border-radius:8px}
 .aos-sentinel-row svg{width:13px;height:13px;stroke:#ff4500;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;animation:pulse 2s infinite}
 .aos-sentinel-text{flex:1;min-width:0}
 .aos-sentinel-lbl{font-size:.6rem;color:var(--muted)}
@@ -1170,7 +1169,7 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
               </div>
               <span class="dm-pn">ActionOS</span>
-              <span class="dm-ps ps-build">◐ Building</span>
+              <span class="dm-ps ps-build">◐ Testing</span>
             </div>
             <div class="dm-proj">
               <div class="dm-pi" style="background:rgba(16,185,129,.15)">
@@ -1880,8 +1879,8 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
           <span class="actionos-dot"></span>
           In Testing · Launching Very Soon
         </div>
-        <h2 class="section-title" id="actionosH">
-          Meet <span>ActionOS</span> — The Automated Sales Machine for Agencies
+        <h2 class="section-title" style="color:#fff" id="actionosH">
+          Meet <span style="color:#ffccaa">ActionOS</span> — The Automated Sales Machine for Agencies
         </h2>
         <p class="actionos-sub">Built by WebDone Co. for web agencies and freelancers. ActionOS finds clients, qualifies them with 55+ data points, sends AI-personalised outreach, and manages your entire business — automatically.</p>
 
@@ -1921,7 +1920,7 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
             <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             Join the Waitlist
           </button>
-          <a href="/contact.html" class="btn btn-outline">Ask Us Anything →</a>
+          <a href="/contact.html" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.4)">Ask Us Anything →</a>
         </div>
       </div>
 
@@ -2330,13 +2329,21 @@ const ro = new IntersectionObserver(entries => {
 }, {threshold:0.08, rootMargin:'0px 0px -32px 0px'});
 document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
-// Bento glow cursor
+// Bento glow cursor — cached rect prevents forced reflow on every mousemove
 document.querySelectorAll('.bc').forEach(c => {
+  let rect = null, rafId = 0;
+  // Cache rect on enter (stable until layout changes)
+  c.addEventListener('mouseenter', () => { rect = c.getBoundingClientRect(); });
   c.addEventListener('mousemove', e => {
-    const r = c.getBoundingClientRect();
-    c.style.setProperty('--mx', ((e.clientX-r.left)/r.width*100)+'%');
-    c.style.setProperty('--my', ((e.clientY-r.top)/r.height*100)+'%');
+    if(!rect) return;
+    if(rafId) return; // batch to rAF — one write per frame, no forced reflow
+    rafId = requestAnimationFrame(() => {
+      rafId = 0;
+      c.style.setProperty('--mx', ((e.clientX-rect.left)/rect.width*100)+'%');
+      c.style.setProperty('--my', ((e.clientY-rect.top)/rect.height*100)+'%');
+    });
   });
+  c.addEventListener('mouseleave', () => { rect = null; });
 });
 
 // VantaOne modal
