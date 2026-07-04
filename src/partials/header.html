@@ -57,8 +57,20 @@
 /* Narrow desktops: CTA card becomes a compact strip under the 3 columns.
    This also gives each category column the FULL row width / 3 instead
    of competing with the CTA card, so there's no narrow-viewport version
-   of the truncation bug either. */
-@media (max-width:1280px){
+   of the truncation bug either.
+
+   Breakpoint is 1400px, NOT 1280px, on purpose: .dd-menu's width formula
+   is min(96vw,1280px), which only actually REACHES the 1280px cap once
+   the viewport is >= 1333px (96% of 1333 = 1280). A breakpoint sitting
+   anywhere between 1280-1333px would leave a gap where neither rule
+   fully applies — the panel renders narrower than 1280px AND narrower
+   than the safe compact layout, and any browser zoom level or OS display
+   scaling (125%/150% are common on Windows laptops) that lands a
+   viewport in that gap at "100%" zoom reproduces the exact squeeze bug
+   this was meant to fix. 1400px clears that gap with margin, so the
+   base layout is always either fully compact-safe or a guaranteed,
+   constant 1280px — never something in between. */
+@media (max-width:1400px){
   .site-header .dd-inner{grid-template-columns:repeat(3,minmax(0,1fr)) !important;padding:1.6rem !important;}
   .site-header .dd-cta-col{grid-column:1 / -1;}
   .site-header .dd-cta-box{flex-direction:row !important;align-items:center !important;gap:1.2rem;}
