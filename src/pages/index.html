@@ -113,10 +113,11 @@ input,textarea,select{font:inherit}
 .has-dd:hover .nav-chevron{transform:rotate(180deg)}
 
 /* Mega dropdown */
-.has-dd{position:relative}
+.has-dd{position:static}
+.nav-wrap{position:relative}
 /* invisible bridge so cursor moving from trigger to menu never breaks hover */
-.has-dd::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);width:min(96vw,1240px);height:14px;z-index:199}
-.dd-menu{position:absolute;top:calc(100% + .6rem);left:50%;transform:translateX(-50%) translateY(-8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);width:min(96vw,1240px);z-index:200}
+.has-dd::after{content:'';position:fixed;top:72px;left:50%;transform:translateX(-50%);width:min(96vw,1240px);height:14px;z-index:199}
+.dd-menu{position:fixed;top:72px;left:50%;transform:translateX(-50%) translateY(-8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);width:min(96vw,1240px);z-index:200}
 .has-dd:hover .dd-menu,.has-dd:focus-within .dd-menu{opacity:1;visibility:visible;pointer-events:all;transform:translateX(-50%) translateY(0);transition-delay:0s}
 .dd-inner{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(260px,288px)}
 .dd-col{padding:1.5rem}
