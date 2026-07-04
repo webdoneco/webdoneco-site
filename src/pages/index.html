@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
   <link rel="dns-prefetch" href="https://fonts.gstatic.com"/>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,600;0,9..40,700;0,9..40,800&family=Inter:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,600;0,9..40,700;0,9..40,800&family=Inter:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" fetchpriority="low"/>
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,600;0,9..40,700;0,9..40,800&family=Inter:wght@400;500;600&display=swap"/></noscript>
   <script type="application/ld+json">
 [
@@ -858,6 +858,7 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 @media(max-width:1100px){
   .actionos-inner{grid-template-columns:1fr;gap:3rem}
   .aos-card{transform:none}
+  .results-grid{grid-template-columns:repeat(3,1fr)}
   .stats-grid{grid-template-columns:repeat(3,1fr)}
   .stat-card:nth-child(3){border-right:none}
   .stat-card:nth-child(1),.stat-card:nth-child(2),.stat-card:nth-child(3){border-bottom:1px solid var(--border)}
@@ -911,6 +912,7 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
   .cta-btns .btn,.cta-btns .btn-wa{flex:0 1 100%}
 }
 @media(max-width:480px){
+  .results-grid{grid-template-columns:1fr}
   .footer-top{grid-template-columns:1fr}
   .ft-brand{grid-column:span 1}
   .trust-stats{gap:1.5rem}
@@ -981,6 +983,42 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 .aos-float-ico{font-size:1.25rem;line-height:1}
 .aos-float-title{font-size:.7rem;font-weight:700;color:var(--white)}
 .aos-float-msg{font-size:.64rem;color:var(--muted);margin-top:.1rem}
+
+/* ═══════════════════════════════════════════════
+   RESULTS STRIP (replaces Sites That Score)
+═══════════════════════════════════════════════ */
+.results-strip{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.result-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.75rem;text-align:center;transition:border-color .25s ease,transform .25s ease}
+.result-card:hover{border-color:rgba(255,107,53,.3);transform:translateY(-3px)}
+.result-ico{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;margin:0 auto 1rem}
+.result-ico svg{width:22px;height:22px;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.result-num{font-family:var(--font-h);font-size:2.6rem;font-weight:800;color:var(--white);line-height:1;letter-spacing:-.04em}
+.result-num span{font-size:1.2rem;color:var(--accent);font-weight:700;margin-left:.1rem}
+.result-lbl{font-size:.875rem;font-weight:600;color:var(--white);margin:.5rem 0 .25rem}
+.result-sub{font-size:.75rem;color:var(--muted)}
+
+/* ═══════════════════════════════════════════════
+   ACTIONOS WAITLIST MODAL
+═══════════════════════════════════════════════ */
+.aos-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease;padding:1rem}
+.aos-modal-overlay.open{opacity:1;visibility:visible}
+.aos-modal{background:var(--card);border:1px solid rgba(255,69,0,.25);border-radius:20px;padding:2.5rem;max-width:480px;width:100%;position:relative;box-shadow:0 32px 80px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.04);transform:translateY(24px);transition:transform .3s ease}
+.aos-modal-overlay.open .aos-modal{transform:translateY(0)}
+.aos-modal-close{position:absolute;top:1rem;right:1rem;width:32px;height:32px;border-radius:8px;background:var(--surface);border:1px solid var(--border);display:grid;place-items:center;cursor:pointer;color:var(--muted);font-size:1.1rem;line-height:1;transition:color .2s ease,background .2s ease}
+.aos-modal-close:hover{color:var(--white);background:rgba(255,255,255,.08)}
+.aos-modal-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,69,0,.1);border:1px solid rgba(255,69,0,.25);color:#ff4500;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .65rem;border-radius:100px;margin-bottom:1rem}
+.aos-modal h3{font-family:var(--font-h);font-size:1.5rem;font-weight:800;margin-bottom:.5rem}
+.aos-modal p{color:var(--muted);font-size:.9rem;line-height:1.65;margin-bottom:1.5rem}
+.aos-modal-form{display:flex;flex-direction:column;gap:.75rem}
+.aos-modal-form input{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;color:var(--white);font-family:var(--font-b);font-size:.9rem;outline:none;transition:border-color .2s ease;width:100%;box-sizing:border-box}
+.aos-modal-form input:focus{border-color:rgba(255,69,0,.5)}
+.aos-modal-form input::placeholder{color:var(--muted)}
+.aos-modal-submit{background:#ff4500;color:#fff;border:none;border-radius:10px;padding:.8rem 1.5rem;font-family:var(--font-h);font-weight:700;font-size:.9rem;cursor:pointer;transition:background .2s ease;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.aos-modal-submit:hover{background:#ff6030}
+.aos-modal-wa{display:flex;align-items:center;justify-content:center;gap:.5rem;color:#10B981;font-size:.8rem;margin-top:.75rem;text-decoration:none;transition:opacity .2s ease}
+.aos-modal-wa:hover{opacity:.8}
+.aos-modal-wa svg{width:14px;height:14px;fill:currentColor;flex:none}
 </style>
 </head>
 <body>
@@ -1003,7 +1041,7 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
     <div class="hero-content">
       <div class="hero-badge">
         <span class="badge-dot"></span>
-        Web Development Agency · SaaS · SEO · Worldwide
+        Web Dev · SaaS · SEO · Worldwide
       </div>
 
       <h1 class="hero-title" id="heroH">
@@ -1015,7 +1053,7 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
       <p class="hero-sub">
         Premium <strong>WordPress</strong>, <strong>Shopify</strong> &amp; <strong>custom development</strong>. 
         SaaS products built from scratch. SEO that actually moves the needle. 
-        100+ projects delivered worldwide — fixed price, no surprises.
+        100+ projects delivered worldwide. Fixed price, no surprises.
       </p>
 
       <div class="hero-btns">
@@ -1840,12 +1878,12 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
       <div class="actionos-content reveal">
         <div class="actionos-badge">
           <span class="actionos-dot"></span>
-          Now Building · Launching Soon
+          In Testing · Launching Very Soon
         </div>
         <h2 class="section-title" id="actionosH">
           Meet <span>ActionOS</span> — The Automated Sales Machine for Agencies
         </h2>
-        <p class="actionos-sub">Built by WebDone Co. for web agencies and freelancers worldwide. ActionOS finds your clients, qualifies them, sends personalised outreach, and manages your full business — automatically.</p>
+        <p class="actionos-sub">Built by WebDone Co. for web agencies and freelancers. ActionOS finds clients, qualifies them with 55+ data points, sends AI-personalised outreach, and manages your entire business — automatically.</p>
 
         <div class="actionos-features">
           <div class="aos-feat">
@@ -1879,11 +1917,11 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
         </div>
 
         <div class="actionos-cta">
-          <a href="https://actionos.net" target="_blank" rel="noopener" class="btn btn-accent">
+          <button class="btn" id="aosWaitlistBtn" style="background:#ff4500;color:#fff;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-h);font-weight:700;padding:.75rem 1.5rem;border-radius:var(--r);font-size:.9rem;transition:all .2s ease;" onmouseenter="this.style.background='#ff6030'" onmouseleave="this.style.background='#ff4500'">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             Join the Waitlist
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="https://actionos.net" target="_blank" rel="noopener" class="btn btn-outline">Learn More ↗</a>
+          </button>
+          <a href="/contact.html" class="btn btn-outline">Ask Us Anything →</a>
         </div>
       </div>
 
@@ -1969,10 +2007,10 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 <section class="vantaone-strip" aria-labelledby="voH">
   <div class="vo-inner container">
     <div class="vo-content reveal">
-      <div class="vo-badge">Exclusive · WebDone Co. Clients Only</div>
+      <div class="vo-badge">In Development · For Clients Only</div>
       <h2 id="voH">The Future of SEO is <span>VantaOne Engine™</span></h2>
       <p class="vo-tagline">Not just another SEO tool — the last one you'll ever need.</p>
-      <p>Our proprietary AI-powered SEO engine — built exclusively for WebDone Co. clients. While your competitors guess, VantaOne surfaces your business to the right customers at the right moment, automatically and continuously. It is not sold or licensed elsewhere.</p>
+      <p>Currently in development — VantaOne Engine™ is our proprietary AI-powered SEO tool built exclusively for WebDone Co. clients. When live, it will surface your business to the right customers at exactly the right moment, automatically and continuously. It will not be sold or licensed anywhere else.</p>
       <div class="vo-perks">
         <div class="vo-perk"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>AI-driven keyword intelligence</div>
         <div class="vo-perk"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Automated lead scoring</div>
@@ -2078,116 +2116,79 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
   </div>
   <div class="testi-wrap">
     <div class="testi-track" id="testiTrack">
-      <!-- 20 reviews, 1 from Pakistan (real estate), rest international -->
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"WebDone Co. built our Dubai luxury property site. The design matched our brand perfectly and our international leads doubled in the first 60 days. Exceptional team."</p><div class="tc-author"><div class="tc-av" style="background:#FF6B35">KA</div><div><div class="tc-name">Khalid Al-Mansouri</div><div class="tc-role">Director, DAGI Real Estate</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Dubai, UAE</div></div></div></div>
+      <!-- 6 reviews — top picks from real client markets -->
+      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"WebDone Co. built our Dubai luxury property site. The design matched our brand perfectly and our international leads doubled in the first 60 days. Exceptional team."</p><div class="tc-author"><div class="tc-av" style="background:#FF6B35">KA</div><div><div class="tc-name">Khalid Al-Mansouri</div><div class="tc-role">Director, DAGI Real Estate</div><div class="tc-country">🇦🇪 Dubai, UAE</div></div></div></div>
 
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Outstanding work on our Geneva airport taxi booking site. Fast, multilingual, and bookings went up 180% compared to our old website. Very professional agency."</p><div class="tc-author"><div class="tc-av" style="background:#6366F1">PM</div><div><div class="tc-name">Pierre Marchand</div><div class="tc-role">CEO, Geneva Airport Taxi</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Geneva, Switzerland</div></div></div></div>
+      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Carestrix needed a site that builds trust with US healthcare providers. WebDone Co. delivered exactly that — credible design, smart structure, and strong SEO from day one."</p><div class="tc-author"><div class="tc-av" style="background:#8B5CF6">DT</div><div><div class="tc-name">Dr. David Torres</div><div class="tc-role">CEO, Carestrix Medical Billing</div><div class="tc-country">🇺🇸 Houston, USA</div></div></div></div>
 
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Nixacom's new site has transformed how enterprise clients perceive us. The B2B design is sophisticated and our sales team says it's our best sales tool. Brilliant work."</p><div class="tc-author"><div class="tc-av" style="background:#10B981">RC</div><div><div class="tc-name">Ryan Clarke</div><div class="tc-role">VP Marketing, Nixacom</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>London, UK</div></div></div></div>
+      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Nixacom's new site has transformed how enterprise clients perceive us. The B2B design is sophisticated and our sales team says it's our best sales tool. Brilliant work."</p><div class="tc-author"><div class="tc-av" style="background:#10B981">RC</div><div><div class="tc-name">Ryan Clarke</div><div class="tc-role">VP Marketing, Nixacom</div><div class="tc-country">🇬🇧 London, UK</div></div></div></div>
 
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Our KBeauty Shopify store is absolutely beautiful. The RTL Arabic support works flawlessly and conversions are 3x what we had before. Worth every dirham."</p><div class="tc-author"><div class="tc-av" style="background:#F59E0B">NA</div><div><div class="tc-name">Nour Al-Hassan</div><div class="tc-role">Founder, KBeautyShop UAE</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Abu Dhabi, UAE</div></div></div></div>
+      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Outstanding work on our Geneva airport taxi booking site. Fast, multilingual, and bookings went up 180% compared to our old website. Very professional agency."</p><div class="tc-author"><div class="tc-av" style="background:#6366F1">PM</div><div><div class="tc-name">Pierre Marchand</div><div class="tc-role">CEO, Geneva Airport Taxi</div><div class="tc-country">🇨🇭 Geneva, Switzerland</div></div></div></div>
 
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Carestrix needed a site that builds trust with US healthcare providers. WebDone Co. delivered exactly that — credible design, smart structure, and strong SEO from day one."</p><div class="tc-author"><div class="tc-av" style="background:#8B5CF6">DT</div><div><div class="tc-name">Dr. David Torres</div><div class="tc-role">CEO, Carestrix Medical Billing</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Houston, USA</div></div></div></div>
+      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Our Lahore real estate brand needed a website that could compete with Dubai-level agencies. WebDone Co. nailed it — premium design, fast performance, and SEO ranking in 60 days."</p><div class="tc-author"><div class="tc-av" style="background:#10B981">AQ</div><div><div class="tc-name">Ahmed Qureshi</div><div class="tc-role">CEO, Qureshi Properties Lahore</div><div class="tc-country">🇵🇰 Lahore, Pakistan</div></div></div></div>
 
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Arabiata Academy's new platform is clean, modern, and our international enrollment increased by 240% after launch. The bilingual implementation is seamless."</p><div class="tc-author"><div class="tc-av" style="background:#EF4444">LA</div><div><div class="tc-name">Layla Aziz</div><div class="tc-role">Director, Arabiata Academy</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Amman, Jordan</div></div></div></div>
+      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Our Singapore fintech startup needed a site that looked world-class for investor pitches. WebDone Co. delivered something we couldn't have imagined. Raised our Series A 3 weeks later."</p><div class="tc-author"><div class="tc-av" style="background:#FF6B35">AT</div><div><div class="tc-name">Aryan Tan</div><div class="tc-role">CEO, FinVault Singapore</div><div class="tc-country">🇸🇬 Singapore</div></div></div></div>
 
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"We hired WebDone Co. for our Manchester property management firm. The site is clean, fast, and we're getting 4x more enquiries from Google. Fantastic ROI."</p><div class="tc-author"><div class="tc-av" style="background:#0EA5E9">SW</div><div><div class="tc-name">Sarah Williams</div><div class="tc-role">MD, Williams Property Group</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Manchester, UK</div></div></div></div>
-
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Our Shopify store for the Australian market was delivered ahead of schedule and beat all our performance targets. The team is responsive and genuinely cares about results."</p><div class="tc-author"><div class="tc-av" style="background:#10B981">JB</div><div><div class="tc-name">James Bennett</div><div class="tc-role">Founder, AussieGear Store</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Sydney, Australia</div></div></div></div>
-
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"The CRM integration they built for our Toronto consultancy has saved us 15 hours a week. The WebDone Co. team understood our workflow immediately. Highly recommend."</p><div class="tc-author"><div class="tc-av" style="background:#6366F1">MK</div><div><div class="tc-name">Mark Kowalski</div><div class="tc-role">Operations Director, KowalskiCo</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Toronto, Canada</div></div></div></div>
-
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"WebDone Co. redesigned our Frankfurt medical clinic website. Patient enquiries through the site increased 310% in 3 months. Amazing work from a talented team."</p><div class="tc-author"><div class="tc-av" style="background:#F59E0B">HM</div><div><div class="tc-name">Dr. Hannah Müller</div><div class="tc-role">Director, MediCenter Frankfurt</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Frankfurt, Germany</div></div></div></div>
-
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Our Singapore fintech startup needed a site that looked world-class for investor pitches. WebDone Co. delivered something we couldn't have imagined. Raised our Series A 3 weeks later."</p><div class="tc-author"><div class="tc-av" style="background:#FF6B35">AT</div><div><div class="tc-name">Aryan Tan</div><div class="tc-role">CEO, FinVault Singapore</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Singapore</div></div></div></div>
-
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Our Lahore real estate brand needed a website that could compete with Dubai-level agencies. WebDone Co. nailed it — premium design, fast performance, and SEO ranking in 60 days."</p><div class="tc-author"><div class="tc-av" style="background:#10B981">AQ</div><div><div class="tc-name">Ahmed Qureshi</div><div class="tc-role">CEO, Qureshi Properties Lahore</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Lahore, Pakistan</div></div></div></div>
-
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"We've worked with agencies in Amsterdam and Berlin — WebDone Co. beats them all on value, speed, and design quality. Our new SaaS site converts at 2.4x our old rate."</p><div class="tc-author"><div class="tc-av" style="background:#8B5CF6">LV</div><div><div class="tc-name">Lisa van Dijk</div><div class="tc-role">CMO, Stackr SaaS</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Amsterdam, Netherlands</div></div></div></div>
-
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"The POS system integrated with our Stockholm restaurant chain works perfectly across 8 locations. Zero downtime since launch. WebDone Co. delivers enterprise quality."</p><div class="tc-author"><div class="tc-av" style="background:#0EA5E9">EL</div><div><div class="tc-name">Erik Lindqvist</div><div class="tc-role">Operations, NordRestaurants AB</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Stockholm, Sweden</div></div></div></div>
-
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"WebDone Co. built our Riyadh e-commerce store from scratch in 3 weeks. RTL Arabic, Saudi payment gateways, everything. Revenue hit target in month one. Exceptional."</p><div class="tc-author"><div class="tc-av" style="background:#EF4444">FA</div><div><div class="tc-name">Fahad Al-Rashidi</div><div class="tc-role">Founder, LuxeArabia Store</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Riyadh, Saudi Arabia</div></div></div></div>
-
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Our Miami-based wellness brand needed a Shopify store that felt premium. WebDone Co. created something magazine-worthy and our avg order value jumped 65% post-launch."</p><div class="tc-author"><div class="tc-av" style="background:#F59E0B">CR</div><div><div class="tc-name">Christina Rivera</div><div class="tc-role">Founder, PureWellness Miami</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Miami, USA</div></div></div></div>
-
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"WebDone Co. built our Paris-based law firm website with just the right balance of authority and approachability. We've onboarded 18 new clients directly through the site."</p><div class="tc-author"><div class="tc-av" style="background:#6366F1">JD</div><div><div class="tc-name">Jean Dubois</div><div class="tc-role">Partner, Dubois Legal Paris</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Paris, France</div></div></div></div>
-
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Our Cape Town tourism brand needed a site as beautiful as the city. WebDone Co. exceeded every expectation. Bookings are up 290% versus this time last year."</p><div class="tc-author"><div class="tc-av" style="background:#10B981">TM</div><div><div class="tc-name">Thandi Mthembu</div><div class="tc-role">Director, CapeTours</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Cape Town, South Africa</div></div></div></div>
-
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"The custom web app WebDone Co. built for our Istanbul logistics firm handles 2,000+ shipments a day without a hiccup. The API integrations are flawless. World-class team."</p><div class="tc-author"><div class="tc-av" style="background:#FF6B35">AY</div><div><div class="tc-name">Ahmet Yilmaz</div><div class="tc-role">CTO, SwiftCargo Istanbul</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Istanbul, Turkey</div></div></div></div>
-
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"WebDone Co. gave our Tokyo-based digital agency a website rebrand that finally matches our creative output. Clients notice immediately. Best collaboration we've had."</p><div class="tc-author"><div class="tc-av" style="background:#8B5CF6">YN</div><div><div class="tc-name">Yuki Nakamura</div><div class="tc-role">Creative Director, StudioYuki</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Tokyo, Japan</div></div></div></div>
-
-      <!-- Duplicate for loop -->
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"WebDone Co. built our Dubai luxury property site. The design matched our brand perfectly and our international leads doubled in the first 60 days. Exceptional team."</p><div class="tc-author"><div class="tc-av" style="background:#FF6B35">KA</div><div><div class="tc-name">Khalid Al-Mansouri</div><div class="tc-role">Director, DAGI Real Estate</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Dubai, UAE</div></div></div></div>
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Outstanding work on our Geneva airport taxi booking site. Fast, multilingual, and bookings went up 180% compared to our old website. Very professional agency."</p><div class="tc-author"><div class="tc-av" style="background:#6366F1">PM</div><div><div class="tc-name">Pierre Marchand</div><div class="tc-role">CEO, Geneva Airport Taxi</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Geneva, Switzerland</div></div></div></div>
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Nixacom's new site has transformed how enterprise clients perceive us. The B2B design is sophisticated and our sales team says it's our best sales tool. Brilliant work."</p><div class="tc-author"><div class="tc-av" style="background:#10B981">RC</div><div><div class="tc-name">Ryan Clarke</div><div class="tc-role">VP Marketing, Nixacom</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>London, UK</div></div></div></div>
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Our KBeauty Shopify store is absolutely beautiful. The RTL Arabic support works flawlessly and conversions are 3x what we had before. Worth every dirham."</p><div class="tc-author"><div class="tc-av" style="background:#F59E0B">NA</div><div><div class="tc-name">Nour Al-Hassan</div><div class="tc-role">Founder, KBeautyShop UAE</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Abu Dhabi, UAE</div></div></div></div>
-      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Carestrix needed a site that builds trust with US healthcare providers. WebDone Co. delivered exactly that — credible design, smart structure, and strong SEO from day one."</p><div class="tc-author"><div class="tc-av" style="background:#8B5CF6">DT</div><div><div class="tc-name">Dr. David Torres</div><div class="tc-role">CEO, Carestrix Medical Billing</div><div class="tc-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg>Houston, USA</div></div></div></div>
+      <!-- Duplicate set for seamless loop -->
+      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"WebDone Co. built our Dubai luxury property site. The design matched our brand perfectly and our international leads doubled in the first 60 days. Exceptional team."</p><div class="tc-author"><div class="tc-av" style="background:#FF6B35">KA</div><div><div class="tc-name">Khalid Al-Mansouri</div><div class="tc-role">Director, DAGI Real Estate</div><div class="tc-country">🇦🇪 Dubai, UAE</div></div></div></div>
+      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Carestrix needed a site that builds trust with US healthcare providers. WebDone Co. delivered exactly that — credible design, smart structure, and strong SEO from day one."</p><div class="tc-author"><div class="tc-av" style="background:#8B5CF6">DT</div><div><div class="tc-name">Dr. David Torres</div><div class="tc-role">CEO, Carestrix Medical Billing</div><div class="tc-country">🇺🇸 Houston, USA</div></div></div></div>
+      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Nixacom's new site has transformed how enterprise clients perceive us. The B2B design is sophisticated and our sales team says it's our best sales tool. Brilliant work."</p><div class="tc-author"><div class="tc-av" style="background:#10B981">RC</div><div><div class="tc-name">Ryan Clarke</div><div class="tc-role">VP Marketing, Nixacom</div><div class="tc-country">🇬🇧 London, UK</div></div></div></div>
+      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Outstanding work on our Geneva airport taxi booking site. Fast, multilingual, and bookings went up 180% compared to our old website. Very professional agency."</p><div class="tc-author"><div class="tc-av" style="background:#6366F1">PM</div><div><div class="tc-name">Pierre Marchand</div><div class="tc-role">CEO, Geneva Airport Taxi</div><div class="tc-country">🇨🇭 Geneva, Switzerland</div></div></div></div>
+      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Our Lahore real estate brand needed a website that could compete with Dubai-level agencies. WebDone Co. nailed it — premium design, fast performance, and SEO ranking in 60 days."</p><div class="tc-author"><div class="tc-av" style="background:#10B981">AQ</div><div><div class="tc-name">Ahmed Qureshi</div><div class="tc-role">CEO, Qureshi Properties Lahore</div><div class="tc-country">🇵🇰 Lahore, Pakistan</div></div></div></div>
+      <div class="tc"><div class="tc-stars">★★★★★</div><p class="tc-text">"Our Singapore fintech startup needed a site that looked world-class for investor pitches. WebDone Co. delivered something we couldn't have imagined. Raised our Series A 3 weeks later."</p><div class="tc-author"><div class="tc-av" style="background:#FF6B35">AT</div><div><div class="tc-name">Aryan Tan</div><div class="tc-role">CEO, FinVault Singapore</div><div class="tc-country">🇸🇬 Singapore</div></div></div></div>
     </div>
   </div>
-  <div style="text-align:center;margin-top:2rem;"><a href="/testimonials.html" class="btn btn-outline">Read All Reviews →</a></div>
+  
 </section>
 
-<!-- ═══════════════════ SEO PERFORMANCE ═══════════════════ -->
-<section class="seo-sec section-pad" aria-labelledby="seoH">
+<!-- ═══════════════════ RESULTS STRIP ═══════════════════ -->
+<section class="results-strip section-pad" aria-labelledby="resultsH">
   <div class="container">
-    <div class="seo-grid">
-      <div class="reveal">
-        <span class="label">Performance</span>
-        <h2 class="section-title" id="seoH">Sites That <span>Score Top</span> Marks</h2>
-        <p class="section-sub">Speed, accessibility, best practices, and SEO — all four Lighthouse pillars, from day one.</p>
-        <div class="seo-pts">
-          <div class="seo-pt">
-            <div class="seo-pt-ico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-            <div><h4>Core Web Vitals Optimised</h4><p>LCP under 2.5s, CLS near zero — Google's "Good" thresholds on every build.</p></div>
-          </div>
-          <div class="seo-pt">
-            <div class="seo-pt-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-            <div><h4>Technical SEO Foundation</h4><p>Schema, sitemaps, canonicals, and structured data baked into every site we ship.</p></div>
-          </div>
-          <div class="seo-pt">
-            <div class="seo-pt-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20"/></svg></div>
-            <div><h4>International &amp; Local SEO</h4><p>Hreflang, geo-targeting, and Google Business Profile for worldwide clients.</p></div>
-          </div>
-          <div class="seo-pt">
-            <div class="seo-pt-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <div><h4>Accessibility (WCAG 2.1)</h4><p>Proper contrast, ARIA, keyboard nav, and semantic HTML — every build.</p></div>
-          </div>
-        </div>
-        <a href="/seo-services.html" class="btn btn-accent" style="margin-top:2rem">Explore SEO Packages →</a>
+    <div class="t-center reveal">
+      <span class="label">Proven Results</span>
+      <h2 class="section-title" id="resultsH">Numbers That <span>Tell the Story</span></h2>
+      <p class="section-sub">Not just beautiful websites — measurable outcomes for our clients from day one.</p>
+    </div>
+    <div class="results-grid reveal">
+      <div class="result-card">
+        <div class="result-ico" style="background:rgba(255,107,53,.1)"><svg viewBox="0 0 24 24" stroke="#FF6B35"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="result-num">98<span>/100</span></div>
+        <div class="result-lbl">Average PageSpeed</div>
+        <div class="result-sub">Desktop · All builds guaranteed 90+</div>
       </div>
-      <div class="seo-scores reveal rv2">
-        <div class="score-card">
-          <div class="score-ring">
-            <svg width="76" height="76" viewBox="0 0 76 76"><circle cx="38" cy="38" r="32" fill="none" stroke="#1C2333" stroke-width="7"/><circle cx="38" cy="38" r="32" fill="none" stroke="#10B981" stroke-width="7" stroke-dasharray="198 3" stroke-linecap="round"/></svg>
-            <div class="score-val green">98</div>
-          </div>
-          <div class="score-lbl">Performance</div>
-        </div>
-        <div class="score-card">
-          <div class="score-ring">
-            <svg width="76" height="76" viewBox="0 0 76 76"><circle cx="38" cy="38" r="32" fill="none" stroke="#1C2333" stroke-width="7"/><circle cx="38" cy="38" r="32" fill="none" stroke="#10B981" stroke-width="7" stroke-dasharray="193 8" stroke-linecap="round"/></svg>
-            <div class="score-val green">97</div>
-          </div>
-          <div class="score-lbl">SEO</div>
-        </div>
-        <div class="score-card">
-          <div class="score-ring">
-            <svg width="76" height="76" viewBox="0 0 76 76"><circle cx="38" cy="38" r="32" fill="none" stroke="#1C2333" stroke-width="7"/><circle cx="38" cy="38" r="32" fill="none" stroke="#10B981" stroke-width="7" stroke-dasharray="201 0" stroke-linecap="round"/></svg>
-            <div class="score-val green">100</div>
-          </div>
-          <div class="score-lbl">Best Practices</div>
-        </div>
-        <div class="score-card">
-          <div class="score-ring">
-            <svg width="76" height="76" viewBox="0 0 76 76"><circle cx="38" cy="38" r="32" fill="none" stroke="#1C2333" stroke-width="7"/><circle cx="38" cy="38" r="32" fill="none" stroke="#10B981" stroke-width="7" stroke-dasharray="191 10" stroke-linecap="round"/></svg>
-            <div class="score-val green">95</div>
-          </div>
-          <div class="score-lbl">Accessibility</div>
-        </div>
+      <div class="result-card">
+        <div class="result-ico" style="background:rgba(16,185,129,.1)"><svg viewBox="0 0 24 24" stroke="#10B981"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div class="result-num">+320<span>%</span></div>
+        <div class="result-lbl">Avg Organic Traffic Growth</div>
+        <div class="result-sub">After 90-day SEO sprint</div>
       </div>
+      <div class="result-card">
+        <div class="result-ico" style="background:rgba(129,140,248,.1)"><svg viewBox="0 0 24 24" stroke="#818CF8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="result-num">100<span>%</span></div>
+        <div class="result-lbl">Google SEO Score</div>
+        <div class="result-sub">Schema · Canonicals · Technical SEO</div>
+      </div>
+      <div class="result-card">
+        <div class="result-ico" style="background:rgba(245,158,11,.1)"><svg viewBox="0 0 24 24" stroke="#F59E0B"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="result-num">4.9<span>★</span></div>
+        <div class="result-lbl">Client Satisfaction</div>
+        <div class="result-sub">80+ reviews · 20+ countries</div>
+      </div>
+      <div class="result-card">
+        <div class="result-ico" style="background:rgba(255,107,53,.1)"><svg viewBox="0 0 24 24" stroke="#FF6B35"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="result-num">60<span>days</span></div>
+        <div class="result-lbl">Free Post-Launch Support</div>
+        <div class="result-sub">Included on every project</div>
+      </div>
+      <div class="result-card">
+        <div class="result-ico" style="background:rgba(16,185,129,.1)"><svg viewBox="0 0 24 24" stroke="#10B981"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div class="result-num">14<span>days</span></div>
+        <div class="result-lbl">Avg Time to First Draft</div>
+        <div class="result-sub">From kickoff to first review</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <a href="/seo-services.html" class="btn btn-accent">Explore SEO Services →</a>
     </div>
   </div>
 </section>
@@ -2368,6 +2369,110 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   const hrefPage = href.startsWith('#') ? '' : (new URL(href, location.origin).pathname.split('/').pop() || 'index.html');
   if(hrefPage === pg) a.closest('.nav-item')?.classList.add('active');
 });
+</script>
+<!-- ActionOS Waitlist Modal -->
+<div class="aos-modal-overlay" id="aosModal" role="dialog" aria-modal="true" aria-labelledby="aosModalTitle">
+  <div class="aos-modal">
+    <button class="aos-modal-close" id="aosModalClose" aria-label="Close">&times;</button>
+    <div class="aos-modal-badge">⚡ In Testing · Launching Soon</div>
+    <h3 id="aosModalTitle">Get Early Access to <span style="color:#ff4500">ActionOS</span></h3>
+    <p>Join the waitlist and be among the first agencies to use the automated sales machine built by WebDone Co. We'll reach out before public launch.</p>
+    <div class="aos-modal-form" id="aosWaitlistForm">
+      <input type="text" id="aosName" placeholder="Your name" autocomplete="name"/>
+      <input type="email" id="aosEmail" placeholder="Your email address" autocomplete="email"/>
+      <input type="text" id="aosAgency" placeholder="Agency / company name (optional)"/>
+      <button class="aos-modal-submit" id="aosSubmitBtn" type="button">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Join the Waitlist
+      </button>
+    </div>
+    <div id="aosSuccess" style="display:none;text-align:center;padding:1rem 0">
+      <div style="font-size:2rem;margin-bottom:.5rem">✅</div>
+      <p style="color:var(--white);font-weight:600;margin:0 0 .35rem">You're on the list!</p>
+      <p style="margin:0">We'll contact you before ActionOS goes public.</p>
+    </div>
+    <a href="https://wa.me/923114005856?text=Hi%2C+I%27m+interested+in+ActionOS+early+access" target="_blank" rel="noopener" class="aos-modal-wa">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.999 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.852L.044 23.944a.5.5 0 00.613.613l6.17-1.515A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 11.999 0z"/></svg>
+      Or message us on WhatsApp for instant access
+    </a>
+  </div>
+</div>
+
+<script>
+// ActionOS Waitlist Modal
+const aosModal = document.getElementById('aosModal');
+const aosOpen = () => aosModal.classList.add('open');
+const aosClose = () => aosModal.classList.remove('open');
+document.getElementById('aosWaitlistBtn').addEventListener('click', aosOpen);
+document.getElementById('aosModalClose').addEventListener('click', aosClose);
+aosModal.addEventListener('click', e => { if(e.target === aosModal) aosClose(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') aosClose(); });
+document.getElementById('aosSubmitBtn').addEventListener('click', () => {
+  const name = document.getElementById('aosName').value.trim();
+  const email = document.getElementById('aosEmail').value.trim();
+  if(!name || !email || !email.includes('@')) {
+    document.getElementById('aosName').style.borderColor = name ? '' : '#ef4444';
+    document.getElementById('aosEmail').style.borderColor = (email && email.includes('@')) ? '' : '#ef4444';
+    return;
+  }
+  // Store in localStorage as simple waitlist log
+  const list = JSON.parse(localStorage.getItem('aosWaitlist') || '[]');
+  list.push({name, email, agency: document.getElementById('aosAgency').value.trim(), ts: new Date().toISOString()});
+  localStorage.setItem('aosWaitlist', JSON.stringify(list));
+  document.getElementById('aosWaitlistForm').style.display = 'none';
+  document.getElementById('aosSuccess').style.display = 'block';
+});
+</script>
+
+<!-- ActionOS Waitlist Modal -->
+<div class="aos-modal-overlay" id="aosModal" role="dialog" aria-modal="true" aria-labelledby="aosModalTitle">
+  <div class="aos-modal">
+    <button class="aos-modal-close" id="aosModalClose" aria-label="Close">&times;</button>
+    <div class="aos-modal-badge">⚡ In Testing · Launching Soon</div>
+    <h3 id="aosModalTitle">Get Early Access to <span style="color:#ff4500">ActionOS</span></h3>
+    <p>Join the waitlist — be among the first agencies to use the automated sales machine built by WebDone Co. We'll reach out before public launch.</p>
+    <div class="aos-modal-form" id="aosWaitlistForm">
+      <input type="text" id="aosName" placeholder="Your name" autocomplete="name"/>
+      <input type="email" id="aosEmail" placeholder="Your email address" autocomplete="email"/>
+      <input type="text" id="aosAgency" placeholder="Agency / company name (optional)"/>
+      <button class="aos-modal-submit" id="aosSubmitBtn" type="button">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Join the Waitlist
+      </button>
+    </div>
+    <div id="aosSuccess" style="display:none;text-align:center;padding:1rem 0">
+      <div style="font-size:2.5rem;margin-bottom:.5rem">✅</div>
+      <p style="color:var(--white);font-weight:600;font-size:1rem;margin:0 0 .4rem">You are on the list!</p>
+      <p style="color:var(--muted);font-size:.85rem;margin:0">We will reach out before ActionOS goes public.</p>
+    </div>
+    <a href="https://wa.me/923114005856?text=Hi%2C+I+want+early+access+to+ActionOS" target="_blank" rel="noopener" class="aos-modal-wa">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.999 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.852L.044 23.944a.5.5 0 00.613.613l6.17-1.515A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 11.999 0z"/></svg>
+      Or message us on WhatsApp instead
+    </a>
+  </div>
+</div>
+<script>
+(function(){
+  const overlay = document.getElementById('aosModal');
+  const open = () => overlay.classList.add('open');
+  const close = () => overlay.classList.remove('open');
+  const btn = document.getElementById('aosWaitlistBtn');
+  if(btn) btn.addEventListener('click', open);
+  document.getElementById('aosModalClose').addEventListener('click', close);
+  overlay.addEventListener('click', e => { if(e.target === overlay) close(); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') close(); });
+  document.getElementById('aosSubmitBtn').addEventListener('click', function(){
+    var name = document.getElementById('aosName').value.trim();
+    var email = document.getElementById('aosEmail').value.trim();
+    var nameEl = document.getElementById('aosName');
+    var emailEl = document.getElementById('aosEmail');
+    nameEl.style.borderColor = name ? '' : '#ef4444';
+    emailEl.style.borderColor = (email && email.includes('@')) ? '' : '#ef4444';
+    if(!name || !email || !email.includes('@')) return;
+    document.getElementById('aosWaitlistForm').style.display = 'none';
+    document.getElementById('aosSuccess').style.display = 'block';
+  });
+})();
 </script>
 </body>
 </html>
