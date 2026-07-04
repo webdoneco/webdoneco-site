@@ -36,7 +36,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
   <link rel="dns-prefetch" href="https://fonts.gstatic.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,600;0,9..40,700;0,9..40,800&family=Inter:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,600;0,9..40,700;0,9..40,800&family=Inter:wght@400;500;600&display=swap"/></noscript>
   <script type="application/ld+json">
 [
   {
@@ -90,10 +91,16 @@
 /* ═══════════════════════════════════════════════
    TOKENS
 ═══════════════════════════════════════════════ */
+/* Critical fallback: system fonts render immediately, web font swaps in */
+*{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+/* Immediate fallback fonts so text shows before web font loads */
+body,button,input,select,textarea{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+/* System font fallback — renders immediately, web font swaps in */
+body,h1,h2,h3,h4,h5,h6,p,span,a,button,input{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
 :root{
   --bg:#0A0F1E;--card:#111827;--surface:#1C2333;
   --accent:#FF6B35;--accent-h:#FF8C5A;--accent-dim:rgba(255,107,53,.12);
-  --white:#FFFFFF;--muted:#A0AEC0;--border:#2D3748;
+  --white:#FFFFFF;--muted:#B4BECE;--border:#2D3748;
   --font-h:'DM Sans',sans-serif;--font-b:'Inter',sans-serif;
   --r:12px;--r-lg:20px;
   --shadow:0 4px 24px rgba(0,0,0,.45);
@@ -576,7 +583,7 @@ input,textarea,select{font:inherit}
 .port-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:all var(--ease);display:flex;flex-direction:column}
 .port-card:hover{transform:translateY(-6px);box-shadow:0 24px 64px rgba(0,0,0,.5);border-color:rgba(255,107,53,.3)}
 .port-thumb{aspect-ratio:16/9;position:relative;overflow:hidden;background:var(--surface)}
-.port-thumb-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.port-thumb-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;aspect-ratio:16/9}
 .port-card:hover .port-thumb-img{transform:scale(1.06)}
 .port-overlay{position:absolute;inset:0;background:rgba(10,15,30,.82);display:flex;align-items:center;justify-content:center;gap:.75rem;opacity:0;transition:opacity var(--ease)}
 .port-card:hover .port-overlay{opacity:1}
@@ -849,6 +856,8 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
   .dd-cta-btn{width:auto;margin-top:0 !important;margin-left:auto;padding:.6rem 1.2rem}
 }
 @media(max-width:1100px){
+  .actionos-inner{grid-template-columns:1fr;gap:3rem}
+  .aos-card{transform:none}
   .stats-grid{grid-template-columns:repeat(3,1fr)}
   .stat-card:nth-child(3){border-right:none}
   .stat-card:nth-child(1),.stat-card:nth-child(2),.stat-card:nth-child(3){border-bottom:1px solid var(--border)}
@@ -920,6 +929,58 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
   .cta-card-inner{border-radius:19px;padding:2.25rem 1.25rem}
   .cta-trust-row{gap:1rem .9rem}
 }
+
+/* ═══════════════════════════════════════════════
+   ACTIONOS SECTION
+═══════════════════════════════════════════════ */
+.actionos-sec{background:var(--bg);position:relative;overflow:hidden}
+.actionos-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 100% 50%,rgba(255,69,0,.07),transparent 60%),radial-gradient(ellipse 40% 40% at 0% 50%,rgba(99,102,241,.05),transparent 60%);pointer-events:none}
+.actionos-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
+.actionos-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,69,0,.1);border:1px solid rgba(255,69,0,.3);color:#ff4500;font-size:.73rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:.42rem 1rem;border-radius:100px;margin-bottom:1.5rem}
+.actionos-dot{width:7px;height:7px;border-radius:50%;background:#ff4500;animation:pulse 2s infinite;flex-shrink:0}
+.actionos-sub{font-size:1rem;color:var(--muted);line-height:1.75;margin:1rem 0 2rem;max-width:50ch}
+.actionos-features{display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2rem}
+.aos-feat{display:flex;gap:1rem;align-items:flex-start}
+.aos-feat-ico{width:36px;height:36px;border-radius:10px;background:rgba(255,69,0,.12);display:grid;place-items:center;flex:none;margin-top:.1rem}
+.aos-feat-ico svg{width:16px;height:16px;stroke:#ff4500;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.aos-feat-body h4{font-family:var(--font-h);font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.25rem}
+.aos-feat-body p{font-size:.82rem;color:var(--muted);line-height:1.6;margin:0}
+.actionos-cta{display:flex;gap:1rem;flex-wrap:wrap}
+
+/* ActionOS dashboard card */
+.actionos-vis{position:relative}
+.aos-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.5),0 0 0 1px rgba(255,69,0,.08);transform:perspective(1000px) rotateY(-6deg) rotateX(3deg);transition:transform .5s ease}
+.aos-card:hover{transform:perspective(1000px) rotateY(-2deg) rotateX(1deg)}
+.aos-card-hdr{background:var(--surface);border-bottom:1px solid var(--border);padding:.6rem 1rem;display:flex;align-items:center;gap:.4rem}
+.aos-hdr-dot{width:10px;height:10px;border-radius:50%}
+.aos-hdr-title{font-size:.68rem;color:var(--muted);margin-left:.5rem;font-weight:600}
+.aos-card-body{padding:1rem}
+.aos-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-bottom:1rem}
+.aos-metric{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.65rem .75rem;text-align:center}
+.aos-metric-val{font-family:var(--font-h);font-size:1.1rem;font-weight:800;line-height:1}
+.aos-metric-lbl{font-size:.6rem;color:var(--muted);margin-top:.25rem;text-transform:uppercase;letter-spacing:.04em}
+.aos-leads-hdr{font-size:.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem}
+.aos-lead-row{display:flex;align-items:center;gap:.7rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.55rem .7rem;margin-bottom:.4rem}
+.aos-lead-score{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-family:var(--font-h);font-size:.75rem;font-weight:800;flex:none}
+.aos-lead-score.fire{background:rgba(255,69,0,.15);color:#ff4500}
+.aos-lead-score.hot{background:rgba(255,96,48,.12);color:#ff6030}
+.aos-lead-info{flex:1;min-width:0}
+.aos-lead-name{font-size:.75rem;font-weight:600;color:var(--white)}
+.aos-lead-pain{font-size:.65rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.aos-lead-status{font-size:.65rem;font-weight:700;color:#ff4500;white-space:nowrap}
+.aos-sentinel-row{display:flex;align-items:center;gap:.6rem;margin-top:.65rem;padding:.5rem .7rem;background:rgba(255,69,0,.06);border:1px solid rgba(255,69,0,.15);border-radius:8px}
+.aos-sentinel-row svg{width:13px;height:13px;stroke:#ff4500;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;animation:pulse 2s infinite}
+.aos-sentinel-text{flex:1;min-width:0}
+.aos-sentinel-lbl{font-size:.6rem;color:var(--muted)}
+.aos-sentinel-val{font-size:.7rem;font-weight:600;color:var(--white);margin-left:.3rem}
+.aos-sentinel-prog{width:60px;height:4px;background:var(--border);border-radius:2px;flex:none;overflow:hidden}
+.aos-sentinel-bar{width:78%;height:100%;background:#ff4500;border-radius:2px;animation:scanPulse 1.8s ease-in-out infinite}
+@keyframes scanPulse{0%,100%{opacity:.7}50%{opacity:1}}
+.aos-sentinel-count{font-size:.65rem;font-weight:700;color:#ff4500;flex:none}
+.aos-float-badge{position:absolute;bottom:-12px;left:-12px;background:rgba(17,24,39,.95);border:1px solid rgba(255,69,0,.25);border-radius:12px;padding:.65rem .9rem;display:flex;align-items:center;gap:.65rem;box-shadow:0 12px 32px rgba(0,0,0,.5);backdrop-filter:blur(12px)}
+.aos-float-ico{font-size:1.25rem;line-height:1}
+.aos-float-title{font-size:.7rem;font-weight:700;color:var(--white)}
+.aos-float-msg{font-size:.64rem;color:var(--muted);margin-top:.1rem}
 </style>
 </head>
 <body>
@@ -954,7 +1015,7 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
       <p class="hero-sub">
         Premium <strong>WordPress</strong>, <strong>Shopify</strong> &amp; <strong>custom development</strong>. 
         SaaS products built from scratch. SEO that actually moves the needle. 
-        247+ projects delivered worldwide — fixed price, no surprises.
+        100+ projects delivered worldwide — fixed price, no surprises.
       </p>
 
       <div class="hero-btns">
@@ -1125,12 +1186,12 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-        <div class="stat-num">247<span>+</span></div>
+        <div class="stat-num">100<span>+</span></div>
         <div class="stat-lbl">Projects Delivered</div>
       </div>
       <div class="stat-card">
         <div class="stat-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-        <div class="stat-num">150<span>+</span></div>
+        <div class="stat-num">80<span>+</span></div>
         <div class="stat-lbl">Happy Clients</div>
       </div>
       <div class="stat-card">
@@ -1458,7 +1519,7 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
   <div class="container">
     <div class="t-center reveal">
       <span class="label">Why WebDone Co.</span>
-      <h2 class="section-title" id="whyH">Why 150+ Businesses <span>Choose WebDone Co.</span></h2>
+      <h2 class="section-title" id="whyH">Why 80+ Businesses <span>Choose WebDone Co.</span></h2>
       <p class="section-sub">Not the cheapest. Not the most expensive. The best value for businesses that care about quality — and have been burned by bad developers before.</p>
     </div>
     <div class="why-grid">
@@ -1507,6 +1568,21 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
         <h3>Zero Lock-In</h3>
         <p>Full code ownership on every project. No proprietary builders, no hostage fees — your site, your asset, forever.</p>
       </div>
+      <div class="why-card reveal rv1">
+        <div class="why-ico"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+        <h3>Fixed-Price Quotes</h3>
+        <p>Agreed upfront before a single line of code. No surprise invoices, no scope creep charges — what we quote is what you pay.</p>
+      </div>
+      <div class="why-card reveal rv2">
+        <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <h3>Direct WhatsApp Access</h3>
+        <p>No ticket queues, no chatbots. You get direct WhatsApp access to the team throughout your project and beyond launch.</p>
+      </div>
+      <div class="why-card reveal rv3">
+        <div class="why-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>SEO-Ready from Day One</h3>
+        <p>Every build includes on-page SEO, schema markup, meta tags, and Core Web Vitals optimisation — not bolted on later, baked in from the start.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1537,8 +1613,8 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
           <h3 itemprop="name">BRIO Rewards</h3>
           <p itemprop="description">Feature-rich loyalty and rewards platform with custom dashboard, member management, and multi-tier reward logic built for global scale.</p>
           <div class="port-meta">
-            <div class="port-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>International</div>
-            <div class="port-tags"><span class="ptag">Custom Dev</span><span class="ptag">SaaS</span></div>
+            <div class="port-country">🌐 International</div>
+            <div class="port-tags"><span class="ptag">SaaS</span><span class="ptag">Platform</span></div>
           </div>
         </div>
       </article>
@@ -1552,12 +1628,12 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
           </div>
         </div>
         <div class="port-info">
-          <div class="port-type">Medical Billing · USA</div>
+          <div class="port-type">Medical Billing</div>
           <h3 itemprop="name">Carestrix</h3>
           <p itemprop="description">Trust-driven B2B platform for a US medical billing company. Authority design, complex service architecture, and high-intent lead capture that converts.</p>
           <div class="port-meta">
-            <div class="port-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>USA</div>
-            <div class="port-tags"><span class="ptag">WordPress</span><span class="ptag">Healthcare</span></div>
+            <div class="port-country">🇺🇸 United States</div>
+            <div class="port-tags"><span class="ptag">Healthcare</span><span class="ptag">B2B</span></div>
           </div>
         </div>
       </article>
@@ -1571,12 +1647,12 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
           </div>
         </div>
         <div class="port-info">
-          <div class="port-type">Enterprise Technology · B2B · International</div>
+          <div class="port-type">Enterprise Technology · B2B</div>
           <h3 itemprop="name">Nixacom</h3>
           <p itemprop="description">Enterprise-grade B2B technology platform with sophisticated design, complex service architecture, and seamless lead generation built for global markets.</p>
           <div class="port-meta">
-            <div class="port-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>International</div>
-            <div class="port-tags"><span class="ptag">Custom Dev</span><span class="ptag">B2B Tech</span></div>
+            <div class="port-country">🌐 International</div>
+            <div class="port-tags"><span class="ptag">B2B Tech</span><span class="ptag">Enterprise</span></div>
           </div>
         </div>
       </article>
@@ -1590,12 +1666,12 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
           </div>
         </div>
         <div class="port-info">
-          <div class="port-type">Real Estate · USA</div>
+          <div class="port-type">Real Estate</div>
           <h3 itemprop="name">Oasys Realty</h3>
           <p itemprop="description">Premium real estate platform with property search, agent profiles, and lead capture designed to convert high-intent buyers and sellers in competitive markets.</p>
           <div class="port-meta">
-            <div class="port-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>USA</div>
-            <div class="port-tags"><span class="ptag">WordPress</span><span class="ptag">Real Estate</span></div>
+            <div class="port-country">🇺🇸 United States</div>
+            <div class="port-tags"><span class="ptag">Real Estate</span><span class="ptag">Property</span></div>
           </div>
         </div>
       </article>
@@ -1609,12 +1685,12 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
           </div>
         </div>
         <div class="port-info">
-          <div class="port-type">Consumer Platform · UK</div>
+          <div class="port-type">Consumer Platform</div>
           <h3 itemprop="name">Moostar</h3>
           <p itemprop="description">Bold, high-energy UK consumer platform with seamless UX, fast performance, and conversion-optimised flows designed for the British market.</p>
           <div class="port-meta">
-            <div class="port-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>United Kingdom</div>
-            <div class="port-tags"><span class="ptag">Custom Dev</span><span class="ptag">Consumer</span></div>
+            <div class="port-country">🇬🇧 United Kingdom</div>
+            <div class="port-tags"><span class="ptag">Consumer</span><span class="ptag">Marketplace</span></div>
           </div>
         </div>
       </article>
@@ -1628,12 +1704,12 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
           </div>
         </div>
         <div class="port-info">
-          <div class="port-type">Education · India</div>
+          <div class="port-type">Education</div>
           <h3 itemprop="name">The Cambridge School</h3>
           <p itemprop="description">Prestigious school website with academic portals, admissions flow, event management, and parent communication systems built for institutional credibility.</p>
           <div class="port-meta">
-            <div class="port-country"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>India</div>
-            <div class="port-tags"><span class="ptag">WordPress</span><span class="ptag">Education</span></div>
+            <div class="port-country">🇮🇳 India</div>
+            <div class="port-tags"><span class="ptag">Education</span><span class="ptag">Institution</span></div>
           </div>
         </div>
       </article>
@@ -1755,14 +1831,148 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
   </div>
 </section>
 
+
+<!-- ═══════════════════ ACTIONOS ═══════════════════ -->
+<section class="actionos-sec section-pad" aria-labelledby="actionosH">
+  <div class="container">
+    <div class="actionos-inner">
+      <!-- Left: content -->
+      <div class="actionos-content reveal">
+        <div class="actionos-badge">
+          <span class="actionos-dot"></span>
+          Now Building · Launching Soon
+        </div>
+        <h2 class="section-title" id="actionosH">
+          Meet <span>ActionOS</span> — The Automated Sales Machine for Agencies
+        </h2>
+        <p class="actionos-sub">Built by WebDone Co. for web agencies and freelancers worldwide. ActionOS finds your clients, qualifies them, sends personalised outreach, and manages your full business — automatically.</p>
+
+        <div class="actionos-features">
+          <div class="aos-feat">
+            <div class="aos-feat-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+            <div class="aos-feat-body">
+              <h4>Sentinel — Lead Scraper</h4>
+              <p>Finds and audits local businesses automatically. 55+ data points per lead including PageSpeed, SEO score, missing contact info, and a weighted 0–100 lead score.</p>
+            </div>
+          </div>
+          <div class="aos-feat">
+            <div class="aos-feat-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="aos-feat-body">
+              <h4>AI-Powered Outreach</h4>
+              <p>Claude AI writes a personalised cold email for every lead, referencing their actual pain points. Sends via rotating outreach emails, tracks opens and replies automatically.</p>
+            </div>
+          </div>
+          <div class="aos-feat">
+            <div class="aos-feat-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+            <div class="aos-feat-body">
+              <h4>Full Business OS</h4>
+              <p>CRM, projects, invoices, finance tracker, and team management — all in one dark-themed dashboard built specifically for web agencies.</p>
+            </div>
+          </div>
+          <div class="aos-feat">
+            <div class="aos-feat-ico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+            <div class="aos-feat-body">
+              <h4>DoneBot AI Assistant</h4>
+              <p>Ask "Which leads should I contact today?" or "Draft a follow-up for this client" — DoneBot knows your leads, projects, and revenue and acts on your behalf.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="actionos-cta">
+          <a href="https://actionos.net" target="_blank" rel="noopener" class="btn btn-accent">
+            Join the Waitlist
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="https://actionos.net" target="_blank" rel="noopener" class="btn btn-outline">Learn More ↗</a>
+        </div>
+      </div>
+
+      <!-- Right: dashboard preview -->
+      <div class="actionos-vis reveal rv2">
+        <div class="aos-card">
+          <div class="aos-card-hdr">
+            <div class="aos-hdr-dot" style="background:#ff4500"></div>
+            <div class="aos-hdr-dot" style="background:#FEBC2E"></div>
+            <div class="aos-hdr-dot" style="background:#28C840"></div>
+            <span class="aos-hdr-title">ActionOS · Intelligence Center</span>
+          </div>
+          <div class="aos-card-body">
+            <!-- Metric row -->
+            <div class="aos-metrics">
+              <div class="aos-metric">
+                <div class="aos-metric-val" style="color:#ff4500">🔥 12</div>
+                <div class="aos-metric-lbl">Fire Leads</div>
+              </div>
+              <div class="aos-metric">
+                <div class="aos-metric-val" style="color:#22c55e">84%</div>
+                <div class="aos-metric-lbl">Email Open Rate</div>
+              </div>
+              <div class="aos-metric">
+                <div class="aos-metric-val" style="color:#3b82f6">$4.2k</div>
+                <div class="aos-metric-lbl">MRR This Month</div>
+              </div>
+            </div>
+            <!-- Lead rows -->
+            <div class="aos-leads-hdr">Top Fire Leads · Awaiting Outreach</div>
+            <div class="aos-lead-row">
+              <div class="aos-lead-score fire">96</div>
+              <div class="aos-lead-info">
+                <div class="aos-lead-name">Dubai Dental Clinic</div>
+                <div class="aos-lead-pain">PageSpeed 23 · No SSL · $1,200 in Google Ads</div>
+              </div>
+              <div class="aos-lead-status">🔥 FIRE</div>
+            </div>
+            <div class="aos-lead-row">
+              <div class="aos-lead-score hot">88</div>
+              <div class="aos-lead-info">
+                <div class="aos-lead-name">Riyadh Restaurant Group</div>
+                <div class="aos-lead-pain">WordPress 4.8 · Dead blog since 2021 · No GA</div>
+              </div>
+              <div class="aos-lead-status" style="color:#ff6030">⚡ HOT</div>
+            </div>
+            <div class="aos-lead-row">
+              <div class="aos-lead-score hot" style="background:rgba(234,179,8,.12);color:#eab308">75</div>
+              <div class="aos-lead-info">
+                <div class="aos-lead-name">London Law Firm LLP</div>
+                <div class="aos-lead-pain">Not in Google 3-Pack · No mobile design</div>
+              </div>
+              <div class="aos-lead-status" style="color:#eab308">🌡️ WARM</div>
+            </div>
+            <!-- Sentinel running -->
+            <div class="aos-sentinel-row">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <div class="aos-sentinel-text">
+                <span class="aos-sentinel-lbl">Sentinel scanning:</span>
+                <span class="aos-sentinel-val">dentists · Dubai</span>
+              </div>
+              <div class="aos-sentinel-prog">
+                <div class="aos-sentinel-bar"></div>
+              </div>
+              <span class="aos-sentinel-count">47 / 60</span>
+            </div>
+          </div>
+        </div>
+        <!-- Floating badge -->
+        <div class="aos-float-badge">
+          <span class="aos-float-ico">🤖</span>
+          <div>
+            <div class="aos-float-title">DoneBot</div>
+            <div class="aos-float-msg">3 fire leads need your attention</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════════ VANTAONE ═══════════════════ -->
 <section class="vantaone-strip" aria-labelledby="voH">
   <div class="vo-inner container">
     <div class="vo-content reveal">
-      <div class="vo-badge">Coming Soon · Early Access Open</div>
+      <div class="vo-badge">Exclusive · WebDone Co. Clients Only</div>
       <h2 id="voH">The Future of SEO is <span>VantaOne Engine™</span></h2>
       <p class="vo-tagline">Not just another SEO tool — the last one you'll ever need.</p>
-      <p>Our proprietary AI-powered SEO and lead generation engine, built from the ground up at WebDone Co. It surfaces your business to the right customers at exactly the right moment — automatically, intelligently, continuously.</p>
+      <p>Our proprietary AI-powered SEO engine — built exclusively for WebDone Co. clients. While your competitors guess, VantaOne surfaces your business to the right customers at the right moment, automatically and continuously. It is not sold or licensed elsewhere.</p>
       <div class="vo-perks">
         <div class="vo-perk"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>AI-driven keyword intelligence</div>
         <div class="vo-perk"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Automated lead scoring</div>
@@ -1771,11 +1981,11 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
       </div>
     </div>
     <div class="vo-action reveal rv2">
-      <button class="btn-vanta" id="vantaBtn">
+      <a href="/contact.html#quote" class="btn-vanta" style="text-decoration:none;display:inline-flex;">
         <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        Claim Early Access
-      </button>
-      <p>Limited spots · Select clients only</p>
+        Get VantaOne With Your Project
+      </a>
+      <p>Included free with every WebDone Co. SEO plan</p>
     </div>
   </div>
 </section>
