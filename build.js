@@ -679,6 +679,34 @@ function build() {
   fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), generateSitemap(pageFiles, blogPosts), 'utf8');
   log('✔ Generated sitemap.xml');
 
+  // llms.txt — fixes PageSpeed Agentic Browsing warning (requires H1 + links)
+  const llmsTxt = [
+    '# WebDone Co. — Premium Web Development Agency',
+    '',
+    '> Premium web development, SEO & SaaS agency. 80+ clients. 20+ countries. Founded 2017.',
+    '',
+    '## Services',
+    '',
+    '- [WordPress Development](/wordpress-development.html)',
+    '- [Shopify Development](/shopify-development.html)',
+    '- [Custom Development](/custom-development.html)',
+    '- [SaaS Development](/saas-development.html)',
+    '- [SEO Services](/seo-services.html)',
+    '- [Website Maintenance](/website-maintenance.html)',
+    '- [Website Fixes](/website-fixes.html)',
+    '- [Portfolio](/portfolio.html)',
+    '- [Contact](/contact.html)',
+    '',
+    '## Company',
+    '',
+    '- Email: hello@webdoneco.com',
+    '- WhatsApp: +92 311 4005856',
+    '- Rating: 4.9 stars from 80 clients across 20 countries',
+    '- Fixed-price quotes. 60-day free support. Full code ownership.',
+  ].join('\n');
+  fs.writeFileSync(path.join(DIST_DIR, 'llms.txt'), llmsTxt, 'utf8');
+  log('\u2714 Generated llms.txt');
+
   log(`\n✅ Build complete — ${builtCount} page(s) + ${blogBuiltCount} blog post(s) written to dist/\n`);
   log('Next step: upload the CONTENTS of the dist/ folder to Cloudflare Pages.\n');
 }
