@@ -119,7 +119,7 @@ input,textarea,select{font:inherit}
 .has-dd::after{content:'';position:fixed;top:72px;left:50%;transform:translateX(-50%);width:min(96vw,1240px);height:14px;z-index:199}
 .dd-menu{position:fixed;top:72px;left:50%;transform:translateX(-50%) translateY(-8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);width:min(96vw,1240px);z-index:200}
 .has-dd:hover .dd-menu,.has-dd:focus-within .dd-menu{opacity:1;visibility:visible;pointer-events:all;transform:translateX(-50%) translateY(0);transition-delay:0s}
-.dd-inner{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(260px,288px)}
+.dd-inner{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(220px,260px)}
 .dd-col{padding:1.5rem}
 .dd-col+.dd-col{border-left:1px solid var(--border)}
 .dd-section-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;padding:0 .5rem;display:flex;align-items:center;gap:.5rem}
@@ -132,7 +132,7 @@ input,textarea,select{font:inherit}
 .dd-item strong{display:block;font-size:.875rem;font-weight:600;color:var(--white);line-height:1.3}
 .dd-item small{display:block;font-size:.76rem;color:var(--muted);line-height:1.35;margin-top:.1rem}
 /* CTA col in dropdown */
-.dd-cta-col{display:flex;align-items:stretch;padding:1.5rem}
+.dd-cta-col{display:flex;align-items:stretch;padding:1.5rem;border-left:1px solid var(--border)}
 .dd-cta-box{background:linear-gradient(160deg,rgba(255,107,53,.14),rgba(99,102,241,.06));border:1px solid rgba(255,107,53,.22);border-radius:var(--r-lg);padding:1.35rem;display:flex;flex-direction:column;gap:.85rem;width:100%;position:relative;overflow:hidden}
 .dd-cta-box::before{content:'';position:absolute;top:-30px;right:-30px;width:90px;height:90px;border-radius:50%;background:rgba(255,107,53,.18);filter:blur(20px)}
 .dd-cta-ico{width:38px;height:38px;border-radius:10px;background:rgba(255,107,53,.18);display:grid;place-items:center;position:relative;z-index:1}
@@ -645,8 +645,12 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
    RESPONSIVE
 ═══════════════════════════════════════════════ */
 /* Dropdown: CTA card collapses to bottom strip on narrower screens */
-@media(max-width:1400px){
-  .dd-inner{grid-template-columns:repeat(3,1fr)}
+/* Dropdown: always 4 columns. CTA card is min 220px so it never
+   disappears — it just gets a bit narrower on smaller panels.
+   Only collapses to a strip below the real mobile breakpoint (768px)
+   where the whole menu is hidden anyway and replaced by the mobile menu. */
+@media(max-width:900px){
+  .dd-inner{grid-template-columns:1fr 1fr}
   .dd-cta-col{grid-column:1 / -1;border-left:none !important;border-top:1px solid var(--border);padding-top:1rem}
   .dd-cta-box{flex-direction:row;align-items:center;gap:1rem}
   .dd-cta-ico,.dd-cta-sub,.dd-cta-list{display:none}
