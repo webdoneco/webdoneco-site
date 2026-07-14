@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Word Count Checker — Count Words, Characters & Sentences | WebDone Co.</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-chrome-192x192.png"/>
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/images/android-chrome-512x512.png"/>
+<meta name="theme-color" content="#FF6B35"/>
+<meta name="description" content="Free word count checker — instantly count words, characters, sentences, paragraphs and reading time. Paste your text and get results instantly. No sign-up needed."/>
+<meta name="keywords" content="word count checker, word counter, character count, word count tool, free word counter, count words online, characters without spaces"/>
+<meta name="author" content="WebDone Co."/>
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://webdoneco.com/tools/word-count-checker.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://webdoneco.com/tools/word-count-checker.html"/>
+<meta property="og:title" content="Free Word Count Checker | WebDone Co."/>
+<meta property="og:description" content="Instantly count words, characters, sentences, and reading time. Free online tool — no sign-up required."/>
+<meta property="og:image" content="https://webdoneco.com/assets/og-image.jpg"/>
+<meta property="og:site_name" content="WebDone Co."/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Free Word Count Checker | WebDone Co."/>
+<meta name="twitter:description" content="Count words, characters, sentences and reading time instantly. Free tool."/>
+<meta name="twitter:image" content="https://webdoneco.com/assets/og-image.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,600;0,9..40,700;0,9..40,800&family=Inter:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" fetchpriority="low"/>
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,600;0,9..40,700;0,9..40,800&family=Inter:wght@400;500;600&display=swap"/></noscript>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Word Count Checker","description":"Free tool to count words, characters, sentences, paragraphs and estimate reading time.","url":"https://webdoneco.com/tools/word-count-checker.html","applicationCategory":"BusinessApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"creator":{"@type":"Organization","name":"WebDone Co.","url":"https://webdoneco.com"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://webdoneco.com/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://webdoneco.com/tools/"},{"@type":"ListItem","position":3,"name":"Word Count Checker","item":"https://webdoneco.com/tools/word-count-checker.html"}]}}</script>
+<style>
+*{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+:root{--bg:#0A0F1E;--card:#111827;--surface:#1C2333;--accent:#FF6B35;--accent-h:#FF8C5A;--accent-dim:rgba(255,107,53,.12);--white:#FFFFFF;--muted:#B4BECE;--border:#2D3748;--font-h:'DM Sans',sans-serif;--font-b:'Inter',sans-serif;--r:12px;--r-lg:20px;--shadow:0 4px 24px rgba(0,0,0,.45);--shadow-lg:0 12px 48px rgba(0,0,0,.6);--ease:.25s cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}body{background:var(--bg);color:var(--white);font-family:var(--font-b);line-height:1.65;overflow-x:hidden}img{max-width:100%;height:auto;display:block}a{text-decoration:none;color:inherit}ul{list-style:none}button{cursor:pointer;border:none;background:none;font:inherit}input,textarea,select{font:inherit}
+.container{width:min(1240px,100% - 2.5rem);margin-inline:auto}.section-pad{padding-block:clamp(4.5rem,9vw,7.5rem)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:var(--r);font-family:var(--font-h);font-weight:600;font-size:.95rem;transition:all var(--ease);cursor:pointer;border:none;white-space:nowrap}
+.btn-accent{background:var(--accent);color:#1a0800}.btn-accent:hover{background:var(--accent-h);color:#1a0800;transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,53,.4)}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid var(--border)}.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.btn-wa{display:inline-flex;align-items:center;gap:.5rem;background:#25D366;color:#042210;padding:.75rem 1.5rem;border-radius:var(--r);font-family:var(--font-h);font-weight:600;font-size:.95rem;transition:all var(--ease);border:none;cursor:pointer;white-space:nowrap}.btn-wa:hover{background:#1ebe5d;transform:translateY(-2px)}
+.btn-lg{padding:1rem 2rem;font-size:1.05rem}
+.label{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent-dim);border:1px solid rgba(255,107,53,.25);color:var(--accent);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.35rem .9rem;border-radius:100px;margin-bottom:1rem}
+.section-title{font-family:var(--font-h);font-size:clamp(1.85rem,3.5vw,2.8rem);font-weight:800;line-height:1.15;letter-spacing:-.025em}.section-title span{color:var(--accent)}
+.section-sub{color:var(--muted);font-size:1.05rem;max-width:58ch;margin-top:.75rem;line-height:1.7}.t-center{text-align:center}.t-center .section-sub{margin-inline:auto}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}.reveal.visible{opacity:1;transform:none}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:900;transition:background var(--ease),box-shadow var(--ease)}
+.site-header::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),rgba(99,102,241,.8),var(--accent),transparent);opacity:0;transition:opacity var(--ease)}.site-header.scrolled::before{opacity:1}.site-header.scrolled{background:rgba(10,15,30,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border),0 4px 24px rgba(0,0,0,.3)}
+.nav-wrap{display:flex;align-items:center;height:72px;gap:.5rem;position:relative}.nav-logo{display:flex;align-items:center;gap:.5rem;flex-shrink:0}.nav-logo img{height:38px;width:auto}
+.nav-links{display:flex;align-items:center;gap:.1rem;margin-left:auto}.nav-link{display:flex;align-items:center;gap:.3rem;padding:.45rem .8rem;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--muted);transition:color var(--ease),background var(--ease);white-space:nowrap;cursor:pointer;border:none;background:none;font-family:var(--font-b)}.nav-link:hover,.nav-item.active .nav-link{color:var(--white);background:rgba(255,255,255,.06)}
+.nav-chevron{transition:transform var(--ease);flex-shrink:0}.has-dd:hover .nav-chevron{transform:rotate(180deg)}.has-dd{position:static}.has-dd::after{content:'';position:fixed;top:72px;left:50%;transform:translateX(-50%);width:min(96vw,1240px);height:14px;z-index:199}
+.dd-menu{position:fixed;top:72px;left:50%;transform:translateX(-50%) translateY(-8px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);width:min(96vw,1240px);z-index:200}.has-dd:hover .dd-menu,.has-dd:focus-within .dd-menu{opacity:1;visibility:visible;pointer-events:all;transform:translateX(-50%) translateY(0)}
+.dd-inner{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(220px,260px)}.dd-col{padding:1.5rem}.dd-col+.dd-col{border-left:1px solid var(--border)}.dd-section-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem;padding:0 .5rem;display:flex;align-items:center;gap:.5rem}.dd-section-label::after{content:'';flex:1;height:1px;background:rgba(255,107,53,.25)}
+.dd-item{display:flex;align-items:flex-start;gap:.85rem;padding:.6rem .65rem;border-radius:10px;transition:background var(--ease),transform var(--ease);margin-bottom:.05rem}.dd-item:hover{background:rgba(255,107,53,.07);transform:translateX(2px)}.dd-item-ico{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;flex-shrink:0;background:rgba(255,107,53,.1)}.dd-item:hover .dd-item-ico{background:rgba(255,107,53,.18)}.dd-item-ico svg{width:17px;height:17px;stroke:var(--accent);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.dd-item strong{display:block;font-size:.875rem;font-weight:600;color:var(--white);line-height:1.3}.dd-item small{display:block;font-size:.76rem;color:var(--muted);line-height:1.35;margin-top:.1rem}
+.dd-cta-col{display:flex;align-items:stretch;padding:1.5rem;border-left:1px solid var(--border)}.dd-cta-box{background:linear-gradient(160deg,rgba(255,107,53,.14),rgba(99,102,241,.06));border:1px solid rgba(255,107,53,.22);border-radius:var(--r-lg);padding:1.1rem;display:flex;flex-direction:column;gap:.55rem;width:100%;position:relative;overflow:hidden}.dd-cta-box::before{content:'';position:absolute;top:-30px;right:-30px;width:90px;height:90px;border-radius:50%;background:rgba(255,107,53,.18);filter:blur(20px)}.dd-cta-ico{width:32px;height:32px;border-radius:8px;background:rgba(255,107,53,.18);display:grid;place-items:center;position:relative;z-index:1}.dd-cta-ico svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.dd-cta-title{font-family:var(--font-h);font-weight:800;font-size:.9rem;line-height:1.25;position:relative;z-index:1}.dd-cta-sub{font-size:.76rem;color:var(--muted);line-height:1.45;position:relative;z-index:1}.dd-cta-list{list-style:none;margin:.4rem 0 .5rem;padding:0;display:flex;flex-direction:column;gap:.32rem}.dd-cta-list li{display:flex;align-items:center;gap:.4rem;font-size:.74rem;color:#A0AEC0;line-height:1.3}.dd-cta-list li svg{width:12px;height:12px;flex:none;fill:none;stroke:#10B981;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.dd-cta-btn{display:flex;align-items:center;justify-content:center;gap:.55rem;background:var(--accent);color:#fff;padding:.7rem 1rem;border-radius:var(--r);font-family:var(--font-h);font-weight:800;font-size:.8rem;line-height:1.2;transition:all var(--ease);border:none;cursor:pointer;position:relative;z-index:1;text-align:center;white-space:nowrap}.dd-cta-btn:hover{background:var(--accent-h);transform:translateY(-2px)}.dd-cta-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;transition:transform var(--ease)}.dd-cta-btn:hover svg{transform:translateX(3px)}
+.nav-cta{margin-left:1rem;flex-shrink:0;position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(135deg,var(--accent) 0%,var(--accent-h) 50%,#FFB199 100%);padding:.7rem 1.35rem;border-radius:10px;box-shadow:0 4px 18px rgba(255,107,53,.35),inset 0 1px 0 rgba(255,255,255,.25)}.nav-cta::before{content:'';position:absolute;top:0;left:-60%;width:50%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);z-index:1;animation:navShine 3.2s ease-in-out infinite}@keyframes navShine{0%{left:-60%}35%{left:130%}100%{left:130%}}.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(255,107,53,.45)}.nav-cta span{position:relative;z-index:2;display:flex;align-items:center;gap:.45rem;color:#fff}.nav-cta svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform var(--ease);position:relative;z-index:2}.nav-cta:hover svg{transform:translateX(3px) rotate(-45deg)}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:6px;margin-left:auto}.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all var(--ease)}.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;background:rgba(10,15,30,.98);backdrop-filter:blur(16px);border-top:1px solid var(--border);padding:1.25rem;max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1)}.mobile-menu.open{max-height:90vh;overflow-y:auto}
+.mob-link{display:block;padding:.75rem 1rem;font-weight:500;font-size:.95rem;border-radius:8px;color:var(--muted);transition:all var(--ease)}.mob-link:hover{color:var(--white);background:rgba(255,255,255,.06)}.mob-dd summary{list-style:none}.mob-dd summary::-webkit-details-marker{display:none}.mob-dd-items{padding-left:1.5rem;display:flex;flex-direction:column;gap:.1rem;margin-top:.25rem}.mob-dd-items a{display:block;padding:.45rem .75rem;font-size:.875rem;color:var(--muted);border-radius:6px;transition:all var(--ease)}.mob-dd-items a:hover{color:var(--white);background:rgba(255,255,255,.05)}
+.site-footer{background:var(--card);border-top:1px solid var(--border)}.footer-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1.4fr;gap:2.5rem;padding-block:4.5rem}.ft-brand .ft-logo img{height:34px;width:auto}.ft-tagline{font-family:var(--font-h);font-weight:700;color:var(--accent);font-size:.875rem;margin-top:.85rem;margin-bottom:.75rem}.ft-desc{font-size:.81rem;color:var(--muted);line-height:1.7;max-width:28ch}.ft-socials{display:flex;gap:.5rem;margin-top:1.25rem}.ft-soc{width:36px;height:36px;border-radius:8px;background:var(--surface);border:1px solid var(--border);display:grid;place-items:center;transition:all var(--ease)}.ft-soc svg{width:16px;height:16px;stroke:var(--muted);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;transition:stroke var(--ease)}.ft-soc:hover{border-color:var(--accent);transform:translateY(-2px)}.ft-soc:hover svg{stroke:var(--accent)}.ft-col-title{font-family:var(--font-h);font-size:.82rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem}.ft-col-title::after{content:'';flex:1;height:1px;background:rgba(255,107,53,.15)}.ft-links{display:flex;flex-direction:column;gap:.55rem}.ft-links a{font-size:.845rem;color:var(--muted);transition:color var(--ease)}.ft-links a:hover{color:var(--white)}.ft-contact-list{display:flex;flex-direction:column;gap:.75rem}.ft-ci{display:flex;align-items:flex-start;gap:.75rem;font-size:.83rem;color:var(--muted)}.ft-ci-ico{width:30px;height:30px;border-radius:8px;background:rgba(255,107,53,.1);display:grid;place-items:center;flex-shrink:0;margin-top:.05rem}.ft-ci-ico svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}.ft-ci a{color:var(--muted);transition:color var(--ease)}.ft-ci a:hover{color:var(--accent)}.footer-bottom{border-top:1px solid var(--border);padding-block:1.35rem}.footer-bottom-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}.footer-bottom p{font-size:.78rem;color:var(--muted)}.footer-bottom p span{color:var(--accent)}.ft-legal{display:flex;gap:1.5rem;flex-wrap:wrap}.ft-legal a{font-size:.78rem;color:var(--muted);transition:color var(--ease)}.ft-legal a:hover{color:var(--white)}
+@media(max-width:900px){.dd-inner{grid-template-columns:1fr 1fr}.dd-cta-col{grid-column:1/-1;border-left:none;border-top:1px solid var(--border)}}
+@media(max-width:768px){.nav-links,.nav-cta{display:none}.hamburger{display:flex}.mobile-menu{display:block}.dd-menu{display:none}.footer-top{grid-template-columns:1fr 1fr;gap:1.75rem}.ft-brand{grid-column:span 2}.stats-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.footer-top{grid-template-columns:1fr}.ft-brand{grid-column:span 1}.stats-grid{grid-template-columns:1fr 1fr}}
+.tool-hero{padding:calc(72px + 4rem) 0 3rem;background:var(--bg);position:relative;overflow:hidden}
+.tool-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% -10%,rgba(255,107,53,.15),transparent 65%)}
+.tool-hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(45,55,72,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(45,55,72,.18) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 70% 80% at 50% 30%,black,transparent)}
+.tool-hero-inner{position:relative;z-index:1;text-align:center;max-width:700px;margin-inline:auto}
+.tool-hero h1{font-family:var(--font-h);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;line-height:1.08;letter-spacing:-.04em;margin-bottom:1rem}.tool-hero h1 span{color:var(--accent)}
+.tool-hero p{color:var(--muted);font-size:1.1rem;line-height:1.7;max-width:52ch;margin-inline:auto}
+.hero-stats{display:flex;gap:2rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap}
+.hero-stat{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--muted)}.hero-stat svg{width:15px;height:15px;stroke:#10B981;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;flex-none}
+/* TOOL MAIN */
+.tool-section{padding:3rem 0 5rem}
+/* STATS GRID */
+.stats-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:.75rem;margin-bottom:1.5rem}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1rem .75rem;text-align:center;transition:all .2s;position:relative;overflow:hidden}
+.stat-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--accent),rgba(99,102,241,.8));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.stat-box:hover::before{transform:scaleX(1)}.stat-box:hover{border-color:rgba(255,107,53,.25)}
+.stat-num{font-family:var(--font-h);font-size:1.75rem;font-weight:800;color:var(--white);line-height:1;transition:color .2s}
+.stat-label{font-size:.68rem;color:var(--muted);margin-top:.3rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+/* TEXTAREA AREA */
+.editor-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+.editor-toolbar{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:.5rem}
+.toolbar-left{display:flex;align-items:center;gap:.75rem}
+.toolbar-label{font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.toolbar-actions{display:flex;gap:.5rem}
+.tbtn{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.4rem .8rem;font-size:.75rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s;font-family:var(--font-b)}.tbtn:hover{border-color:var(--accent);color:var(--accent)}
+.word-count-display{font-family:var(--font-h);font-size:1.25rem;font-weight:800;color:var(--accent)}
+.editor-area{width:100%;min-height:320px;background:transparent;border:none;padding:1.25rem;color:var(--white);font-size:.95rem;line-height:1.8;resize:vertical;font-family:var(--font-b);outline:none}
+.editor-area::placeholder{color:rgba(180,190,206,.3)}
+.editor-footer{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:.5rem}
+.editor-hint{font-size:.75rem;color:var(--muted)}
+/* DETAILS PANEL */
+.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.detail-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem}
+.detail-card h3{font-family:var(--font-h);font-size:.875rem;font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.detail-card h3 svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-none}
+.detail-rows{display:flex;flex-direction:column;gap:.6rem}
+.detail-row{display:flex;justify-content:space-between;align-items:center;font-size:.875rem}
+.detail-row-label{color:var(--muted)}.detail-row-val{font-weight:700;color:var(--white)}
+.progress-bar-wrap{margin-top:.5rem}
+.progress-label{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted);margin-bottom:.35rem}
+.progress-bar{height:6px;background:var(--surface);border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(to right,var(--accent),rgba(99,102,241,.8));border-radius:3px;transition:width .4s ease}
+/* KEYWORD DENSITY */
+.kw-table{width:100%;font-size:.8rem;border-collapse:collapse;margin-top:.5rem}
+.kw-table th{text-align:left;padding:.4rem .5rem;color:var(--muted);font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border)}
+.kw-table td{padding:.4rem .5rem;color:var(--muted);border-bottom:1px solid rgba(45,55,72,.5)}.kw-table tr:last-child td{border-bottom:none}.kw-table td:last-child{color:var(--white);font-weight:600}
+/* READING TIME VISUAL */
+.reading-visual{display:flex;align-items:center;gap:1rem;padding:1rem;background:var(--surface);border-radius:var(--r);margin-top:.75rem}
+.reading-ico{width:40px;height:40px;border-radius:50%;background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.2);display:grid;place-items:center;flex-none}
+.reading-ico svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.reading-text strong{display:block;font-family:var(--font-h);font-size:1.1rem;font-weight:800}.reading-text span{font-size:.8rem;color:var(--muted)}
+/* SEO LIMITS SECTION */
+.limits-section{padding:3rem 0;background:var(--surface)}
+.limits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:2rem}
+.limit-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.25rem}
+.limit-card h3{font-family:var(--font-h);font-size:.95rem;font-weight:700;margin-bottom:.65rem;display:flex;align-items:center;gap:.5rem}
+.limit-card h3 svg{width:17px;height:17px;stroke:var(--accent);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-none}
+.limit-range{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem}
+.limit-badge{background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.2);color:var(--accent);font-size:.75rem;font-weight:700;padding:.2rem .6rem;border-radius:6px}
+.limit-card p{font-size:.8rem;color:var(--muted);line-height:1.6}
+/* FAQ */
+.faq-section{padding:5rem 0}
+.faq-list{display:flex;flex-direction:column;gap:.75rem;margin-top:2.5rem}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .2s}.faq-item:hover{border-color:rgba(255,107,53,.2)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.25rem;cursor:pointer;gap:1rem;font-family:var(--font-h);font-weight:700;font-size:.9rem;list-style:none;transition:color .2s}.faq-q::-webkit-details-marker{display:none}
+details[open] .faq-q{color:var(--accent)}.faq-plus{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.06);display:grid;place-items:center;font-size:.9rem;transition:all .2s;color:var(--muted)}
+details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);transform:rotate(45deg)}.faq-a{padding:0 1.25rem 1.1rem;font-size:.875rem;color:var(--muted);line-height:1.75}
+/* CTA */
+.cta-section{padding:5rem 0}.cta-card{max-width:800px;margin-inline:auto;border-radius:24px;padding:1px;background:linear-gradient(135deg,rgba(255,107,53,.5),rgba(99,102,241,.3),rgba(255,107,53,.5));background-size:200% 200%;animation:borderShift 6s ease infinite}
+@keyframes borderShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.cta-inner{background:rgba(17,24,39,.95);backdrop-filter:blur(20px);border-radius:23px;padding:3.5rem;text-align:center}.cta-inner h2{font-family:var(--font-h);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-.035em;line-height:1.1;margin-bottom:1rem}.cta-inner h2 span{color:var(--accent)}.cta-inner p{color:var(--muted);font-size:1rem;max-width:48ch;margin:0 auto 2rem;line-height:1.7}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}.trust-row{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}.trust-item{display:flex;align-items:center;gap:.4rem;font-size:.78rem;color:var(--muted)}.trust-item svg{width:13px;height:13px;stroke:#10B981;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+/* other tools strip */
+.tools-strip{padding:3rem 0;background:var(--card);border-top:1px solid var(--border)}
+.tools-row{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:1.25rem}
+.tool-pill{display:inline-flex;align-items:center;gap:.5rem;background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:.5rem 1.1rem;font-size:.82rem;color:var(--muted);transition:all .2s}.tool-pill:hover{border-color:rgba(255,107,53,.3);color:var(--white)}
+.tool-pill svg{width:14px;height:14px;stroke:var(--accent);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-none}
+@media(max-width:768px){.stats-grid{grid-template-columns:repeat(3,1fr)}.details-grid{grid-template-columns:1fr}.cta-inner{padding:2rem 1.5rem}.cta-btns{flex-direction:column;align-items:stretch}}
+@media(max-width:480px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   WebDone Co. — header partial CSS v5
+   
+   ARCHITECTURE (learned the hard way through v1-v4):
+   The dropdown's layout (width, grid, position, left, transform)
+   is defined in each PAGE's own <style> block — that's where the
+   browser resolves conflicts. This partial adds only things that
+   are genuinely missing from page CSS: badge styles, CTA card
+   interior, column footer links, and the nav CTA glow animation.
+   Any rule here that duplicates a page rule will LOSE unless
+   marked !important, which then causes the opposite problem on
+   pages where the page rule is different. So: no layout rules
+   here. Each page owns its own dropdown dimensions.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Badges ────────────────────────────────────────────────────── */
+.dd-badge{
+  flex:0 0 auto;display:inline-block;
+  padding:.1rem .42rem;font-size:.52rem;font-weight:700;
+  letter-spacing:.06em;border-radius:999px;line-height:1.6;
+  text-transform:uppercase;vertical-align:middle;
+}
+.dd-badge--hot{background:rgba(255,107,53,.18);color:#FF6B35;}
+.dd-badge--new{background:rgba(16,185,129,.16);color:#10B981;}
+
+/* ── Item title (ellipsis safety net) ─────────────────────────── */
+.dd-item-title{
+  overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap;min-width:0;flex:1 1 auto;
+}
+/* Make strong a flex row so title + badge sit side by side */
+.site-header .dd-item strong{
+  display:flex !important;align-items:center;
+  gap:.4rem;white-space:nowrap;overflow:hidden;min-width:0;
+}
+
+/* ── Column footer links ───────────────────────────────────────── */
+.dd-col-link{
+  display:inline-flex;align-items:center;gap:.35rem;
+  margin-top:1rem;font-size:.78rem;font-weight:600;
+  color:#FF6B35;text-decoration:none;white-space:nowrap;
+  transition:color .18s ease,gap .18s ease;
+}
+.dd-col-link svg{
+  width:13px;height:13px;fill:none;stroke:currentColor;
+  stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;
+}
+.dd-col-link:hover{color:#FF8C5A;gap:.55rem;}
+.dd-col-link--wa{color:#10B981;}
+.dd-col-link--wa:hover{color:#34D399;}
+
+/* ── CTA card interior ─────────────────────────────────────────── */
+.dd-cta-list{
+  list-style:none;margin:.4rem 0 .5rem;padding:0;
+  display:flex;flex-direction:column;gap:.32rem;
+}
+.dd-cta-list li{
+  display:flex;align-items:center;gap:.4rem;
+  font-size:.74rem;color:#A0AEC0;line-height:1.3;
+}
+.dd-cta-list li svg{
+  width:12px;height:12px;flex:none;
+  fill:none;stroke:#10B981;stroke-width:2.5;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+
+/* ── Get Free Quote — glow + shimmer (GPU-only, no layout shift) ─ */
+.site-header .nav-cta{
+  position:relative;overflow:hidden;
+  box-shadow:0 0 18px rgba(255,107,53,.35),0 4px 14px rgba(255,107,53,.22);
+  transition:box-shadow .3s ease,transform .3s ease;
+}
+.site-header .nav-cta:hover{
+  transform:translateY(-1px);
+  box-shadow:0 0 28px rgba(255,107,53,.58),0 6px 22px rgba(255,107,53,.35);
+}
+.site-header .nav-cta::after{
+  content:"";position:absolute;top:0;left:-60%;
+  width:45%;height:100%;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.38),transparent);
+  transform:translateX(0) skewX(-18deg);
+  animation:wdShine 4.2s ease-in-out infinite;
+  pointer-events:none;
+}
+.site-header .nav-cta > span{position:relative;z-index:1;}
+@keyframes wdShine{
+  0%{transform:translateX(0) skewX(-18deg);}
+  55%,100%{transform:translateX(430%) skewX(-18deg);}
+}
+@media(prefers-reduced-motion:reduce){.site-header .nav-cta::after{animation:none;}}
+</style>
+<header class="site-header" id="siteHeader">
+  <nav class="nav-wrap container">
+    <a href="/index.html" class="nav-logo" aria-label="WebDone Co. Home">
+      <picture>
+        <source srcset="/assets/images/webdone-logo.webp" sizes="152px" type="image/webp"/>
+        <img src="/assets/images/webdone-logo.png" alt="WebDone Co. logo" width="152" height="38" loading="eager" fetchpriority="high"/>
+      </picture>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li class="nav-item"><a href="/index.html" class="nav-link">Home</a></li>
+
+      <!-- Services Megamenu -->
+      <li class="nav-item has-dd">
+        <button class="nav-link" aria-haspopup="true" aria-expanded="false">
+          Services
+          <svg class="nav-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="dd-menu" role="menu">
+          <div class="dd-inner">
+
+            <!-- Col 1: Web Development -->
+            <div class="dd-col">
+              <p class="dd-section-label">Web Development</p>
+              <a href="/wordpress-development.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
+                <span><strong><span class="dd-item-title">WordPress</span><span class="dd-badge dd-badge--hot">POPULAR</span></strong><small>Custom themes &amp; plugins</small></span>
+              </a>
+              <a href="/custom-development.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                <span><strong><span class="dd-item-title">Custom Development</span><span class="dd-badge dd-badge--hot">POPULAR</span></strong><small>Bespoke web applications</small></span>
+              </a>
+              <a href="/shopify-development.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+                <span><strong><span class="dd-item-title">Shopify</span></strong><small>E-commerce stores</small></span>
+              </a>
+              <a href="/wix-development.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polyline points="3 6 12 3 21 6"/><path d="M3 6v12l9 3 9-3V6"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div>
+                <span><strong><span class="dd-item-title">Wix</span></strong><small>Fast drag-and-drop sites</small></span>
+              </a>
+              <a href="/web-development.html" class="dd-col-link">All Web Services <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+
+            <!-- Col 2: Software & Products -->
+            <div class="dd-col">
+              <p class="dd-section-label">Software &amp; Products</p>
+              <a href="/saas-development.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div>
+                <span><strong><span class="dd-item-title">SaaS Development</span><span class="dd-badge dd-badge--new">NEW</span></strong><small>Launch your product</small></span>
+              </a>
+              <a href="/crm-solutions.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+                <span><strong><span class="dd-item-title">CRM Solutions</span></strong><small>Manage leads &amp; clients</small></span>
+              </a>
+              <a href="/pos-software.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                <span><strong><span class="dd-item-title">POS Software</span></strong><small>Point-of-sale systems</small></span>
+              </a>
+              <a href="/online-tools.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+                <span><strong><span class="dd-item-title">Online Tools</span></strong><small>Calculators &amp; forms</small></span>
+              </a>
+              <a href="/services.html" class="dd-col-link">All Services <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+
+            <!-- Col 3: Growth & Care -->
+            <div class="dd-col">
+              <p class="dd-section-label">Growth &amp; Care</p>
+              <a href="/seo-services.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <span><strong><span class="dd-item-title">SEO Services</span><span class="dd-badge dd-badge--hot">POPULAR</span></strong><small>Rank higher, grow faster</small></span>
+              </a>
+              <a href="/contact.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                <span><strong><span class="dd-item-title">Free SEO Audit</span><span class="dd-badge dd-badge--new">FREE</span></strong><small>Full website health check</small></span>
+              </a>
+              <a href="/website-maintenance.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11.5 11 13.5 15 9.5"/></svg></div>
+                <span><strong><span class="dd-item-title">Website Maintenance</span><span class="dd-badge dd-badge--new">NEW</span></strong><small>Updates, backups &amp; care</small></span>
+              </a>
+              <a href="/website-fixes.html" class="dd-item">
+                <div class="dd-item-ico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <span><strong><span class="dd-item-title">Website Fixes</span><span class="dd-badge dd-badge--new">NEW</span></strong><small>Emergency repairs, 24–48h</small></span>
+              </a>
+              <a href="https://wa.me/923114005856" target="_blank" rel="noopener" class="dd-col-link dd-col-link--wa">Chat on WhatsApp <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+
+            <!-- Col 4: CTA card -->
+            <div class="dd-col dd-cta-col">
+              <div class="dd-cta-box">
+                <div class="dd-cta-ico"><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:none;stroke:#FF6B35;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4z"/><path d="M8 9h8M8 13h5"/></svg></div>
+                <p class="dd-cta-title">Not sure what you need?</p>
+                <p class="dd-cta-sub">Free advice — no commitment.</p>
+                <ul class="dd-cta-list">
+                  <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Reply within hours</span></li>
+                  <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Fixed-price quote</span></li>
+                  <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>WhatsApp or email</span></li>
+                </ul>
+                <a href="/contact.html" class="btn btn-accent dd-cta-btn">
+                  <span>Free Consultation</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+
+          </div><!-- /.dd-inner -->
+        </div><!-- /.dd-menu -->
+      </li>
+
+      <li class="nav-item"><a href="/portfolio.html" class="nav-link">Portfolio</a></li>
+      <li class="nav-item"><a href="/about.html" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="/blog.html" class="nav-link">Blog</a></li>
+      <li class="nav-item"><a href="/contact.html" class="nav-link">Contact</a></li>
+    </ul>
+
+    <a href="/contact.html#quote" class="btn btn-accent nav-cta">
+      <span>Get Free Quote <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div style="display:flex;flex-direction:column;gap:.2rem;">
+      <a href="/index.html" class="mob-link">Home</a>
+      <details class="mob-dd">
+        <summary class="mob-link">Services</summary>
+        <div class="mob-dd-items">
+          <a href="/web-development.html">All Web Services</a>
+          <a href="/wordpress-development.html">WordPress</a>
+          <a href="/custom-development.html">Custom Development</a>
+          <a href="/shopify-development.html">Shopify</a>
+          <a href="/wix-development.html">Wix</a>
+          <a href="/saas-development.html">SaaS Development</a>
+          <a href="/crm-solutions.html">CRM Solutions</a>
+          <a href="/pos-software.html">POS Software</a>
+          <a href="/online-tools.html">Online Tools</a>
+          <a href="/seo-services.html">SEO Services</a>
+          <a href="/website-maintenance.html">Website Maintenance</a>
+          <a href="/website-fixes.html">Website Fixes</a>
+        </div>
+      </details>
+      <a href="/portfolio.html" class="mob-link">Portfolio</a>
+      <a href="/about.html" class="mob-link">About</a>
+      <a href="/blog.html" class="mob-link">Blog</a>
+      <a href="/contact.html" class="mob-link">Contact</a>
+      <a href="/contact.html#quote" class="btn btn-accent" style="margin-top:1rem;justify-content:center">Get Free Quote</a>
+      <a href="https://wa.me/923114005856" target="_blank" rel="noopener" class="btn" style="margin-top:.6rem;display:flex;align-items:center;justify-content:center;gap:.5rem;background:rgba(16,185,129,.12);color:#10B981;border:1px solid rgba(16,185,129,.35);">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        <span>Chat on WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="tool-hero">
+  <div class="container">
+    <div class="tool-hero-inner">
+      <div class="label">Free Tool</div>
+      <h1>Free <span>Word Count</span> Checker</h1>
+      <p>Instantly count words, characters, sentences, and paragraphs. Get reading time, keyword density, and SEO length checks — all in real time.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Real-time as you type</div>
+        <div class="hero-stat"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Keyword density</div>
+        <div class="hero-stat"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>SEO length checks</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tool-section">
+  <div class="container">
+
+    <!-- STATS BAR -->
+    <div class="stats-grid">
+      <div class="stat-box"><div class="stat-num" id="statWords">0</div><div class="stat-label">Words</div></div>
+      <div class="stat-box"><div class="stat-num" id="statChars">0</div><div class="stat-label">Characters</div></div>
+      <div class="stat-box"><div class="stat-num" id="statCharsNo">0</div><div class="stat-label">Chars (no spaces)</div></div>
+      <div class="stat-box"><div class="stat-num" id="statSents">0</div><div class="stat-label">Sentences</div></div>
+      <div class="stat-box"><div class="stat-num" id="statParas">0</div><div class="stat-label">Paragraphs</div></div>
+      <div class="stat-box"><div class="stat-num" id="statRead">0 min</div><div class="stat-label">Reading time</div></div>
+    </div>
+
+    <!-- EDITOR -->
+    <div class="editor-wrap">
+      <div class="editor-toolbar">
+        <div class="toolbar-left">
+          <span class="toolbar-label">Your Text</span>
+          <span class="word-count-display" id="toolbarCount">0 words</span>
+        </div>
+        <div class="toolbar-actions">
+          <button class="tbtn" onclick="pasteText()">Paste</button>
+          <button class="tbtn" onclick="clearText()">Clear</button>
+          <button class="tbtn" onclick="copyText()">Copy</button>
+        </div>
+      </div>
+      <textarea class="editor-area" id="editor" placeholder="Paste or type your text here — word count updates instantly as you type...&#10;&#10;Perfect for blog posts, essays, social media captions, SEO content, emails, and more." oninput="analyse()"></textarea>
+      <div class="editor-footer">
+        <span class="editor-hint">Tip: results update in real time — no need to click anything</span>
+        <span class="editor-hint" id="footerCount">0 words · 0 characters</span>
+      </div>
+    </div>
+
+    <!-- DETAIL CARDS -->
+    <div class="details-grid">
+
+      <div class="detail-card">
+        <h3><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Reading & Speaking Time</h3>
+        <div class="reading-visual">
+          <div class="reading-ico"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+          <div class="reading-text"><strong id="readingTime">0 min read</strong><span>at 200 words per minute (avg)</span></div>
+        </div>
+        <div class="detail-rows" style="margin-top:1rem">
+          <div class="detail-row"><span class="detail-row-label">Speaking time (150 wpm)</span><span class="detail-row-val" id="speakTime">0 min</span></div>
+          <div class="detail-row"><span class="detail-row-label">Fast reader (300 wpm)</span><span class="detail-row-val" id="fastTime">0 min</span></div>
+          <div class="detail-row"><span class="detail-row-label">Avg sentences/paragraph</span><span class="detail-row-val" id="sentPerPara">0</span></div>
+        </div>
+      </div>
+
+      <div class="detail-card">
+        <h3><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>SEO Length Checks</h3>
+        <div class="detail-rows">
+          <div>
+            <div class="progress-label"><span>Title tag (50–60 chars ideal)</span><span id="seoTitleVal">0 chars</span></div>
+            <div class="progress-bar"><div class="progress-fill" id="seoTitleBar" style="width:0%"></div></div>
+          </div>
+          <div>
+            <div class="progress-label"><span>Meta description (120–160 chars)</span><span id="seoDescVal">0 chars</span></div>
+            <div class="progress-bar"><div class="progress-fill" id="seoDescBar" style="width:0%"></div></div>
+          </div>
+          <div>
+            <div class="progress-label"><span>Tweet / X post (280 chars max)</span><span id="seoTweetVal">0 chars</span></div>
+            <div class="progress-bar"><div class="progress-fill" id="seoTweetBar" style="width:0%"></div></div>
+          </div>
+          <div>
+            <div class="progress-label"><span>LinkedIn post (3,000 chars ideal)</span><span id="seoLiVal">0 chars</span></div>
+            <div class="progress-bar"><div class="progress-fill" id="seoLiBar" style="width:0%"></div></div>
+          </div>
+          <div>
+            <div class="progress-label"><span>Blog post (1,500+ words ideal)</span><span id="seoBlogVal">0 words</span></div>
+            <div class="progress-bar"><div class="progress-fill" id="seoBlogBar" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-card" style="grid-column:span 2" id="kwCard">
+        <h3><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Top Keywords by Frequency</h3>
+        <table class="kw-table">
+          <thead><tr><th>#</th><th>Keyword</th><th>Count</th><th>Density</th></tr></thead>
+          <tbody id="kwBody"><tr><td colspan="4" style="text-align:center;padding:1rem;color:var(--muted)">Start typing to see keyword analysis</td></tr></tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SEO LIMITS -->
+<section class="limits-section">
+  <div class="container">
+    <div class="t-center reveal">
+      <span class="label">Content Length Guide</span>
+      <h2 class="section-title">Ideal Word Counts for <span>Every Format</span></h2>
+      <p class="section-sub">Use these benchmarks to optimise your content for SEO, social media, and engagement.</p>
+    </div>
+    <div class="limits-grid">
+      <div class="limit-card reveal">
+        <h3><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>SEO Blog Post</h3>
+        <div class="limit-range"><span class="limit-badge">1,500–2,500 words</span></div>
+        <p>Google tends to rank longer, comprehensive articles higher for competitive keywords. Aim for 1,500+ words minimum and cover the topic thoroughly.</p>
+      </div>
+      <div class="limit-card reveal">
+        <h3><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Meta Title</h3>
+        <div class="limit-range"><span class="limit-badge">50–60 characters</span></div>
+        <p>Google displays roughly 60 characters before cutting off with "...". Put your keyword at the start and keep it under 60 chars for best display.</p>
+      </div>
+      <div class="limit-card reveal">
+        <h3><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/></svg>Meta Description</h3>
+        <div class="limit-range"><span class="limit-badge">120–160 characters</span></div>
+        <p>Descriptions longer than 160 characters get truncated. Write a compelling summary with a call to action to improve click-through rates.</p>
+      </div>
+      <div class="limit-card reveal">
+        <h3><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>Tweet / X Post</h3>
+        <div class="limit-range"><span class="limit-badge">71–100 characters</span></div>
+        <p>Shorter tweets under 100 characters get more engagement. Leave room for retweets by keeping it under 250 characters even with the 280 limit.</p>
+      </div>
+      <div class="limit-card reveal">
+        <h3><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn Post</h3>
+        <div class="limit-range"><span class="limit-badge">1,300–2,000 chars</span></div>
+        <p>LinkedIn shows "see more" after about 200 characters. Hook readers in the first two lines. Longer posts (1,000–3,000 chars) get more engagement on LinkedIn.</p>
+      </div>
+      <div class="limit-card reveal">
+        <h3><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email Subject Line</h3>
+        <div class="limit-range"><span class="limit-badge">40–50 characters</span></div>
+        <p>Most email clients show 40–50 characters before cutting off, especially on mobile. Put the most important word first and avoid spam trigger words.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER TOOLS STRIP -->
+<section class="tools-strip">
+  <div class="container">
+    <div class="t-center">
+      <h2 class="section-title" style="font-size:1.3rem">More Free SEO &amp; Web Tools</h2>
+    </div>
+    <div class="tools-row">
+      <a href="/tools/meta-tag-generator.html" class="tool-pill"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/></svg>Meta Tag Generator</a>
+      <a href="/tools/website-cost-calculator.html" class="tool-pill"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Website Cost Calculator</a>
+      <a href="/tools/" class="tool-pill"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View All Tools</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="t-center reveal">
+      <span class="label">Word Count FAQ</span>
+      <h2 class="section-title">Common <span>Questions</span></h2>
+    </div>
+    <div class="faq-list" style="max-width:800px;margin-inline:auto">
+      <details class="faq-item"><summary class="faq-q">How many words should a blog post be for SEO?<span class="faq-plus">+</span></summary><p class="faq-a">For competitive keywords, aim for 1,500–2,500 words. Google consistently ranks longer, more comprehensive content higher. That said, quality matters more than length — a focused 1,000-word article beats a padded 3,000-word one. Use this tool to track your word count as you write.</p></details>
+      <details class="faq-item"><summary class="faq-q">How long does it take to read 1,000 words?<span class="faq-plus">+</span></summary><p class="faq-a">The average adult reads 200–250 words per minute, so 1,000 words takes about 4–5 minutes to read. This tool calculates reading time at 200 wpm. For speaking (e.g. presentations or videos), use 150 wpm — 1,000 words takes about 6–7 minutes to say.</p></details>
+      <details class="faq-item"><summary class="faq-q">What counts as a word?<span class="faq-plus">+</span></summary><p class="faq-a">Any sequence of characters separated by a space counts as one word. Numbers, hyphenated words, and contractions each count as one word. This matches the standard used by Microsoft Word and Google Docs.</p></details>
+      <details class="faq-item"><summary class="faq-q">What is keyword density and what should it be?<span class="faq-plus">+</span></summary><p class="faq-a">Keyword density is the percentage of times a word appears relative to total word count. For SEO, there's no magic number — Google uses context, not keyword stuffing. A density of 1–2% for your primary keyword is natural. Focus on covering the topic thoroughly rather than hitting a specific density.</p></details>
+      <details class="faq-item"><summary class="faq-q">Does this tool save or store my text?<span class="faq-plus">+</span></summary><p class="faq-a">No. This tool runs entirely in your browser. Your text is never sent to any server, never stored, and never shared. When you close the tab or clear the text, it's gone. Feel free to paste confidential content.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-card reveal">
+      <div class="cta-inner">
+        <span class="label">Need a Website?</span>
+        <h2>We Build Sites That <span>Rank & Convert</span></h2>
+        <p>Content-first websites built for SEO, speed, and real business results. Fixed price, 60 days support, worldwide delivery.</p>
+        <div class="cta-btns">
+          <a href="/services.html" class="btn btn-accent btn-lg">View All Services</a>
+          <a href="/contact.html#quote" class="btn btn-outline btn-lg">Get Free Quote</a>
+        </div>
+        <div class="trust-row">
+          <div class="trust-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Fixed-price guarantee</div>
+          <div class="trust-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>SEO built in</div>
+          <div class="trust-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>100+ projects delivered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="footer-top container">
+    <!-- Brand -->
+    <div class="ft-brand">
+      <div class="ft-logo">
+        <img src="/assets/images/webdone-logo.png" alt="WebDone Co." width="128" height="32" loading="lazy"/>
+      </div>
+      <p class="ft-tagline">We Build Websites That Work</p>
+      <p class="ft-desc">Premium web development, SEO &amp; SaaS agency serving clients worldwide — from Dubai to London, New York to Singapore.</p>
+      <div class="ft-socials">
+        <a href="https://linkedin.com/company/webdoneco" target="_blank" rel="noopener" class="ft-soc" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="https://facebook.com/webdoneco" target="_blank" rel="noopener" class="ft-soc" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://instagram.com/webdoneco" target="_blank" rel="noopener" class="ft-soc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://twitter.com/webdoneco" target="_blank" rel="noopener" class="ft-soc" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://threads.net/@webdoneco" target="_blank" rel="noopener" class="ft-soc" aria-label="Threads"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.474 12.01v-.017c.027-3.579.876-6.43 2.523-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-.505-1.808-1.427-3.23-2.739-4.232-1.39-1.072-3.27-1.62-5.578-1.634-2.96.024-5.222.888-6.72 2.568-1.464 1.64-2.206 4.05-2.229 7.176.023 3.126.765 5.536 2.229 7.176 1.497 1.68 3.758 2.544 6.72 2.568 1.834-.018 3.399-.385 4.655-1.093.967-.55 1.734-1.308 2.282-2.254.547-.946.832-2.097.847-3.42v-.036l-.008-.022c-.485-.46-1.132-.763-1.921-.9-1.06-.186-1.964-.07-2.692.346-.684.39-1.057 1.025-1.11 1.887l-.018.208H9.41v-.2c-.008-1.26.341-2.224 1.038-2.866.72-.663 1.762-1.048 3.099-1.143l.278-.015c.916-.04 1.83.072 2.715.334.934.276 1.745.726 2.412 1.34.702.646 1.17 1.47 1.391 2.448.118.522.178 1.08.178 1.658 0 1.67-.403 3.14-1.198 4.373-.796 1.23-1.948 2.197-3.423 2.876-1.395.644-3.025.965-4.846.965z"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Services — 5 links each col -->
+    <div class="ft-col">
+      <p class="ft-col-title">Development</p>
+      <ul class="ft-links">
+        <li><a href="/web-development.html">All Web Services</a></li>
+        <li><a href="/wordpress-development.html">WordPress Development</a></li>
+        <li><a href="/custom-development.html">Custom Development</a></li>
+        <li><a href="/saas-development.html">SaaS Development</a></li>
+        <li><a href="/shopify-development.html">Shopify Development</a></li>
+        <li><a href="/wix-development.html">Wix Development</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <p class="ft-col-title">Growth &amp; Care</p>
+      <ul class="ft-links">
+        <li><a href="/seo-services.html">SEO Services</a></li>
+        <li><a href="/website-maintenance.html">Website Maintenance</a></li>
+        <li><a href="/website-fixes.html">Website Fixes</a></li>
+        <li><a href="/crm-solutions.html">CRM Solutions</a></li>
+        <li><a href="/pos-software.html">POS Software</a></li>
+        <li><a href="/online-tools.html">Online Tools</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <p class="ft-col-title">Company</p>
+      <ul class="ft-links">
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/portfolio.html">Portfolio</a></li>
+        <li><a href="/services.html">All Services</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li><a href="/faq.html">FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="ft-col">
+      <p class="ft-col-title">Get In Touch</p>
+      <ul class="ft-contact-list">
+        <li class="ft-ci">
+          <div class="ft-ci-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20"/></svg></div>
+          <a href="https://webdoneco.com" target="_blank" rel="noopener">webdoneco.com</a>
+        </li>
+        <li class="ft-ci">
+          <div class="ft-ci-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <a href="mailto:hello@webdoneco.com">hello@webdoneco.com</a>
+        </li>
+        <li class="ft-ci">
+          <div class="ft-ci-ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+          <a href="https://wa.me/923114005856" target="_blank" rel="noopener">+92 311 4005856</a>
+        </li>
+        <li class="ft-ci">
+          <div class="ft-ci-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <span>Pakistan · UK · UAE · Worldwide</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner container">
+      <p>&copy; <span id="footerYear">2026</span> <span>WebDone Co.</span> All rights reserved.</p>
+      <div class="ft-legal">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('footerYear').textContent=new Date().getFullYear();
+const hdr=document.getElementById('siteHeader');
+window.addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>20),{passive:true});
+const ham=document.getElementById('hamburger'),mob=document.getElementById('mobileMenu');
+ham.addEventListener('click',()=>{const o=ham.classList.toggle('open');ham.setAttribute('aria-expanded',o);mob.classList.toggle('open',o);mob.setAttribute('aria-hidden',!o);document.body.style.overflow=o?'hidden':''});
+const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target)}}),{threshold:.08,rootMargin:'0px 0px -32px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+function fmt(n){return n.toLocaleString()}
+function readTime(w,wpm){if(w===0)return'0 min';const m=Math.ceil(w/wpm);return m<60?m+' min':Math.floor(m/60)+'h '+( m%60?m%60+'m':'');}
+function progW(val,max){return Math.min(100,(val/max)*100)+'%'}
+
+const STOPWORDS=new Set(['the','a','an','and','or','but','in','on','at','to','for','of','with','by','from','is','are','was','were','be','been','being','have','has','had','do','does','did','will','would','could','should','may','might','that','this','it','its','i','you','he','she','we','they','me','him','her','us','them','my','your','his','our','their','what','which','who','how','when','where','why','not','so','as','if','about','into','up','out','than','then','there','here','just','also','more','only','very','can','get','got','all','been','no','our','your']);
+
+function analyse(){
+  const txt=document.getElementById('editor').value;
+  const words=txt.trim()===''?[]:txt.trim().split(/\s+/).filter(w=>w.length>0);
+  const wc=words.length;
+  const cc=txt.length;
+  const ccNoSp=txt.replace(/\s/g,'').length;
+  const sents=txt.trim()===''?0:(txt.match(/[.!?]+/g)||[]).length||( wc>0?1:0);
+  const paras=txt.trim()===''?0:txt.split(/\n\s*\n/).filter(p=>p.trim().length>0).length||( wc>0?1:0);
+
+  document.getElementById('statWords').textContent=fmt(wc);
+  document.getElementById('statChars').textContent=fmt(cc);
+  document.getElementById('statCharsNo').textContent=fmt(ccNoSp);
+  document.getElementById('statSents').textContent=fmt(sents);
+  document.getElementById('statParas').textContent=fmt(paras);
+  document.getElementById('statRead').textContent=readTime(wc,200);
+  document.getElementById('toolbarCount').textContent=fmt(wc)+' word'+(wc!==1?'s':'');
+  document.getElementById('footerCount').textContent=fmt(wc)+' words · '+fmt(cc)+' characters';
+  document.getElementById('readingTime').textContent=readTime(wc,200)+' read';
+  document.getElementById('speakTime').textContent=readTime(wc,150);
+  document.getElementById('fastTime').textContent=readTime(wc,300);
+  document.getElementById('sentPerPara').textContent=paras>0?( sents/paras).toFixed(1):'0';
+
+  // SEO bars
+  document.getElementById('seoTitleVal').textContent=cc+' chars';
+  document.getElementById('seoTitleBar').style.width=progW(cc,60);
+  document.getElementById('seoTitleBar').style.background=cc<=60?'#10B981':cc<=80?'#F59E0B':'#EF4444';
+  document.getElementById('seoDescVal').textContent=cc+' chars';
+  document.getElementById('seoDescBar').style.width=progW(cc,160);
+  document.getElementById('seoDescBar').style.background=cc<=160?'#10B981':cc<=200?'#F59E0B':'#EF4444';
+  document.getElementById('seoTweetVal').textContent=cc+' chars';
+  document.getElementById('seoTweetBar').style.width=progW(cc,280);
+  document.getElementById('seoTweetBar').style.background=cc<=280?'#10B981':'#EF4444';
+  document.getElementById('seoLiVal').textContent=cc+' chars';
+  document.getElementById('seoLiBar').style.width=progW(cc,3000);
+  document.getElementById('seoLiBar').style.background=cc<=3000?'#10B981':'#F59E0B';
+  document.getElementById('seoBlogVal').textContent=fmt(wc)+' words';
+  document.getElementById('seoBlogBar').style.width=progW(wc,1500);
+  document.getElementById('seoBlogBar').style.background=wc>=1500?'#10B981':wc>=800?'#F59E0B':'#EF4444';
+
+  // Keyword density
+  if(wc===0){document.getElementById('kwBody').innerHTML='<tr><td colspan="4" style="text-align:center;padding:1rem;color:var(--muted)">Start typing to see keyword analysis</td></tr>';return;}
+  const freq={};
+  words.forEach(w=>{const clean=w.toLowerCase().replace(/[^a-z0-9]/g,'');if(clean.length>2&&!STOPWORDS.has(clean))freq[clean]=(freq[clean]||0)+1;});
+  const sorted=Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,10);
+  document.getElementById('kwBody').innerHTML=sorted.length===0?'<tr><td colspan="4" style="text-align:center;padding:1rem;color:var(--muted)">No keywords detected</td></tr>':sorted.map(([kw,count],i)=>`<tr><td style="color:var(--muted)">${i+1}</td><td style="color:var(--white);font-weight:600">${kw}</td><td>${count}</td><td style="color:${count/wc*100>3?'#F59E0B':'#10B981'}">${(count/wc*100).toFixed(1)}%</td></tr>`).join('');
+}
+
+function clearText(){document.getElementById('editor').value='';analyse();}
+function copyText(){navigator.clipboard.writeText(document.getElementById('editor').value);}
+function pasteText(){navigator.clipboard.readText().then(t=>{document.getElementById('editor').value=t;analyse();}).catch(()=>alert('Paste access denied — please use Ctrl+V / Cmd+V in the text area.'));}
+</script>
+</body>
+</html>
