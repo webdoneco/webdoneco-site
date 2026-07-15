@@ -57,6 +57,8 @@ const DIST_DIR = path.join(__dirname, 'dist');
 const DIST_BLOG_DIR = path.join(DIST_DIR, 'blog');
 const ASSETS_SRC_DIR = path.join(__dirname, 'assets');
 const ASSETS_DIST_DIR = path.join(DIST_DIR, 'assets');
+const TOOLS_SRC_DIR = path.join(__dirname, 'tools');
+const TOOLS_DIST_DIR = path.join(DIST_DIR, 'tools');
 
 const SITE_URL = 'https://webdoneco.com';
 
@@ -665,6 +667,16 @@ function build() {
   // 6. Copy assets/ as-is
   copyDirRecursive(ASSETS_SRC_DIR, ASSETS_DIST_DIR);
   log(`✔ Copied assets/`);
+
+  // 6b. Copy root tools/ → dist/tools/ (standalone HTML tools for Cloudflare Pages)
+  if (fs.existsSync(TOOLS_SRC_DIR)) {
+    fs.mkdirSync(TOOLS_DIST_DIR, { recursive: true });
+    const toolFiles = fs.readdirSync(TOOLS_SRC_DIR).filter(f => f.toLowerCase().endsWith('.html'));
+    for (const fileName of toolFiles) {
+      fs.copyFileSync(path.join(TOOLS_SRC_DIR, fileName), path.join(TOOLS_DIST_DIR, fileName));
+      log(`✔ Copied tools/${fileName}`);
+    }
+  }
 
   // 7. Copy root favicon if present, then generate fresh robots.txt + sitemap.xml.
   const faviconPath = path.join(__dirname, 'favicon.ico');
