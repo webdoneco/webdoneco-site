@@ -980,33 +980,6 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 .result-lbl{font-size:.875rem;font-weight:600;color:var(--white);margin:.5rem 0 .25rem}
 .result-sub{font-size:.75rem;color:var(--muted)}
 
-/* ═══════════════════════════════════════════════
-   ACTIONOS WAITLIST MODAL
-═══════════════════════════════════════════════ */
-.aos-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9999;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease;padding:1rem}
-.aos-modal-overlay.open{opacity:1;visibility:visible}
-.aos-modal{background:var(--card);border:1px solid rgba(255,69,0,.25);border-radius:20px;padding:2.5rem;max-width:480px;width:100%;position:relative;box-shadow:0 32px 80px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.04);transform:translateY(24px);transition:transform .3s ease}
-.aos-modal-overlay.open .aos-modal{transform:translateY(0)}
-.aos-modal-close{position:absolute;top:1rem;right:1rem;width:32px;height:32px;border-radius:8px;background:var(--surface);border:1px solid var(--border);display:grid;place-items:center;cursor:pointer;color:var(--muted);font-size:1.1rem;line-height:1;transition:color .2s ease,background .2s ease}
-.aos-modal-close:hover{color:var(--white);background:rgba(255,255,255,.08)}
-.aos-modal-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,69,0,.1);border:1px solid rgba(255,69,0,.25);color:#ff4500;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .65rem;border-radius:100px;margin-bottom:1rem}
-.aos-modal h3{font-family:var(--font-h);font-size:1.5rem;font-weight:800;margin-bottom:.5rem}
-.aos-modal p{color:var(--muted);font-size:.9rem;line-height:1.65;margin-bottom:1.5rem}
-.aos-modal-form{display:flex;flex-direction:column;gap:.75rem}
-.aos-modal-form input{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;color:var(--white);font-family:var(--font-b);font-size:.9rem;outline:none;transition:border-color .2s ease;width:100%;box-sizing:border-box}
-.aos-modal-form input:focus{border-color:rgba(255,69,0,.5)}
-.aos-modal-form input::placeholder{color:var(--muted)}
-.aos-modal-submit{background:#ff4500;color:#fff;border:none;border-radius:10px;padding:.8rem 1.5rem;font-family:var(--font-h);font-weight:700;font-size:.9rem;cursor:pointer;transition:background .2s ease;display:flex;align-items:center;justify-content:center;gap:.5rem}
-.aos-modal-submit:hover{background:#ff6030}
-.aos-modal-wa{display:flex;align-items:center;justify-content:center;gap:.5rem;color:#10B981;font-size:.8rem;margin-top:.75rem;text-decoration:none;transition:opacity .2s ease}
-.aos-modal-wa:hover{opacity:.8}
-.aos-modal-wa svg{width:14px;height:14px;fill:currentColor;flex:none}
-</style>
-</head>
-<body>
-
-<!-- ═══════════════════ HEADER ═══════════════════ -->
-<style>
 /* ═══════════════════════════════════════════════════════════════
    WebDone Co. — header partial CSS v5
    
@@ -2099,135 +2072,15 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 
 
 <!-- ═══════════════════ ACTIONOS ═══════════════════ -->
-<section class="actionos-sec section-pad" aria-labelledby="actionosH">
-  <div class="container">
-    <div class="actionos-inner">
-      <!-- Left: content -->
-      <div class="actionos-content reveal">
-        <div class="actionos-badge">
-          <span class="actionos-dot"></span>
-          In Testing · Launching Very Soon
-        </div>
-        <h2 class="section-title" id="actionosH">
-          Meet <span style="color:#ab87fb">ActionOS</span> — The Automated Sales Machine for Agencies
-        </h2>
-        <p class="actionos-sub">Built by WebDone Co. for web agencies and freelancers. ActionOS finds clients, qualifies them with 55+ data points, sends AI-personalised outreach, and manages your entire business — automatically.</p>
-
-        <div class="actionos-features">
-          <div class="aos-feat">
-            <div class="aos-feat-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-            <div class="aos-feat-body">
-              <h3 style="font-family:var(--font-h);font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.25rem">Sentinel — Lead Scraper</h3>
-              <p>Finds and audits local businesses automatically. 55+ data points per lead including PageSpeed, SEO score, missing contact info, and a weighted 0–100 lead score.</p>
-            </div>
-          </div>
-          <div class="aos-feat">
-            <div class="aos-feat-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div class="aos-feat-body">
-              <h3 style="font-family:var(--font-h);font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.25rem">AI-Powered Outreach</h3>
-              <p>Claude AI writes a personalised cold email for every lead, referencing their actual pain points. Sends via rotating outreach emails, tracks opens and replies automatically.</p>
-            </div>
-          </div>
-          <div class="aos-feat">
-            <div class="aos-feat-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-            <div class="aos-feat-body">
-              <h3 style="font-family:var(--font-h);font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.25rem">Full Business OS</h3>
-              <p>CRM, projects, invoices, finance tracker, and team management — all in one dark-themed dashboard built specifically for web agencies.</p>
-            </div>
-          </div>
-          <div class="aos-feat">
-            <div class="aos-feat-ico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-            <div class="aos-feat-body">
-              <h3 style="font-family:var(--font-h);font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.25rem">DoneBot AI Assistant</h3>
-              <p>Ask "Which leads should I contact today?" or "Draft a follow-up for this client" — DoneBot knows your leads, projects, and revenue and acts on your behalf.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="actionos-cta">
-          <button class="btn" id="aosWaitlistBtn" style="background:#ab87fb;color:#fff;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-h);font-weight:700;padding:.75rem 1.5rem;border-radius:var(--r);font-size:.9rem;transition:all .2s ease;" onmouseenter="this.style.background='#c4a8ff'" onmouseleave="this.style.background='#ab87fb'">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            Join the Waitlist
-          </button>
-          <a href="/contact.html" class="btn btn-outline">Ask Us Anything →</a>
-        </div>
-      </div>
-
-      <!-- Right: dashboard preview -->
-      <div class="actionos-vis reveal rv2">
-        <div class="aos-card">
-          <div class="aos-card-hdr">
-            <div class="aos-hdr-dot" style="background:#ff4500"></div>
-            <div class="aos-hdr-dot" style="background:#FEBC2E"></div>
-            <div class="aos-hdr-dot" style="background:#28C840"></div>
-            <span class="aos-hdr-title">ActionOS · Intelligence Center</span>
-          </div>
-          <div class="aos-card-body">
-            <!-- Metric row -->
-            <div class="aos-metrics">
-              <div class="aos-metric">
-                <div class="aos-metric-val" style="color:#ff4500">🔥 12</div>
-                <div class="aos-metric-lbl">Fire Leads</div>
-              </div>
-              <div class="aos-metric">
-                <div class="aos-metric-val" style="color:#22c55e">84%</div>
-                <div class="aos-metric-lbl">Email Open Rate</div>
-              </div>
-              <div class="aos-metric">
-                <div class="aos-metric-val" style="color:#3b82f6">$4.2k</div>
-                <div class="aos-metric-lbl">MRR This Month</div>
-              </div>
-            </div>
-            <!-- Lead rows -->
-            <div class="aos-leads-hdr">Top Fire Leads · Awaiting Outreach</div>
-            <div class="aos-lead-row">
-              <div class="aos-lead-score fire">96</div>
-              <div class="aos-lead-info">
-                <div class="aos-lead-name">Dubai Dental Clinic</div>
-                <div class="aos-lead-pain">PageSpeed 23 · No SSL · $1,200 in Google Ads</div>
-              </div>
-              <div class="aos-lead-status">🔥 FIRE</div>
-            </div>
-            <div class="aos-lead-row">
-              <div class="aos-lead-score hot">88</div>
-              <div class="aos-lead-info">
-                <div class="aos-lead-name">Riyadh Restaurant Group</div>
-                <div class="aos-lead-pain">WordPress 4.8 · Dead blog since 2021 · No GA</div>
-              </div>
-              <div class="aos-lead-status" style="color:#ff6030">⚡ HOT</div>
-            </div>
-            <div class="aos-lead-row">
-              <div class="aos-lead-score hot" style="background:rgba(234,179,8,.12);color:#eab308">75</div>
-              <div class="aos-lead-info">
-                <div class="aos-lead-name">London Law Firm LLP</div>
-                <div class="aos-lead-pain">Not in Google 3-Pack · No mobile design</div>
-              </div>
-              <div class="aos-lead-status" style="color:#eab308">🌡️ WARM</div>
-            </div>
-            <!-- Sentinel running -->
-            <div class="aos-sentinel-row">
-              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              <div class="aos-sentinel-text">
-                <span class="aos-sentinel-lbl">Sentinel scanning:</span>
-                <span class="aos-sentinel-val">dentists · Dubai</span>
-              </div>
-              <div class="aos-sentinel-prog">
-                <div class="aos-sentinel-bar"></div>
-              </div>
-              <span class="aos-sentinel-count">47 / 60</span>
-            </div>
-          </div>
-        </div>
-        <!-- Floating badge -->
-        <div class="aos-float-badge">
-          <span class="aos-float-ico">🤖</span>
-          <div>
-            <div class="aos-float-title">DoneBot</div>
-            <div class="aos-float-msg">3 fire leads need your attention</div>
-          </div>
-        </div>
-      </div>
+<section class="section-pad" aria-labelledby="actionosH" style="background:linear-gradient(135deg,#111a2b,#0A0F1E);border-block:1px solid rgba(255,107,53,.18)">
+  <div class="container reveal" style="max-width:940px;text-align:center">
+    <span class="label">Private Internal Technology · In Use</span>
+    <h2 class="section-title" id="actionosH">ActionOS — <span>Our Private Operations Engine</span></h2>
+    <p class="section-sub" style="margin-inline:auto">ActionOS is WebDone Co.'s private internal platform for organizing lead research, CRM workflows, outreach follow-ups and client operations. Built for our own agency team, it is not a public product or subscription service.</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin:1.5rem 0 2rem">
+      <span class="bc-tag">Private Internal Tool</span><span class="bc-tag">In Use</span><span class="bc-tag">Not for Sale</span>
     </div>
+    <a class="btn btn-accent" href="/contact.html#quote">Work With WebDone Co. →</a>
   </div>
 </section>
 
@@ -2634,70 +2487,6 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   const href = a.getAttribute('href') || '';
   const hrefPage = href.startsWith('#') ? '' : (new URL(href, location.origin).pathname.split('/').pop() || 'index.html');
   if(hrefPage === pg) a.closest('.nav-item')?.classList.add('active');
-});
-</script>
-<!-- ActionOS Waitlist Modal -->
-<div class="aos-modal-overlay" id="aosModal" role="dialog" aria-modal="true" aria-labelledby="aosModalTitle">
-  <div class="aos-modal">
-    <button class="aos-modal-close" id="aosModalClose" aria-label="Close">&times;</button>
-    <div class="aos-modal-badge">⚡ In Testing · Launching Soon</div>
-    <h3 id="aosModalTitle">Get Early Access to <span style="color:#ff4500">ActionOS</span></h3>
-    <p>Join the waitlist and be among the first agencies to use the automated sales machine built by WebDone Co. We'll reach out before public launch.</p>
-    <div class="aos-modal-form" id="aosWaitlistForm">
-      <input type="text" id="aosName" placeholder="Your name" autocomplete="name"/>
-      <input type="email" id="aosEmail" placeholder="Your email address" autocomplete="email"/>
-      <input type="text" id="aosAgency" placeholder="Agency / company name (optional)"/>
-      <button class="aos-modal-submit" id="aosSubmitBtn" type="button">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        Join the Waitlist
-      </button>
-    </div>
-    <div id="aosSuccess" style="display:none;text-align:center;padding:1rem 0">
-      <div style="font-size:2rem;margin-bottom:.5rem">✅</div>
-      <p style="color:var(--white);font-weight:600;margin:0 0 .35rem">You're on the list!</p>
-      <p style="margin:0">We'll contact you before ActionOS goes public.</p>
-    </div>
-    <a href="https://wa.me/923114005856?text=Hi%2C+I%27m+interested+in+ActionOS+early+access" target="_blank" rel="noopener" class="aos-modal-wa">
-      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.999 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.852L.044 23.944a.5.5 0 00.613.613l6.17-1.515A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 11.999 0z"/></svg>
-      Or message us on WhatsApp for instant access
-    </a>
-  </div>
-</div>
-
-<script>
-// ActionOS Waitlist Modal
-const aosModal = document.getElementById('aosModal');
-const aosOpen = () => aosModal.classList.add('open');
-const aosClose = () => aosModal.classList.remove('open');
-document.getElementById('aosWaitlistBtn').addEventListener('click', aosOpen);
-document.getElementById('aosModalClose').addEventListener('click', aosClose);
-aosModal.addEventListener('click', e => { if(e.target === aosModal) aosClose(); });
-document.addEventListener('keydown', e => { if(e.key === 'Escape') aosClose(); });
-document.getElementById('aosSubmitBtn').addEventListener('click', async () => {
-  const name = document.getElementById('aosName').value.trim();
-  const email = document.getElementById('aosEmail').value.trim();
-  const agency = document.getElementById('aosAgency').value.trim();
-  if(!name || !email || !email.includes('@')) {
-    document.getElementById('aosName').style.borderColor = name ? '' : '#ef4444';
-    document.getElementById('aosEmail').style.borderColor = (email && email.includes('@')) ? '' : '#ef4444';
-    return;
-  }
-  const btn = document.getElementById('aosSubmitBtn');
-  btn.disabled = true; btn.textContent = 'Sending…';
-  try {
-    await fetch('https://api.web3forms.com/submit', {
-      method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({
-        access_key: 'e5ad7ef7-ba2f-4c56-8c18-f5bc1050bda4',
-        subject: 'ActionOS Waitlist — ' + name,
-        from_name: 'WebDone Co. Website',
-        name, email,
-        message: 'ActionOS early access request.\nName: ' + name + '\nEmail: ' + email + (agency ? '\nAgency: ' + agency : '')
-      })
-    });
-  } catch(e) {}
-  document.getElementById('aosWaitlistForm').style.display = 'none';
-  document.getElementById('aosSuccess').style.display = 'block';
 });
 </script>
 
