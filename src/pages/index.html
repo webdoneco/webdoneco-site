@@ -668,27 +668,6 @@ input,textarea,select{font:inherit}
 .ps p{font-size:.69rem;color:var(--muted);line-height:1.5}
 
 /* ═══════════════════════════════════════════════
-   VANTAONE STRIP
-═══════════════════════════════════════════════ */
-.vantaone-strip{background:linear-gradient(135deg,rgba(255,107,53,.05),rgba(99,102,241,.05));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding-block:3.5rem;position:relative;overflow:hidden}
-.vantaone-strip::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(99,102,241,.08) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 20% 50%,rgba(255,107,53,.06) 0%,transparent 70%)}
-.vo-inner{display:flex;align-items:center;gap:3rem;justify-content:space-between;position:relative;z-index:1;flex-wrap:wrap}
-.vo-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.3);color:#818CF8;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;margin-bottom:.75rem}
-.vo-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:#818CF8;animation:pulse 2s infinite}
-.vo-content h2{font-family:var(--font-h);font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;margin-bottom:.6rem}
-.vo-content h2 span{background:linear-gradient(to right,var(--accent),#818CF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.vo-tagline{font-family:var(--font-h);font-size:1.05rem;font-weight:700;background:linear-gradient(to right,var(--accent),#818CF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem !important;display:block}
-.vo-content p{color:var(--muted);font-size:.95rem;max-width:50ch;line-height:1.7}
-.vo-perks{display:flex;gap:1.5rem;margin-top:1rem;flex-wrap:wrap}
-.vo-perk{display:flex;align-items:center;gap:.45rem;font-size:.8rem;color:var(--muted)}
-.vo-perk svg{width:13px;height:13px;stroke:#818CF8;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.vo-action{flex-shrink:0;text-align:center}
-.vo-action p{font-size:.75rem;color:var(--muted);margin-top:.5rem}
-.btn-vanta{background:linear-gradient(135deg,var(--accent),#818CF8);color:#fff;padding:.9rem 1.85rem;border-radius:var(--r);font-family:var(--font-h);font-weight:700;font-size:.95rem;display:inline-flex;align-items:center;gap:.5rem;transition:all var(--ease);border:none;cursor:pointer}
-.btn-vanta:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(255,107,53,.3)}
-.btn-vanta svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-/* ═══════════════════════════════════════════════
    TECH STACK
 ═══════════════════════════════════════════════ */
 .tech-sec{background:var(--surface)}
@@ -1425,8 +1404,8 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
               <div class="dm-pi" style="background:rgba(16,185,129,.15)">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
               </div>
-              <span class="dm-pn">VantaOne Engine</span>
-              <span class="dm-ps ps-soon">◌ Coming Soon</span>
+              <span class="dm-pn">AI Workflow Automation</span>
+              <span class="dm-ps ps-soon">Custom Solutions</span>
             </div>
           </div>
         </div>
@@ -2460,10 +2439,7 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
         <summary class="faq-q">Can you take over my existing website?<span class="faq-plus">+</span></summary>
         <p class="faq-a">Yes. We offer audits, redesigns, and ongoing management for existing sites. We can also migrate to a better platform — WordPress, Shopify, or custom — whenever needed.</p>
       </details>
-      <details class="faq-item reveal rv1">
-        <summary class="faq-q">What is VantaOne Engine™?<span class="faq-plus">+</span></summary>
-        <p class="faq-a">VantaOne is our proprietary AI-powered SEO and lead generation engine, currently in development. It will automatically surface your business to the right customers. Join the waitlist for early access.</p>
-      </details>
+      
       <details class="faq-item reveal rv2">
         <summary class="faq-q">Do you offer standalone SEO services?<span class="faq-plus">+</span></summary>
         <p class="faq-a">Yes — SEO doesn't require a new website. We offer SEO Starter, SEO Growth, and SEO Authority packages — monthly or yearly, no lock-in contracts. Contact us for a free SEO audit.</p>
@@ -2608,27 +2584,6 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
   </div>
 </footer>
 
-<!-- ═══════════════════ VANTAONE MODAL ═══════════════════ -->
-<div class="modal-bg" id="vantaModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal-box">
-    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
-    <div class="modal-ico">
-      <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-    </div>
-    <h3 id="modalTitle">Join VantaOne Waitlist</h3>
-    <p class="modal-sub">Be among the first to access our AI-powered SEO &amp; lead generation engine. Early access for select clients only.</p>
-    <input type="text" class="modal-field" id="mName" placeholder="Your Full Name"/>
-    <input type="email" class="modal-field" id="mEmail" placeholder="Email Address"/>
-    <input type="tel" class="modal-field" id="mWhatsApp" placeholder="WhatsApp Number (with country code)"/>
-    <input type="text" class="modal-field" id="mBusiness" placeholder="Business / Website URL"/>
-    <button class="btn-vanta" id="mSubmit" style="width:100%;justify-content:center;margin-top:.25rem">
-      <svg viewBox="0 0 24 24" width="17" height="17"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      Claim My Early Access Spot
-    </button>
-    <p class="modal-note">No spam, ever. Unsubscribe anytime.</p>
-  </div>
-</div>
-
 <script>
 // Footer year
 document.getElementById('footerYear').textContent = new Date().getFullYear();
@@ -2669,36 +2624,6 @@ document.querySelectorAll('.bc').forEach(c => {
     });
   });
   c.addEventListener('mouseleave', () => { rect = null; });
-});
-
-// VantaOne modal
-const modal = document.getElementById('vantaModal');
-const openModal = () => { modal.classList.add('open'); document.body.style.overflow='hidden'; }
-const closeModal = () => { modal.classList.remove('open'); document.body.style.overflow=''; }
-const vantaBtn = document.getElementById('vantaBtn');
-if(vantaBtn) vantaBtn.addEventListener('click', openModal);
-document.getElementById('modalClose').addEventListener('click', closeModal);
-modal.addEventListener('click', e => { if(e.target===modal) closeModal(); });
-document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
-document.getElementById('mSubmit').addEventListener('click', async () => {
-  const name = document.getElementById('mName').value.trim();
-  const email = document.getElementById('mEmail').value.trim();
-  if(!name || !email){ alert('Please enter your name and email.'); return; }
-  const btn = document.getElementById('mSubmit');
-  btn.disabled = true; btn.textContent = 'Sending…';
-  try {
-    await fetch('https://api.web3forms.com/submit', {
-      method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({
-        access_key: 'e5ad7ef7-ba2f-4c56-8c18-f5bc1050bda4',
-        subject: 'VantaOne Engine™ Waitlist — ' + name,
-        from_name: 'WebDone Co. Website',
-        name, email,
-        message: 'VantaOne Engine waitlist signup.\nName: ' + name + '\nEmail: ' + email
-      })
-    });
-  } catch(e) {}
-  document.querySelector('.modal-box').innerHTML = '<div style=\"text-align:center;padding:1.5rem 0\"><div style=\"font-size:3rem;margin-bottom:1rem\">🎉</div><h3 style=\"font-family:var(--font-h);font-size:1.3rem;font-weight:800;margin-bottom:.65rem\">You are on the list!</h3><p style=\"color:var(--muted);font-size:.875rem;line-height:1.7\">We will reach out before VantaOne Engine™ opens early access.</p><button onclick=\"document.getElementById(\'vantaModal\').classList.remove(\'open\');document.body.style.overflow=\'\';\" class=\"btn btn-accent\" style=\"margin-top:1.5rem\">Done →</button></div>';
 });
 
 // Parallax removed — caused scroll jank; grid animation handles depth effect
