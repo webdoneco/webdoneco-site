@@ -1177,6 +1177,43 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 @media(max-width:700px){.wd-editorial-intro{grid-template-columns:1fr;gap:1rem}.wd-editorial-panel{grid-template-columns:1fr;min-height:0}.wd-editorial-panel:nth-child(even) .wd-editorial-info{order:0}.wd-editorial-panel:nth-child(even) .wd-editorial-visual{order:0;border-right:0}.wd-editorial-info{padding:1.75rem}.wd-editorial-info h3{margin:1.4rem 0 .8rem}.wd-editorial-visual{border-left:0;border-top:1px solid #334157;min-height:270px;padding:2rem 1.5rem}.wd-editorial-stage{max-width:420px}.wd-editorial-end{align-items:flex-start;flex-direction:column}.wd-editorial-stage .wd-flow-ui{padding:1rem 0}}
 @media(max-width:380px){.wd-editorial-visual{padding:1.3rem .9rem}.wd-editorial-stage-label{font-size:.47rem}.wd-editorial-info h3{font-size:1.75rem}.wd-editorial-stage .wd-flow-node{padding:.5rem .2rem;font-size:.5rem}.wd-editorial-stage .wd-flow-connector{width:10px}}
 @media(prefers-reduced-motion:reduce){.wd-editorial-panel,.wd-editorial-cta{transition:none}}
+
+/* Further visual finish: distinct compositions, premium contrast, responsive detail */
+.wd-partner-layout{grid-template-columns:minmax(0,.93fr) minmax(0,1.07fr)}
+.wd-partner-visual{min-height:510px;border-radius:28px;background:radial-gradient(circle at 50% 45%,rgba(255,107,53,.13),transparent 42%),linear-gradient(145deg,#1c2942,#0d1423);box-shadow:0 35px 80px rgba(0,0,0,.36),inset 0 1px rgba(255,255,255,.09)}
+.wd-partner-orbit{width:315px;height:315px;border-color:#566780;box-shadow:0 0 0 36px rgba(255,255,255,.012),0 0 0 70px rgba(255,255,255,.008)}
+.wd-partner-center{width:125px;height:125px;border-radius:27px;background:#0A0F1E;box-shadow:0 0 0 11px rgba(255,107,53,.055),0 0 75px rgba(255,107,53,.22)}
+.wd-orbit-label{padding:.85rem 1rem;border-radius:12px;font-size:.62rem;letter-spacing:.08em}
+.wd-partner-foot{bottom:25px;letter-spacing:.13em;font-weight:700}
+.wd-partner-copy .section-title{max-width:620px}
+.wd-partner-features>div{padding:1rem 0;gap:1.1rem}
+.wd-partner-features svg{width:44px;height:44px;padding:10px;border-radius:12px}
+.wd-action-layout{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.wd-action-panel{border-radius:22px;box-shadow:0 35px 90px rgba(0,0,0,.55),0 0 0 1px rgba(255,107,53,.06)}
+.wd-action-top{padding:1.3rem}.wd-action-side{min-height:360px;grid-template-columns:145px 1fr}
+.wd-action-nav{padding:1.2rem .7rem;gap:.5rem}.wd-action-nav span{font-size:.68rem;padding:.7rem .55rem}
+.wd-action-content{padding:1.5rem}.wd-action-content h3{font-size:1.25rem;margin:.8rem 0 1.5rem}
+.wd-action-modules{gap:.75rem}.wd-action-modules>div{padding:1rem;min-height:100px;justify-content:center}
+.wd-action-modules strong{font-size:.72rem}.wd-action-modules small{font-size:.6rem}
+.wd-action-copy .wd-internal-status{margin-bottom:.3rem}
+.wd-automation-layout{grid-template-columns:minmax(0,1.07fr) minmax(0,.93fr)}
+.wd-automation-visual{border-radius:26px;min-height:500px;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(circle at 50% 45%,rgba(255,107,53,.1),transparent 55%),linear-gradient(145deg,#1c2a41,#0d1728)}
+.wd-automation-track{width:100%;max-width:360px;margin:2.3rem auto}
+.wd-auto-card{padding:1.2rem 1.4rem;border-radius:14px}.wd-auto-highlight{border-color:#FF6B35;box-shadow:0 0 0 5px rgba(255,107,53,.055),0 0 40px rgba(255,107,53,.13)}
+.wd-automation-copy .wd-mini-list{display:grid;gap:.9rem;margin:2rem 0}
+.wd-automation-copy .wd-mini-list span{font-size:.82rem}
+.wd-proof-steps{gap:1.5rem}.wd-proof-steps>div{min-height:290px;padding:2.2rem 1.8rem;border-radius:0 0 17px 17px;box-shadow:0 18px 40px rgba(0,0,0,.14);transition:transform .25s,background .25s}
+.wd-proof-steps>div:hover{transform:translateY(-5px);background:linear-gradient(180deg,#202c40,rgba(15,22,35,.3))}
+.wd-proof-steps h3{font-size:1.2rem;letter-spacing:-.02em}.wd-proof-steps p{font-size:.85rem}
+.wd-support-layout{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
+.wd-support-stack{gap:.85rem}.wd-support-item{border-radius:15px;padding:1.4rem 1.5rem;background:linear-gradient(110deg,#1a2638,#121b2b)}
+.wd-support-item>span{width:48px;height:48px;border-radius:13px}.wd-support-item strong{font-size:.94rem}.wd-support-item small{font-size:.75rem}
+.wd-support-item:nth-child(2){margin-left:2rem}.wd-support-item:nth-child(3){margin-right:2rem}
+.wd-partner-sec .section-title span,.wd-action-sec .section-title span,.wd-automation-sec .section-title span,.wd-proof-sec .section-title span,.wd-support-sec .section-title span{color:#FF6B35}
+@media(max-width:1100px){.wd-partner-orbit{width:245px;height:245px}.wd-orbit-left{left:-38px}.wd-orbit-right{right:-38px}.wd-partner-visual{min-height:430px}.wd-action-side{grid-template-columns:110px 1fr}.wd-action-nav span{font-size:.58rem}.wd-action-content{padding:1rem}.wd-action-modules>div{padding:.7rem}}
+@media(max-width:760px){.wd-partner-layout,.wd-action-layout,.wd-automation-layout,.wd-support-layout{grid-template-columns:1fr}.wd-partner-visual{min-height:420px}.wd-partner-orbit{width:245px;height:245px}.wd-partner-center{width:100px;height:100px}.wd-orbit-left{left:-32px}.wd-orbit-right{right:-32px}.wd-action-panel{max-width:640px;width:100%;margin:auto}.wd-action-side{grid-template-columns:110px 1fr}.wd-action-nav span{font-size:.58rem}.wd-automation-visual{min-height:420px}.wd-proof-steps>div{min-height:0}.wd-support-item:nth-child(2),.wd-support-item:nth-child(3){margin:0}}
+@media(max-width:420px){.wd-partner-orbit{width:205px;height:205px}.wd-orbit-left{left:-23px}.wd-orbit-right{right:-23px}.wd-orbit-label{font-size:.48rem;padding:.55rem}.wd-action-side{grid-template-columns:84px 1fr}.wd-action-nav{padding:.6rem .25rem}.wd-action-nav span{font-size:.5rem;padding:.45rem .25rem}.wd-action-content{padding:.7rem}.wd-action-modules{gap:.4rem}.wd-action-modules>div{min-height:75px;padding:.5rem}.wd-action-modules strong{font-size:.54rem}.wd-action-modules small{font-size:.48rem}}
+@media(prefers-reduced-motion:reduce){.wd-proof-steps>div{transition:none}.wd-proof-steps>div:hover{transform:none}}
 </style>
 <header class="site-header" id="siteHeader">
   <nav class="nav-wrap container">
