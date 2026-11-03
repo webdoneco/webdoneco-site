@@ -1069,6 +1069,16 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
   55%,100%{transform:translateX(430%) skewX(-18deg);}
 }
 @media(prefers-reduced-motion:reduce){.site-header .nav-cta::after{animation:none;}}
+
+/* WebDone Co. core service cards: no external assets or scripts */
+.wd-services-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;margin-top:2.5rem}
+.wd-service-card{background:var(--card,#111827);border:1px solid var(--border,rgba(255,255,255,.1));border-radius:var(--r-lg,18px);padding:2rem;min-width:0;transition:border-color .2s ease}
+.wd-service-card:hover{border-color:var(--accent,#FF6B35)}
+.wd-service-card h3{font-family:var(--font-h,inherit);font-size:1.35rem;color:var(--white,#fff);margin:.8rem 0}
+.wd-service-card p{color:var(--muted,#a9b4c6);line-height:1.75;margin-bottom:1.5rem}
+.wd-service-card a{color:var(--accent,#FF6B35);font-weight:700;text-decoration:none}
+.wd-service-card a:hover{text-decoration:underline}
+@media(max-width:700px){.wd-services-grid{grid-template-columns:1fr}.wd-service-card{padding:1.5rem}}
 </style>
 <header class="site-header" id="siteHeader">
   <nav class="nav-wrap container">
@@ -1499,232 +1509,18 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
   </div>
 </section>
 
-<!-- ═══════════════════ SERVICES BENTO ═══════════════════ -->
+<!-- ═══════════════════ CORE SERVICES ═══════════════════ -->
 <section class="services-sec section-pad" aria-labelledby="servicesH">
-  <div class="container">
-    <div class="reveal">
-      <span class="label">What We Do</span>
-      <h2 class="section-title" id="servicesH">Full-Stack Digital <span>Services</span></h2>
-      <p class="section-sub">From your first website to complex digital ecosystems — we cover every layer of your online presence.</p>
-    </div>
-
-    <div class="bento">
-      <!-- BC1: Web Dev (big) -->
-      <div class="bc bc-1 bc-tall reveal">
-        <a href="/web-development.html" class="bc-link" aria-label="Web Development"></a>
-        <div class="bc-icon ico-orange">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
-        </div>
-        <div class="bc-tag">Core Service</div>
-        <h3>Web Development</h3>
-        <p>From sleek landing pages to complex web apps. We craft fast, beautiful, and conversion-optimised websites on every major platform.</p>
-        <div class="bc-fill">
-          <div class="bc-bar-row">
-            <div class="bc-bar-ico" style="background:rgba(99,102,241,.15)"><svg viewBox="0 0 24 24" style="stroke:#818CF8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <span class="bc-bar-lbl">WordPress</span>
-            <div class="bc-bar-track"><div class="bc-bar-fill" style="width:90%"></div></div>
-          </div>
-          <div class="bc-bar-row">
-            <div class="bc-bar-ico" style="background:rgba(16,185,129,.15)"><svg viewBox="0 0 24 24" style="stroke:#10B981"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg></div>
-            <span class="bc-bar-lbl">Shopify</span>
-            <div class="bc-bar-track"><div class="bc-bar-fill" style="width:82%"></div></div>
-          </div>
-          <div class="bc-bar-row">
-            <div class="bc-bar-ico" style="background:rgba(245,158,11,.15)"><svg viewBox="0 0 24 24" style="stroke:#F59E0B"><polyline points="3 6 12 3 21 6"/><path d="M3 6v12l9 3 9-3V6"/></svg></div>
-            <span class="bc-bar-lbl">Wix</span>
-            <div class="bc-bar-track"><div class="bc-bar-fill" style="width:72%"></div></div>
-          </div>
-          <div class="bc-bar-row">
-            <div class="bc-bar-ico" style="background:rgba(255,107,53,.15)"><svg viewBox="0 0 24 24" style="stroke:var(--accent)"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-            <span class="bc-bar-lbl">Custom Code</span>
-            <div class="bc-bar-track"><div class="bc-bar-fill" style="width:100%"></div></div>
-          </div>
-        </div>
-        <div class="bc-feature-row">
-          <div class="bc-feature">
-            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            <div><strong>Fast Builds</strong><span>2–6 week delivery</span></div>
-          </div>
-          <div class="bc-feature">
-            <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-            <div><strong>Mobile-First</strong><span>Every screen, every time</span></div>
-          </div>
-          <div class="bc-feature">
-            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <div><strong>SEO-Ready</strong><span>Schema &amp; structure built-in</span></div>
-          </div>
-        </div>
-        <div class="bc-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-
-      <!-- BC2: SEO -->
-      <div class="bc bc-2 reveal rv1">
-        <a href="/seo-services.html" class="bc-link" aria-label="SEO Services"></a>
-        <div class="bc-icon ico-green">
-          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <h3>SEO Services</h3>
-        <p>Three tailored packages to rank you higher on Google and drive consistent organic traffic to your business.</p>
-        <div class="seo-packages">
-          <div class="seo-pkg">
-            <div class="sp-badge sp-b1">V1</div>
-            <div>
-              <div class="sp-name">VantaLaunch</div>
-              <div class="sp-tier">Launch · Get Found</div>
-            </div>
-          </div>
-          <div class="seo-pkg">
-            <div class="sp-badge sp-b2">V2</div>
-            <div>
-              <div class="sp-name">VantaScale</div>
-              <div class="sp-tier">Growth · Dominate Niche</div>
-            </div>
-          </div>
-          <div class="seo-pkg">
-            <div class="sp-badge sp-b3">V3</div>
-            <div>
-              <div class="sp-name">VantaAuthority</div>
-              <div class="sp-tier">Authority · Market Leader</div>
-            </div>
-          </div>
-        </div>
-        <div class="bc-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-
-      <!-- BC3: SaaS Development -->
-      <div class="bc bc-3 reveal rv2">
-        <a href="/saas-development.html" class="bc-link" aria-label="SaaS Development"></a>
-        <div class="bc-icon ico-blue">
-          <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
-        </div>
-        <div class="bc-tag">New Service</div>
-        <h3>SaaS Development</h3>
-        <p>We build your software product from MVP to market. Auth, billing, dashboards — shipped in weeks.</p>
-        <div class="crm-fill">
-          <div class="crm-mini">
-            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            <div class="crm-mini-lbl">MVP Launch</div>
-          </div>
-          <div class="crm-mini">
-            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            <div class="crm-mini-lbl">Dashboard</div>
-          </div>
-          <div class="crm-mini">
-            <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
-            <div class="crm-mini-lbl">Cloud Deploy</div>
-          </div>
-          <div class="crm-mini">
-            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-            <div class="crm-mini-lbl">Pipeline Mgmt</div>
-          </div>
-        </div>
-        <div class="bc-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-
-      <!-- BC4: WordPress -->
-      <div class="bc bc-4 reveal rv1">
-        <a href="/wordpress-development.html" class="bc-link" aria-label="WordPress Development"></a>
-        <div class="bc-icon ico-blue">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
-        </div>
-        <h3>WordPress Development</h3>
-        <p>Custom themes, plugins, WooCommerce stores and everything in between — fully tailored to your brand and goals.</p>
-        <div class="bc-stack">
-          <div class="bc-chip">
-            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-            WooCommerce Integration
-          </div>
-          <div class="bc-chip">
-            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            Custom Plugin Development
-          </div>
-          <div class="bc-chip">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Hardened Security Setup
-          </div>
-        </div>
-        <div class="bc-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-
-      <!-- BC5: Shopify -->
-      <div class="bc bc-5 reveal rv2">
-        <a href="/shopify-development.html" class="bc-link" aria-label="Shopify Development"></a>
-        <div class="bc-icon ico-green">
-          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-        </div>
-        <h3>Shopify</h3>
-        <p>Beautiful stores built to convert. Custom themes, apps, and checkout flows engineered for maximum revenue.</p>
-        <div class="bc-stack">
-          <div class="bc-chip">
-            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-            Headless Shopify
-          </div>
-        </div>
-        <div class="bc-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-
-      <!-- BC6: Custom Dev -->
-      <div class="bc bc-6 reveal rv1">
-        <a href="/custom-development.html" class="bc-link" aria-label="Custom Development"></a>
-        <div class="bc-icon ico-orange">
-          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
-        <h3>Custom Development</h3>
-        <p>When off-the-shelf won't cut it. Bespoke web applications, APIs, and platforms built to scale with your business.</p>
-        <div class="bc-stack" style="flex-direction:row;flex-wrap:wrap">
-          <div class="bc-chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/></svg>React</div>
-          <div class="bc-chip"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg>Node.js</div>
-          <div class="bc-chip"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Laravel</div>
-          <div class="bc-chip"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/></svg>Next.js</div>
-        </div>
-        <div class="bc-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-
-      <!-- BC7: POS (big) -->
-      <div class="bc bc-7 reveal rv2">
-        <a href="/pos-software.html" class="bc-link" aria-label="POS Software"></a>
-        <div class="bc-icon ico-yellow">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
-        <h3>POS Software</h3>
-        <p>Modern point-of-sale systems for retail, restaurants, and service businesses. Works offline and online.</p>
-        <div class="pos-fill">
-          <div class="pos-mini">
-            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            <div class="pos-mini-lbl">Real-time Reports</div>
-          </div>
-          <div class="pos-mini">
-            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><path d="M14 14h2v2h-2zM18 14h2v2h-2zM14 18h2v2h-2zM18 18h2v2h-2z"/></svg>
-            <div class="pos-mini-lbl">Inventory Mgmt</div>
-          </div>
-          <div class="pos-mini">
-            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-            <div class="pos-mini-lbl">Multi-Payment</div>
-          </div>
-          <div class="pos-mini">
-            <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
-            <div class="pos-mini-lbl">Cloud Sync</div>
-          </div>
-        </div>
-        <div class="bc-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-
-      <!-- BC8: Online Tools -->
-      <div class="bc bc-8 reveal rv3">
-        <a href="/online-tools.html" class="bc-link" aria-label="Online Tools"></a>
-        <div class="bc-icon ico-purple">
-          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <h3>Online Tools</h3>
-        <p>Calculators, booking forms, lead generators &amp; custom interactive widgets that work 24/7 for your business.</p>
-        <div class="bc-stack">
-          <div class="bc-chip"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>Lead Gen Forms</div>
-          <div class="bc-chip"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Booking Systems</div>
-        </div>
-        <div class="bc-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      </div>
-    </div>
+<div class="container">
+  <div class="reveal"><span class="label">What We Do</span><h2 class="section-title" id="servicesH">Digital Services <span>Built for Growth</span></h2>
+  <p class="section-sub">One team for your website, search visibility, paid acquisition and business automation.</p></div>
+  <div class="wd-services-grid">
+    <article class="wd-service-card reveal"><span class="label">01 · Build</span><h3>Web Development</h3><p>Fast, conversion-focused WordPress, WooCommerce, Shopify and custom websites, with maintenance and ongoing improvements.</p><a href="/web-development.html">Explore Web Development →</a></article>
+    <article class="wd-service-card reveal rv1"><span class="label">02 · Get Found</span><h3>SEO &amp; Organic Growth</h3><p>Technical SEO, on-page optimization, local visibility and content improvements that support qualified organic traffic.</p><a href="/seo-services.html">Explore SEO Services →</a></article>
+    <article class="wd-service-card reveal rv2"><span class="label">03 · Acquire</span><h3>Google &amp; Meta Ads</h3><p>Paid search and social campaign strategy, conversion tracking, setup, optimization and reporting focused on business outcomes.</p><a href="/contact.html#quote">Discuss Paid Advertising →</a></article>
+    <article class="wd-service-card reveal rv3"><span class="label">04 · Automate</span><h3>AI Agents &amp; Automation</h3><p>Practical AI assistants, n8n workflows, CRM integrations and follow-up automation to reduce repetitive work.</p><a href="/contact.html#quote">Discuss AI Automation →</a></article>
   </div>
+</div>
 </section>
 
 <!-- ═══════════════════ WHY CHOOSE ═══════════════════ -->
@@ -1801,7 +1597,7 @@ details[open] .faq-plus{background:rgba(255,107,53,.12);color:var(--accent);tran
 </section>
 
 <!-- ═══════════════════ PORTFOLIO ═══════════════════ -->
-<section class="portfolio-sec section-pad" aria-labelledby="portH">
+<section id="portfolio" class="portfolio-sec section-pad" aria-labelledby="portH">
   <div class="container">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem" class="reveal">
       <div>
