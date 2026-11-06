@@ -1541,6 +1541,23 @@ a.btn svg,button.btn svg{stroke:currentColor}
 @media(max-width:620px){.wd-continuity-grid{grid-template-columns:1fr}.wd-continuity-item{min-height:245px;padding:1.7rem;border-right:0!important;border-bottom:1px solid #394a63}.wd-continuity-item:last-child{border-bottom:0}.wd-continuity-icon{margin-bottom:1.3rem}.wd-continuity-board-top,.wd-continuity-board-foot{padding:1rem 1.2rem;font-size:.52rem}.wd-continuity-head .section-title{font-size:clamp(2.5rem,10vw,3.7rem)}}
 @media(prefers-reduced-motion:reduce){.wd-continuity-item,.wd-continuity-cta>span{transition:none}}
 
+
+/* Hero-adjacent capabilities: compact visual proof of service breadth */
+.wd-capability-strip{background:linear-gradient(110deg,#141f32,#101827 55%,#172337);border-top:1px solid #324057;border-bottom:1px solid #324057;padding:0}
+.wd-capability-strip:before{background:radial-gradient(ellipse at 5% 0%,rgba(255,107,53,.065),transparent 48%);pointer-events:none}
+.wd-capability-strip-inner{position:relative;z-index:1;padding:1.25rem 0 1.35rem}
+.wd-capability-overline{display:flex;align-items:center;justify-content:center;gap:.6rem;color:#ff926e;font-size:.59rem;letter-spacing:.18em;font-weight:800;margin-bottom:1.1rem}
+.wd-capability-pulse{width:6px;height:6px;border-radius:50%;background:#FF6B35;box-shadow:0 0 0 4px rgba(255,107,53,.12)}
+.wd-capability-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.wd-capability-feature{min-width:0;display:flex;align-items:center;gap:.85rem;padding:.6rem clamp(.8rem,2vw,1.8rem);border-right:1px solid #3b4b61}
+.wd-capability-feature:first-child{padding-left:0}.wd-capability-feature:last-child{border-right:0;padding-right:0}
+.wd-capability-symbol{width:44px;height:44px;flex:none;display:grid;place-items:center;color:#FF6B35;background:rgba(255,107,53,.085);border:1px solid rgba(255,107,53,.24);border-radius:12px}
+.wd-capability-symbol svg{width:21px;height:21px}
+.wd-capability-copy{min-width:0;display:flex;flex-direction:column;gap:.28rem}
+.wd-capability-copy strong{font-size:clamp(.73rem,.95vw,.9rem);line-height:1.35;font-weight:800;color:#fff;letter-spacing:-.015em}
+.wd-capability-copy span{font-size:clamp(.64rem,.76vw,.76rem);line-height:1.45;color:#a9bad0}
+@media(max-width:1050px){.wd-capability-list{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:1rem}.wd-capability-feature:nth-child(2){border-right:0}.wd-capability-feature:nth-child(3){padding-left:0}.wd-capability-feature{padding-block:.5rem}.wd-capability-overline{margin-bottom:.9rem}}
+@media(max-width:570px){.wd-capability-strip-inner{padding:1.15rem 0}.wd-capability-list{grid-template-columns:1fr;row-gap:0}.wd-capability-feature,.wd-capability-feature:first-child,.wd-capability-feature:nth-child(3),.wd-capability-feature:last-child{padding:.8rem 0;border-right:0;border-bottom:1px solid #344158}.wd-capability-feature:last-child{border-bottom:0}.wd-capability-overline{justify-content:flex-start;font-size:.55rem}.wd-capability-copy strong{font-size:.87rem}.wd-capability-copy span{font-size:.72rem}}
 </style>
 <header class="site-header" id="siteHeader">
   <nav class="nav-wrap container">
@@ -1891,12 +1908,7 @@ a.btn svg,button.btn svg{stroke:currentColor}
 </section>
 
 <!-- ═══════════════════ VALUE STRIP ═══════════════════ -->
-<section class="stats-strip" aria-label="How we work"><div class="container reveal"><div class="stats-grid">
-<div class="stat-card"><div class="stat-lbl">Performance-First Websites</div></div>
-<div class="stat-card"><div class="stat-lbl">SEO &amp; Paid Growth</div></div>
-<div class="stat-card"><div class="stat-lbl">AI &amp; CRM Automation</div></div>
-<div class="stat-card"><div class="stat-lbl">International Collaboration</div></div>
-</div></div></section>
+<section class="stats-strip wd-capability-strip" aria-label="WebDone Co. core strengths"><div class="container"><div class="wd-capability-strip-inner"><div class="wd-capability-overline"><span class="wd-capability-pulse"></span> THE WEBDONE ADVANTAGE</div><div class="wd-capability-list"><div class="wd-capability-feature"><div class="wd-capability-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2-9 12h8l-1 8 11-12h-8l-1-8"/></svg></div><div class="wd-capability-copy"><strong>Performance-First Websites</strong><span>Fast, responsive experiences</span></div></div><div class="wd-capability-feature"><div class="wd-capability-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M8 11l2 2 4-5"/></svg></div><div class="wd-capability-copy"><strong>SEO & Paid Growth</strong><span>Built for visibility and reach</span></div></div><div class="wd-capability-feature"><div class="wd-capability-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="9" width="6" height="6" rx="1"/><rect x="16" y="2" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M8 12h4a7 7 0 0 0 7-4M12 12a7 7 0 0 1 7 4"/></svg></div><div class="wd-capability-copy"><strong>AI & CRM Automation</strong><span>Smarter connected workflows</span></div></div><div class="wd-capability-feature"><div class="wd-capability-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></div><div class="wd-capability-copy"><strong>International Collaboration</strong><span>Built to work across borders</span></div></div></div></div></div></section>
 
 <!-- ═══════════════════ INDUSTRIES WE SERVE ═══════════════════ -->
 <section class="industries-sec section-pad" aria-labelledby="industriesH">
