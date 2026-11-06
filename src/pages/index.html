@@ -1558,6 +1558,31 @@ a.btn svg,button.btn svg{stroke:currentColor}
 .wd-capability-copy span{font-size:clamp(.64rem,.76vw,.76rem);line-height:1.45;color:#a9bad0}
 @media(max-width:1050px){.wd-capability-list{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:1rem}.wd-capability-feature:nth-child(2){border-right:0}.wd-capability-feature:nth-child(3){padding-left:0}.wd-capability-feature{padding-block:.5rem}.wd-capability-overline{margin-bottom:.9rem}}
 @media(max-width:570px){.wd-capability-strip-inner{padding:1.15rem 0}.wd-capability-list{grid-template-columns:1fr;row-gap:0}.wd-capability-feature,.wd-capability-feature:first-child,.wd-capability-feature:nth-child(3),.wd-capability-feature:last-child{padding:.8rem 0;border-right:0;border-bottom:1px solid #344158}.wd-capability-feature:last-child{border-bottom:0}.wd-capability-overline{justify-content:flex-start;font-size:.55rem}.wd-capability-copy strong{font-size:.87rem}.wd-capability-copy span{font-size:.72rem}}
+
+/* Hero refinement — scoped overrides; preserves headline, branding and existing markup */
+.hero{min-height:min(850px,100svh)}
+.hero-inner{grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(2rem,4vw,4.5rem);width:min(1360px,100% - 3rem);padding-block:clamp(4rem,7vw,6.5rem)}
+.hero-content{min-width:0}.hero-title{font-size:clamp(3.3rem,5.8vw,5.5rem);line-height:1.035;letter-spacing:-.055em;margin-bottom:1.45rem}
+.hero-sub{max-width:49ch;font-size:clamp(.99rem,1.15vw,1.12rem);line-height:1.8;margin-bottom:1.85rem}
+.hero-badge{font-size:.66rem;letter-spacing:.075em;margin-bottom:1.55rem}
+.hero-btns{gap:.85rem;margin-bottom:2rem}.hero-btns>a{min-height:54px;display:inline-flex;align-items:center;justify-content:center;gap:.65rem;white-space:nowrap;font-weight:800;color:#fff!important}
+.hero-btns>a:focus-visible{outline:3px solid #ffad8e;outline-offset:4px}
+.hero-trust{gap:.8rem 1.2rem;padding-top:1.3rem}.hero-trust .trust-item{font-size:.73rem;line-height:1.5}.hero-trust .trust-sep{height:16px}
+.hero-vis{padding:1rem 2.5% 1rem 4%;min-width:0}
+.hero-vis::before{inset:-3%;background:radial-gradient(ellipse at 55% 50%,rgba(255,107,53,.13),transparent 67%);filter:blur(24px)}
+.hero-vis .dash-mock{transform:perspective(1200px) rotateY(-4deg) rotateX(2deg);border-color:#3c4960;border-radius:19px;box-shadow:0 30px 75px rgba(0,0,0,.38),0 0 0 1px rgba(255,107,53,.07)}
+.hero-vis .dash-mock:hover{transform:perspective(1200px) rotateY(-2deg) rotateX(1deg)}
+.hero-vis .dm-body{padding:1rem}
+.hero-vis .dm-stats{gap:.55rem}.hero-vis .dm-stat{min-width:0}.hero-vis .dm-stat-lbl{font-size:.55rem;letter-spacing:.045em}
+.hero-vis .dm-chart-wrap{padding:.85rem 1rem}.hero-vis .dm-chart{height:76px;gap:.45rem}
+.hero-vis .dm-chart-badge{font-size:.56rem;white-space:nowrap}
+.hero-vis .float-card{padding:.7rem .85rem;max-width:145px;border-radius:12px;animation-duration:8s;box-shadow:0 14px 34px rgba(0,0,0,.37)}
+.hero-vis .fc-1{top:13%;left:-6%}.hero-vis .fc-2{top:1%;right:-5%}.hero-vis .fc-3{bottom:8%;left:-5%}
+.hero-vis .fc-val{font-size:1.1rem}.hero-vis .fc-lbl{font-size:.65rem}.hero-vis .fc-up{font-size:.6rem}
+@media(max-width:1100px){.hero-inner{gap:2rem}.hero-title{font-size:clamp(3rem,5.3vw,4.4rem)}.hero-vis .fc-1{left:-2%}.hero-vis .fc-2{right:-2%}.hero-vis .fc-3{left:-2%}}
+@media(max-width:900px){.hero{min-height:auto}.hero-inner{grid-template-columns:1fr;gap:2.7rem;padding-block:4rem}.hero-content{text-align:center}.hero-badge{justify-content:center}.hero-sub{margin-left:auto;margin-right:auto}.hero-btns,.hero-trust{justify-content:center}.hero-vis{order:0;padding:1rem 8%;width:min(690px,100%);margin-inline:auto}.hero-vis .dash-mock{transform:none;max-width:none}.hero-vis .dash-mock:hover{transform:none}.hero-vis .fc-1{left:1%}.hero-vis .fc-2{right:1%}.hero-vis .fc-3{display:block;left:1%}}
+@media(max-width:620px){.hero-inner{width:min(100% - 2rem,520px);padding-block:3rem;gap:2rem}.hero-title{font-size:clamp(2.75rem,11.8vw,4.2rem)}.hero-badge{font-size:.57rem;padding:.5rem .7rem;line-height:1.5}.hero-sub{font-size:.97rem;line-height:1.75}.hero-btns{flex-direction:column;align-items:stretch}.hero-btns>a{width:100%;min-height:52px}.hero-trust{justify-content:center;gap:.55rem 1rem}.hero-trust .trust-sep{display:none}.hero-trust .trust-item{font-size:.7rem}.hero-vis{padding:0;width:100%}.hero-vis .float-card{display:none!important}.hero-vis .dm-body{padding:.65rem}.hero-vis .dm-stat{padding:.55rem}.hero-vis .dm-stat-lbl{font-size:.46rem}.hero-vis .dm-stat-val{font-size:1rem}.hero-vis .dm-stat-delta{font-size:.52rem}.hero-vis .dm-chart{height:54px}.hero-vis .dm-chart-title{font-size:.6rem}.hero-vis .dm-chart-badge{font-size:.48rem}.hero-vis .dm-pn{font-size:.65rem}.hero-vis .dm-ps{font-size:.53rem}}
+@media(prefers-reduced-motion:reduce){.hero .hero-orb,.hero .hero-badge::before,.hero .badge-dot,.hero .hero-vis,.hero .float-card,.hero .hero-sub,.hero .hero-btns{animation:none!important}.hero .dash-mock{transition:none!important}}
 </style>
 <header class="site-header" id="siteHeader">
   <nav class="nav-wrap container">
@@ -1742,7 +1767,7 @@ a.btn svg,button.btn svg{stroke:currentColor}
       </h1>
 
       <p class="hero-sub">
-        High-performance <strong>websites</strong> built to convert. Strategic <strong>SEO</strong>, <strong>Google &amp; Meta Ads</strong>, and <strong>AI automation</strong> to help your business attract leads and grow. Built for businesses worldwide.
+        Purpose-built <strong>websites</strong>, strategic <strong>SEO</strong>, <strong>Google &amp; Meta Ads</strong> and <strong>AI automation</strong> — connected to your goals, from first impression to lasting growth.
       </p>
 
       <div class="hero-btns">
@@ -1754,20 +1779,6 @@ a.btn svg,button.btn svg{stroke:currentColor}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM11.999 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.852L.044 23.944a.5.5 0 00.613.613l6.17-1.515A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 11.999 0zm0 21.818a9.812 9.812 0 01-5.016-1.373l-.36-.214-3.724.915.946-3.637-.235-.374A9.818 9.818 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818 5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.819 9.818z"/></svg>
           WhatsApp Us
         </a>
-      </div>
-
-      <div class="hero-proof">
-        <div class="avatar-row" aria-hidden="true" style="display:none">
-          <div class="av" style="background:linear-gradient(135deg,#FF6B35,#FF8C5A)">AK</div>
-          <div class="av" style="background:linear-gradient(135deg,#6366F1,#818CF8)">JM</div>
-          <div class="av" style="background:linear-gradient(135deg,#10B981,#34D399)">DR</div>
-          <div class="av" style="background:linear-gradient(135deg,#F59E0B,#FCD34D)">SA</div>
-          <div class="av" style="background:linear-gradient(135deg,#EC4899,#F472B6)">+</div>
-        </div>
-        <div>
-          
-          <p class="proof-text"><strong>Web development</strong> · SEO · Paid Ads · AI Automation</p>
-        </div>
       </div>
 
       <div class="hero-trust">
@@ -1789,7 +1800,7 @@ a.btn svg,button.btn svg{stroke:currentColor}
     </div>
 
     <!-- RIGHT: Dashboard mockup -->
-    <div class="hero-vis">
+    <div class="hero-vis" aria-label="Illustrative overview of WebDone Co. digital services; not live performance data">
       <div class="dash-mock">
         <!-- Browser chrome -->
         <div class="dm-bar">
@@ -1812,17 +1823,17 @@ a.btn svg,button.btn svg{stroke:currentColor}
           <!-- Metric cards -->
           <div class="dm-stats">
             <div class="dm-stat">
-              <div class="dm-stat-lbl">Projects Live</div>
+              <div class="dm-stat-lbl">Web Experience</div>
               <div class="dm-stat-val" style="color:var(--accent)">Web</div>
               <div class="dm-stat-delta">Design &amp; development</div>
             </div>
             <div class="dm-stat">
-              <div class="dm-stat-lbl">Avg Load</div>
+              <div class="dm-stat-lbl">Search Strategy</div>
               <div class="dm-stat-val" style="color:#10B981">SEO</div>
               <div class="dm-stat-delta">Search visibility</div>
             </div>
             <div class="dm-stat">
-              <div class="dm-stat-lbl">Client Score</div>
+              <div class="dm-stat-lbl">Smart Systems</div>
               <div class="dm-stat-val" style="color:#FBBF24">AI</div>
               <div class="dm-stat-delta">Workflow automation</div>
             </div>
@@ -1831,8 +1842,8 @@ a.btn svg,button.btn svg{stroke:currentColor}
           <!-- Revenue chart -->
           <div class="dm-chart-wrap">
             <div class="dm-chart-hdr">
-              <span class="dm-chart-title">Project Growth</span>
-              <span class="dm-chart-badge">Illustrative dashboard</span>
+              <span class="dm-chart-title">Connected Digital Growth</span>
+              <span class="dm-chart-badge">Concept preview</span>
             </div>
             <div class="dm-chart">
               <div class="dm-b dim"></div>
@@ -1878,8 +1889,8 @@ a.btn svg,button.btn svg{stroke:currentColor}
           <div class="ico-circle"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
           <span style="font-size:.65rem;font-weight:700;color:#10B981">SEO</span>
         </div>
-        <div class="fc-val green">SEO</div>
-        <div class="fc-lbl">Organic traffic</div>
+        <div class="fc-val green">Visible</div>
+        <div class="fc-lbl">Search strategy</div>
         <div class="fc-up">Technical &amp; on-page</div>
       </div>
 
@@ -1889,8 +1900,8 @@ a.btn svg,button.btn svg{stroke:currentColor}
           <div class="ico-circle"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
           <span style="font-size:.65rem;font-weight:700;color:var(--accent)">Speed</span>
         </div>
-        <div class="fc-val">Fast</div>
-        <div class="fc-lbl">Google PageSpeed</div>
+        <div class="fc-val">Speed</div>
+        <div class="fc-lbl">Thoughtful performance</div>
         <div class="fc-up">Performance-minded builds</div>
       </div>
 
