@@ -1541,39 +1541,6 @@ a.btn svg,button.btn svg{stroke:currentColor}
 @media(max-width:620px){.wd-continuity-grid{grid-template-columns:1fr}.wd-continuity-item{min-height:245px;padding:1.7rem;border-right:0!important;border-bottom:1px solid #394a63}.wd-continuity-item:last-child{border-bottom:0}.wd-continuity-icon{margin-bottom:1.3rem}.wd-continuity-board-top,.wd-continuity-board-foot{padding:1rem 1.2rem;font-size:.52rem}.wd-continuity-head .section-title{font-size:clamp(2.5rem,10vw,3.7rem)}}
 @media(prefers-reduced-motion:reduce){.wd-continuity-item,.wd-continuity-cta>span{transition:none}}
 
-/* Why choose — editorial 6-point proof-of-approach layout, replaces repetitive 12-card grid */
-.wd-reasons-sec{position:relative;overflow:hidden;background:radial-gradient(ellipse at 100% 0%,rgba(255,107,53,.045),transparent 50%),#192234}
-.wd-reasons-heading{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(240px,.55fr);align-items:end;gap:clamp(2rem,5vw,5rem);margin-bottom:3rem}
-.wd-reasons-heading .section-title{font-size:clamp(2.55rem,4.6vw,5rem);line-height:1.08;letter-spacing:-.06em;margin:1.1rem 0 0}
-.wd-reasons-heading .section-title span{color:#FF6B35}
-.wd-reasons-heading>p{color:#b8c7d9;font-size:.96rem;line-height:1.85;border-left:2px solid #FF6B35;padding-left:1.4rem;max-width:370px}
-.wd-reasons-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#3b4b63;border:1px solid #3b4b63;border-radius:20px;overflow:hidden}
-.wd-reason{min-width:0;min-height:272px;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(1.35rem,2.5vw,2.5rem);background:#111a2b;position:relative;isolation:isolate;transition:background .25s ease}
-.wd-reason:hover{background:#192840}
-.wd-reason:before{content:"";position:absolute;right:-95px;top:-95px;width:210px;height:210px;border:1px solid rgba(255,107,53,.09);border-radius:50%;pointer-events:none}
-.wd-reason-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
-.wd-reason-num{font-size:.76rem;color:#FF6B35;font-weight:800;letter-spacing:.13em}
-.wd-reason-num i{font-style:normal;color:#8193ac;font-size:.62rem}
-.wd-reason-icon{width:47px;height:47px;display:grid;place-items:center;border:1px solid rgba(255,107,53,.28);background:rgba(255,107,53,.075);color:#FF6B35;border-radius:13px}
-.wd-reason-icon svg{width:23px;height:23px}
-.wd-reason-content{position:relative;z-index:1;margin-top:1.5rem}
-.wd-reason-tag{font-size:.6rem;letter-spacing:.14em;color:#9bb0ca;font-weight:800}
-.wd-reason h3{font-family:var(--font-h);font-size:clamp(1.35rem,1.85vw,2rem);letter-spacing:-.045em;line-height:1.15;color:#fff;margin:.7rem 0 .7rem}
-.wd-reason p{font-size:.83rem;line-height:1.75;color:#b3c1d3;max-width:430px}
-.wd-reason-feature{grid-column:span 2;min-height:330px;background:radial-gradient(ellipse at 90% 15%,rgba(255,107,53,.16),transparent 52%),linear-gradient(135deg,#22334e,#152035 70%);padding:clamp(1.7rem,3vw,3rem)}
-.wd-reason-feature:before{width:370px;height:370px;right:-80px;top:-160px;border-color:rgba(255,107,53,.17);box-shadow:0 0 0 55px rgba(255,107,53,.025),0 0 0 105px rgba(255,255,255,.015)}
-.wd-reason-feature h3{font-size:clamp(2.15rem,3.1vw,3.6rem);max-width:600px}
-.wd-reason-feature p{font-size:.92rem;max-width:570px}
-.wd-reason-feature-end{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1.5rem;border-top:1px solid #53627a;padding-top:1rem;color:#9fb3ce;font-size:.59rem;letter-spacing:.12em;font-weight:800}
-.wd-reason-feature-end>span:last-child{color:#FF6B35;font-size:1.4rem}
-.wd-reasons-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-top:1.8rem}
-.wd-reasons-bottom>div{display:flex;align-items:center;gap:.75rem;color:#9fb0c8;font-size:.62rem;letter-spacing:.11em;font-weight:800}
-.wd-reasons-bottom img{width:26px;height:26px}
-.wd-reasons-bottom>a{color:#fff!important;display:inline-flex;align-items:center;gap:.8rem;font-size:.83rem;font-weight:800}
-.wd-reasons-bottom>a span{width:35px;height:35px;border-radius:50%;background:#FF6B35;display:grid;place-items:center;color:#fff;font-size:1.05rem}
-@media(max-width:1000px){.wd-reasons-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wd-reason-feature{grid-column:span 2}.wd-reasons-heading{grid-template-columns:1fr}.wd-reasons-heading>p{max-width:620px}}
-@media(max-width:620px){.wd-reasons-grid{grid-template-columns:1fr}.wd-reason-feature{grid-column:auto;min-height:340px}.wd-reason{min-height:240px;padding:1.5rem}.wd-reason-feature h3{font-size:2.25rem}.wd-reasons-heading .section-title{font-size:clamp(2.3rem,9vw,3.5rem)}.wd-reasons-bottom{align-items:flex-start}}
-@media(prefers-reduced-motion:reduce){.wd-reason{transition:none}}
 </style>
 <header class="site-header" id="siteHeader">
   <nav class="nav-wrap container">
@@ -2010,12 +1977,78 @@ a.btn svg,button.btn svg{stroke:currentColor}
 <article class="wd-signature-row reveal"><div class="wd-signature-rail"><span>03</span><span class="wd-signature-rail-rule"></span><span>04</span></div><div class="wd-signature-content"><div class="wd-signature-meta"><span class="wd-signature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 17 6-6 4 3 8-9M15 5h6v6M3 21h18"/></svg></span><span>GOOGLE & META ADS</span></div><h3>Attention is good.<br/><em>Action is better.</em></h3><p>Paid campaigns grounded in audience intent, considered creative and reliable conversion measurement.</p><div class="wd-signature-tags"><span>GOOGLE ADS</span><span>META ADS</span><span>TRACKING</span></div><a href="/contact.html#quote" class="wd-signature-link">Discuss advertising<span aria-hidden="true">↗</span></a></div><div class="wd-signature-poster" aria-hidden="true"><span class="wd-signature-poster-top">WEBDONE / 03</span><strong>GROW<span>.</span></strong><span class="wd-signature-poster-bottom">CREATIVE THINKING <i></i> PRACTICAL EXECUTION</span></div></article>
 <article class="wd-signature-row reveal"><div class="wd-signature-rail"><span>04</span><span class="wd-signature-rail-rule"></span><span>04</span></div><div class="wd-signature-content"><div class="wd-signature-meta"><span class="wd-signature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="9" width="6" height="6" rx="1"/><rect x="16" y="2" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M8 12h4a7 7 0 0 0 7-4M12 12a7 7 0 0 1 7 4"/></svg></span><span>AI & AUTOMATION</span></div><h3>Make room for<br/><em>better work.</em></h3><p>Useful AI agents and connected workflows that remove friction across leads, operations and customer relationships.</p><div class="wd-signature-tags"><span>AI AGENTS</span><span>N8N</span><span>CRM SYSTEMS</span></div><a href="/contact.html#quote" class="wd-signature-link">Explore automation<span aria-hidden="true">↗</span></a></div><div class="wd-signature-poster" aria-hidden="true"><span class="wd-signature-poster-top">WEBDONE / 04</span><strong>FLOW<span>.</span></strong><span class="wd-signature-poster-bottom">CREATIVE THINKING <i></i> PRACTICAL EXECUTION</span></div></article></div><div class="wd-signature-end reveal"><div><img src="/assets/images/favicon-32x32.png" alt="" width="28" height="28" loading="lazy"/><span>WE BUILD WEBSITES THAT WORK.</span></div><a href="/contact.html#quote">Tell us what you're building <span aria-hidden="true">↗</span></a></div></div></section>
 <!-- ═══════════════════ WHY CHOOSE ═══════════════════ -->
-<section class="why-sec section-pad wd-reasons-sec" aria-labelledby="whyH"><div class="container"><div class="wd-reasons-heading reveal"><div><span class="label">THE WEBDONE APPROACH / WHY WORK WITH US</span><h2 class="section-title" id="whyH">Good design is expected.<br/><span>Good thinking sets us apart.</span></h2></div><p>We bring development, search and business thinking together — with clear communication from first conversation to handover.</p></div><div class="wd-reasons-grid"><article class="wd-reason wd-reason-feature reveal"><div class="wd-reason-top"><span class="wd-reason-num">01 <i>/ 06</i></span><span class="wd-reason-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17 10 11l4 4 6-8"/><path d="M15 7h5v5"/></svg></span></div><div class="wd-reason-content"><span class="wd-reason-tag">CONVERSION-LED THINKING</span><h3>Built for business outcomes.</h3><p>Clear journeys, purposeful calls to action and considered design decisions — with your commercial goals guiding the work.</p></div><div class="wd-reason-feature-end"><span>THOUGHTFUL DESIGN. PRACTICAL EXECUTION.</span><span aria-hidden="true">↗</span></div></article>
-<article class="wd-reason  reveal"><div class="wd-reason-top"><span class="wd-reason-num">02 <i>/ 06</i></span><span class="wd-reason-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2-9 12h8l-1 8 11-12h-8l-1-8"/></svg></span></div><div class="wd-reason-content"><span class="wd-reason-tag">SPEED & USABILITY</span><h3>Performance by design.</h3><p>Responsive layouts, efficient assets and clean implementation are part of our development approach — not an afterthought.</p></div></article>
-<article class="wd-reason  reveal"><div class="wd-reason-top"><span class="wd-reason-num">03 <i>/ 06</i></span><span class="wd-reason-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M8 11l2 2 4-5"/></svg></span></div><div class="wd-reason-content"><span class="wd-reason-tag">TECHNICAL SEO</span><h3>Search-ready foundations.</h3><p>We consider site structure, metadata, crawlability and technical SEO as we build, so future growth has a sound starting point.</p></div></article>
-<article class="wd-reason  reveal"><div class="wd-reason-top"><span class="wd-reason-num">04 <i>/ 06</i></span><span class="wd-reason-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h7M7 17h4"/></svg></span></div><div class="wd-reason-content"><span class="wd-reason-tag">TRANSPARENT DELIVERY</span><h3>Clear scope. Clear communication.</h3><p>We align on requirements, deliverables and milestones upfront, then keep you informed as work progresses.</p></div></article>
-<article class="wd-reason  reveal"><div class="wd-reason-top"><span class="wd-reason-num">05 <i>/ 06</i></span><span class="wd-reason-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span></div><div class="wd-reason-content"><span class="wd-reason-tag">OWNERSHIP & HANDOVER</span><h3>Your business stays in control.</h3><p>We discuss ownership, access and handover terms clearly, so you understand what you receive and how it can be maintained.</p></div></article>
-<article class="wd-reason  reveal"><div class="wd-reason-top"><span class="wd-reason-num">06 <i>/ 06</i></span><span class="wd-reason-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5l2 2"/><path d="M20 4v5h-5"/><path d="M20 12a8 8 0 0 1-14 5l-2-2"/><path d="M4 20v-5h5"/></svg></span></div><div class="wd-reason-content"><span class="wd-reason-tag">LONG-TERM PARTNERSHIP</span><h3>Support beyond launch.</h3><p>When you need ongoing care, optimization or further development, we can plan the next phase with you.</p></div></article></div><div class="wd-reasons-bottom reveal"><div><img src="/assets/images/favicon-32x32.png" alt="" width="26" height="26" loading="lazy"/><span>WE BUILD WEBSITES THAT WORK.</span></div><a href="/contact.html#quote">Let's talk about your project <span aria-hidden="true">↗</span></a></div></div></section>
+<section class="why-sec section-pad" aria-labelledby="whyH">
+  <div class="container">
+    <div class="t-center reveal">
+      <span class="label">Why WebDone Co.</span>
+      <h2 class="section-title" id="whyH">Why Businesses <span>Choose WebDone Co.</span></h2>
+      <p class="section-sub">Not the cheapest. Not the most expensive. The best value for businesses that care about quality — and have been burned by bad developers before.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal rv1">
+        <div class="why-ico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3>Lightning Performance</h3>
+        <p>We prioritize clean code, optimized assets and efficient delivery to help websites load quickly on desktop and mobile.</p>
+      </div>
+      <div class="why-card reveal rv2">
+        <div class="why-ico"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <h3>Mobile-First Design</h3>
+        <p>Over 70% of traffic is mobile. Every pixel looks and works perfectly on every screen size from day one.</p>
+      </div>
+      <div class="why-card reveal rv3">
+        <div class="why-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h3>SEO From the Ground Up</h3>
+        <p>Schema markup, meta tags, Core Web Vitals — your site is built to be found, not just beautiful.</p>
+      </div>
+      <div class="why-card reveal rv1">
+        <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Security First</h3>
+        <p>SSL, regular audits, hardened configs, and backup systems keep your site and data safe at all times.</p>
+      </div>
+      <div class="why-card reveal rv2">
+        <div class="why-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
+        <h3>Worldwide Reach</h3>
+        <p>Serving clients in UAE, UK, USA, Pakistan, Switzerland, and beyond. Local insight, global standards.</p>
+      </div>
+      <div class="why-card reveal rv3">
+        <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3>Long-Term Partnership</h3>
+        <p>We don't disappear after launch. Ongoing support, updates, and growth strategy make us your digital partner for life.</p>
+      </div>
+      <div class="why-card reveal rv1">
+        <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <h3>Transparent Communication</h3>
+        <p>Real-time project updates, WhatsApp support, clear timelines. You always know where your project stands.</p>
+      </div>
+      <div class="why-card reveal rv2">
+        <div class="why-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Conversion Focused</h3>
+        <p>Every CTA, trust signal, and layout decision is optimised to turn visitors into paying customers.</p>
+      </div>
+      <div class="why-card reveal rv3">
+        <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11.5 11 13.5 15 9.5"/></svg></div>
+        <h3>Zero Lock-In</h3>
+        <p>Full code ownership on every project. No proprietary builders, no hostage fees — your site, your asset, forever.</p>
+      </div>
+      <div class="why-card reveal rv1">
+        <div class="why-ico"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+        <h3>Fixed-Price Quotes</h3>
+        <p>Agreed upfront before a single line of code. No surprise invoices, no scope creep charges — what we quote is what you pay.</p>
+      </div>
+      <div class="why-card reveal rv2">
+        <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <h3>Direct WhatsApp Access</h3>
+        <p>No ticket queues, no chatbots. You get direct WhatsApp access to the team throughout your project and beyond launch.</p>
+      </div>
+      <div class="why-card reveal rv3">
+        <div class="why-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>SEO-Ready from Day One</h3>
+        <p>Every build includes on-page SEO, schema markup, meta tags, and Core Web Vitals optimisation — not bolted on later, baked in from the start.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════════ PORTFOLIO ═══════════════════ -->
 <section id="portfolio" class="portfolio-sec section-pad" aria-labelledby="portH">
   <div class="container">
